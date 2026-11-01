@@ -1,0 +1,4416 @@
+{
+ "dataset": "dpr-jina-768-normalized",
+ "budget_s": 5400.0,
+ "series_order": [
+  "kannolo",
+  "kannolo-rerank",
+  "hnswlib",
+  "glass",
+  "symphonyqg",
+  "lorann",
+  "rabitq-hnsw",
+  "vamana-leanvec(svs)"
+ ],
+ "fig_a": {
+  "kannolo": [
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=500, efS=12, lambda=0.06)",
+    "accuracy_at_k": 90.00999999999999,
+    "qps": 5736.796987775836,
+    "mean_us": 174.31329749524593,
+    "build_time_s": 4057.905804872513,
+    "uss_delta_kb": 33193008.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo/normalized_8_500_permuted.hdf5",
+    "query_args": "12_0_06",
+    "pass_qps": [
+     5736.796987775836,
+     5686.03637628364,
+     5705.669408845107
+    ],
+    "pass_spread_pct": 0.3452850327049653,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 33826067698,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14873349,
+      "1": 14873571
+     },
+     "anon_pages_after": {
+      "0": 29746684,
+      "1": 238
+     },
+     "local_fraction": 0.9999919991722169,
+     "migrate_seconds": 31.000706672668457,
+     "smaps_before": {
+      "Rss": 119017616,
+      "Anonymous": 118986700,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 119017624,
+      "Anonymous": 118986708,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 121873911808
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=16, lambda=0.02)",
+    "accuracy_at_k": 91.09,
+    "qps": 5478.547086107119,
+    "mean_us": 182.53014609217644,
+    "build_time_s": 3983.1078536510468,
+    "uss_delta_kb": 34035452.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo/normalized_16_200_permuted.hdf5",
+    "query_args": "16_0_02",
+    "pass_qps": [
+     5475.1296251589365,
+     5478.547086107119,
+     5468.299541098336
+    ],
+    "pass_spread_pct": 0.18739911615604166,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 34611000624,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16583400,
+      "1": 16583600
+     },
+     "anon_pages_after": {
+      "0": 33166774,
+      "1": 228
+     },
+     "local_fraction": 0.9999931256976436,
+     "migrate_seconds": 33.577317237854004,
+     "smaps_before": {
+      "Rss": 132697904,
+      "Anonymous": 132667064,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 132697912,
+      "Anonymous": 132667072,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 135882526720
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=12, lambda=0.04)",
+    "accuracy_at_k": 92.52000000000001,
+    "qps": 5144.605031661829,
+    "mean_us": 194.37838159501553,
+    "build_time_s": 3983.1078536510468,
+    "uss_delta_kb": 34035452.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo/normalized_16_200_permuted.hdf5",
+    "query_args": "12_0_04",
+    "pass_qps": [
+     5140.986697950533,
+     5144.605031661829,
+     5139.829529931043
+    ],
+    "pass_spread_pct": 0.09291167543547722,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 34611000624,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16583400,
+      "1": 16583600
+     },
+     "anon_pages_after": {
+      "0": 33166774,
+      "1": 228
+     },
+     "local_fraction": 0.9999931256976436,
+     "migrate_seconds": 33.577317237854004,
+     "smaps_before": {
+      "Rss": 132697904,
+      "Anonymous": 132667064,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 132697912,
+      "Anonymous": 132667072,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 135882526720
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=14, lambda=0.04)",
+    "accuracy_at_k": 93.72,
+    "qps": 4731.979412086028,
+    "mean_us": 211.3280538469553,
+    "build_time_s": 3983.1078536510468,
+    "uss_delta_kb": 34035452.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo/normalized_16_200_permuted.hdf5",
+    "query_args": "14_0_04",
+    "pass_qps": [
+     4717.133933440516,
+     4731.979412086028,
+     4726.505760761908
+    ],
+    "pass_spread_pct": 0.11580756696755307,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 34611000624,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16583400,
+      "1": 16583600
+     },
+     "anon_pages_after": {
+      "0": 33166774,
+      "1": 228
+     },
+     "local_fraction": 0.9999931256976436,
+     "migrate_seconds": 33.577317237854004,
+     "smaps_before": {
+      "Rss": 132697904,
+      "Anonymous": 132667064,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 132697912,
+      "Anonymous": 132667072,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 135882526720
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=10, lambda=0.06)",
+    "accuracy_at_k": 94.82,
+    "qps": 4390.780035138203,
+    "mean_us": 227.74996515363455,
+    "build_time_s": 3983.1078536510468,
+    "uss_delta_kb": 34035452.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo/normalized_16_200_permuted.hdf5",
+    "query_args": "10_0_06",
+    "pass_qps": [
+     4385.468382658068,
+     4378.971488218995,
+     4390.780035138203
+    ],
+    "pass_spread_pct": 0.26966485054715567,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 34611000624,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16583400,
+      "1": 16583600
+     },
+     "anon_pages_after": {
+      "0": 33166774,
+      "1": 228
+     },
+     "local_fraction": 0.9999931256976436,
+     "migrate_seconds": 33.577317237854004,
+     "smaps_before": {
+      "Rss": 132697904,
+      "Anonymous": 132667064,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 132697912,
+      "Anonymous": 132667072,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 135882526720
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=14, lambda=0.06)",
+    "accuracy_at_k": 96.09,
+    "qps": 3541.2929077694203,
+    "mean_us": 282.3827415704727,
+    "build_time_s": 3983.1078536510468,
+    "uss_delta_kb": 34035452.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo/normalized_16_200_permuted.hdf5",
+    "query_args": "14_0_06",
+    "pass_qps": [
+     3538.781439387529,
+     3539.6499225121465,
+     3541.2929077694203
+    ],
+    "pass_spread_pct": 0.04641660314553561,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 34611000624,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16583400,
+      "1": 16583600
+     },
+     "anon_pages_after": {
+      "0": 33166774,
+      "1": 228
+     },
+     "local_fraction": 0.9999931256976436,
+     "migrate_seconds": 33.577317237854004,
+     "smaps_before": {
+      "Rss": 132697904,
+      "Anonymous": 132667064,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 132697912,
+      "Anonymous": 132667072,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 135882526720
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=200, efS=10, lambda=0.06)",
+    "accuracy_at_k": 97.05,
+    "qps": 3104.2014002585997,
+    "mean_us": 322.1440464258194,
+    "build_time_s": 4813.609712600708,
+    "uss_delta_kb": 34954156.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo/normalized_32_200_permuted.hdf5",
+    "query_args": "10_0_06",
+    "pass_qps": [
+     3098.8273598776004,
+     3104.2014002585997,
+     3097.0447729046036
+    ],
+    "pass_spread_pct": 0.2310792345208547,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 35483808073,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17868499,
+      "1": 17868707
+     },
+     "anon_pages_after": {
+      "0": 35736977,
+      "1": 232
+     },
+     "local_fraction": 0.9999935081667961,
+     "migrate_seconds": 38.016095876693726,
+     "smaps_before": {
+      "Rss": 142978720,
+      "Anonymous": 142947872,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 142978732,
+      "Anonymous": 142947884,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 146410082304
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=200, efS=14, lambda=0.06)",
+    "accuracy_at_k": 98.00000000000001,
+    "qps": 2457.2247498055876,
+    "mean_us": 406.96318075060844,
+    "build_time_s": 4813.609712600708,
+    "uss_delta_kb": 34954156.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo/normalized_32_200_permuted.hdf5",
+    "query_args": "14_0_06",
+    "pass_qps": [
+     2428.2889414235033,
+     2437.4086711055484,
+     2457.2247498055876
+    ],
+    "pass_spread_pct": 0.8129977928999156,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 35483808073,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17868499,
+      "1": 17868707
+     },
+     "anon_pages_after": {
+      "0": 35736977,
+      "1": 232
+     },
+     "local_fraction": 0.9999935081667961,
+     "migrate_seconds": 38.016095876693726,
+     "smaps_before": {
+      "Rss": 142978720,
+      "Anonymous": 142947872,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 142978732,
+      "Anonymous": 142947884,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 146410082304
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=200, efS=16, lambda=0.08)",
+    "accuracy_at_k": 99.01,
+    "qps": 1562.1464897407081,
+    "mean_us": 640.1448305696249,
+    "build_time_s": 4813.609712600708,
+    "uss_delta_kb": 34954156.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo/normalized_32_200_permuted.hdf5",
+    "query_args": "16_0_08",
+    "pass_qps": [
+     1561.4451606889743,
+     1562.0744323114607,
+     1562.1464897407081
+    ],
+    "pass_spread_pct": 0.00461293186527951,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 35483808073,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17868499,
+      "1": 17868707
+     },
+     "anon_pages_after": {
+      "0": 35736977,
+      "1": 232
+     },
+     "local_fraction": 0.9999935081667961,
+     "migrate_seconds": 38.016095876693726,
+     "smaps_before": {
+      "Rss": 142978720,
+      "Anonymous": 142947872,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 142978732,
+      "Anonymous": 142947884,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 146410082304
+    }
+   }
+  ],
+  "kannolo-rerank": [
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=16, efC=200, kc=20, efS=25, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 91.16,
+    "qps": 7095.329442272397,
+    "mean_us": 140.93778282403946,
+    "build_time_s": 3938.054002614,
+    "uss_delta_kb": 37910760.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank/normalized_16_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "20_1_25_0_05_0_01",
+    "pass_qps": [
+     7029.679279856821,
+     7095.329442272397,
+     7062.007840897667
+    ],
+    "pass_spread_pct": 0.4718431659301878,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 38804959316,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 12605848,
+      "1": 12606035
+     },
+     "anon_pages_after": {
+      "0": 25211657,
+      "1": 226
+     },
+     "local_fraction": 0.9999910359729973,
+     "migrate_seconds": 17.703747510910034,
+     "smaps_before": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "smaps_after": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 103297916928
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=16, efC=200, kc=20, efS=30, alpha=0.15, lambda=0.01)",
+    "accuracy_at_k": 92.53,
+    "qps": 6448.433929968904,
+    "mean_us": 155.0764124840498,
+    "build_time_s": 3938.054002614,
+    "uss_delta_kb": 37910760.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank/normalized_16_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "20_1_5_0_15_0_01",
+    "pass_qps": [
+     6373.016092434798,
+     6443.322828671885,
+     6448.433929968904
+    ],
+    "pass_spread_pct": 0.07932399839217995,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 38804959316,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 12605848,
+      "1": 12606035
+     },
+     "anon_pages_after": {
+      "0": 25211657,
+      "1": 226
+     },
+     "local_fraction": 0.9999910359729973,
+     "migrate_seconds": 17.703747510910034,
+     "smaps_before": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "smaps_after": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 103297916928
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=16, efC=200, kc=30, efS=30, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 93.17999999999999,
+    "qps": 6350.928851488394,
+    "mean_us": 157.4572827666998,
+    "build_time_s": 3938.054002614,
+    "uss_delta_kb": 37910760.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank/normalized_16_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "30_1_0_0_05_0_01",
+    "pass_qps": [
+     6289.992421958598,
+     6350.928851488394,
+     6348.734806216336
+    ],
+    "pass_spread_pct": 0.03455877964707311,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 38804959316,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 12605848,
+      "1": 12606035
+     },
+     "anon_pages_after": {
+      "0": 25211657,
+      "1": 226
+     },
+     "local_fraction": 0.9999910359729973,
+     "migrate_seconds": 17.703747510910034,
+     "smaps_before": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "smaps_after": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 103297916928
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=16, efC=200, kc=30, efS=45, alpha=0.05, lambda=none)",
+    "accuracy_at_k": 94.21,
+    "qps": 5565.8032289379225,
+    "mean_us": 179.6685867011547,
+    "build_time_s": 3938.054002614,
+    "uss_delta_kb": 37910760.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank/normalized_16_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "30_1_5_0_05_null",
+    "pass_qps": [
+     5434.189307877452,
+     5545.611807502366,
+     5565.8032289379225
+    ],
+    "pass_spread_pct": 0.3640972743213046,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 38804959316,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 12605848,
+      "1": 12606035
+     },
+     "anon_pages_after": {
+      "0": 25211657,
+      "1": 226
+     },
+     "local_fraction": 0.9999910359729973,
+     "migrate_seconds": 17.703747510910034,
+     "smaps_before": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "smaps_after": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 103297916928
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=16, efC=200, kc=30, efS=45, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 95.00999999999999,
+    "qps": 5038.816068415231,
+    "mean_us": 198.459317907691,
+    "build_time_s": 3938.054002614,
+    "uss_delta_kb": 37910760.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank/normalized_16_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "30_1_5_0_05_0_01",
+    "pass_qps": [
+     5008.473417339503,
+     5038.816068415231,
+     5008.375812613122
+    ],
+    "pass_spread_pct": 0.6077869740814468,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 38804959316,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 12605848,
+      "1": 12606035
+     },
+     "anon_pages_after": {
+      "0": 25211657,
+      "1": 226
+     },
+     "local_fraction": 0.9999910359729973,
+     "migrate_seconds": 17.703747510910034,
+     "smaps_before": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "smaps_after": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 103297916928
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=16, efC=200, kc=30, efS=30, alpha=0.05, lambda=0.04)",
+    "accuracy_at_k": 96.22,
+    "qps": 4392.144799769767,
+    "mean_us": 227.67919674515724,
+    "build_time_s": 3938.054002614,
+    "uss_delta_kb": 37910760.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank/normalized_16_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "30_1_0_0_05_0_04",
+    "pass_qps": [
+     4386.123790946324,
+     4392.144799769767,
+     4391.77551999509
+    ],
+    "pass_spread_pct": 0.008408439206326685,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 38804959316,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 12605848,
+      "1": 12606035
+     },
+     "anon_pages_after": {
+      "0": 25211657,
+      "1": 226
+     },
+     "local_fraction": 0.9999910359729973,
+     "migrate_seconds": 17.703747510910034,
+     "smaps_before": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "smaps_after": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 103297916928
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=32, efC=200, kc=50, efS=50, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 97.44,
+    "qps": 3522.9202989112773,
+    "mean_us": 283.85541401803493,
+    "build_time_s": 4890.978695579,
+    "uss_delta_kb": 38758280.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "50_1_0_0_05_0_01",
+    "pass_qps": [
+     3519.2575798305948,
+     3486.6301660116187,
+     3522.9202989112773
+    ],
+    "pass_spread_pct": 1.0408368875317553,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 39677766765,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 12711522,
+      "1": 12712229
+     },
+     "anon_pages_after": {
+      "0": 25423526,
+      "1": 225
+     },
+     "local_fraction": 0.9999911500077231,
+     "migrate_seconds": 18.782015085220337,
+     "smaps_before": {
+      "Rss": 101724496,
+      "Anonymous": 101694068,
+      "AnonHugePages": 62908416
+     },
+     "smaps_after": {
+      "Rss": 101724496,
+      "Anonymous": 101694068,
+      "AnonHugePages": 62908416
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 104165756928
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=32, efC=200, kc=50, efS=75, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 98.29,
+    "qps": 2690.6357280284747,
+    "mean_us": 371.6593775898218,
+    "build_time_s": 4890.978695579,
+    "uss_delta_kb": 38758280.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "50_1_5_0_05_0_01",
+    "pass_qps": [
+     2685.9941579838874,
+     2690.6357280284747,
+     2679.863724765949
+    ],
+    "pass_spread_pct": 0.4019608595383513,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 39677766765,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 12711522,
+      "1": 12712229
+     },
+     "anon_pages_after": {
+      "0": 25423526,
+      "1": 225
+     },
+     "local_fraction": 0.9999911500077231,
+     "migrate_seconds": 18.782015085220337,
+     "smaps_before": {
+      "Rss": 101724496,
+      "Anonymous": 101694068,
+      "AnonHugePages": 62908416
+     },
+     "smaps_after": {
+      "Rss": 101724496,
+      "Anonymous": 101694068,
+      "AnonHugePages": 62908416
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 104165756928
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=32, efC=200, kc=100, efS=150, alpha=0.1, lambda=none)",
+    "accuracy_at_k": 99.01,
+    "qps": 1775.6531024214066,
+    "mean_us": 563.1730649620295,
+    "build_time_s": 4890.978695579,
+    "uss_delta_kb": 38758280.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "100_1_5_0_1_null",
+    "pass_qps": [
+     1769.5191086941425,
+     1775.0095635515888,
+     1775.6531024214066
+    ],
+    "pass_spread_pct": 0.036255515633964036,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 39677766765,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 12711522,
+      "1": 12712229
+     },
+     "anon_pages_after": {
+      "0": 25423526,
+      "1": 225
+     },
+     "local_fraction": 0.9999911500077231,
+     "migrate_seconds": 18.782015085220337,
+     "smaps_before": {
+      "Rss": 101724496,
+      "Anonymous": 101694068,
+      "AnonHugePages": 62908416
+     },
+     "smaps_after": {
+      "Rss": 101724496,
+      "Anonymous": 101694068,
+      "AnonHugePages": 62908416
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 104165756928
+    }
+   }
+  ],
+  "hnswlib": [
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=12, efConstruction=200, efQuery=40)",
+    "accuracy_at_k": 90.10999999999999,
+    "qps": 3354.768943860549,
+    "mean_us": 298.0831218883395,
+    "build_time_s": 2225.912541627884,
+    "uss_delta_kb": 69780748.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_12_200.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     3344.968598083531,
+     3354.768943860549,
+     3354.3733645450457
+    ],
+    "pass_spread_pct": 0.011792942302858635,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16637945,
+      "1": 16638160
+     },
+     "anon_pages_after": {
+      "0": 33275877,
+      "1": 228
+     },
+     "local_fraction": 0.99999314823655,
+     "migrate_seconds": 35.383763790130615,
+     "smaps_before": {
+      "Rss": 133132412,
+      "Anonymous": 133103500,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 133132412,
+      "Anonymous": 133103500,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 136326799360
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=24, efConstruction=200, efQuery=20)",
+    "accuracy_at_k": 91.28,
+    "qps": 3326.5509304804796,
+    "mean_us": 300.6116608157754,
+    "build_time_s": 3662.8071529865265,
+    "uss_delta_kb": 71726532.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_24_200.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     3314.797290290103,
+     3326.196020755671,
+     3326.5509304804796
+    ],
+    "pass_spread_pct": 0.010670138578547095,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16873833,
+      "1": 16874034
+     },
+     "anon_pages_after": {
+      "0": 33747639,
+      "1": 228
+     },
+     "local_fraction": 0.9999932440174664,
+     "migrate_seconds": 35.90390658378601,
+     "smaps_before": {
+      "Rss": 135019376,
+      "Anonymous": 134990548,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 135019376,
+      "Anonymous": 134990548,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 138259087360
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=12, efConstruction=500, efQuery=50)",
+    "accuracy_at_k": 92.27000000000001,
+    "qps": 2867.334638197054,
+    "mean_us": 348.75594452023506,
+    "build_time_s": 4797.367363214493,
+    "uss_delta_kb": 69782232.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_12_500.hdf5",
+    "query_args": "50",
+    "pass_qps": [
+     2854.6182513273275,
+     2862.205688876712,
+     2867.334638197054
+    ],
+    "pass_spread_pct": 0.1791956930375269,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16630832,
+      "1": 16631045
+     },
+     "anon_pages_after": {
+      "0": 33261649,
+      "1": 228
+     },
+     "local_fraction": 0.9999931453056603,
+     "migrate_seconds": 37.39963221549988,
+     "smaps_before": {
+      "Rss": 133075476,
+      "Anonymous": 133046588,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 133075476,
+      "Anonymous": 133046588,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 136268525568
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=36, efConstruction=200, efQuery=20)",
+    "accuracy_at_k": 93.13000000000001,
+    "qps": 2741.0968407338746,
+    "mean_us": 364.8174647241831,
+    "build_time_s": 4453.543859004974,
+    "uss_delta_kb": 73687464.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_36_200.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     2733.8297221720154,
+     2740.644786601014,
+     2741.0968407338746
+    ],
+    "pass_spread_pct": 0.016494444485135585,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17118959,
+      "1": 17119166
+     },
+     "anon_pages_after": {
+      "0": 34237897,
+      "1": 228
+     },
+     "local_fraction": 0.9999933407568318,
+     "migrate_seconds": 36.40270948410034,
+     "smaps_before": {
+      "Rss": 136980520,
+      "Anonymous": 136951580,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 136980520,
+      "Anonymous": 136951580,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 140265984000
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=16, efConstruction=200, efQuery=50)",
+    "accuracy_at_k": 94.25000000000001,
+    "qps": 2346.8210253623374,
+    "mean_us": 426.10833514481783,
+    "build_time_s": 2783.7238149642944,
+    "uss_delta_kb": 70425172.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_16_200.hdf5",
+    "query_args": "50",
+    "pass_qps": [
+     2339.0803128006482,
+     2344.701407235536,
+     2346.8210253623374
+    ],
+    "pass_spread_pct": 0.09040034352606777,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16711164,
+      "1": 16711376
+     },
+     "anon_pages_after": {
+      "0": 33422312,
+      "1": 228
+     },
+     "local_fraction": 0.9999931782563504,
+     "migrate_seconds": 36.06078028678894,
+     "smaps_before": {
+      "Rss": 133718052,
+      "Anonymous": 133689240,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 133718052,
+      "Anonymous": 133689240,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 136927592448
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=24, efConstruction=200, efQuery=40)",
+    "accuracy_at_k": 95.37,
+    "qps": 2148.740712886816,
+    "mean_us": 465.38886427879333,
+    "build_time_s": 3662.8071529865265,
+    "uss_delta_kb": 71726532.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_24_200.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     2140.6470122614123,
+     2144.602987243093,
+     2148.740712886816
+    ],
+    "pass_spread_pct": 0.19293667258394268,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16873833,
+      "1": 16874034
+     },
+     "anon_pages_after": {
+      "0": 33747639,
+      "1": 228
+     },
+     "local_fraction": 0.9999932440174664,
+     "migrate_seconds": 35.90390658378601,
+     "smaps_before": {
+      "Rss": 135019376,
+      "Anonymous": 134990548,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 135019376,
+      "Anonymous": 134990548,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 138259087360
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=24, efConstruction=200, efQuery=50)",
+    "accuracy_at_k": 96.30000000000001,
+    "qps": 1830.0707087098099,
+    "mean_us": 546.4269742369652,
+    "build_time_s": 3662.8071529865265,
+    "uss_delta_kb": 71726532.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_24_200.hdf5",
+    "query_args": "50",
+    "pass_qps": [
+     1824.3400034702058,
+     1830.0707087098099,
+     1826.9669715171647
+    ],
+    "pass_spread_pct": 0.16988469091303723,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16873833,
+      "1": 16874034
+     },
+     "anon_pages_after": {
+      "0": 33747639,
+      "1": 228
+     },
+     "local_fraction": 0.9999932440174664,
+     "migrate_seconds": 35.90390658378601,
+     "smaps_before": {
+      "Rss": 135019376,
+      "Anonymous": 134990548,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 135019376,
+      "Anonymous": 134990548,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 138259087360
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=48, efConstruction=200, efQuery=40)",
+    "accuracy_at_k": 97.08000000000001,
+    "qps": 1594.640782823742,
+    "mean_us": 627.1004797890782,
+    "build_time_s": 4891.130713701248,
+    "uss_delta_kb": 75649676.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_48_200.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     1591.36579686774,
+     1594.640782823742,
+     1592.9230956419701
+    ],
+    "pass_spread_pct": 0.10783239859295629,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17364229,
+      "1": 17364436
+     },
+     "anon_pages_after": {
+      "0": 34728437,
+      "1": 228
+     },
+     "local_fraction": 0.9999934348181826,
+     "migrate_seconds": 38.99767303466797,
+     "smaps_before": {
+      "Rss": 138942692,
+      "Anonymous": 138913740,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 138942692,
+      "Anonymous": 138913740,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 142275293184
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=36, efConstruction=200, efQuery=60)",
+    "accuracy_at_k": 98.15,
+    "qps": 1296.0832661747863,
+    "mean_us": 771.5553669258952,
+    "build_time_s": 4453.543859004974,
+    "uss_delta_kb": 73687464.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_36_200.hdf5",
+    "query_args": "60",
+    "pass_qps": [
+     1293.0624836032707,
+     1296.0832661747863,
+     1294.802049432751
+    ],
+    "pass_spread_pct": 0.09895078113266327,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17118959,
+      "1": 17119166
+     },
+     "anon_pages_after": {
+      "0": 34237897,
+      "1": 228
+     },
+     "local_fraction": 0.9999933407568318,
+     "migrate_seconds": 36.40270948410034,
+     "smaps_before": {
+      "Rss": 136980520,
+      "Anonymous": 136951580,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 136980520,
+      "Anonymous": 136951580,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 140265984000
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=64, efConstruction=200, efQuery=100)",
+    "accuracy_at_k": 99.16,
+    "qps": 718.8612254365802,
+    "mean_us": 1391.0890789702535,
+    "build_time_s": 5237.727931261063,
+    "uss_delta_kb": 78268560.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_64_200.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     717.809198278795,
+     718.8612254365802,
+     706.1083956892679
+    ],
+    "pass_spread_pct": 1.8060725272730376,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17691601,
+      "1": 17691797
+     },
+     "anon_pages_after": {
+      "0": 35383170,
+      "1": 228
+     },
+     "local_fraction": 0.9999935563000478,
+     "migrate_seconds": 38.68355464935303,
+     "smaps_before": {
+      "Rss": 141561492,
+      "Anonymous": 141532672,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 141561492,
+      "Anonymous": 141532672,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 144958091264
+    }
+   }
+  ],
+  "glass": [
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=48, efQuery=20, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)",
+    "accuracy_at_k": 90.67,
+    "qps": 5098.128958893461,
+    "mean_us": 196.15039322525263,
+    "build_time_s": 3948.9744877815247,
+    "uss_delta_kb": 44459192.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/glass/normalized_400_48_SQ8U_SQ4U_FP16.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     5058.323295635571,
+     5098.128958893461,
+     5096.787480476307
+    ],
+    "pass_spread_pct": 0.026320077544773404,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13530481,
+      "1": 13530715
+     },
+     "anon_pages_after": {
+      "0": 27060968,
+      "1": 228
+     },
+     "local_fraction": 0.9999915746517634,
+     "migrate_seconds": 28.208492755889893,
+     "smaps_before": {
+      "Rss": 108273512,
+      "Anonymous": 108243864,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 108273512,
+      "Anonymous": 108243864,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 110871883776
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=30, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 91.59,
+    "qps": 5062.6146304910535,
+    "mean_us": 197.52639159560204,
+    "build_time_s": 3737.0152175426483,
+    "uss_delta_kb": 74938156.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/glass/normalized_400_32_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     5062.6146304910535,
+     5057.979365312615,
+     5054.63333627128
+    ],
+    "pass_spread_pct": 0.06619726533523987,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17348614,
+      "1": 17348838
+     },
+     "anon_pages_after": {
+      "0": 34697224,
+      "1": 228
+     },
+     "local_fraction": 0.9999934289123017,
+     "migrate_seconds": 34.98681116104126,
+     "smaps_before": {
+      "Rss": 138818604,
+      "Anonymous": 138788888,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 138818604,
+      "Anonymous": 138788888,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 142150123520
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=64, efQuery=20, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 92.95,
+    "qps": 4644.518836901718,
+    "mean_us": 215.3075560927391,
+    "build_time_s": 4310.697504520416,
+    "uss_delta_kb": 77008496.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/glass/normalized_400_64_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     4609.286508738666,
+     4644.518836901718,
+     4605.506366037796
+    ],
+    "pass_spread_pct": 0.8470832035237109,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17593034,
+      "1": 17593248
+     },
+     "anon_pages_after": {
+      "0": 35186054,
+      "1": 228
+     },
+     "local_fraction": 0.9999935202019924,
+     "migrate_seconds": 36.20912456512451,
+     "smaps_before": {
+      "Rss": 140773876,
+      "Anonymous": 140744208,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 140773876,
+      "Anonymous": 140744208,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 144152125440
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=50, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 94.76000000000002,
+    "qps": 4199.870797496119,
+    "mean_us": 238.10256272554398,
+    "build_time_s": 3737.0152175426483,
+    "uss_delta_kb": 74938156.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/glass/normalized_400_32_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "50",
+    "pass_qps": [
+     4192.317807557462,
+     4199.870797496119,
+     4189.863219620145
+    ],
+    "pass_spread_pct": 0.23885213791969698,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17348614,
+      "1": 17348838
+     },
+     "anon_pages_after": {
+      "0": 34697224,
+      "1": 228
+     },
+     "local_fraction": 0.9999934289123017,
+     "migrate_seconds": 34.98681116104126,
+     "smaps_before": {
+      "Rss": 138818604,
+      "Anonymous": 138788888,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 138818604,
+      "Anonymous": 138788888,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 142150123520
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=64, efQuery=30, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 95.27,
+    "qps": 3977.435553838698,
+    "mean_us": 251.4182785525918,
+    "build_time_s": 4310.697504520416,
+    "uss_delta_kb": 77008496.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/glass/normalized_400_64_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     3963.7257142199,
+     3977.435553838698,
+     3947.2647008220956
+    ],
+    "pass_spread_pct": 0.7643483602789237,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17593034,
+      "1": 17593248
+     },
+     "anon_pages_after": {
+      "0": 35186054,
+      "1": 228
+     },
+     "local_fraction": 0.9999935202019924,
+     "migrate_seconds": 36.20912456512451,
+     "smaps_before": {
+      "Rss": 140773876,
+      "Anonymous": 140744208,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 140773876,
+      "Anonymous": 140744208,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 144152125440
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=48, efQuery=50, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)",
+    "accuracy_at_k": 96.97,
+    "qps": 3542.940072679741,
+    "mean_us": 282.25145768374205,
+    "build_time_s": 3948.9744877815247,
+    "uss_delta_kb": 44459192.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/glass/normalized_400_48_SQ8U_SQ4U_FP16.hdf5",
+    "query_args": "50",
+    "pass_qps": [
+     3517.517075222575,
+     3541.2887148379555,
+     3542.940072679741
+    ],
+    "pass_spread_pct": 0.04663155068002702,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13530481,
+      "1": 13530715
+     },
+     "anon_pages_after": {
+      "0": 27060968,
+      "1": 228
+     },
+     "local_fraction": 0.9999915746517634,
+     "migrate_seconds": 28.208492755889893,
+     "smaps_before": {
+      "Rss": 108273512,
+      "Anonymous": 108243864,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 108273512,
+      "Anonymous": 108243864,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 110871883776
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=48, efQuery=100, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)",
+    "accuracy_at_k": 98.17,
+    "qps": 2385.453269675441,
+    "mean_us": 419.2075412720442,
+    "build_time_s": 3948.9744877815247,
+    "uss_delta_kb": 44459192.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/glass/normalized_400_48_SQ8U_SQ4U_FP16.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     2380.7282937332407,
+     2385.453269675441,
+     2375.097150231561
+    ],
+    "pass_spread_pct": 0.43602929854343686,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13530481,
+      "1": 13530715
+     },
+     "anon_pages_after": {
+      "0": 27060968,
+      "1": 228
+     },
+     "local_fraction": 0.9999915746517634,
+     "migrate_seconds": 28.208492755889893,
+     "smaps_before": {
+      "Rss": 108273512,
+      "Anonymous": 108243864,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 108273512,
+      "Anonymous": 108243864,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 110871883776
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=64, efQuery=100, quant=SQ8U, search_quant=SQ8U, refine_quant=FP16)",
+    "accuracy_at_k": 99.06,
+    "qps": 1400.3409836370706,
+    "mean_us": 714.1117854043841,
+    "build_time_s": 4357.515184640884,
+    "uss_delta_kb": 52851208.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/glass/normalized_400_64_SQ8U_SQ8U_FP16.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     1394.2251695144005,
+     1400.3409836370706,
+     1398.6883945415564
+    ],
+    "pass_spread_pct": 0.11815277097912308,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14579766,
+      "1": 14579977
+     },
+     "anon_pages_after": {
+      "0": 29159515,
+      "1": 228
+     },
+     "local_fraction": 0.9999921810010466,
+     "migrate_seconds": 30.42705249786377,
+     "smaps_before": {
+      "Rss": 116667648,
+      "Anonymous": 116638052,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 116667648,
+      "Anonymous": 116638052,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 119467352064
+    }
+   }
+  ],
+  "symphonyqg": [
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=30)",
+    "accuracy_at_k": 91.07,
+    "qps": 23857.514086538988,
+    "mean_us": 41.915515437722206,
+    "build_time_s": 4331.0299298763275,
+    "uss_delta_kb": 157279288.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     23614.461613006577,
+     23764.143347289457,
+     23857.514086538988
+    ],
+    "pass_spread_pct": 0.39290597554900136,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "C",
+     "migrated": false,
+     "anon_pages_before": {
+      "0": 28237237,
+      "1": 28237969
+     },
+     "anon_pages_after": null,
+     "local_fraction": 0.4999935192799474,
+     "migrate_seconds": null,
+     "smaps_before": {
+      "Rss": 225929008,
+      "Anonymous": 225899904,
+      "AnonHugePages": 220182528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 231351177216
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=40)",
+    "accuracy_at_k": 93.32000000000001,
+    "qps": 19513.109792958832,
+    "mean_us": 51.24759767204523,
+    "build_time_s": 4331.0299298763275,
+    "uss_delta_kb": 157279288.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     19372.528522397693,
+     19513.109792958832,
+     19487.183868964403
+    ],
+    "pass_spread_pct": 0.1330408958460104,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "C",
+     "migrated": false,
+     "anon_pages_before": {
+      "0": 28237237,
+      "1": 28237969
+     },
+     "anon_pages_after": null,
+     "local_fraction": 0.4999935192799474,
+     "migrate_seconds": null,
+     "smaps_before": {
+      "Rss": 225929008,
+      "Anonymous": 225899904,
+      "AnonHugePages": 220182528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 231351177216
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=50)",
+    "accuracy_at_k": 94.22999999999999,
+    "qps": 17076.632606497013,
+    "mean_us": 58.55955462902784,
+    "build_time_s": 4331.0299298763275,
+    "uss_delta_kb": 157279288.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "50",
+    "pass_qps": [
+     16873.1048000094,
+     17076.632606497013,
+     17073.062291655377
+    ],
+    "pass_spread_pct": 0.020911976894625497,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "C",
+     "migrated": false,
+     "anon_pages_before": {
+      "0": 28237237,
+      "1": 28237969
+     },
+     "anon_pages_after": null,
+     "local_fraction": 0.4999935192799474,
+     "migrate_seconds": null,
+     "smaps_before": {
+      "Rss": 225929008,
+      "Anonymous": 225899904,
+      "AnonHugePages": 220182528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 231351177216
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=60)",
+    "accuracy_at_k": 95.13,
+    "qps": 15061.28561279497,
+    "mean_us": 66.39539450407028,
+    "build_time_s": 4331.0299298763275,
+    "uss_delta_kb": 157279288.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "60",
+    "pass_qps": [
+     14945.802647980721,
+     15061.28561279497,
+     15038.894188938242
+    ],
+    "pass_spread_pct": 0.1488900950789217,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "C",
+     "migrated": false,
+     "anon_pages_before": {
+      "0": 28237237,
+      "1": 28237969
+     },
+     "anon_pages_after": null,
+     "local_fraction": 0.4999935192799474,
+     "migrate_seconds": null,
+     "smaps_before": {
+      "Rss": 225929008,
+      "Anonymous": 225899904,
+      "AnonHugePages": 220182528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 231351177216
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=100)",
+    "accuracy_at_k": 96.47,
+    "qps": 10340.605766206441,
+    "mean_us": 96.70613333582878,
+    "build_time_s": 4331.0299298763275,
+    "uss_delta_kb": 157279288.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     10285.22365098171,
+     10327.32203753426,
+     10340.605766206441
+    ],
+    "pass_spread_pct": 0.1286270402327087,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "C",
+     "migrated": false,
+     "anon_pages_before": {
+      "0": 28237237,
+      "1": 28237969
+     },
+     "anon_pages_after": null,
+     "local_fraction": 0.4999935192799474,
+     "migrate_seconds": null,
+     "smaps_before": {
+      "Rss": 225929008,
+      "Anonymous": 225899904,
+      "AnonHugePages": 220182528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 231351177216
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=150)",
+    "accuracy_at_k": 97.6,
+    "qps": 7513.029557165546,
+    "mean_us": 133.10209847986698,
+    "build_time_s": 4331.0299298763275,
+    "uss_delta_kb": 157279288.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "150",
+    "pass_qps": [
+     7393.097604173343,
+     7487.621979259349,
+     7513.029557165546
+    ],
+    "pass_spread_pct": 0.33932773284462814,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "C",
+     "migrated": false,
+     "anon_pages_before": {
+      "0": 28237237,
+      "1": 28237969
+     },
+     "anon_pages_after": null,
+     "local_fraction": 0.4999935192799474,
+     "migrate_seconds": null,
+     "smaps_before": {
+      "Rss": 225929008,
+      "Anonymous": 225899904,
+      "AnonHugePages": 220182528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 231351177216
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=200)",
+    "accuracy_at_k": 98.29,
+    "qps": 5936.254003968163,
+    "mean_us": 168.4564035385847,
+    "build_time_s": 4331.0299298763275,
+    "uss_delta_kb": 157279288.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "200",
+    "pass_qps": [
+     5882.2755064297035,
+     5936.254003968163,
+     5933.753726107956
+    ],
+    "pass_spread_pct": 0.042136529010389584,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "C",
+     "migrated": false,
+     "anon_pages_before": {
+      "0": 28237237,
+      "1": 28237969
+     },
+     "anon_pages_after": null,
+     "local_fraction": 0.4999935192799474,
+     "migrate_seconds": null,
+     "smaps_before": {
+      "Rss": 225929008,
+      "Anonymous": 225899904,
+      "AnonHugePages": 220182528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 231351177216
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=400)",
+    "accuracy_at_k": 99.04999999999998,
+    "qps": 3213.2851167214994,
+    "mean_us": 311.207989230752,
+    "build_time_s": 4331.0299298763275,
+    "uss_delta_kb": 157279288.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "400",
+    "pass_qps": [
+     3193.532186006781,
+     3213.2851167214994,
+     3207.2497784583747
+    ],
+    "pass_spread_pct": 0.18817799298518262,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "C",
+     "migrated": false,
+     "anon_pages_before": {
+      "0": 28237237,
+      "1": 28237969
+     },
+     "anon_pages_after": null,
+     "local_fraction": 0.4999935192799474,
+     "migrate_seconds": null,
+     "smaps_before": {
+      "Rss": 225929008,
+      "Anonymous": 225899904,
+      "AnonHugePages": 220182528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 231351177216
+    }
+   }
+  ],
+  "lorann": [
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=24, rerank=1600)",
+    "accuracy_at_k": 90.89000000000001,
+    "qps": 549.9804830096351,
+    "mean_us": 1818.2463394477963,
+    "build_time_s": 4996.492511510849,
+    "uss_delta_kb": 64726324.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/lorann/normalized_8_4096_128_64_5.hdf5",
+    "query_args": "24_1600",
+    "pass_qps": [
+     546.578133919337,
+     549.2295908480617,
+     549.9804830096351
+    ],
+    "pass_spread_pct": 0.13671735355955844,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8634557,
+      "1": 8634680
+     },
+     "anon_pages_after": {
+      "0": 17269009,
+      "1": 228
+     },
+     "local_fraction": 0.9999867973321578,
+     "migrate_seconds": 19.73861789703369,
+     "smaps_before": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 155871752192
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=32, rerank=1600)",
+    "accuracy_at_k": 91.94000000000001,
+    "qps": 447.10553394904935,
+    "mean_us": 2236.6084158420563,
+    "build_time_s": 4996.492511510849,
+    "uss_delta_kb": 64726324.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/lorann/normalized_8_4096_128_64_5.hdf5",
+    "query_args": "32_1600",
+    "pass_qps": [
+     446.81298041793696,
+     446.99049244336953,
+     447.10553394904935
+    ],
+    "pass_spread_pct": 0.02573690215444288,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8634557,
+      "1": 8634680
+     },
+     "anon_pages_after": {
+      "0": 17269009,
+      "1": 228
+     },
+     "local_fraction": 0.9999867973321578,
+     "migrate_seconds": 19.73861789703369,
+     "smaps_before": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 155871752192
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=48, rerank=1600)",
+    "accuracy_at_k": 93.17,
+    "qps": 329.71100479719854,
+    "mean_us": 3032.9591231420636,
+    "build_time_s": 4996.492511510849,
+    "uss_delta_kb": 64726324.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/lorann/normalized_8_4096_128_64_5.hdf5",
+    "query_args": "48_1600",
+    "pass_qps": [
+     329.5627063131388,
+     329.5084220014183,
+     329.71100479719854
+    ],
+    "pass_spread_pct": 0.061480308924963645,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8634557,
+      "1": 8634680
+     },
+     "anon_pages_after": {
+      "0": 17269009,
+      "1": 228
+     },
+     "local_fraction": 0.9999867973321578,
+     "migrate_seconds": 19.73861789703369,
+     "smaps_before": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 155871752192
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=48, rerank=2400)",
+    "accuracy_at_k": 94.36999999999999,
+    "qps": 301.851421527377,
+    "mean_us": 3312.8881584852934,
+    "build_time_s": 4996.492511510849,
+    "uss_delta_kb": 64726324.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/lorann/normalized_8_4096_128_64_5.hdf5",
+    "query_args": "48_2400",
+    "pass_qps": [
+     300.2884487789154,
+     301.851421527377,
+     301.8085824830874
+    ],
+    "pass_spread_pct": 0.014194110696644021,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8634557,
+      "1": 8634680
+     },
+     "anon_pages_after": {
+      "0": 17269009,
+      "1": 228
+     },
+     "local_fraction": 0.9999867973321578,
+     "migrate_seconds": 19.73861789703369,
+     "smaps_before": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 155871752192
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=64, rerank=3200)",
+    "accuracy_at_k": 95.53,
+    "qps": 227.3576020878921,
+    "mean_us": 4398.357436992228,
+    "build_time_s": 4996.492511510849,
+    "uss_delta_kb": 64726324.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/lorann/normalized_8_4096_128_64_5.hdf5",
+    "query_args": "64_3200",
+    "pass_qps": [
+     226.51809573358855,
+     227.3237377991523,
+     227.3576020878921
+    ],
+    "pass_spread_pct": 0.014896943481426825,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8634557,
+      "1": 8634680
+     },
+     "anon_pages_after": {
+      "0": 17269009,
+      "1": 228
+     },
+     "local_fraction": 0.9999867973321578,
+     "migrate_seconds": 19.73861789703369,
+     "smaps_before": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 155871752192
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=128, rerank=2400)",
+    "accuracy_at_k": 96.07,
+    "qps": 135.84027089312045,
+    "mean_us": 7361.587204039097,
+    "build_time_s": 4996.492511510849,
+    "uss_delta_kb": 64726324.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/lorann/normalized_8_4096_128_64_5.hdf5",
+    "query_args": "128_2400",
+    "pass_qps": [
+     135.74611385784254,
+     135.7262293694151,
+     135.84027089312045
+    ],
+    "pass_spread_pct": 0.08402320187864686,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8634557,
+      "1": 8634680
+     },
+     "anon_pages_after": {
+      "0": 17269009,
+      "1": 228
+     },
+     "local_fraction": 0.9999867973321578,
+     "migrate_seconds": 19.73861789703369,
+     "smaps_before": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 155871752192
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=256, rerank=3200)",
+    "accuracy_at_k": 97.07000000000001,
+    "qps": 71.63225121004066,
+    "mean_us": 13960.192275233567,
+    "build_time_s": 4996.492511510849,
+    "uss_delta_kb": 64726324.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/lorann/normalized_8_4096_128_64_5.hdf5",
+    "query_args": "256_3200",
+    "pass_qps": [
+     71.63225121004066,
+     71.59038636914318,
+     71.62617876112455
+    ],
+    "pass_spread_pct": 0.049996087179662856,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8634557,
+      "1": 8634680
+     },
+     "anon_pages_after": {
+      "0": 17269009,
+      "1": 228
+     },
+     "local_fraction": 0.9999867973321578,
+     "migrate_seconds": 19.73861789703369,
+     "smaps_before": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 155871752192
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=512, rerank=5600)",
+    "accuracy_at_k": 98.2,
+    "qps": 36.535413675621854,
+    "mean_us": 27370.70418521762,
+    "build_time_s": 4996.492511510849,
+    "uss_delta_kb": 64726324.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/lorann/normalized_8_4096_128_64_5.hdf5",
+    "query_args": "512_5600",
+    "pass_qps": [
+     36.49497189016715,
+     36.52305788950282,
+     36.535413675621854
+    ],
+    "pass_spread_pct": 0.03383009756853316,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8634557,
+      "1": 8634680
+     },
+     "anon_pages_after": {
+      "0": 17269009,
+      "1": 228
+     },
+     "local_fraction": 0.9999867973321578,
+     "migrate_seconds": 19.73861789703369,
+     "smaps_before": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 155871752192
+    }
+   }
+  ],
+  "rabitq-hnsw": [
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=5, ef=20)",
+    "accuracy_at_k": 90.89000000000001,
+    "qps": 5953.040363528817,
+    "mean_us": 167.98139084130526,
+    "build_time_s": 4841.364000082016,
+    "uss_delta_kb": 17777912.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/rabitq-hnsw/normalized_16_32_200_5_false.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     5953.040363528817,
+     5111.339211203178,
+     5921.749377558046
+    ],
+    "pass_spread_pct": 15.855143493090582,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 10108740,
+      "1": 10108959
+     },
+     "anon_pages_after": {
+      "0": 20217472,
+      "1": 228
+     },
+     "local_fraction": 0.9999887227528353,
+     "migrate_seconds": 21.098440885543823,
+     "smaps_before": {
+      "Rss": 80907832,
+      "Anonymous": 80869860,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 80907836,
+      "Anonymous": 80869864,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 82849636352
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=16, efConstruction=200, total_bits=8, ef=40)",
+    "accuracy_at_k": 92.42,
+    "qps": 5143.858710503008,
+    "mean_us": 194.40658390522003,
+    "build_time_s": 3121.870285987854,
+    "uss_delta_kb": 21069968.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/rabitq-hnsw/normalized_32_16_200_8_false.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     5101.618645811949,
+     5143.858710503008,
+     5142.924943426197
+    ],
+    "pass_spread_pct": 0.01815634268597428,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 10520267,
+      "1": 10520488
+     },
+     "anon_pages_after": {
+      "0": 21040524,
+      "1": 232
+     },
+     "local_fraction": 0.9999889737802197,
+     "migrate_seconds": 20.823192358016968,
+     "smaps_before": {
+      "Rss": 84200064,
+      "Anonymous": 84162048,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 84200068,
+      "Anonymous": 84162052,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 86220881920
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=5, ef=40)",
+    "accuracy_at_k": 93.82,
+    "qps": 4401.7090936579325,
+    "mean_us": 227.1844819188118,
+    "build_time_s": 4841.364000082016,
+    "uss_delta_kb": 17777912.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/rabitq-hnsw/normalized_16_32_200_5_false.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     4360.688789146435,
+     4386.397936037706,
+     4401.7090936579325
+    ],
+    "pass_spread_pct": 0.3490599312577907,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 10108740,
+      "1": 10108959
+     },
+     "anon_pages_after": {
+      "0": 20217472,
+      "1": 228
+     },
+     "local_fraction": 0.9999887227528353,
+     "migrate_seconds": 21.098440885543823,
+     "smaps_before": {
+      "Rss": 80907832,
+      "Anonymous": 80869860,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 80907836,
+      "Anonymous": 80869864,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 82849636352
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=32, efConstruction=200, total_bits=5, ef=40)",
+    "accuracy_at_k": 94.38000000000001,
+    "qps": 4062.2786582756835,
+    "mean_us": 246.16725835949183,
+    "build_time_s": 4837.9113528728485,
+    "uss_delta_kb": 17779428.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/rabitq-hnsw/normalized_32_32_200_5_false.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     4028.2982387069273,
+     4056.242635927501,
+     4062.2786582756835
+    ],
+    "pass_spread_pct": 0.14880821711007788,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 10108942,
+      "1": 10109163
+     },
+     "anon_pages_after": {
+      "0": 20217874,
+      "1": 232
+     },
+     "local_fraction": 0.9999885251368253,
+     "migrate_seconds": 20.00800395011902,
+     "smaps_before": {
+      "Rss": 80909336,
+      "Anonymous": 80871444,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 80909340,
+      "Anonymous": 80871448,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 82851176448
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=32, efConstruction=200, total_bits=8, ef=40)",
+    "accuracy_at_k": 96.11,
+    "qps": 4046.667440064979,
+    "mean_us": 247.11692146956918,
+    "build_time_s": 4867.889483690262,
+    "uss_delta_kb": 23677008.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/rabitq-hnsw/normalized_32_32_200_8_false.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     4014.842875894513,
+     4046.667440064979,
+     4040.805632325698
+    ],
+    "pass_spread_pct": 0.14506532292441382,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 10846145,
+      "1": 10846364
+     },
+     "anon_pages_after": {
+      "0": 21692281,
+      "1": 229
+     },
+     "local_fraction": 0.9999894433608651,
+     "migrate_seconds": 21.409441471099854,
+     "smaps_before": {
+      "Rss": 86807060,
+      "Anonymous": 86769112,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 86807064,
+      "Anonymous": 86769116,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65678094336
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=32, efConstruction=200, total_bits=8, ef=80)",
+    "accuracy_at_k": 97.89,
+    "qps": 2715.1132567641207,
+    "mean_us": 368.30876115709543,
+    "build_time_s": 4867.889483690262,
+    "uss_delta_kb": 23677008.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/rabitq-hnsw/normalized_32_32_200_8_false.hdf5",
+    "query_args": "80",
+    "pass_qps": [
+     2698.285979153242,
+     2708.4284738876486,
+     2715.1132567641207
+    ],
+    "pass_spread_pct": 0.24681408207457156,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 10846145,
+      "1": 10846364
+     },
+     "anon_pages_after": {
+      "0": 21692281,
+      "1": 229
+     },
+     "local_fraction": 0.9999894433608651,
+     "migrate_seconds": 21.409441471099854,
+     "smaps_before": {
+      "Rss": 86807060,
+      "Anonymous": 86769112,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 86807064,
+      "Anonymous": 86769116,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65678094336
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=32, efConstruction=200, total_bits=8, ef=300)",
+    "accuracy_at_k": 99.19000000000001,
+    "qps": 986.3019396251376,
+    "mean_us": 1013.8883031904699,
+    "build_time_s": 4867.889483690262,
+    "uss_delta_kb": 23677008.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/rabitq-hnsw/normalized_32_32_200_8_false.hdf5",
+    "query_args": "300",
+    "pass_qps": [
+     985.0833294181994,
+     986.1070858477148,
+     986.3019396251376
+    ],
+    "pass_spread_pct": 0.019759900341385563,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 10846145,
+      "1": 10846364
+     },
+     "anon_pages_after": {
+      "0": 21692281,
+      "1": 229
+     },
+     "local_fraction": 0.9999894433608651,
+     "migrate_seconds": 21.409441471099854,
+     "smaps_before": {
+      "Rss": 86807060,
+      "Anonymous": 86769112,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 86807064,
+      "Anonymous": 86769116,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65678094336
+    }
+   }
+  ],
+  "vamana-leanvec(svs)": [
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=40, reduced_dim=256)",
+    "accuracy_at_k": 91.09,
+    "qps": 3360.601702609745,
+    "mean_us": 297.56576009094715,
+    "build_time_s": 1377.341084241867,
+    "uss_delta_kb": 42697800.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_256.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     3314.096194116038,
+     3360.601702609745,
+     3341.2713437759953
+    ],
+    "pass_spread_pct": 0.57853304460764,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13209961,
+      "1": 13210162
+     },
+     "anon_pages_after": {
+      "0": 26419897,
+      "1": 228
+     },
+     "local_fraction": 0.9999913702149403,
+     "migrate_seconds": 27.049628496170044,
+     "smaps_before": {
+      "Rss": 105717968,
+      "Anonymous": 105679552,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 105717980,
+      "Anonymous": 105679564,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 108255694848
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=40, reduced_dim=384)",
+    "accuracy_at_k": 93.97999999999999,
+    "qps": 2783.4845271857857,
+    "mean_us": 359.2619216069579,
+    "build_time_s": 2981.648467540741,
+    "uss_delta_kb": 45333608.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     2762.8545659695214,
+     2779.4860917715146,
+     2783.4845271857857
+    ],
+    "pass_spread_pct": 0.1438552049642657,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13542003,
+      "1": 13542201
+     },
+     "anon_pages_after": {
+      "0": 27083977,
+      "1": 229
+     },
+     "local_fraction": 0.9999915448878214,
+     "migrate_seconds": 28.490098476409912,
+     "smaps_before": {
+      "Rss": 108374276,
+      "Anonymous": 108335852,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 108374288,
+      "Anonymous": 108335864,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 110975754240
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=80, reduced_dim=192)",
+    "accuracy_at_k": 94.93,
+    "qps": 2092.8652111663087,
+    "mean_us": 477.81385760754347,
+    "build_time_s": 1222.3113384246826,
+    "uss_delta_kb": 41390784.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_192.hdf5",
+    "query_args": "80",
+    "pass_qps": [
+     2081.4028902257855,
+     2092.8652111663087,
+     2081.9396411407142
+    ],
+    "pass_spread_pct": 0.5247784234324969,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13044996,
+      "1": 13045200
+     },
+     "anon_pages_after": {
+      "0": 26089971,
+      "1": 228
+     },
+     "local_fraction": 0.9999912610862033,
+     "migrate_seconds": 27.69132947921753,
+     "smaps_before": {
+      "Rss": 104398320,
+      "Anonymous": 104359844,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 104398336,
+      "Anonymous": 104359860,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 106903896064
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=80, reduced_dim=256)",
+    "accuracy_at_k": 97.28,
+    "qps": 1980.8141940151133,
+    "mean_us": 504.842909052968,
+    "build_time_s": 1377.341084241867,
+    "uss_delta_kb": 42697800.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_256.hdf5",
+    "query_args": "80",
+    "pass_qps": [
+     1974.4001673752448,
+     1980.8141940151133,
+     1980.342641889454
+    ],
+    "pass_spread_pct": 0.02381164328257307,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13209961,
+      "1": 13210162
+     },
+     "anon_pages_after": {
+      "0": 26419897,
+      "1": 228
+     },
+     "local_fraction": 0.9999913702149403,
+     "migrate_seconds": 27.049628496170044,
+     "smaps_before": {
+      "Rss": 105717968,
+      "Anonymous": 105679552,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 105717980,
+      "Anonymous": 105679564,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 108255694848
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=100, reduced_dim=256)",
+    "accuracy_at_k": 98.05,
+    "qps": 1662.3822663466003,
+    "mean_us": 601.5463592484593,
+    "build_time_s": 1377.341084241867,
+    "uss_delta_kb": 42697800.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_256.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     1655.8850658873628,
+     1661.437181818141,
+     1662.3822663466003
+    ],
+    "pass_spread_pct": 0.056883554720084196,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13209961,
+      "1": 13210162
+     },
+     "anon_pages_after": {
+      "0": 26419897,
+      "1": 228
+     },
+     "local_fraction": 0.9999913702149403,
+     "migrate_seconds": 27.049628496170044,
+     "smaps_before": {
+      "Rss": 105717968,
+      "Anonymous": 105679552,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 105717980,
+      "Anonymous": 105679564,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 108255694848
+    }
+   },
+   {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=150, reduced_dim=384)",
+    "accuracy_at_k": 99.1,
+    "qps": 993.4216537350801,
+    "mean_us": 1006.62190746516,
+    "build_time_s": 2981.648467540741,
+    "uss_delta_kb": 45333608.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "150",
+    "pass_qps": [
+     992.3595010093595,
+     991.1871213472513,
+     993.4216537350801
+    ],
+    "pass_spread_pct": 0.22544001427213783,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13542003,
+      "1": 13542201
+     },
+     "anon_pages_after": {
+      "0": 27083977,
+      "1": 229
+     },
+     "local_fraction": 0.9999915448878214,
+     "migrate_seconds": 28.490098476409912,
+     "smaps_before": {
+      "Rss": 108374276,
+      "Anonymous": 108335852,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 108374288,
+      "Anonymous": 108335864,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 110975754240
+    }
+   }
+  ]
+ },
+ "table2": {
+  "kannolo": {
+   "90": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=500, efS=12, lambda=0.06)",
+    "accuracy_at_k": 90.00999999999999,
+    "qps": 5736.796987775836,
+    "mean_us": 174.31329749524593,
+    "build_time_s": 4057.905804872513,
+    "uss_delta_kb": 33193008.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo/normalized_8_500_permuted.hdf5",
+    "query_args": "12_0_06",
+    "pass_qps": [
+     5736.796987775836,
+     5686.03637628364,
+     5705.669408845107
+    ],
+    "pass_spread_pct": 0.3452850327049653,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 33826067698,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14873349,
+      "1": 14873571
+     },
+     "anon_pages_after": {
+      "0": 29746684,
+      "1": 238
+     },
+     "local_fraction": 0.9999919991722169,
+     "migrate_seconds": 31.000706672668457,
+     "smaps_before": {
+      "Rss": 119017616,
+      "Anonymous": 118986700,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 119017624,
+      "Anonymous": 118986708,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 121873911808
+    }
+   },
+   "95": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=18, lambda=0.04)",
+    "accuracy_at_k": 95.09,
+    "qps": 4064.950171868348,
+    "mean_us": 246.00547552108767,
+    "build_time_s": 3983.1078536510468,
+    "uss_delta_kb": 34035452.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo/normalized_16_200_permuted.hdf5",
+    "query_args": "18_0_04",
+    "pass_qps": [
+     4058.012603211683,
+     4054.4421075953705,
+     4064.950171868348
+    ],
+    "pass_spread_pct": 0.25917411062035955,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 34611000624,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16583400,
+      "1": 16583600
+     },
+     "anon_pages_after": {
+      "0": 33166774,
+      "1": 228
+     },
+     "local_fraction": 0.9999931256976436,
+     "migrate_seconds": 33.577317237854004,
+     "smaps_before": {
+      "Rss": 132697904,
+      "Anonymous": 132667064,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 132697912,
+      "Anonymous": 132667072,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 135882526720
+    }
+   },
+   "99": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=200, efS=16, lambda=0.08)",
+    "accuracy_at_k": 99.01,
+    "qps": 1562.1464897407081,
+    "mean_us": 640.1448305696249,
+    "build_time_s": 4813.609712600708,
+    "uss_delta_kb": 34954156.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo/normalized_32_200_permuted.hdf5",
+    "query_args": "16_0_08",
+    "pass_qps": [
+     1561.4451606889743,
+     1562.0744323114607,
+     1562.1464897407081
+    ],
+    "pass_spread_pct": 0.00461293186527951,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 35483808073,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17868499,
+      "1": 17868707
+     },
+     "anon_pages_after": {
+      "0": 35736977,
+      "1": 232
+     },
+     "local_fraction": 0.9999935081667961,
+     "migrate_seconds": 38.016095876693726,
+     "smaps_before": {
+      "Rss": 142978720,
+      "Anonymous": 142947872,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 142978732,
+      "Anonymous": 142947884,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 146410082304
+    }
+   }
+  },
+  "kannolo-rerank": {
+   "90": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=16, efC=200, kc=20, efS=25, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 91.16,
+    "qps": 7095.329442272397,
+    "mean_us": 140.93778282403946,
+    "build_time_s": 3938.054002614,
+    "uss_delta_kb": 37910760.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank/normalized_16_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "20_1_25_0_05_0_01",
+    "pass_qps": [
+     7029.679279856821,
+     7095.329442272397,
+     7062.007840897667
+    ],
+    "pass_spread_pct": 0.4718431659301878,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 38804959316,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 12605848,
+      "1": 12606035
+     },
+     "anon_pages_after": {
+      "0": 25211657,
+      "1": 226
+     },
+     "local_fraction": 0.9999910359729973,
+     "migrate_seconds": 17.703747510910034,
+     "smaps_before": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "smaps_after": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 103297916928
+    }
+   },
+   "95": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=16, efC=200, kc=30, efS=45, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 95.00999999999999,
+    "qps": 5038.816068415231,
+    "mean_us": 198.459317907691,
+    "build_time_s": 3938.054002614,
+    "uss_delta_kb": 37910760.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank/normalized_16_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "30_1_5_0_05_0_01",
+    "pass_qps": [
+     5008.473417339503,
+     5038.816068415231,
+     5008.375812613122
+    ],
+    "pass_spread_pct": 0.6077869740814468,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 38804959316,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 12605848,
+      "1": 12606035
+     },
+     "anon_pages_after": {
+      "0": 25211657,
+      "1": 226
+     },
+     "local_fraction": 0.9999910359729973,
+     "migrate_seconds": 17.703747510910034,
+     "smaps_before": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "smaps_after": {
+      "Rss": 100876996,
+      "Anonymous": 100846552,
+      "AnonHugePages": 62906368
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 103297916928
+    }
+   },
+   "99": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=32, efC=200, kc=100, efS=150, alpha=0.1, lambda=none)",
+    "accuracy_at_k": 99.01,
+    "qps": 1775.6531024214066,
+    "mean_us": 563.1730649620295,
+    "build_time_s": 4890.978695579,
+    "uss_delta_kb": 38758280.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "100_1_5_0_1_null",
+    "pass_qps": [
+     1769.5191086941425,
+     1775.0095635515888,
+     1775.6531024214066
+    ],
+    "pass_spread_pct": 0.036255515633964036,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 39677766765,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 12711522,
+      "1": 12712229
+     },
+     "anon_pages_after": {
+      "0": 25423526,
+      "1": 225
+     },
+     "local_fraction": 0.9999911500077231,
+     "migrate_seconds": 18.782015085220337,
+     "smaps_before": {
+      "Rss": 101724496,
+      "Anonymous": 101694068,
+      "AnonHugePages": 62908416
+     },
+     "smaps_after": {
+      "Rss": 101724496,
+      "Anonymous": 101694068,
+      "AnonHugePages": 62908416
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 104165756928
+    }
+   }
+  },
+  "hnswlib": {
+   "90": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=12, efConstruction=200, efQuery=40)",
+    "accuracy_at_k": 90.10999999999999,
+    "qps": 3354.768943860549,
+    "mean_us": 298.0831218883395,
+    "build_time_s": 2225.912541627884,
+    "uss_delta_kb": 69780748.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_12_200.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     3344.968598083531,
+     3354.768943860549,
+     3354.3733645450457
+    ],
+    "pass_spread_pct": 0.011792942302858635,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16637945,
+      "1": 16638160
+     },
+     "anon_pages_after": {
+      "0": 33275877,
+      "1": 228
+     },
+     "local_fraction": 0.99999314823655,
+     "migrate_seconds": 35.383763790130615,
+     "smaps_before": {
+      "Rss": 133132412,
+      "Anonymous": 133103500,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 133132412,
+      "Anonymous": 133103500,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 136326799360
+    }
+   },
+   "95": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=24, efConstruction=200, efQuery=40)",
+    "accuracy_at_k": 95.37,
+    "qps": 2148.740712886816,
+    "mean_us": 465.38886427879333,
+    "build_time_s": 3662.8071529865265,
+    "uss_delta_kb": 71726532.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_24_200.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     2140.6470122614123,
+     2144.602987243093,
+     2148.740712886816
+    ],
+    "pass_spread_pct": 0.19293667258394268,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16873833,
+      "1": 16874034
+     },
+     "anon_pages_after": {
+      "0": 33747639,
+      "1": 228
+     },
+     "local_fraction": 0.9999932440174664,
+     "migrate_seconds": 35.90390658378601,
+     "smaps_before": {
+      "Rss": 135019376,
+      "Anonymous": 134990548,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 135019376,
+      "Anonymous": 134990548,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 138259087360
+    }
+   },
+   "99": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=64, efConstruction=200, efQuery=100)",
+    "accuracy_at_k": 99.16,
+    "qps": 718.8612254365802,
+    "mean_us": 1391.0890789702535,
+    "build_time_s": 5237.727931261063,
+    "uss_delta_kb": 78268560.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/hnswlib/normalized_64_200.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     717.809198278795,
+     718.8612254365802,
+     706.1083956892679
+    ],
+    "pass_spread_pct": 1.8060725272730376,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17691601,
+      "1": 17691797
+     },
+     "anon_pages_after": {
+      "0": 35383170,
+      "1": 228
+     },
+     "local_fraction": 0.9999935563000478,
+     "migrate_seconds": 38.68355464935303,
+     "smaps_before": {
+      "Rss": 141561492,
+      "Anonymous": 141532672,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 141561492,
+      "Anonymous": 141532672,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 144958091264
+    }
+   }
+  },
+  "glass": {
+   "90": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=48, efQuery=20, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)",
+    "accuracy_at_k": 90.67,
+    "qps": 5098.128958893461,
+    "mean_us": 196.15039322525263,
+    "build_time_s": 3948.9744877815247,
+    "uss_delta_kb": 44459192.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/glass/normalized_400_48_SQ8U_SQ4U_FP16.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     5058.323295635571,
+     5098.128958893461,
+     5096.787480476307
+    ],
+    "pass_spread_pct": 0.026320077544773404,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13530481,
+      "1": 13530715
+     },
+     "anon_pages_after": {
+      "0": 27060968,
+      "1": 228
+     },
+     "local_fraction": 0.9999915746517634,
+     "migrate_seconds": 28.208492755889893,
+     "smaps_before": {
+      "Rss": 108273512,
+      "Anonymous": 108243864,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 108273512,
+      "Anonymous": 108243864,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 110871883776
+    }
+   },
+   "95": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=64, efQuery=30, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 95.27,
+    "qps": 3977.435553838698,
+    "mean_us": 251.4182785525918,
+    "build_time_s": 4310.697504520416,
+    "uss_delta_kb": 77008496.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/glass/normalized_400_64_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     3963.7257142199,
+     3977.435553838698,
+     3947.2647008220956
+    ],
+    "pass_spread_pct": 0.7643483602789237,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 17593034,
+      "1": 17593248
+     },
+     "anon_pages_after": {
+      "0": 35186054,
+      "1": 228
+     },
+     "local_fraction": 0.9999935202019924,
+     "migrate_seconds": 36.20912456512451,
+     "smaps_before": {
+      "Rss": 140773876,
+      "Anonymous": 140744208,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 140773876,
+      "Anonymous": 140744208,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 144152125440
+    }
+   },
+   "99": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=64, efQuery=100, quant=SQ8U, search_quant=SQ8U, refine_quant=FP16)",
+    "accuracy_at_k": 99.06,
+    "qps": 1400.3409836370706,
+    "mean_us": 714.1117854043841,
+    "build_time_s": 4357.515184640884,
+    "uss_delta_kb": 52851208.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/glass/normalized_400_64_SQ8U_SQ8U_FP16.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     1394.2251695144005,
+     1400.3409836370706,
+     1398.6883945415564
+    ],
+    "pass_spread_pct": 0.11815277097912308,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14579766,
+      "1": 14579977
+     },
+     "anon_pages_after": {
+      "0": 29159515,
+      "1": 228
+     },
+     "local_fraction": 0.9999921810010466,
+     "migrate_seconds": 30.42705249786377,
+     "smaps_before": {
+      "Rss": 116667648,
+      "Anonymous": 116638052,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 116667648,
+      "Anonymous": 116638052,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 119467352064
+    }
+   }
+  },
+  "symphonyqg": {
+   "90": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=30)",
+    "accuracy_at_k": 91.07,
+    "qps": 23857.514086538988,
+    "mean_us": 41.915515437722206,
+    "build_time_s": 4331.0299298763275,
+    "uss_delta_kb": 157279288.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     23614.461613006577,
+     23764.143347289457,
+     23857.514086538988
+    ],
+    "pass_spread_pct": 0.39290597554900136,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "C",
+     "migrated": false,
+     "anon_pages_before": {
+      "0": 28237237,
+      "1": 28237969
+     },
+     "anon_pages_after": null,
+     "local_fraction": 0.4999935192799474,
+     "migrate_seconds": null,
+     "smaps_before": {
+      "Rss": 225929008,
+      "Anonymous": 225899904,
+      "AnonHugePages": 220182528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 231351177216
+    }
+   },
+   "95": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=60)",
+    "accuracy_at_k": 95.13,
+    "qps": 15061.28561279497,
+    "mean_us": 66.39539450407028,
+    "build_time_s": 4331.0299298763275,
+    "uss_delta_kb": 157279288.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "60",
+    "pass_qps": [
+     14945.802647980721,
+     15061.28561279497,
+     15038.894188938242
+    ],
+    "pass_spread_pct": 0.1488900950789217,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "C",
+     "migrated": false,
+     "anon_pages_before": {
+      "0": 28237237,
+      "1": 28237969
+     },
+     "anon_pages_after": null,
+     "local_fraction": 0.4999935192799474,
+     "migrate_seconds": null,
+     "smaps_before": {
+      "Rss": 225929008,
+      "Anonymous": 225899904,
+      "AnonHugePages": 220182528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 231351177216
+    }
+   },
+   "99": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=400)",
+    "accuracy_at_k": 99.04999999999998,
+    "qps": 3213.2851167214994,
+    "mean_us": 311.207989230752,
+    "build_time_s": 4331.0299298763275,
+    "uss_delta_kb": 157279288.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "400",
+    "pass_qps": [
+     3193.532186006781,
+     3213.2851167214994,
+     3207.2497784583747
+    ],
+    "pass_spread_pct": 0.18817799298518262,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "C",
+     "migrated": false,
+     "anon_pages_before": {
+      "0": 28237237,
+      "1": 28237969
+     },
+     "anon_pages_after": null,
+     "local_fraction": 0.4999935192799474,
+     "migrate_seconds": null,
+     "smaps_before": {
+      "Rss": 225929008,
+      "Anonymous": 225899904,
+      "AnonHugePages": 220182528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 231351177216
+    }
+   }
+  },
+  "lorann": {
+   "90": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=24, rerank=1600)",
+    "accuracy_at_k": 90.89000000000001,
+    "qps": 549.9804830096351,
+    "mean_us": 1818.2463394477963,
+    "build_time_s": 4996.492511510849,
+    "uss_delta_kb": 64726324.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/lorann/normalized_8_4096_128_64_5.hdf5",
+    "query_args": "24_1600",
+    "pass_qps": [
+     546.578133919337,
+     549.2295908480617,
+     549.9804830096351
+    ],
+    "pass_spread_pct": 0.13671735355955844,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8634557,
+      "1": 8634680
+     },
+     "anon_pages_after": {
+      "0": 17269009,
+      "1": 228
+     },
+     "local_fraction": 0.9999867973321578,
+     "migrate_seconds": 19.73861789703369,
+     "smaps_before": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 155871752192
+    }
+   },
+   "95": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=64, rerank=3200)",
+    "accuracy_at_k": 95.53,
+    "qps": 227.3576020878921,
+    "mean_us": 4398.357436992228,
+    "build_time_s": 4996.492511510849,
+    "uss_delta_kb": 64726324.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/lorann/normalized_8_4096_128_64_5.hdf5",
+    "query_args": "64_3200",
+    "pass_qps": [
+     226.51809573358855,
+     227.3237377991523,
+     227.3576020878921
+    ],
+    "pass_spread_pct": 0.014896943481426825,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8634557,
+      "1": 8634680
+     },
+     "anon_pages_after": {
+      "0": 17269009,
+      "1": 228
+     },
+     "local_fraction": 0.9999867973321578,
+     "migrate_seconds": 19.73861789703369,
+     "smaps_before": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 69106060,
+      "Anonymous": 69075976,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 155871752192
+    }
+   }
+  },
+  "rabitq-hnsw": {
+   "90": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=5, ef=20)",
+    "accuracy_at_k": 90.89000000000001,
+    "qps": 5953.040363528817,
+    "mean_us": 167.98139084130526,
+    "build_time_s": 4841.364000082016,
+    "uss_delta_kb": 17777912.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/rabitq-hnsw/normalized_16_32_200_5_false.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     5953.040363528817,
+     5111.339211203178,
+     5921.749377558046
+    ],
+    "pass_spread_pct": 15.855143493090582,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 10108740,
+      "1": 10108959
+     },
+     "anon_pages_after": {
+      "0": 20217472,
+      "1": 228
+     },
+     "local_fraction": 0.9999887227528353,
+     "migrate_seconds": 21.098440885543823,
+     "smaps_before": {
+      "Rss": 80907832,
+      "Anonymous": 80869860,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 80907836,
+      "Anonymous": 80869864,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 82849636352
+    }
+   },
+   "95": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=32, efConstruction=200, total_bits=8, ef=40)",
+    "accuracy_at_k": 96.11,
+    "qps": 4046.667440064979,
+    "mean_us": 247.11692146956918,
+    "build_time_s": 4867.889483690262,
+    "uss_delta_kb": 23677008.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/rabitq-hnsw/normalized_32_32_200_8_false.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     4014.842875894513,
+     4046.667440064979,
+     4040.805632325698
+    ],
+    "pass_spread_pct": 0.14506532292441382,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 10846145,
+      "1": 10846364
+     },
+     "anon_pages_after": {
+      "0": 21692281,
+      "1": 229
+     },
+     "local_fraction": 0.9999894433608651,
+     "migrate_seconds": 21.409441471099854,
+     "smaps_before": {
+      "Rss": 86807060,
+      "Anonymous": 86769112,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 86807064,
+      "Anonymous": 86769116,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65678094336
+    }
+   },
+   "99": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=32, efConstruction=200, total_bits=8, ef=300)",
+    "accuracy_at_k": 99.19000000000001,
+    "qps": 986.3019396251376,
+    "mean_us": 1013.8883031904699,
+    "build_time_s": 4867.889483690262,
+    "uss_delta_kb": 23677008.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/rabitq-hnsw/normalized_32_32_200_8_false.hdf5",
+    "query_args": "300",
+    "pass_qps": [
+     985.0833294181994,
+     986.1070858477148,
+     986.3019396251376
+    ],
+    "pass_spread_pct": 0.019759900341385563,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 10846145,
+      "1": 10846364
+     },
+     "anon_pages_after": {
+      "0": 21692281,
+      "1": 229
+     },
+     "local_fraction": 0.9999894433608651,
+     "migrate_seconds": 21.409441471099854,
+     "smaps_before": {
+      "Rss": 86807060,
+      "Anonymous": 86769112,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 86807064,
+      "Anonymous": 86769116,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65678094336
+    }
+   }
+  },
+  "vamana-leanvec(svs)": {
+   "90": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=40, reduced_dim=256)",
+    "accuracy_at_k": 91.09,
+    "qps": 3360.601702609745,
+    "mean_us": 297.56576009094715,
+    "build_time_s": 1377.341084241867,
+    "uss_delta_kb": 42697800.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_256.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     3314.096194116038,
+     3360.601702609745,
+     3341.2713437759953
+    ],
+    "pass_spread_pct": 0.57853304460764,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13209961,
+      "1": 13210162
+     },
+     "anon_pages_after": {
+      "0": 26419897,
+      "1": 228
+     },
+     "local_fraction": 0.9999913702149403,
+     "migrate_seconds": 27.049628496170044,
+     "smaps_before": {
+      "Rss": 105717968,
+      "Anonymous": 105679552,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 105717980,
+      "Anonymous": 105679564,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 108255694848
+    }
+   },
+   "95": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=80, reduced_dim=256)",
+    "accuracy_at_k": 97.28,
+    "qps": 1980.8141940151133,
+    "mean_us": 504.842909052968,
+    "build_time_s": 1377.341084241867,
+    "uss_delta_kb": 42697800.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_256.hdf5",
+    "query_args": "80",
+    "pass_qps": [
+     1974.4001673752448,
+     1980.8141940151133,
+     1980.342641889454
+    ],
+    "pass_spread_pct": 0.02381164328257307,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13209961,
+      "1": 13210162
+     },
+     "anon_pages_after": {
+      "0": 26419897,
+      "1": 228
+     },
+     "local_fraction": 0.9999913702149403,
+     "migrate_seconds": 27.049628496170044,
+     "smaps_before": {
+      "Rss": 105717968,
+      "Anonymous": 105679552,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 105717980,
+      "Anonymous": 105679564,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 108255694848
+    }
+   },
+   "99": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=150, reduced_dim=384)",
+    "accuracy_at_k": 99.1,
+    "qps": 993.4216537350801,
+    "mean_us": 1006.62190746516,
+    "build_time_s": 2981.648467540741,
+    "uss_delta_kb": 45333608.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "150",
+    "pass_qps": [
+     992.3595010093595,
+     991.1871213472513,
+     993.4216537350801
+    ],
+    "pass_spread_pct": 0.22544001427213783,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 13542003,
+      "1": 13542201
+     },
+     "anon_pages_after": {
+      "0": 27083977,
+      "1": 229
+     },
+     "local_fraction": 0.9999915448878214,
+     "migrate_seconds": 28.490098476409912,
+     "smaps_before": {
+      "Rss": 108374276,
+      "Anonymous": 108335852,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 108374288,
+      "Anonymous": 108335864,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 110975754240
+    }
+   }
+  }
+ },
+ "table2_control_arms": {
+  "kannolo-rerank-ext8": {
+   "90": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8",
+    "name": "kANNolo-Rerank(rabitq2+ext8, graph=permuted, M=16, efC=200, kc=20, efS=25, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 90.85000000000001,
+    "qps": 7045.735323537905,
+    "mean_us": 141.92982763051987,
+    "build_time_s": 3969.649463373,
+    "uss_delta_kb": 22463504.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank-ext8/normalized_16_200_permuted_rabitq_ext_128_2_1_8.hdf5",
+    "query_args": "20_1_25_0_05_0_01",
+    "pass_qps": [
+     6997.658309905528,
+     7044.163287487197,
+     7045.735323537905
+    ],
+    "pass_spread_pct": 0.02231685988172524,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 22867948376,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14747268,
+      "1": 14747525
+     },
+     "anon_pages_after": {
+      "0": 29494793
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 23.120062828063965,
+     "smaps_before": {
+      "Rss": 118009492,
+      "Anonymous": 117978216,
+      "AnonHugePages": 62908416
+     },
+     "smaps_after": {
+      "Rss": 118009492,
+      "Anonymous": 117978216,
+      "AnonHugePages": 62908416
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 120841592832
+    }
+   },
+   "95": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8",
+    "name": "kANNolo-Rerank(rabitq2+ext8, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 95.13,
+    "qps": 4659.17868574692,
+    "mean_us": 214.63010273873806,
+    "build_time_s": 3969.649463373,
+    "uss_delta_kb": 22463504.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank-ext8/normalized_16_200_permuted_rabitq_ext_128_2_1_8.hdf5",
+    "query_args": "50_1_0_0_05_0_01",
+    "pass_qps": [
+     4621.058539511795,
+     4645.54148618898,
+     4659.17868574692
+    ],
+    "pass_spread_pct": 0.2935545748215185,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 22867948376,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14747268,
+      "1": 14747525
+     },
+     "anon_pages_after": {
+      "0": 29494793
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 23.120062828063965,
+     "smaps_before": {
+      "Rss": 118009492,
+      "Anonymous": 117978216,
+      "AnonHugePages": 62908416
+     },
+     "smaps_after": {
+      "Rss": 118009492,
+      "Anonymous": 117978216,
+      "AnonHugePages": 62908416
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 120841592832
+    }
+   },
+   "99": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8",
+    "name": "kANNolo-Rerank(rabitq2+ext8, graph=permuted, M=32, efC=200, kc=100, efS=125, alpha=0.1, lambda=0.04)",
+    "accuracy_at_k": 99.02,
+    "qps": 1106.194930608613,
+    "mean_us": 903.9998035877943,
+    "build_time_s": 5034.429584500001,
+    "uss_delta_kb": 23233220.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank-ext8/normalized_32_200_permuted_rabitq_ext_128_2_1_8.hdf5",
+    "query_args": "100_1_25_0_1_0_04",
+    "pass_qps": [
+     1106.194930608613,
+     1104.4890791701105,
+     1104.8753189412175
+    ],
+    "pass_spread_pct": 0.034969994578603655,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 23740755825,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16890317,
+      "1": 16890077
+     },
+     "anon_pages_after": {
+      "0": 33780394
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 26.409353256225586,
+     "smaps_before": {
+      "Rss": 135151904,
+      "Anonymous": 135120640,
+      "AnonHugePages": 62906368
+     },
+     "smaps_after": {
+      "Rss": 135151904,
+      "Anonymous": 135120640,
+      "AnonHugePages": 62906368
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 138395422720
+    }
+   }
+  },
+  "kannolo-rerank-ext8-resid": {
+   "90": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8-resid",
+    "name": "kANNolo-Rerank(rabitq2+ext8-resid, graph=permuted, M=16, efC=200, kc=20, efS=25, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 91.03999999999999,
+    "qps": 7094.304141843873,
+    "mean_us": 140.95815178006887,
+    "build_time_s": 3983.1081216335297,
+    "uss_delta_kb": 22484932.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank-ext8-resid/normalized_16_200_permuted_rabitq_ext_128_2_1_8_true.hdf5",
+    "query_args": "20_1_25_0_05_0_01",
+    "pass_qps": [
+     7036.902808572996,
+     7094.304141843873,
+     7070.528710275763
+    ],
+    "pass_spread_pct": 0.3362610144494152,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 22867948376,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14197600,
+      "1": 14197806
+     },
+     "anon_pages_after": {
+      "0": 28395178,
+      "1": 228
+     },
+     "local_fraction": 0.9999919705321346,
+     "migrate_seconds": 29.684314250946045,
+     "smaps_before": {
+      "Rss": 113611644,
+      "Anonymous": 113580692,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 113611644,
+      "Anonymous": 113580692,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 116338196480
+    }
+   },
+   "95": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8-resid",
+    "name": "kANNolo-Rerank(rabitq2+ext8-resid, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 95.41999999999999,
+    "qps": 4632.49081788028,
+    "mean_us": 215.86659085005522,
+    "build_time_s": 3983.1081216335297,
+    "uss_delta_kb": 22484932.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank-ext8-resid/normalized_16_200_permuted_rabitq_ext_128_2_1_8_true.hdf5",
+    "query_args": "50_1_0_0_05_0_01",
+    "pass_qps": [
+     4580.128515695029,
+     4619.774235087776,
+     4632.49081788028
+    ],
+    "pass_spread_pct": 0.2752641610908086,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 22867948376,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14197600,
+      "1": 14197806
+     },
+     "anon_pages_after": {
+      "0": 28395178,
+      "1": 228
+     },
+     "local_fraction": 0.9999919705321346,
+     "migrate_seconds": 29.684314250946045,
+     "smaps_before": {
+      "Rss": 113611644,
+      "Anonymous": 113580692,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 113611644,
+      "Anonymous": 113580692,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 116338196480
+    }
+   },
+   "99": {
+    "dataset": "dpr-jina-768-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8-resid",
+    "name": "kANNolo-Rerank(rabitq2+ext8-resid, graph=permuted, M=32, efC=200, kc=100, efS=100, alpha=0.05, lambda=0.04)",
+    "accuracy_at_k": 99.14,
+    "qps": 1310.1014280623044,
+    "mean_us": 763.2996793836355,
+    "build_time_s": 4859.646034955978,
+    "uss_delta_kb": 23327668.0,
+    "run_count": 3,
+    "result_file": "results/dpr-jina-768-normalized/10/kannolo-rerank-ext8-resid/normalized_32_200_permuted_rabitq_ext_128_2_1_8_true.hdf5",
+    "query_args": "100_1_0_0_05_0_04",
+    "pass_qps": [
+     1309.767545418879,
+     1300.1540753945856,
+     1310.1014280623044
+    ],
+    "pass_spread_pct": 0.7650902962943007,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 23740755825,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 16169913,
+      "1": 16170127
+     },
+     "anon_pages_after": {
+      "0": 32339812,
+      "1": 228
+     },
+     "local_fraction": 0.9999929499159556,
+     "migrate_seconds": 32.74494791030884,
+     "smaps_before": {
+      "Rss": 129390388,
+      "Anonymous": 129359228,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 129390388,
+      "Anonymous": 129359228,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 132495630336
+    }
+   }
+  }
+ },
+ "pass_spread": {
+  "median_pct": 0.15509538240625975
+ }
+}

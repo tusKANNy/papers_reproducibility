@@ -1,0 +1,4370 @@
+{
+ "dataset": "msmarco-qwen-1024-normalized",
+ "budget_s": 2400.0,
+ "series_order": [
+  "kannolo",
+  "kannolo-rerank",
+  "hnswlib",
+  "glass",
+  "symphonyqg",
+  "lorann",
+  "rabitq-hnsw",
+  "vamana-leanvec(svs)"
+ ],
+ "fig_a": {
+  "kannolo": [
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=500, efS=12, lambda=0.04)",
+    "accuracy_at_k": 90.61,
+    "qps": 8091.546833996081,
+    "mean_us": 123.5857643187046,
+    "build_time_s": 1738.1080632209778,
+    "uss_delta_kb": 18565628.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo/normalized_8_500_permuted.hdf5",
+    "query_args": "12_0_04",
+    "pass_qps": [
+     8091.546833996081,
+     8077.591751815915
+    ],
+    "pass_spread_pct": 0.17276290519421977,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 18754277605,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7808167,
+      "1": 7807922
+     },
+     "anon_pages_after": {
+      "0": 15616091
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 17.287216663360596,
+     "smaps_before": {
+      "Rss": 62494456,
+      "Anonymous": 62463408,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 62494464,
+      "Anonymous": 62463416,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 63994195968
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=500, efS=14, lambda=0.04)",
+    "accuracy_at_k": 92.04,
+    "qps": 7531.509666993351,
+    "mean_us": 132.77550507336855,
+    "build_time_s": 1738.1080632209778,
+    "uss_delta_kb": 18565628.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo/normalized_8_500_permuted.hdf5",
+    "query_args": "14_0_04",
+    "pass_qps": [
+     7508.998831741242,
+     7531.509666993351
+    ],
+    "pass_spread_pct": 0.29978477499495454,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 18754277605,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7808167,
+      "1": 7807922
+     },
+     "anon_pages_after": {
+      "0": 15616091
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 17.287216663360596,
+     "smaps_before": {
+      "Rss": 62494456,
+      "Anonymous": 62463408,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 62494464,
+      "Anonymous": 62463416,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 63994195968
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=10, lambda=0.04)",
+    "accuracy_at_k": 93.08,
+    "qps": 6736.021738817993,
+    "mean_us": 148.45557790249586,
+    "build_time_s": 1335.1308665275574,
+    "uss_delta_kb": 18794932.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo/normalized_16_200_permuted.hdf5",
+    "query_args": "10_0_04",
+    "pass_qps": [
+     6692.359397725077,
+     6736.021738817993
+    ],
+    "pass_spread_pct": 0.652420745780002,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 18980796868,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8436717,
+      "1": 8436465
+     },
+     "anon_pages_after": {
+      "0": 16873184
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 17.47746706008911,
+     "smaps_before": {
+      "Rss": 67522716,
+      "Anonymous": 67491748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 67522724,
+      "Anonymous": 67491756,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 69143134208
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=12, lambda=0.04)",
+    "accuracy_at_k": 94.22999999999999,
+    "qps": 6207.400893443578,
+    "mean_us": 161.0980210825801,
+    "build_time_s": 1335.1308665275574,
+    "uss_delta_kb": 18794932.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo/normalized_16_200_permuted.hdf5",
+    "query_args": "12_0_04",
+    "pass_qps": [
+     6193.406143041621,
+     6207.400893443578
+    ],
+    "pass_spread_pct": 0.2259620970873964,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 18980796868,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8436717,
+      "1": 8436465
+     },
+     "anon_pages_after": {
+      "0": 16873184
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 17.47746706008911,
+     "smaps_before": {
+      "Rss": 67522716,
+      "Anonymous": 67491748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 67522724,
+      "Anonymous": 67491756,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 69143134208
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=500, efS=10, lambda=0.08)",
+    "accuracy_at_k": 95.28999999999999,
+    "qps": 5844.509753100936,
+    "mean_us": 171.1007496342063,
+    "build_time_s": 1738.1080632209778,
+    "uss_delta_kb": 18565628.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo/normalized_8_500_permuted.hdf5",
+    "query_args": "10_0_08",
+    "pass_qps": [
+     5843.291719691372,
+     5844.509753100936
+    ],
+    "pass_spread_pct": 0.02084498717493592,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 18754277605,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7808167,
+      "1": 7807922
+     },
+     "anon_pages_after": {
+      "0": 15616091
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 17.287216663360596,
+     "smaps_before": {
+      "Rss": 62494456,
+      "Anonymous": 62463408,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 62494464,
+      "Anonymous": 62463416,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 63994195968
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=12, lambda=0.06)",
+    "accuracy_at_k": 96.19999999999999,
+    "qps": 5063.895476968162,
+    "mean_us": 197.4764298647642,
+    "build_time_s": 1335.1308665275574,
+    "uss_delta_kb": 18794932.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo/normalized_16_200_permuted.hdf5",
+    "query_args": "12_0_06",
+    "pass_qps": [
+     5063.895476968162,
+     5062.340571596468
+    ],
+    "pass_spread_pct": 0.03071514746396682,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 18980796868,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8436717,
+      "1": 8436465
+     },
+     "anon_pages_after": {
+      "0": 16873184
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 17.47746706008911,
+     "smaps_before": {
+      "Rss": 67522716,
+      "Anonymous": 67491748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 67522724,
+      "Anonymous": 67491756,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 69143134208
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=10, lambda=0.08)",
+    "accuracy_at_k": 97.02000000000001,
+    "qps": 4407.418325832346,
+    "mean_us": 226.89019422978163,
+    "build_time_s": 1335.1308665275574,
+    "uss_delta_kb": 18794932.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo/normalized_16_200_permuted.hdf5",
+    "query_args": "10_0_08",
+    "pass_qps": [
+     4403.693610504638,
+     4407.418325832346
+    ],
+    "pass_spread_pct": 0.08458161845827594,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 18980796868,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8436717,
+      "1": 8436465
+     },
+     "anon_pages_after": {
+      "0": 16873184
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 17.47746706008911,
+     "smaps_before": {
+      "Rss": 67522716,
+      "Anonymous": 67491748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 67522724,
+      "Anonymous": 67491756,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 69143134208
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=200, efS=14, lambda=0.06)",
+    "accuracy_at_k": 98.00000000000001,
+    "qps": 3479.319454643865,
+    "mean_us": 287.41252794861794,
+    "build_time_s": 1602.8724102973938,
+    "uss_delta_kb": 19008764.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo/normalized_32_200_permuted.hdf5",
+    "query_args": "14_0_06",
+    "pass_qps": [
+     3479.319454643865,
+     3471.0726795040555
+    ],
+    "pass_spread_pct": 0.23758578114785278,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 19231392014,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9070650,
+      "1": 9070411
+     },
+     "anon_pages_after": {
+      "0": 18141064
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 18.48094081878662,
+     "smaps_before": {
+      "Rss": 72594328,
+      "Anonymous": 72563284,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 72594340,
+      "Anonymous": 72563296,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 74336464896
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=10, lambda=0.125)",
+    "accuracy_at_k": 99.07000000000001,
+    "qps": 2404.5350097297573,
+    "mean_us": 415.880823507905,
+    "build_time_s": 1335.1308665275574,
+    "uss_delta_kb": 18794932.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo/normalized_16_200_permuted.hdf5",
+    "query_args": "10_0_125",
+    "pass_qps": [
+     2401.8170782092734,
+     2404.5350097297573
+    ],
+    "pass_spread_pct": 0.11316147033604892,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 18980796868,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8436717,
+      "1": 8436465
+     },
+     "anon_pages_after": {
+      "0": 16873184
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 17.47746706008911,
+     "smaps_before": {
+      "Rss": 67522716,
+      "Anonymous": 67491748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 67522724,
+      "Anonymous": 67491756,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 69143134208
+    }
+   }
+  ],
+  "kannolo-rerank": [
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=32, efC=200, kc=30, efS=30, alpha=0.1, lambda=0.01)",
+    "accuracy_at_k": 90.29999999999998,
+    "qps": 11113.703340410828,
+    "mean_us": 89.97900784015656,
+    "build_time_s": 1622.298844262,
+    "uss_delta_kb": 19986708.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "30_1_0_0_1_0_01_1",
+    "pass_qps": [
+     10998.3023715747,
+     11113.703340410828,
+     10791.708953569438
+    ],
+    "pass_spread_pct": 2.983720078318904,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 20433752786,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8685531,
+      "1": 8686246
+     },
+     "anon_pages_after": {
+      "0": 17371552,
+      "1": 226
+     },
+     "local_fraction": 0.9999869903932689,
+     "migrate_seconds": 13.118370056152344,
+     "smaps_before": {
+      "Rss": 69517420,
+      "Anonymous": 69486168,
+      "AnonHugePages": 35362816
+     },
+     "smaps_after": {
+      "Rss": 69517424,
+      "Anonymous": 69486172,
+      "AnonHugePages": 35362816
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 71185711104
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=0.1, lambda=none)",
+    "accuracy_at_k": 92.72999999999999,
+    "qps": 9761.682083680931,
+    "mean_us": 102.44136117398739,
+    "build_time_s": 1398.566417183,
+    "uss_delta_kb": 19746536.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank/normalized_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "50_1_0_0_1_null_1",
+    "pass_qps": [
+     9471.847725226376,
+     9711.241806453238,
+     9761.682083680931
+    ],
+    "pass_spread_pct": 0.5194008988034398,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 20183157640,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8565947,
+      "1": 8566147
+     },
+     "anon_pages_after": {
+      "0": 17131869,
+      "1": 226
+     },
+     "local_fraction": 0.9999868083850808,
+     "migrate_seconds": 13.550885438919067,
+     "smaps_before": {
+      "Rss": 68558528,
+      "Anonymous": 68527412,
+      "AnonHugePages": 35360768
+     },
+     "smaps_after": {
+      "Rss": 68558532,
+      "Anonymous": 68527416,
+      "AnonHugePages": 35360768
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 70203805696
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=0.1, lambda=0.01)",
+    "accuracy_at_k": 93.6,
+    "qps": 9171.014940954785,
+    "mean_us": 109.0391855686903,
+    "build_time_s": 1398.566417183,
+    "uss_delta_kb": 19746536.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank/normalized_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "50_1_0_0_1_0_01_1",
+    "pass_qps": [
+     9149.975612093505,
+     9171.014940954785,
+     9168.422127256807
+    ],
+    "pass_spread_pct": 0.02827982461965942,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 20183157640,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8565947,
+      "1": 8566147
+     },
+     "anon_pages_after": {
+      "0": 17131869,
+      "1": 226
+     },
+     "local_fraction": 0.9999868083850808,
+     "migrate_seconds": 13.550885438919067,
+     "smaps_before": {
+      "Rss": 68558528,
+      "Anonymous": 68527412,
+      "AnonHugePages": 35360768
+     },
+     "smaps_after": {
+      "Rss": 68558532,
+      "Anonymous": 68527416,
+      "AnonHugePages": 35360768
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 70203805696
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=32, efC=200, kc=50, efS=50, alpha=0.15, lambda=0.01)",
+    "accuracy_at_k": 95.00999999999999,
+    "qps": 7837.323672742871,
+    "mean_us": 127.5945771485567,
+    "build_time_s": 1622.298844262,
+    "uss_delta_kb": 19986708.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "50_1_0_0_15_0_01_1",
+    "pass_qps": [
+     7771.6268052821315,
+     7831.679296815093,
+     7837.323672742871
+    ],
+    "pass_spread_pct": 0.07207108097587098,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 20433752786,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8685531,
+      "1": 8686246
+     },
+     "anon_pages_after": {
+      "0": 17371552,
+      "1": 226
+     },
+     "local_fraction": 0.9999869903932689,
+     "migrate_seconds": 13.118370056152344,
+     "smaps_before": {
+      "Rss": 69517420,
+      "Anonymous": 69486168,
+      "AnonHugePages": 35362816
+     },
+     "smaps_after": {
+      "Rss": 69517424,
+      "Anonymous": 69486172,
+      "AnonHugePages": 35362816
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 71185711104
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=100, efS=100, alpha=0.1, lambda=none)",
+    "accuracy_at_k": 96.05,
+    "qps": 6243.414994625243,
+    "mean_us": 160.1687539368868,
+    "build_time_s": 1398.566417183,
+    "uss_delta_kb": 19746536.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank/normalized_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "100_1_0_0_1_null_1",
+    "pass_qps": [
+     6122.534065411708,
+     6037.701477594106,
+     6243.414994625243
+    ],
+    "pass_spread_pct": 3.407149521958629,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 20183157640,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8565947,
+      "1": 8566147
+     },
+     "anon_pages_after": {
+      "0": 17131869,
+      "1": 226
+     },
+     "local_fraction": 0.9999868083850808,
+     "migrate_seconds": 13.550885438919067,
+     "smaps_before": {
+      "Rss": 68558528,
+      "Anonymous": 68527412,
+      "AnonHugePages": 35360768
+     },
+     "smaps_after": {
+      "Rss": 68558532,
+      "Anonymous": 68527416,
+      "AnonHugePages": 35360768
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 70203805696
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=32, efC=200, kc=100, efS=100, alpha=0.1, lambda=none)",
+    "accuracy_at_k": 97.03,
+    "qps": 5376.195418358109,
+    "mean_us": 186.00514344871044,
+    "build_time_s": 1622.298844262,
+    "uss_delta_kb": 19986708.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "100_1_0_0_1_null_1",
+    "pass_qps": [
+     5237.880381794167,
+     5206.741350648155,
+     5376.195418358109
+    ],
+    "pass_spread_pct": 3.254512876635588,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 20433752786,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8685531,
+      "1": 8686246
+     },
+     "anon_pages_after": {
+      "0": 17371552,
+      "1": 226
+     },
+     "local_fraction": 0.9999869903932689,
+     "migrate_seconds": 13.118370056152344,
+     "smaps_before": {
+      "Rss": 69517420,
+      "Anonymous": 69486168,
+      "AnonHugePages": 35362816
+     },
+     "smaps_after": {
+      "Rss": 69517424,
+      "Anonymous": 69486172,
+      "AnonHugePages": 35362816
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 71185711104
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=32, efC=200, kc=30, efS=45, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 98.01,
+    "qps": 3858.0917960839506,
+    "mean_us": 259.1954916715622,
+    "build_time_s": 1625.728631813,
+    "uss_delta_kb": 21067064.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "30_1_5_0_05_0_01",
+    "pass_qps": [
+     3840.3981400306775,
+     3858.0917960839506,
+     3840.9992834134246
+    ],
+    "pass_spread_pct": 0.445001714640682,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 21565378154,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7057257,
+      "1": 7057461
+     },
+     "anon_pages_after": {
+      "0": 14114493,
+      "1": 226
+     },
+     "local_fraction": 0.9999839883457828,
+     "migrate_seconds": 10.357264757156372,
+     "smaps_before": {
+      "Rss": 56488392,
+      "Anonymous": 56457916,
+      "AnonHugePages": 35360768
+     },
+     "smaps_after": {
+      "Rss": 56488396,
+      "Anonymous": 56457920,
+      "AnonHugePages": 35360768
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 57843986432
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q2+f16, graph=permuted, M=32, efC=200, kc=100, efS=150, alpha=0.15, lambda=none)",
+    "accuracy_at_k": 99.03,
+    "qps": 2895.934159470684,
+    "mean_us": 345.31171806156635,
+    "build_time_s": 1622.298844262,
+    "uss_delta_kb": 19986708.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "100_1_5_0_15_null_2",
+    "pass_qps": [
+     2866.1174979120224,
+     2895.934159470684,
+     2895.602783279712
+    ],
+    "pass_spread_pct": 0.01144411771135134,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 20433752786,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8685531,
+      "1": 8686246
+     },
+     "anon_pages_after": {
+      "0": 17371552,
+      "1": 226
+     },
+     "local_fraction": 0.9999869903932689,
+     "migrate_seconds": 13.118370056152344,
+     "smaps_before": {
+      "Rss": 69517420,
+      "Anonymous": 69486168,
+      "AnonHugePages": 35362816
+     },
+     "smaps_after": {
+      "Rss": 69517424,
+      "Anonymous": 69486172,
+      "AnonHugePages": 35362816
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 71185711104
+    }
+   }
+  ],
+  "hnswlib": [
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=16, efConstruction=200, efQuery=20)",
+    "accuracy_at_k": 91.33,
+    "qps": 4014.590720921968,
+    "mean_us": 249.09139424562454,
+    "build_time_s": 1291.795173406601,
+    "uss_delta_kb": 38547688.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/hnswlib/normalized_16_200.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     4004.387611546539,
+     4014.590720921968
+    ],
+    "pass_spread_pct": 0.25479824545477603,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9242606,
+      "1": 9242355
+     },
+     "anon_pages_after": {
+      "0": 18484963
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 20.97998595237732,
+     "smaps_before": {
+      "Rss": 73968156,
+      "Anonymous": 73938848,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 73968164,
+      "Anonymous": 73938856,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 75881193472
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=12, efConstruction=500, efQuery=30)",
+    "accuracy_at_k": 92.23,
+    "qps": 3676.9887664406824,
+    "mean_us": 271.9616685062647,
+    "build_time_s": 2385.559850692749,
+    "uss_delta_kb": 38276552.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/hnswlib/normalized_12_500.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     3660.298179994869,
+     3676.9887664406824
+    ],
+    "pass_spread_pct": 0.4559898026077468,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9208744,
+      "1": 9208492
+     },
+     "anon_pages_after": {
+      "0": 18417236
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 20.919681549072266,
+     "smaps_before": {
+      "Rss": 73697132,
+      "Anonymous": 73667948,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 73697132,
+      "Anonymous": 73667948,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 75605446656
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=24, efConstruction=200, efQuery=20)",
+    "accuracy_at_k": 93.23,
+    "qps": 3274.4504059599226,
+    "mean_us": 305.3947612643242,
+    "build_time_s": 1642.2038397789001,
+    "uss_delta_kb": 39096504.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/hnswlib/normalized_24_200.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     3264.1832464016825,
+     3274.4504059599226
+    ],
+    "pass_spread_pct": 0.3145399257090807,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9311199,
+      "1": 9310949
+     },
+     "anon_pages_after": {
+      "0": 18622149
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 21.006780862808228,
+     "smaps_before": {
+      "Rss": 74516864,
+      "Anonymous": 74487616,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 74516868,
+      "Anonymous": 74487620,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 76444131328
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=16, efConstruction=200, efQuery=30)",
+    "accuracy_at_k": 94.03,
+    "qps": 3208.507762191644,
+    "mean_us": 311.6713669151068,
+    "build_time_s": 1291.795173406601,
+    "uss_delta_kb": 38547688.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/hnswlib/normalized_16_200.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     3196.867407530959,
+     3208.507762191644
+    ],
+    "pass_spread_pct": 0.36411753059458346,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9242606,
+      "1": 9242355
+     },
+     "anon_pages_after": {
+      "0": 18484963
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 20.97998595237732,
+     "smaps_before": {
+      "Rss": 73968156,
+      "Anonymous": 73938848,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 73968164,
+      "Anonymous": 73938856,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 75881193472
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=16, efConstruction=200, efQuery=40)",
+    "accuracy_at_k": 95.61,
+    "qps": 2685.9050120977586,
+    "mean_us": 372.31398560106754,
+    "build_time_s": 1291.795173406601,
+    "uss_delta_kb": 38547688.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/hnswlib/normalized_16_200.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     2682.460085976579,
+     2685.9050120977586
+    ],
+    "pass_spread_pct": 0.12842413347318138,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9242606,
+      "1": 9242355
+     },
+     "anon_pages_after": {
+      "0": 18484963
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 20.97998595237732,
+     "smaps_before": {
+      "Rss": 73968156,
+      "Anonymous": 73938848,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 73968164,
+      "Anonymous": 73938856,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 75881193472
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=12, efConstruction=500, efQuery=60)",
+    "accuracy_at_k": 96.56,
+    "qps": 2342.317219551542,
+    "mean_us": 426.9276559352875,
+    "build_time_s": 2385.559850692749,
+    "uss_delta_kb": 38276552.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/hnswlib/normalized_12_500.hdf5",
+    "query_args": "60",
+    "pass_qps": [
+     2339.5638217127366,
+     2342.317219551542
+    ],
+    "pass_spread_pct": 0.1176885115615203,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9208744,
+      "1": 9208492
+     },
+     "anon_pages_after": {
+      "0": 18417236
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 20.919681549072266,
+     "smaps_before": {
+      "Rss": 73697132,
+      "Anonymous": 73667948,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 73697132,
+      "Anonymous": 73667948,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 75605446656
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=16, efConstruction=200, efQuery=60)",
+    "accuracy_at_k": 97.08000000000001,
+    "qps": 2062.8067431392237,
+    "mean_us": 484.7763869911432,
+    "build_time_s": 1291.795173406601,
+    "uss_delta_kb": 38547688.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/hnswlib/normalized_16_200.hdf5",
+    "query_args": "60",
+    "pass_qps": [
+     2055.2308344800877,
+     2062.8067431392237
+    ],
+    "pass_spread_pct": 0.3686159497043823,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9242606,
+      "1": 9242355
+     },
+     "anon_pages_after": {
+      "0": 18484963
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 20.97998595237732,
+     "smaps_before": {
+      "Rss": 73968156,
+      "Anonymous": 73938848,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 73968164,
+      "Anonymous": 73938856,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 75881193472
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=36, efConstruction=200, efQuery=60)",
+    "accuracy_at_k": 98.22,
+    "qps": 1426.9531157684441,
+    "mean_us": 700.7938725873828,
+    "build_time_s": 1941.0013575553894,
+    "uss_delta_kb": 39923148.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/hnswlib/normalized_36_200.hdf5",
+    "query_args": "60",
+    "pass_qps": [
+     1421.8618237387127,
+     1426.9531157684441
+    ],
+    "pass_spread_pct": 0.3580722081941941,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9414518,
+      "1": 9414280
+     },
+     "anon_pages_after": {
+      "0": 18828799
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 21.524188995361328,
+     "smaps_before": {
+      "Rss": 75343456,
+      "Anonymous": 75314244,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 75343460,
+      "Anonymous": 75314248,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 77290713088
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=48, efConstruction=200, efQuery=100)",
+    "accuracy_at_k": 99.02,
+    "qps": 889.0741169026793,
+    "mean_us": 1124.765619635582,
+    "build_time_s": 2106.979476928711,
+    "uss_delta_kb": 40750300.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/hnswlib/normalized_48_200.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     885.6342346573534,
+     889.0741169026793
+    ],
+    "pass_spread_pct": 0.38840890637620074,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9517930,
+      "1": 9517678
+     },
+     "anon_pages_after": {
+      "0": 19035610
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 21.516541481018066,
+     "smaps_before": {
+      "Rss": 76170676,
+      "Anonymous": 76141460,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 76170680,
+      "Anonymous": 76141464,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 78136029184
+    }
+   }
+  ],
+  "glass": [
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=20, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)",
+    "accuracy_at_k": 91.52,
+    "qps": 8020.046032688485,
+    "mean_us": 124.68756362795831,
+    "build_time_s": 964.1454484462738,
+    "uss_delta_kb": 25348284.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/glass/normalized_400_32_SQ8U_SQ4U_FP16.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     7981.699820713488,
+     8020.046032688485
+    ],
+    "pass_spread_pct": 0.4804266363849394,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7614557,
+      "1": 7614299
+     },
+     "anon_pages_after": {
+      "0": 15228856
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 16.601223468780518,
+     "smaps_before": {
+      "Rss": 60944516,
+      "Anonymous": 60914440,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 60944516,
+      "Anonymous": 60914440,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 62409789440
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=30, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)",
+    "accuracy_at_k": 93.81,
+    "qps": 6908.347613481805,
+    "mean_us": 144.75241489708424,
+    "build_time_s": 964.1454484462738,
+    "uss_delta_kb": 25348284.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/glass/normalized_400_32_SQ8U_SQ4U_FP16.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     6839.863962016607,
+     6908.347613481805
+    ],
+    "pass_spread_pct": 1.0012428879507536,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7614557,
+      "1": 7614299
+     },
+     "anon_pages_after": {
+      "0": 15228856
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 16.601223468780518,
+     "smaps_before": {
+      "Rss": 60944516,
+      "Anonymous": 60914440,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 60944516,
+      "Anonymous": 60914440,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 62409789440
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=48, efQuery=20, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 94.44000000000001,
+    "qps": 6739.3194624498365,
+    "mean_us": 148.38293474167585,
+    "build_time_s": 1207.2221081256866,
+    "uss_delta_kb": 43172964.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/glass/normalized_400_48_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     6665.654476869835,
+     6739.3194624498365
+    ],
+    "pass_spread_pct": 1.1051425758059135,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9832230,
+      "1": 9831978
+     },
+     "anon_pages_after": {
+      "0": 19664208
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 20.283504486083984,
+     "smaps_before": {
+      "Rss": 78686012,
+      "Anonymous": 78655840,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 78686012,
+      "Anonymous": 78655840,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 80574283776
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=40, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)",
+    "accuracy_at_k": 95.22999999999999,
+    "qps": 6057.809141028562,
+    "mean_us": 165.07618129253387,
+    "build_time_s": 964.1454484462738,
+    "uss_delta_kb": 25348284.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/glass/normalized_400_32_SQ8U_SQ4U_FP16.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     5985.896334802888,
+     6057.809141028562
+    ],
+    "pass_spread_pct": 1.2013707255096016,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7614557,
+      "1": 7614299
+     },
+     "anon_pages_after": {
+      "0": 15228856
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 16.601223468780518,
+     "smaps_before": {
+      "Rss": 60944516,
+      "Anonymous": 60914440,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 60944516,
+      "Anonymous": 60914440,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 62409789440
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=48, efQuery=30, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 96.08000000000001,
+    "qps": 5712.305525504802,
+    "mean_us": 175.0606643036008,
+    "build_time_s": 1207.2221081256866,
+    "uss_delta_kb": 43172964.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/glass/normalized_400_48_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     5702.229047117318,
+     5712.305525504802
+    ],
+    "pass_spread_pct": 0.1767112177399788,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9832230,
+      "1": 9831978
+     },
+     "anon_pages_after": {
+      "0": 19664208
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 20.283504486083984,
+     "smaps_before": {
+      "Rss": 78686012,
+      "Anonymous": 78655840,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 78686012,
+      "Anonymous": 78655840,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 80574283776
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=64, efQuery=40, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)",
+    "accuracy_at_k": 97.16,
+    "qps": 4456.413107025206,
+    "mean_us": 224.39571376889944,
+    "build_time_s": 1373.9942355155945,
+    "uss_delta_kb": 26399348.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/glass/normalized_400_64_SQ8U_SQ4U_FP16.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     4439.752509047809,
+     4456.413107025206
+    ],
+    "pass_spread_pct": 0.37525961060766216,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7733853,
+      "1": 7733612
+     },
+     "anon_pages_after": {
+      "0": 15467465
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 16.4888174533844,
+     "smaps_before": {
+      "Rss": 61899020,
+      "Anonymous": 61868928,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 61899020,
+      "Anonymous": 61868928,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 63384469504
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=100, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 98.00000000000001,
+    "qps": 3634.458808190769,
+    "mean_us": 275.1441281288862,
+    "build_time_s": 976.1662893295288,
+    "uss_delta_kb": 43175364.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/glass/normalized_400_32_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     3594.9934542999113,
+     3634.458808190769
+    ],
+    "pass_spread_pct": 1.0977865298656941,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9839802,
+      "1": 9839569
+     },
+     "anon_pages_after": {
+      "0": 19679371
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 20.65175175666809,
+     "smaps_before": {
+      "Rss": 78746536,
+      "Anonymous": 78716536,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 78746536,
+      "Anonymous": 78716536,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 80636260352
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=64, efQuery=100, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 99.06,
+    "qps": 2526.952103308566,
+    "mean_us": 395.73365822434425,
+    "build_time_s": 1383.7332487106323,
+    "uss_delta_kb": 44224460.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/glass/normalized_400_64_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     2526.952103308566,
+     2393.3655237559183
+    ],
+    "pass_spread_pct": 5.581536887145008,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9962582,
+      "1": 9962341
+     },
+     "anon_pages_after": {
+      "0": 19924923
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 21.082846879959106,
+     "smaps_before": {
+      "Rss": 79728916,
+      "Anonymous": 79698708,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 79728916,
+      "Anonymous": 79698708,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 81642020864
+    }
+   }
+  ],
+  "symphonyqg": [
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=20)",
+    "accuracy_at_k": 90.22999999999999,
+    "qps": 30936.72845588722,
+    "mean_us": 32.324038445949554,
+    "build_time_s": 1943.8828094005585,
+    "uss_delta_kb": 75152332.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     30489.0271037092,
+     30936.72845588722
+    ],
+    "pass_spread_pct": 1.4684015683909932,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14115507,
+      "1": 14115260
+     },
+     "anon_pages_after": {
+      "0": 28230023
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 31.928412675857544,
+     "smaps_before": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 115662295040
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=25)",
+    "accuracy_at_k": 92.88000000000001,
+    "qps": 27949.471240133014,
+    "mean_us": 35.77885217964649,
+    "build_time_s": 1943.8828094005585,
+    "uss_delta_kb": 75152332.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "25",
+    "pass_qps": [
+     27521.72564263879,
+     27949.471240133014
+    ],
+    "pass_spread_pct": 1.5542106735906394,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14115507,
+      "1": 14115260
+     },
+     "anon_pages_after": {
+      "0": 28230023
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 31.928412675857544,
+     "smaps_before": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 115662295040
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=30)",
+    "accuracy_at_k": 93.98999999999998,
+    "qps": 25253.62057947146,
+    "mean_us": 39.59828242659569,
+    "build_time_s": 1943.8828094005585,
+    "uss_delta_kb": 75152332.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     24987.817813718826,
+     25253.62057947146
+    ],
+    "pass_spread_pct": 1.0637294050011101,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14115507,
+      "1": 14115260
+     },
+     "anon_pages_after": {
+      "0": 28230023
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 31.928412675857544,
+     "smaps_before": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 115662295040
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=40)",
+    "accuracy_at_k": 95.67,
+    "qps": 21147.55355753502,
+    "mean_us": 47.28679358959198,
+    "build_time_s": 1943.8828094005585,
+    "uss_delta_kb": 75152332.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     21024.896133774615,
+     21147.55355753502
+    ],
+    "pass_spread_pct": 0.5833913422448039,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14115507,
+      "1": 14115260
+     },
+     "anon_pages_after": {
+      "0": 28230023
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 31.928412675857544,
+     "smaps_before": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 115662295040
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=50)",
+    "accuracy_at_k": 96.51,
+    "qps": 17987.889497312768,
+    "mean_us": 55.59295881539583,
+    "build_time_s": 1943.8828094005585,
+    "uss_delta_kb": 75152332.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "50",
+    "pass_qps": [
+     17843.665829291742,
+     17987.889497312768
+    ],
+    "pass_spread_pct": 0.8082625476222047,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14115507,
+      "1": 14115260
+     },
+     "anon_pages_after": {
+      "0": 28230023
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 31.928412675857544,
+     "smaps_before": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 115662295040
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=70)",
+    "accuracy_at_k": 97.5,
+    "qps": 14701.921680052146,
+    "mean_us": 68.01831908524036,
+    "build_time_s": 1943.8828094005585,
+    "uss_delta_kb": 75152332.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "70",
+    "pass_qps": [
+     14625.058241886125,
+     14701.921680052146
+    ],
+    "pass_spread_pct": 0.5255598774019554,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14115507,
+      "1": 14115260
+     },
+     "anon_pages_after": {
+      "0": 28230023
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 31.928412675857544,
+     "smaps_before": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 115662295040
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=100)",
+    "accuracy_at_k": 98.17,
+    "qps": 11504.79410429752,
+    "mean_us": 86.92028652876616,
+    "build_time_s": 1943.8828094005585,
+    "uss_delta_kb": 75152332.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     11504.79410429752,
+     11437.335843022593
+    ],
+    "pass_spread_pct": 0.589807470907489,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14115507,
+      "1": 14115260
+     },
+     "anon_pages_after": {
+      "0": 28230023
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 31.928412675857544,
+     "smaps_before": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 115662295040
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=250)",
+    "accuracy_at_k": 99.09,
+    "qps": 5741.57550191845,
+    "mean_us": 174.16822258383036,
+    "build_time_s": 1943.8828094005585,
+    "uss_delta_kb": 75152332.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "250",
+    "pass_qps": [
+     5714.82640998109,
+     5741.57550191845
+    ],
+    "pass_spread_pct": 0.4680648197929776,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14115507,
+      "1": 14115260
+     },
+     "anon_pages_after": {
+      "0": 28230023
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 31.928412675857544,
+     "smaps_before": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 115662295040
+    }
+   }
+  ],
+  "lorann": [
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=16, rerank=200)",
+    "accuracy_at_k": 90.71000000000001,
+    "qps": 1840.6851561114238,
+    "mean_us": 543.2759625837207,
+    "build_time_s": 1989.8917751312256,
+    "uss_delta_kb": 36361892.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/lorann/normalized_8_4096_256_64_5.hdf5",
+    "query_args": "16_200",
+    "pass_qps": [
+     1834.327283205238,
+     1840.6851561114238
+    ],
+    "pass_spread_pct": 0.3466051540745911,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5001514,
+      "1": 5001458
+     },
+     "anon_pages_after": {
+      "0": 10002972
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 11.522977828979492,
+     "smaps_before": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65589153792
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=16, rerank=400)",
+    "accuracy_at_k": 91.71,
+    "qps": 1573.6643896823857,
+    "mean_us": 635.4595087468624,
+    "build_time_s": 1989.8917751312256,
+    "uss_delta_kb": 36361892.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/lorann/normalized_8_4096_256_64_5.hdf5",
+    "query_args": "16_400",
+    "pass_qps": [
+     1567.1575637991928,
+     1573.6643896823857
+    ],
+    "pass_spread_pct": 0.41519921375478935,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5001514,
+      "1": 5001458
+     },
+     "anon_pages_after": {
+      "0": 10002972
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 11.522977828979492,
+     "smaps_before": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65589153792
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=24, rerank=400)",
+    "accuracy_at_k": 93.11999999999999,
+    "qps": 1230.08756068787,
+    "mean_us": 812.9502581432462,
+    "build_time_s": 1989.8917751312256,
+    "uss_delta_kb": 36361892.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/lorann/normalized_8_4096_256_64_5.hdf5",
+    "query_args": "24_400",
+    "pass_qps": [
+     1218.3259494181482,
+     1230.08756068787
+    ],
+    "pass_spread_pct": 0.965391180852634,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5001514,
+      "1": 5001458
+     },
+     "anon_pages_after": {
+      "0": 10002972
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 11.522977828979492,
+     "smaps_before": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65589153792
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=32, rerank=800)",
+    "accuracy_at_k": 94.70000000000002,
+    "qps": 852.0537973033338,
+    "mean_us": 1173.6348140984774,
+    "build_time_s": 1989.8917751312256,
+    "uss_delta_kb": 36361892.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/lorann/normalized_8_4096_256_64_5.hdf5",
+    "query_args": "32_800",
+    "pass_qps": [
+     847.9355486685247,
+     852.0537973033338
+    ],
+    "pass_spread_pct": 0.4856794412353401,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5001514,
+      "1": 5001458
+     },
+     "anon_pages_after": {
+      "0": 10002972
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 11.522977828979492,
+     "smaps_before": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65589153792
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=48, rerank=800)",
+    "accuracy_at_k": 95.86,
+    "qps": 656.4209062346621,
+    "mean_us": 1523.4127836301923,
+    "build_time_s": 1989.8917751312256,
+    "uss_delta_kb": 36361892.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/lorann/normalized_8_4096_256_64_5.hdf5",
+    "query_args": "48_800",
+    "pass_qps": [
+     653.4762569709688,
+     656.4209062346621
+    ],
+    "pass_spread_pct": 0.45061304558216786,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5001514,
+      "1": 5001458
+     },
+     "anon_pages_after": {
+      "0": 10002972
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 11.522977828979492,
+     "smaps_before": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65589153792
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=64, rerank=2400)",
+    "accuracy_at_k": 97.14000000000001,
+    "qps": 382.5016028568959,
+    "mean_us": 2614.3681295216084,
+    "build_time_s": 1989.8917751312256,
+    "uss_delta_kb": 36361892.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/lorann/normalized_8_4096_256_64_5.hdf5",
+    "query_args": "64_2400",
+    "pass_qps": [
+     382.2571462146131,
+     382.5016028568959
+    ],
+    "pass_spread_pct": 0.06395083642086782,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5001514,
+      "1": 5001458
+     },
+     "anon_pages_after": {
+      "0": 10002972
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 11.522977828979492,
+     "smaps_before": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65589153792
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=128, rerank=1600)",
+    "accuracy_at_k": 98.05999999999999,
+    "qps": 270.9284490985024,
+    "mean_us": 3691.011421382427,
+    "build_time_s": 1989.8917751312256,
+    "uss_delta_kb": 36361892.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/lorann/normalized_8_4096_256_64_5.hdf5",
+    "query_args": "128_1600",
+    "pass_qps": [
+     270.88593957838856,
+     270.9284490985024
+    ],
+    "pass_spread_pct": 0.01569277467115125,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5001514,
+      "1": 5001458
+     },
+     "anon_pages_after": {
+      "0": 10002972
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 11.522977828979492,
+     "smaps_before": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65589153792
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=256, rerank=3200)",
+    "accuracy_at_k": 99.03999999999999,
+    "qps": 135.18545071700868,
+    "mean_us": 7397.245744243264,
+    "build_time_s": 1989.8917751312256,
+    "uss_delta_kb": 36361892.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/lorann/normalized_8_4096_256_64_5.hdf5",
+    "query_args": "256_3200",
+    "pass_qps": [
+     135.03634531569327,
+     135.18545071700868
+    ],
+    "pass_spread_pct": 0.11041871798797974,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5001514,
+      "1": 5001458
+     },
+     "anon_pages_after": {
+      "0": 10002972
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 11.522977828979492,
+     "smaps_before": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65589153792
+    }
+   }
+  ],
+  "rabitq-hnsw": [
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=200, total_bits=8, ef=20)",
+    "accuracy_at_k": 90.53,
+    "qps": 7567.957864672888,
+    "mean_us": 132.13604222983122,
+    "build_time_s": 1412.7710342407227,
+    "uss_delta_kb": 11128724.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/rabitq-hnsw/normalized_16_16_200_8_false.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     7567.957864672888,
+     6277.192428821065,
+     7535.613097939223
+    ],
+    "pass_spread_pct": 20.04750823537371,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5826817,
+      "1": 5827051
+     },
+     "anon_pages_after": {
+      "0": 11653635,
+      "1": 234
+     },
+     "local_fraction": 0.9999799208314424,
+     "migrate_seconds": 12.025321960449219,
+     "smaps_before": {
+      "Rss": 46652408,
+      "Anonymous": 46614512,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 46652412,
+      "Anonymous": 46614516,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 47772082176
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=5, ef=20)",
+    "accuracy_at_k": 91.13,
+    "qps": 7325.554593733519,
+    "mean_us": 136.5084359422326,
+    "build_time_s": 2021.3306794166565,
+    "uss_delta_kb": 8913272.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/rabitq-hnsw/normalized_16_32_200_5_false.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     7325.554593733519,
+     6081.4896249761605,
+     7322.57175670308
+    ],
+    "pass_spread_pct": 20.407535131358284,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5549907,
+      "1": 5550134
+     },
+     "anon_pages_after": {
+      "0": 11099810,
+      "1": 232
+     },
+     "local_fraction": 0.9999790991781833,
+     "migrate_seconds": 11.521254539489746,
+     "smaps_before": {
+      "Rss": 44437044,
+      "Anonymous": 44399216,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 44437048,
+      "Anonymous": 44399220,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 45503549440
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=32, efConstruction=200, total_bits=5, ef=20)",
+    "accuracy_at_k": 92.64,
+    "qps": 7285.792829897444,
+    "mean_us": 137.25342229008675,
+    "build_time_s": 2020.8350620269775,
+    "uss_delta_kb": 8915180.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/rabitq-hnsw/normalized_32_32_200_5_false.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     7285.792829897444,
+     6041.920641684261,
+     7285.233837058986
+    ],
+    "pass_spread_pct": 20.578111979771652,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5550169,
+      "1": 5550385
+     },
+     "anon_pages_after": {
+      "0": 11100326,
+      "1": 229
+     },
+     "local_fraction": 0.9999793704008493,
+     "migrate_seconds": 11.4993736743927,
+     "smaps_before": {
+      "Rss": 44439204,
+      "Anonymous": 44401264,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 44439208,
+      "Anonymous": 44401268,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 45505761280
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=8, ef=20)",
+    "accuracy_at_k": 93.61,
+    "qps": 6689.523365323318,
+    "mean_us": 149.48748145252466,
+    "build_time_s": 2030.3885807991028,
+    "uss_delta_kb": 12228724.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/rabitq-hnsw/normalized_16_32_200_8_false.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     6689.523365323318,
+     5623.039947835807,
+     6675.474883221819
+    ],
+    "pass_spread_pct": 18.716476232595024,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5964343,
+      "1": 5964573
+     },
+     "anon_pages_after": {
+      "0": 11928686,
+      "1": 231
+     },
+     "local_fraction": 0.9999806352915357,
+     "migrate_seconds": 12.206735610961914,
+     "smaps_before": {
+      "Rss": 47752592,
+      "Anonymous": 47714716,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 47752596,
+      "Anonymous": 47714720,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 48898670592
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=200, total_bits=8, ef=40)",
+    "accuracy_at_k": 94.8,
+    "qps": 6074.983926417809,
+    "mean_us": 164.60948903113604,
+    "build_time_s": 1412.7710342407227,
+    "uss_delta_kb": 11128724.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/rabitq-hnsw/normalized_16_16_200_8_false.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     5988.950896871678,
+     6027.389203982706,
+     6074.983926417809
+    ],
+    "pass_spread_pct": 0.7896407685711406,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5826817,
+      "1": 5827051
+     },
+     "anon_pages_after": {
+      "0": 11653635,
+      "1": 234
+     },
+     "local_fraction": 0.9999799208314424,
+     "migrate_seconds": 12.025321960449219,
+     "smaps_before": {
+      "Rss": 46652408,
+      "Anonymous": 46614512,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 46652412,
+      "Anonymous": 46614516,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 47772082176
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=8, ef=40)",
+    "accuracy_at_k": 96.38,
+    "qps": 5168.073697778221,
+    "mean_us": 193.49569268524647,
+    "build_time_s": 2030.3885807991028,
+    "uss_delta_kb": 12228724.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/rabitq-hnsw/normalized_16_32_200_8_false.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     5146.980371009825,
+     5159.467111859872,
+     5168.073697778221
+    ],
+    "pass_spread_pct": 0.16681152785266234,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5964343,
+      "1": 5964573
+     },
+     "anon_pages_after": {
+      "0": 11928686,
+      "1": 231
+     },
+     "local_fraction": 0.9999806352915357,
+     "migrate_seconds": 12.206735610961914,
+     "smaps_before": {
+      "Rss": 47752592,
+      "Anonymous": 47714716,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 47752596,
+      "Anonymous": 47714720,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 48898670592
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=200, total_bits=8, ef=80)",
+    "accuracy_at_k": 97.50999999999999,
+    "qps": 4360.510194501719,
+    "mean_us": 229.33096252381802,
+    "build_time_s": 1412.7710342407227,
+    "uss_delta_kb": 11128724.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/rabitq-hnsw/normalized_16_16_200_8_false.hdf5",
+    "query_args": "80",
+    "pass_qps": [
+     4296.548855633759,
+     4360.510194501719,
+     4348.503725678542
+    ],
+    "pass_spread_pct": 0.27610574994513504,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5826817,
+      "1": 5827051
+     },
+     "anon_pages_after": {
+      "0": 11653635,
+      "1": 234
+     },
+     "local_fraction": 0.9999799208314424,
+     "migrate_seconds": 12.025321960449219,
+     "smaps_before": {
+      "Rss": 46652408,
+      "Anonymous": 46614512,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 46652412,
+      "Anonymous": 46614516,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 47772082176
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=8, ef=80)",
+    "accuracy_at_k": 98.03999999999999,
+    "qps": 3574.679952430277,
+    "mean_us": 279.7453235834837,
+    "build_time_s": 2030.3885807991028,
+    "uss_delta_kb": 12228724.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/rabitq-hnsw/normalized_16_32_200_8_false.hdf5",
+    "query_args": "80",
+    "pass_qps": [
+     3538.496921798955,
+     3569.34285216756,
+     3574.679952430277
+    ],
+    "pass_spread_pct": 0.14952613082477528,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5964343,
+      "1": 5964573
+     },
+     "anon_pages_after": {
+      "0": 11928686,
+      "1": 231
+     },
+     "local_fraction": 0.9999806352915357,
+     "migrate_seconds": 12.206735610961914,
+     "smaps_before": {
+      "Rss": 47752592,
+      "Anonymous": 47714716,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 47752596,
+      "Anonymous": 47714720,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 48898670592
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=200, total_bits=8, ef=400)",
+    "accuracy_at_k": 99.13000000000001,
+    "qps": 1364.7827047927808,
+    "mean_us": 732.7173743396997,
+    "build_time_s": 1412.7710342407227,
+    "uss_delta_kb": 11128724.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/rabitq-hnsw/normalized_16_16_200_8_false.hdf5",
+    "query_args": "400",
+    "pass_qps": [
+     1364.7827047927808,
+     1321.5403861571028,
+     1363.468754720352
+    ],
+    "pass_spread_pct": 3.1726891589875987,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5826817,
+      "1": 5827051
+     },
+     "anon_pages_after": {
+      "0": 11653635,
+      "1": 234
+     },
+     "local_fraction": 0.9999799208314424,
+     "migrate_seconds": 12.025321960449219,
+     "smaps_before": {
+      "Rss": 46652408,
+      "Anonymous": 46614512,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 46652412,
+      "Anonymous": 46614516,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 47772082176
+    }
+   }
+  ],
+  "vamana-leanvec(svs)": [
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=20, reduced_dim=384)",
+    "accuracy_at_k": 92.84,
+    "qps": 5394.564593777402,
+    "mean_us": 185.37177238613367,
+    "build_time_s": 1101.7002005577087,
+    "uss_delta_kb": 23542772.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     5345.776114672383,
+     5394.564593777402
+    ],
+    "pass_spread_pct": 0.9126547400874134,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7371088,
+      "1": 7370821
+     },
+     "anon_pages_after": {
+      "0": 14741911
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 16.21280288696289,
+     "smaps_before": {
+      "Rss": 59005568,
+      "Anonymous": 58966664,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 59005580,
+      "Anonymous": 58966676,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 60422197248
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=40, reduced_dim=256)",
+    "accuracy_at_k": 95.12,
+    "qps": 4400.169216941522,
+    "mean_us": 227.26398706436157,
+    "build_time_s": 454.48765110969543,
+    "uss_delta_kb": 22433364.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_256.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     4360.801939124391,
+     4400.169216941522
+    ],
+    "pass_spread_pct": 0.9027531717029975,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7233655,
+      "1": 7233370
+     },
+     "anon_pages_after": {
+      "0": 14467027
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 15.534128189086914,
+     "smaps_before": {
+      "Rss": 57905956,
+      "Anonymous": 57867120,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 57905968,
+      "Anonymous": 57867132,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 59316105216
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=40, reduced_dim=384)",
+    "accuracy_at_k": 96.30000000000001,
+    "qps": 3689.394369182307,
+    "mean_us": 271.0471963509917,
+    "build_time_s": 1101.7002005577087,
+    "uss_delta_kb": 23542772.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     3673.339347951318,
+     3689.394369182307
+    ],
+    "pass_spread_pct": 0.43706882784851314,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7371088,
+      "1": 7370821
+     },
+     "anon_pages_after": {
+      "0": 14741911
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 16.21280288696289,
+     "smaps_before": {
+      "Rss": 59005568,
+      "Anonymous": 58966664,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 59005580,
+      "Anonymous": 58966676,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 60422197248
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=80, reduced_dim=192)",
+    "accuracy_at_k": 97.46000000000001,
+    "qps": 2917.0551129239548,
+    "mean_us": 342.8114866837859,
+    "build_time_s": 423.22278022766113,
+    "uss_delta_kb": 21880544.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_192.hdf5",
+    "query_args": "80",
+    "pass_qps": [
+     2827.5252997830326,
+     2917.0551129239548
+    ],
+    "pass_spread_pct": 3.1663664741670816,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7162520,
+      "1": 7162252
+     },
+     "anon_pages_after": {
+      "0": 14324773
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 15.453075885772705,
+     "smaps_before": {
+      "Rss": 57336984,
+      "Anonymous": 57298088,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 57336992,
+      "Anonymous": 57298096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 58713088000
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=80, reduced_dim=256)",
+    "accuracy_at_k": 98.05999999999999,
+    "qps": 2700.4502833621978,
+    "mean_us": 370.3086134046316,
+    "build_time_s": 454.48765110969543,
+    "uss_delta_kb": 22433364.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_256.hdf5",
+    "query_args": "80",
+    "pass_qps": [
+     2666.704430055271,
+     2700.4502833621978
+    ],
+    "pass_spread_pct": 1.2654515786073521,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7233655,
+      "1": 7233370
+     },
+     "anon_pages_after": {
+      "0": 14467027
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 15.534128189086914,
+     "smaps_before": {
+      "Rss": 57905956,
+      "Anonymous": 57867120,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 57905968,
+      "Anonymous": 57867132,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 59316105216
+    }
+   },
+   {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=125, reduced_dim=384)",
+    "accuracy_at_k": 99.08,
+    "qps": 1601.4880584019913,
+    "mean_us": 624.4192672893405,
+    "build_time_s": 1101.7002005577087,
+    "uss_delta_kb": 23542772.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "125",
+    "pass_qps": [
+     1594.7631971157157,
+     1601.4880584019913
+    ],
+    "pass_spread_pct": 0.4216840028938604,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7371088,
+      "1": 7370821
+     },
+     "anon_pages_after": {
+      "0": 14741911
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 16.21280288696289,
+     "smaps_before": {
+      "Rss": 59005568,
+      "Anonymous": 58966664,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 59005580,
+      "Anonymous": 58966676,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 60422197248
+    }
+   }
+  ]
+ },
+ "table2": {
+  "kannolo": {
+   "90": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=500, efS=12, lambda=0.04)",
+    "accuracy_at_k": 90.61,
+    "qps": 8091.546833996081,
+    "mean_us": 123.5857643187046,
+    "build_time_s": 1738.1080632209778,
+    "uss_delta_kb": 18565628.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo/normalized_8_500_permuted.hdf5",
+    "query_args": "12_0_04",
+    "pass_qps": [
+     8091.546833996081,
+     8077.591751815915
+    ],
+    "pass_spread_pct": 0.17276290519421977,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 18754277605,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7808167,
+      "1": 7807922
+     },
+     "anon_pages_after": {
+      "0": 15616091
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 17.287216663360596,
+     "smaps_before": {
+      "Rss": 62494456,
+      "Anonymous": 62463408,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 62494464,
+      "Anonymous": 62463416,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 63994195968
+    }
+   },
+   "95": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=500, efS=10, lambda=0.08)",
+    "accuracy_at_k": 95.28999999999999,
+    "qps": 5844.509753100936,
+    "mean_us": 171.1007496342063,
+    "build_time_s": 1738.1080632209778,
+    "uss_delta_kb": 18565628.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo/normalized_8_500_permuted.hdf5",
+    "query_args": "10_0_08",
+    "pass_qps": [
+     5843.291719691372,
+     5844.509753100936
+    ],
+    "pass_spread_pct": 0.02084498717493592,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 18754277605,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7808167,
+      "1": 7807922
+     },
+     "anon_pages_after": {
+      "0": 15616091
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 17.287216663360596,
+     "smaps_before": {
+      "Rss": 62494456,
+      "Anonymous": 62463408,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 62494464,
+      "Anonymous": 62463416,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 63994195968
+    }
+   },
+   "99": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=10, lambda=0.125)",
+    "accuracy_at_k": 99.07000000000001,
+    "qps": 2404.5350097297573,
+    "mean_us": 415.880823507905,
+    "build_time_s": 1335.1308665275574,
+    "uss_delta_kb": 18794932.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo/normalized_16_200_permuted.hdf5",
+    "query_args": "10_0_125",
+    "pass_qps": [
+     2401.8170782092734,
+     2404.5350097297573
+    ],
+    "pass_spread_pct": 0.11316147033604892,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 18980796868,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8436717,
+      "1": 8436465
+     },
+     "anon_pages_after": {
+      "0": 16873184
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 17.47746706008911,
+     "smaps_before": {
+      "Rss": 67522716,
+      "Anonymous": 67491748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 67522724,
+      "Anonymous": 67491756,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 69143134208
+    }
+   }
+  },
+  "kannolo-rerank": {
+   "90": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=32, efC=200, kc=30, efS=30, alpha=0.1, lambda=0.01)",
+    "accuracy_at_k": 90.29999999999998,
+    "qps": 11113.703340410828,
+    "mean_us": 89.97900784015656,
+    "build_time_s": 1622.298844262,
+    "uss_delta_kb": 19986708.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "30_1_0_0_1_0_01_1",
+    "pass_qps": [
+     10998.3023715747,
+     11113.703340410828,
+     10791.708953569438
+    ],
+    "pass_spread_pct": 2.983720078318904,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 20433752786,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8685531,
+      "1": 8686246
+     },
+     "anon_pages_after": {
+      "0": 17371552,
+      "1": 226
+     },
+     "local_fraction": 0.9999869903932689,
+     "migrate_seconds": 13.118370056152344,
+     "smaps_before": {
+      "Rss": 69517420,
+      "Anonymous": 69486168,
+      "AnonHugePages": 35362816
+     },
+     "smaps_after": {
+      "Rss": 69517424,
+      "Anonymous": 69486172,
+      "AnonHugePages": 35362816
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 71185711104
+    }
+   },
+   "95": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=32, efC=200, kc=50, efS=50, alpha=0.15, lambda=0.01)",
+    "accuracy_at_k": 95.00999999999999,
+    "qps": 7837.323672742871,
+    "mean_us": 127.5945771485567,
+    "build_time_s": 1622.298844262,
+    "uss_delta_kb": 19986708.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "50_1_0_0_15_0_01_1",
+    "pass_qps": [
+     7771.6268052821315,
+     7831.679296815093,
+     7837.323672742871
+    ],
+    "pass_spread_pct": 0.07207108097587098,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 20433752786,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8685531,
+      "1": 8686246
+     },
+     "anon_pages_after": {
+      "0": 17371552,
+      "1": 226
+     },
+     "local_fraction": 0.9999869903932689,
+     "migrate_seconds": 13.118370056152344,
+     "smaps_before": {
+      "Rss": 69517420,
+      "Anonymous": 69486168,
+      "AnonHugePages": 35362816
+     },
+     "smaps_after": {
+      "Rss": 69517424,
+      "Anonymous": 69486172,
+      "AnonHugePages": 35362816
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 71185711104
+    }
+   },
+   "99": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q2+f16, graph=permuted, M=32, efC=200, kc=100, efS=150, alpha=0.15, lambda=none)",
+    "accuracy_at_k": 99.03,
+    "qps": 2895.934159470684,
+    "mean_us": 345.31171806156635,
+    "build_time_s": 1622.298844262,
+    "uss_delta_kb": 19986708.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "100_1_5_0_15_null_2",
+    "pass_qps": [
+     2866.1174979120224,
+     2895.934159470684,
+     2895.602783279712
+    ],
+    "pass_spread_pct": 0.01144411771135134,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 20433752786,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8685531,
+      "1": 8686246
+     },
+     "anon_pages_after": {
+      "0": 17371552,
+      "1": 226
+     },
+     "local_fraction": 0.9999869903932689,
+     "migrate_seconds": 13.118370056152344,
+     "smaps_before": {
+      "Rss": 69517420,
+      "Anonymous": 69486168,
+      "AnonHugePages": 35362816
+     },
+     "smaps_after": {
+      "Rss": 69517424,
+      "Anonymous": 69486172,
+      "AnonHugePages": 35362816
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 71185711104
+    }
+   }
+  },
+  "hnswlib": {
+   "90": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=16, efConstruction=200, efQuery=20)",
+    "accuracy_at_k": 91.33,
+    "qps": 4014.590720921968,
+    "mean_us": 249.09139424562454,
+    "build_time_s": 1291.795173406601,
+    "uss_delta_kb": 38547688.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/hnswlib/normalized_16_200.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     4004.387611546539,
+     4014.590720921968
+    ],
+    "pass_spread_pct": 0.25479824545477603,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9242606,
+      "1": 9242355
+     },
+     "anon_pages_after": {
+      "0": 18484963
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 20.97998595237732,
+     "smaps_before": {
+      "Rss": 73968156,
+      "Anonymous": 73938848,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 73968164,
+      "Anonymous": 73938856,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 75881193472
+    }
+   },
+   "95": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=16, efConstruction=200, efQuery=40)",
+    "accuracy_at_k": 95.61,
+    "qps": 2685.9050120977586,
+    "mean_us": 372.31398560106754,
+    "build_time_s": 1291.795173406601,
+    "uss_delta_kb": 38547688.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/hnswlib/normalized_16_200.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     2682.460085976579,
+     2685.9050120977586
+    ],
+    "pass_spread_pct": 0.12842413347318138,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9242606,
+      "1": 9242355
+     },
+     "anon_pages_after": {
+      "0": 18484963
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 20.97998595237732,
+     "smaps_before": {
+      "Rss": 73968156,
+      "Anonymous": 73938848,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 73968164,
+      "Anonymous": 73938856,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 75881193472
+    }
+   },
+   "99": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=48, efConstruction=200, efQuery=100)",
+    "accuracy_at_k": 99.02,
+    "qps": 889.0741169026793,
+    "mean_us": 1124.765619635582,
+    "build_time_s": 2106.979476928711,
+    "uss_delta_kb": 40750300.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/hnswlib/normalized_48_200.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     885.6342346573534,
+     889.0741169026793
+    ],
+    "pass_spread_pct": 0.38840890637620074,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9517930,
+      "1": 9517678
+     },
+     "anon_pages_after": {
+      "0": 19035610
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 21.516541481018066,
+     "smaps_before": {
+      "Rss": 76170676,
+      "Anonymous": 76141460,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 76170680,
+      "Anonymous": 76141464,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 78136029184
+    }
+   }
+  },
+  "glass": {
+   "90": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=20, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)",
+    "accuracy_at_k": 91.52,
+    "qps": 8020.046032688485,
+    "mean_us": 124.68756362795831,
+    "build_time_s": 964.1454484462738,
+    "uss_delta_kb": 25348284.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/glass/normalized_400_32_SQ8U_SQ4U_FP16.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     7981.699820713488,
+     8020.046032688485
+    ],
+    "pass_spread_pct": 0.4804266363849394,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7614557,
+      "1": 7614299
+     },
+     "anon_pages_after": {
+      "0": 15228856
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 16.601223468780518,
+     "smaps_before": {
+      "Rss": 60944516,
+      "Anonymous": 60914440,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 60944516,
+      "Anonymous": 60914440,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 62409789440
+    }
+   },
+   "95": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=40, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)",
+    "accuracy_at_k": 95.22999999999999,
+    "qps": 6057.809141028562,
+    "mean_us": 165.07618129253387,
+    "build_time_s": 964.1454484462738,
+    "uss_delta_kb": 25348284.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/glass/normalized_400_32_SQ8U_SQ4U_FP16.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     5985.896334802888,
+     6057.809141028562
+    ],
+    "pass_spread_pct": 1.2013707255096016,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7614557,
+      "1": 7614299
+     },
+     "anon_pages_after": {
+      "0": 15228856
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 16.601223468780518,
+     "smaps_before": {
+      "Rss": 60944516,
+      "Anonymous": 60914440,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 60944516,
+      "Anonymous": 60914440,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 62409789440
+    }
+   },
+   "99": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=64, efQuery=100, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 99.06,
+    "qps": 2526.952103308566,
+    "mean_us": 395.73365822434425,
+    "build_time_s": 1383.7332487106323,
+    "uss_delta_kb": 44224460.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/glass/normalized_400_64_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     2526.952103308566,
+     2393.3655237559183
+    ],
+    "pass_spread_pct": 5.581536887145008,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 9962582,
+      "1": 9962341
+     },
+     "anon_pages_after": {
+      "0": 19924923
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 21.082846879959106,
+     "smaps_before": {
+      "Rss": 79728916,
+      "Anonymous": 79698708,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 79728916,
+      "Anonymous": 79698708,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 81642020864
+    }
+   }
+  },
+  "symphonyqg": {
+   "90": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=20)",
+    "accuracy_at_k": 90.22999999999999,
+    "qps": 30936.72845588722,
+    "mean_us": 32.324038445949554,
+    "build_time_s": 1943.8828094005585,
+    "uss_delta_kb": 75152332.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     30489.0271037092,
+     30936.72845588722
+    ],
+    "pass_spread_pct": 1.4684015683909932,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14115507,
+      "1": 14115260
+     },
+     "anon_pages_after": {
+      "0": 28230023
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 31.928412675857544,
+     "smaps_before": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 115662295040
+    }
+   },
+   "95": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=40)",
+    "accuracy_at_k": 95.67,
+    "qps": 21147.55355753502,
+    "mean_us": 47.28679358959198,
+    "build_time_s": 1943.8828094005585,
+    "uss_delta_kb": 75152332.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     21024.896133774615,
+     21147.55355753502
+    ],
+    "pass_spread_pct": 0.5833913422448039,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14115507,
+      "1": 14115260
+     },
+     "anon_pages_after": {
+      "0": 28230023
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 31.928412675857544,
+     "smaps_before": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 115662295040
+    }
+   },
+   "99": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=250)",
+    "accuracy_at_k": 99.09,
+    "qps": 5741.57550191845,
+    "mean_us": 174.16822258383036,
+    "build_time_s": 1943.8828094005585,
+    "uss_delta_kb": 75152332.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "250",
+    "pass_qps": [
+     5714.82640998109,
+     5741.57550191845
+    ],
+    "pass_spread_pct": 0.4680648197929776,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 14115507,
+      "1": 14115260
+     },
+     "anon_pages_after": {
+      "0": 28230023
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 31.928412675857544,
+     "smaps_before": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 112951584,
+      "Anonymous": 112922096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 115662295040
+    }
+   }
+  },
+  "lorann": {
+   "90": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=16, rerank=200)",
+    "accuracy_at_k": 90.71000000000001,
+    "qps": 1840.6851561114238,
+    "mean_us": 543.2759625837207,
+    "build_time_s": 1989.8917751312256,
+    "uss_delta_kb": 36361892.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/lorann/normalized_8_4096_256_64_5.hdf5",
+    "query_args": "16_200",
+    "pass_qps": [
+     1834.327283205238,
+     1840.6851561114238
+    ],
+    "pass_spread_pct": 0.3466051540745911,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5001514,
+      "1": 5001458
+     },
+     "anon_pages_after": {
+      "0": 10002972
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 11.522977828979492,
+     "smaps_before": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65589153792
+    }
+   },
+   "95": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=48, rerank=800)",
+    "accuracy_at_k": 95.86,
+    "qps": 656.4209062346621,
+    "mean_us": 1523.4127836301923,
+    "build_time_s": 1989.8917751312256,
+    "uss_delta_kb": 36361892.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/lorann/normalized_8_4096_256_64_5.hdf5",
+    "query_args": "48_800",
+    "pass_qps": [
+     653.4762569709688,
+     656.4209062346621
+    ],
+    "pass_spread_pct": 0.45061304558216786,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5001514,
+      "1": 5001458
+     },
+     "anon_pages_after": {
+      "0": 10002972
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 11.522977828979492,
+     "smaps_before": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65589153792
+    }
+   },
+   "99": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=256, rerank=3200)",
+    "accuracy_at_k": 99.03999999999999,
+    "qps": 135.18545071700868,
+    "mean_us": 7397.245744243264,
+    "build_time_s": 1989.8917751312256,
+    "uss_delta_kb": 36361892.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/lorann/normalized_8_4096_256_64_5.hdf5",
+    "query_args": "256_3200",
+    "pass_qps": [
+     135.03634531569327,
+     135.18545071700868
+    ],
+    "pass_spread_pct": 0.11041871798797974,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5001514,
+      "1": 5001458
+     },
+     "anon_pages_after": {
+      "0": 10002972
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 11.522977828979492,
+     "smaps_before": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 40041476,
+      "Anonymous": 40010940,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 65589153792
+    }
+   }
+  },
+  "rabitq-hnsw": {
+   "90": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=200, total_bits=8, ef=20)",
+    "accuracy_at_k": 90.53,
+    "qps": 7567.957864672888,
+    "mean_us": 132.13604222983122,
+    "build_time_s": 1412.7710342407227,
+    "uss_delta_kb": 11128724.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/rabitq-hnsw/normalized_16_16_200_8_false.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     7567.957864672888,
+     6277.192428821065,
+     7535.613097939223
+    ],
+    "pass_spread_pct": 20.04750823537371,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5826817,
+      "1": 5827051
+     },
+     "anon_pages_after": {
+      "0": 11653635,
+      "1": 234
+     },
+     "local_fraction": 0.9999799208314424,
+     "migrate_seconds": 12.025321960449219,
+     "smaps_before": {
+      "Rss": 46652408,
+      "Anonymous": 46614512,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 46652412,
+      "Anonymous": 46614516,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 47772082176
+    }
+   },
+   "95": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=8, ef=40)",
+    "accuracy_at_k": 96.38,
+    "qps": 5168.073697778221,
+    "mean_us": 193.49569268524647,
+    "build_time_s": 2030.3885807991028,
+    "uss_delta_kb": 12228724.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/rabitq-hnsw/normalized_16_32_200_8_false.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     5146.980371009825,
+     5159.467111859872,
+     5168.073697778221
+    ],
+    "pass_spread_pct": 0.16681152785266234,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5964343,
+      "1": 5964573
+     },
+     "anon_pages_after": {
+      "0": 11928686,
+      "1": 231
+     },
+     "local_fraction": 0.9999806352915357,
+     "migrate_seconds": 12.206735610961914,
+     "smaps_before": {
+      "Rss": 47752592,
+      "Anonymous": 47714716,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 47752596,
+      "Anonymous": 47714720,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 48898670592
+    }
+   },
+   "99": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=200, total_bits=8, ef=400)",
+    "accuracy_at_k": 99.13000000000001,
+    "qps": 1364.7827047927808,
+    "mean_us": 732.7173743396997,
+    "build_time_s": 1412.7710342407227,
+    "uss_delta_kb": 11128724.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/rabitq-hnsw/normalized_16_16_200_8_false.hdf5",
+    "query_args": "400",
+    "pass_qps": [
+     1364.7827047927808,
+     1321.5403861571028,
+     1363.468754720352
+    ],
+    "pass_spread_pct": 3.1726891589875987,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5826817,
+      "1": 5827051
+     },
+     "anon_pages_after": {
+      "0": 11653635,
+      "1": 234
+     },
+     "local_fraction": 0.9999799208314424,
+     "migrate_seconds": 12.025321960449219,
+     "smaps_before": {
+      "Rss": 46652408,
+      "Anonymous": 46614512,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 46652412,
+      "Anonymous": 46614516,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 47772082176
+    }
+   }
+  },
+  "vamana-leanvec(svs)": {
+   "90": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=20, reduced_dim=384)",
+    "accuracy_at_k": 92.84,
+    "qps": 5394.564593777402,
+    "mean_us": 185.37177238613367,
+    "build_time_s": 1101.7002005577087,
+    "uss_delta_kb": 23542772.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     5345.776114672383,
+     5394.564593777402
+    ],
+    "pass_spread_pct": 0.9126547400874134,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7371088,
+      "1": 7370821
+     },
+     "anon_pages_after": {
+      "0": 14741911
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 16.21280288696289,
+     "smaps_before": {
+      "Rss": 59005568,
+      "Anonymous": 58966664,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 59005580,
+      "Anonymous": 58966676,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 60422197248
+    }
+   },
+   "95": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=40, reduced_dim=256)",
+    "accuracy_at_k": 95.12,
+    "qps": 4400.169216941522,
+    "mean_us": 227.26398706436157,
+    "build_time_s": 454.48765110969543,
+    "uss_delta_kb": 22433364.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_256.hdf5",
+    "query_args": "40",
+    "pass_qps": [
+     4360.801939124391,
+     4400.169216941522
+    ],
+    "pass_spread_pct": 0.9027531717029975,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7233655,
+      "1": 7233370
+     },
+     "anon_pages_after": {
+      "0": 14467027
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 15.534128189086914,
+     "smaps_before": {
+      "Rss": 57905956,
+      "Anonymous": 57867120,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 57905968,
+      "Anonymous": 57867132,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 59316105216
+    }
+   },
+   "99": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=125, reduced_dim=384)",
+    "accuracy_at_k": 99.08,
+    "qps": 1601.4880584019913,
+    "mean_us": 624.4192672893405,
+    "build_time_s": 1101.7002005577087,
+    "uss_delta_kb": 23542772.0,
+    "run_count": 2,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "125",
+    "pass_qps": [
+     1594.7631971157157,
+     1601.4880584019913
+    ],
+    "pass_spread_pct": 0.4216840028938604,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7371088,
+      "1": 7370821
+     },
+     "anon_pages_after": {
+      "0": 14741911
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 16.21280288696289,
+     "smaps_before": {
+      "Rss": 59005568,
+      "Anonymous": 58966664,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 59005580,
+      "Anonymous": 58966676,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 60422197248
+    }
+   }
+  }
+ },
+ "table2_control_arms": {
+  "kannolo-rerank-ext8": {
+   "90": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8",
+    "name": "kANNolo-Rerank(rabitq1-q1+ext8, graph=permuted, M=32, efC=200, kc=30, efS=30, alpha=0.15, lambda=0.01)",
+    "accuracy_at_k": 90.18,
+    "qps": 10510.179745753023,
+    "mean_us": 95.14585137367249,
+    "build_time_s": 1628.637769122,
+    "uss_delta_kb": 11215544.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank-ext8/normalized_32_200_permuted_rabitq_128_4_1_8.hdf5",
+    "query_args": "30_1_0_0_15_0_01_1",
+    "pass_qps": [
+     10208.686090690257,
+     10398.705772309115,
+     10510.179745753023
+    ],
+    "pass_spread_pct": 1.0719985340940599,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 11451485454,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7319201,
+      "1": 7318958
+     },
+     "anon_pages_after": {
+      "0": 14638160
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 10.556472778320312,
+     "smaps_before": {
+      "Rss": 58582772,
+      "Anonymous": 58551688,
+      "AnonHugePages": 35360768
+     },
+     "smaps_after": {
+      "Rss": 58582776,
+      "Anonymous": 58551692,
+      "AnonHugePages": 35360768
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 59988631552
+    }
+   },
+   "95": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8",
+    "name": "kANNolo-Rerank(rabitq1-q1+ext8, graph=permuted, M=32, efC=200, kc=50, efS=62, alpha=0.1, lambda=0.01)",
+    "accuracy_at_k": 95.00999999999999,
+    "qps": 6952.752586408043,
+    "mean_us": 143.82792823016644,
+    "build_time_s": 1628.637769122,
+    "uss_delta_kb": 11215544.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank-ext8/normalized_32_200_permuted_rabitq_128_4_1_8.hdf5",
+    "query_args": "50_1_25_0_1_0_01_1",
+    "pass_qps": [
+     6884.670809627551,
+     6938.637281197171,
+     6952.752586408043
+    ],
+    "pass_spread_pct": 0.2034305100386476,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 11451485454,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 7319201,
+      "1": 7318958
+     },
+     "anon_pages_after": {
+      "0": 14638160
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 10.556472778320312,
+     "smaps_before": {
+      "Rss": 58582772,
+      "Anonymous": 58551688,
+      "AnonHugePages": 35360768
+     },
+     "smaps_after": {
+      "Rss": 58582776,
+      "Anonymous": 58551692,
+      "AnonHugePages": 35360768
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 59988631552
+    }
+   },
+   "99": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8",
+    "name": "kANNolo-Rerank(rabitq2+ext8, graph=permuted, M=32, efC=200, kc=30, efS=30, alpha=0.05, lambda=0.08)",
+    "accuracy_at_k": 99.01,
+    "qps": 2164.699293671437,
+    "mean_us": 461.9579277932644,
+    "build_time_s": 1631.0938698260002,
+    "uss_delta_kb": 12297004.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank-ext8/normalized_32_200_permuted_rabitq_ext_128_2_1_8.hdf5",
+    "query_args": "30_1_0_0_05_0_08",
+    "pass_qps": [
+     2162.504342613673,
+     2164.699293671437,
+     2154.9348697359596
+    ],
+    "pass_spread_pct": 0.45311921360637886,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 12583110822,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 5961198,
+      "1": 5960963
+     },
+     "anon_pages_after": {
+      "0": 11922161
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 7.687315464019775,
+     "smaps_before": {
+      "Rss": 47718308,
+      "Anonymous": 47687708,
+      "AnonHugePages": 35360768
+     },
+     "smaps_after": {
+      "Rss": 47718308,
+      "Anonymous": 47687708,
+      "AnonHugePages": 35360768
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 48863420416
+    }
+   }
+  },
+  "kannolo-rerank-ext8-resid": {
+   "90": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8-resid",
+    "name": "kANNolo-Rerank(rabitq1-q4+ext8-resid, graph=permuted, M=32, efC=200, kc=30, efS=30, alpha=0.05, lambda=none)",
+    "accuracy_at_k": 90.41999999999999,
+    "qps": 4472.769621188957,
+    "mean_us": 223.57511892914772,
+    "build_time_s": 1633.2893080711365,
+    "uss_delta_kb": 11214996.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank-ext8-resid/normalized_32_200_permuted_rabitq_128_4_1_8_true.hdf5",
+    "query_args": "30_1_0_0_05_null_4",
+    "pass_qps": [
+     4435.115637345902,
+     4439.902716618011,
+     4472.769621188957
+    ],
+    "pass_spread_pct": 0.7402618180783318,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 11451485454,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8137996,
+      "1": 8138199
+     },
+     "anon_pages_after": {
+      "0": 16275967,
+      "1": 228
+     },
+     "local_fraction": 0.9999859918119683,
+     "migrate_seconds": 16.730899333953857,
+     "smaps_before": {
+      "Rss": 65134848,
+      "Anonymous": 65103824,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 65134848,
+      "Anonymous": 65103824,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 66697957376
+    }
+   },
+   "95": {
+    "dataset": "msmarco-qwen-1024-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8-resid",
+    "name": "kANNolo-Rerank(rabitq1-q4+ext8-resid, graph=permuted, M=32, efC=200, kc=100, efS=125, alpha=0.1, lambda=0.01)",
+    "accuracy_at_k": 95.15,
+    "qps": 2570.3199506931437,
+    "mean_us": 389.05662298202515,
+    "build_time_s": 1633.2893080711365,
+    "uss_delta_kb": 11214996.0,
+    "run_count": 3,
+    "result_file": "results/msmarco-qwen-1024-normalized/10/kannolo-rerank-ext8-resid/normalized_32_200_permuted_rabitq_128_4_1_8_true.hdf5",
+    "query_args": "100_1_25_0_1_0_01_4",
+    "pass_qps": [
+     2548.569679231409,
+     2567.5335978288094,
+     2570.3199506931437
+    ],
+    "pass_spread_pct": 0.1085225473462356,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 11451485454,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 8137996,
+      "1": 8138199
+     },
+     "anon_pages_after": {
+      "0": 16275967,
+      "1": 228
+     },
+     "local_fraction": 0.9999859918119683,
+     "migrate_seconds": 16.730899333953857,
+     "smaps_before": {
+      "Rss": 65134848,
+      "Anonymous": 65103824,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 65134848,
+      "Anonymous": 65103824,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 66697957376
+    }
+   }
+  }
+ },
+ "pass_spread": {
+  "median_pct": 0.19013703246810398
+ }
+}

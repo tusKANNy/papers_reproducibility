@@ -1,0 +1,533 @@
+diff --git a/src/bin/hnsw_rerank_search_sparse.rs b/src/bin/hnsw_rerank_search_sparse.rs
+index a62e207..c0db1fa 100644
+--- a/src/bin/hnsw_rerank_search_sparse.rs
++++ b/src/bin/hnsw_rerank_search_sparse.rs
+@@ -151,15 +151,21 @@ fn main() {
+ 
+     let mut results: Vec<Vec<ScoredVector<DotProduct>>> = Vec::with_capacity(num_queries);
+     let mut total_time_search = 0u128;
+-    for _ in 0..args.num_runs {
++    let mut __qt: Vec<Vec<u64>> = Vec::new();
++    for __run in 0..args.num_runs {
++        __qt.push(Vec::new());
+         results.clear();
+         for query in queries.iter() {
+             let start_time = Instant::now();
+             let res = index.search(query, args.k, &params);
+-            total_time_search += start_time.elapsed().as_micros();
++            let __el = start_time.elapsed();
++            total_time_search += __el.as_micros();
++            __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+             results.push(res);
+         }
++        println!("pass_done: {}", __run + 1);
+     }
++    qtimes_dump(&__qt);
+ 
+     if num_queries == 0 || args.num_runs == 0 {
+         exit_with("no queries to time: the query file is empty or --num-runs is 0");
+@@ -195,3 +201,20 @@ fn write_results(output_path: &str, results: &[Vec<ScoredVector<DotProduct>>]) {
+         }
+     }
+ }
++
++// Per-query times (kANNolo/Vectorium journal campaign, benchmark-only, never upstreamed): with
++// QUERY_TIMES_DIR set, writes <dir>/<pid>.tsv holding the argv line and then one line per pass of
++// per-query nanoseconds. Written after the last pass, outside every timed region.
++fn qtimes_dump(times: &[Vec<u64>]) {
++    if let Ok(dir) = std::env::var("QUERY_TIMES_DIR") {
++        use std::io::Write as _;
++        let argv: Vec<String> = std::env::args().collect();
++        let path = format!("{}/{}.tsv", dir, std::process::id());
++        let mut f = std::fs::File::create(&path).expect("QUERY_TIMES_DIR");
++        writeln!(f, "# {}", argv.join(" ")).unwrap();
++        for (i, pass) in times.iter().enumerate() {
++            let s: Vec<String> = pass.iter().map(|t| t.to_string()).collect();
++            writeln!(f, "{}\t{}", i + 1, s.join(" ")).unwrap();
++        }
++    }
++}
+diff --git a/src/bin/hnsw_search.rs b/src/bin/hnsw_search.rs
+index 2c93616..2610b38 100644
+--- a/src/bin/hnsw_search.rs
++++ b/src/bin/hnsw_search.rs
+@@ -480,7 +480,10 @@ where
+     let mut total_time_search = 0u128;
+     let mut results = Vec::<(f32, usize)>::with_capacity(num_queries * args.k);
+ 
+-    for _ in 0..args.num_runs {
++    let mut __qt: Vec<Vec<u64>> = Vec::new();
++    for __run in 0..args.num_runs {
++        __qt.push(Vec::new());
++        results.clear();
+         for query in queries.iter() {
+             let start_time = Instant::now();
+             let res = index.search(query, args.k, &config);
+@@ -488,9 +491,13 @@ where
+                 res.into_iter()
+                     .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+             );
+-            total_time_search += start_time.elapsed().as_micros();
++            let __el = start_time.elapsed();
++            total_time_search += __el.as_micros();
++            __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+         }
++        println!("pass_done: {}", __run + 1);
+     }
++    qtimes_dump(&__qt);
+ 
+     let avg_time_search_per_query = total_time_search / (num_queries * args.num_runs) as u128;
+     println!("[######] Average Query Time: {avg_time_search_per_query} \u{3bc}s");
+@@ -533,7 +540,10 @@ where
+     let mut total_time_search = 0u128;
+     let mut results = Vec::<(f32, usize)>::with_capacity(num_queries * args.k);
+ 
+-    for _ in 0..args.num_runs {
++    let mut __qt: Vec<Vec<u64>> = Vec::new();
++    for __run in 0..args.num_runs {
++        __qt.push(Vec::new());
++        results.clear();
+         for query in queries.iter() {
+             let start_time = Instant::now();
+             let res = index.search(query, args.k, &config);
+@@ -541,9 +551,13 @@ where
+                 res.into_iter()
+                     .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+             );
+-            total_time_search += start_time.elapsed().as_micros();
++            let __el = start_time.elapsed();
++            total_time_search += __el.as_micros();
++            __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+         }
++        println!("pass_done: {}", __run + 1);
+     }
++    qtimes_dump(&__qt);
+ 
+     let avg_time_search_per_query = total_time_search / (num_queries * args.num_runs) as u128;
+     println!("[######] Average Query Time: {avg_time_search_per_query} \u{3bc}s");
+@@ -608,7 +622,10 @@ where
+     let mut total_time_search = 0u128;
+     let mut results = Vec::<(f32, usize)>::with_capacity(num_queries * args.k);
+ 
+-    for _ in 0..args.num_runs {
++    let mut __qt: Vec<Vec<u64>> = Vec::new();
++    for __run in 0..args.num_runs {
++        __qt.push(Vec::new());
++        results.clear();
+         for query in queries.iter() {
+             let start_time = Instant::now();
+             let res = index.search(query, args.k, &config);
+@@ -616,9 +633,13 @@ where
+                 res.into_iter()
+                     .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+             );
+-            total_time_search += start_time.elapsed().as_micros();
++            let __el = start_time.elapsed();
++            total_time_search += __el.as_micros();
++            __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+         }
++        println!("pass_done: {}", __run + 1);
+     }
++    qtimes_dump(&__qt);
+ 
+     let avg_time_search_per_query = total_time_search / (num_queries * args.num_runs) as u128;
+     println!("[######] Average Query Time: {avg_time_search_per_query} μs");
+@@ -659,7 +680,10 @@ where
+     let mut total_time_search = 0u128;
+     let mut results = Vec::<(f32, usize)>::with_capacity(num_queries * args.k);
+ 
+-    for _ in 0..args.num_runs {
++    let mut __qt: Vec<Vec<u64>> = Vec::new();
++    for __run in 0..args.num_runs {
++        __qt.push(Vec::new());
++        results.clear();
+         for query in queries.iter() {
+             let start_time = Instant::now();
+             let res = index.search(query, args.k, &config);
+@@ -667,9 +691,13 @@ where
+                 res.into_iter()
+                     .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+             );
+-            total_time_search += start_time.elapsed().as_micros();
++            let __el = start_time.elapsed();
++            total_time_search += __el.as_micros();
++            __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+         }
++        println!("pass_done: {}", __run + 1);
+     }
++    qtimes_dump(&__qt);
+ 
+     let avg_time_search_per_query = total_time_search / (num_queries * args.num_runs) as u128;
+     println!("[######] Average Query Time: {avg_time_search_per_query} μs");
+@@ -713,7 +741,10 @@ where
+                     &args.index_file,
+                 )
+                 .unwrap();
+-            for _ in 0..args.num_runs {
++            let mut __qt: Vec<Vec<u64>> = Vec::new();
++            for __run in 0..args.num_runs {
++                __qt.push(Vec::new());
++                results.clear();
+                 for query in queries.iter() {
+                     let start_time = Instant::now();
+                     let res = index.search(query, args.k, &config);
+@@ -721,9 +752,13 @@ where
+                         res.into_iter()
+                             .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+                     );
+-                    total_time_search += start_time.elapsed().as_micros();
++                    let __el = start_time.elapsed();
++                    total_time_search += __el.as_micros();
++                    __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+                 }
++                println!("pass_done: {}", __run + 1);
+             }
++            qtimes_dump(&__qt);
+             index.print_space_usage_bytes();
+         }
+         8 => {
+@@ -732,7 +767,10 @@ where
+                     &args.index_file,
+                 )
+                 .unwrap();
+-            for _ in 0..args.num_runs {
++            let mut __qt: Vec<Vec<u64>> = Vec::new();
++            for __run in 0..args.num_runs {
++                __qt.push(Vec::new());
++                results.clear();
+                 for query in queries.iter() {
+                     let start_time = Instant::now();
+                     let res = index.search(query, args.k, &config);
+@@ -740,9 +778,13 @@ where
+                         res.into_iter()
+                             .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+                     );
+-                    total_time_search += start_time.elapsed().as_micros();
++                    let __el = start_time.elapsed();
++                    total_time_search += __el.as_micros();
++                    __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+                 }
++                println!("pass_done: {}", __run + 1);
+             }
++            qtimes_dump(&__qt);
+             index.print_space_usage_bytes();
+         }
+         16 => {
+@@ -751,7 +793,10 @@ where
+                     &args.index_file,
+                 )
+                 .unwrap();
+-            for _ in 0..args.num_runs {
++            let mut __qt: Vec<Vec<u64>> = Vec::new();
++            for __run in 0..args.num_runs {
++                __qt.push(Vec::new());
++                results.clear();
+                 for query in queries.iter() {
+                     let start_time = Instant::now();
+                     let res = index.search(query, args.k, &config);
+@@ -759,9 +804,13 @@ where
+                         res.into_iter()
+                             .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+                     );
+-                    total_time_search += start_time.elapsed().as_micros();
++                    let __el = start_time.elapsed();
++                    total_time_search += __el.as_micros();
++                    __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+                 }
++                println!("pass_done: {}", __run + 1);
+             }
++            qtimes_dump(&__qt);
+             index.print_space_usage_bytes();
+         }
+         24 => {
+@@ -770,7 +819,10 @@ where
+                     &args.index_file,
+                 )
+                 .unwrap();
+-            for _ in 0..args.num_runs {
++            let mut __qt: Vec<Vec<u64>> = Vec::new();
++            for __run in 0..args.num_runs {
++                __qt.push(Vec::new());
++                results.clear();
+                 for query in queries.iter() {
+                     let start_time = Instant::now();
+                     let res = index.search(query, args.k, &config);
+@@ -778,9 +830,13 @@ where
+                         res.into_iter()
+                             .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+                     );
+-                    total_time_search += start_time.elapsed().as_micros();
++                    let __el = start_time.elapsed();
++                    total_time_search += __el.as_micros();
++                    __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+                 }
++                println!("pass_done: {}", __run + 1);
+             }
++            qtimes_dump(&__qt);
+             index.print_space_usage_bytes();
+         }
+         32 => {
+@@ -789,7 +845,10 @@ where
+                     &args.index_file,
+                 )
+                 .unwrap();
+-            for _ in 0..args.num_runs {
++            let mut __qt: Vec<Vec<u64>> = Vec::new();
++            for __run in 0..args.num_runs {
++                __qt.push(Vec::new());
++                results.clear();
+                 for query in queries.iter() {
+                     let start_time = Instant::now();
+                     let res = index.search(query, args.k, &config);
+@@ -797,9 +856,13 @@ where
+                         res.into_iter()
+                             .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+                     );
+-                    total_time_search += start_time.elapsed().as_micros();
++                    let __el = start_time.elapsed();
++                    total_time_search += __el.as_micros();
++                    __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+                 }
++                println!("pass_done: {}", __run + 1);
+             }
++            qtimes_dump(&__qt);
+             index.print_space_usage_bytes();
+         }
+         48 => {
+@@ -808,7 +871,10 @@ where
+                     &args.index_file,
+                 )
+                 .unwrap();
+-            for _ in 0..args.num_runs {
++            let mut __qt: Vec<Vec<u64>> = Vec::new();
++            for __run in 0..args.num_runs {
++                __qt.push(Vec::new());
++                results.clear();
+                 for query in queries.iter() {
+                     let start_time = Instant::now();
+                     let res = index.search(query, args.k, &config);
+@@ -816,9 +882,13 @@ where
+                         res.into_iter()
+                             .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+                     );
+-                    total_time_search += start_time.elapsed().as_micros();
++                    let __el = start_time.elapsed();
++                    total_time_search += __el.as_micros();
++                    __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+                 }
++                println!("pass_done: {}", __run + 1);
+             }
++            qtimes_dump(&__qt);
+             index.print_space_usage_bytes();
+         }
+         64 => {
+@@ -827,7 +897,10 @@ where
+                     &args.index_file,
+                 )
+                 .unwrap();
+-            for _ in 0..args.num_runs {
++            let mut __qt: Vec<Vec<u64>> = Vec::new();
++            for __run in 0..args.num_runs {
++                __qt.push(Vec::new());
++                results.clear();
+                 for query in queries.iter() {
+                     let start_time = Instant::now();
+                     let res = index.search(query, args.k, &config);
+@@ -835,9 +908,13 @@ where
+                         res.into_iter()
+                             .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+                     );
+-                    total_time_search += start_time.elapsed().as_micros();
++                    let __el = start_time.elapsed();
++                    total_time_search += __el.as_micros();
++                    __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+                 }
++                println!("pass_done: {}", __run + 1);
+             }
++            qtimes_dump(&__qt);
+             index.print_space_usage_bytes();
+         }
+         96 => {
+@@ -846,7 +923,10 @@ where
+                     &args.index_file,
+                 )
+                 .unwrap();
+-            for _ in 0..args.num_runs {
++            let mut __qt: Vec<Vec<u64>> = Vec::new();
++            for __run in 0..args.num_runs {
++                __qt.push(Vec::new());
++                results.clear();
+                 for query in queries.iter() {
+                     let start_time = Instant::now();
+                     let res = index.search(query, args.k, &config);
+@@ -854,9 +934,13 @@ where
+                         res.into_iter()
+                             .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+                     );
+-                    total_time_search += start_time.elapsed().as_micros();
++                    let __el = start_time.elapsed();
++                    total_time_search += __el.as_micros();
++                    __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+                 }
++                println!("pass_done: {}", __run + 1);
+             }
++            qtimes_dump(&__qt);
+             index.print_space_usage_bytes();
+         }
+         128 => {
+@@ -865,7 +949,10 @@ where
+                     &args.index_file,
+                 )
+                 .unwrap();
+-            for _ in 0..args.num_runs {
++            let mut __qt: Vec<Vec<u64>> = Vec::new();
++            for __run in 0..args.num_runs {
++                __qt.push(Vec::new());
++                results.clear();
+                 for query in queries.iter() {
+                     let start_time = Instant::now();
+                     let res = index.search(query, args.k, &config);
+@@ -873,9 +960,13 @@ where
+                         res.into_iter()
+                             .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+                     );
+-                    total_time_search += start_time.elapsed().as_micros();
++                    let __el = start_time.elapsed();
++                    total_time_search += __el.as_micros();
++                    __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+                 }
++                println!("pass_done: {}", __run + 1);
+             }
++            qtimes_dump(&__qt);
+             index.print_space_usage_bytes();
+         }
+         192 => {
+@@ -884,7 +975,10 @@ where
+                     &args.index_file,
+                 )
+                 .unwrap();
+-            for _ in 0..args.num_runs {
++            let mut __qt: Vec<Vec<u64>> = Vec::new();
++            for __run in 0..args.num_runs {
++                __qt.push(Vec::new());
++                results.clear();
+                 for query in queries.iter() {
+                     let start_time = Instant::now();
+                     let res = index.search(query, args.k, &config);
+@@ -892,9 +986,13 @@ where
+                         res.into_iter()
+                             .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+                     );
+-                    total_time_search += start_time.elapsed().as_micros();
++                    let __el = start_time.elapsed();
++                    total_time_search += __el.as_micros();
++                    __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+                 }
++                println!("pass_done: {}", __run + 1);
+             }
++            qtimes_dump(&__qt);
+             index.print_space_usage_bytes();
+         }
+         256 => {
+@@ -903,7 +1001,10 @@ where
+                     &args.index_file,
+                 )
+                 .unwrap();
+-            for _ in 0..args.num_runs {
++            let mut __qt: Vec<Vec<u64>> = Vec::new();
++            for __run in 0..args.num_runs {
++                __qt.push(Vec::new());
++                results.clear();
+                 for query in queries.iter() {
+                     let start_time = Instant::now();
+                     let res = index.search(query, args.k, &config);
+@@ -911,9 +1012,13 @@ where
+                         res.into_iter()
+                             .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+                     );
+-                    total_time_search += start_time.elapsed().as_micros();
++                    let __el = start_time.elapsed();
++                    total_time_search += __el.as_micros();
++                    __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+                 }
++                println!("pass_done: {}", __run + 1);
+             }
++            qtimes_dump(&__qt);
+             index.print_space_usage_bytes();
+         }
+         384 => {
+@@ -922,7 +1027,10 @@ where
+                     &args.index_file,
+                 )
+                 .unwrap();
+-            for _ in 0..args.num_runs {
++            let mut __qt: Vec<Vec<u64>> = Vec::new();
++            for __run in 0..args.num_runs {
++                __qt.push(Vec::new());
++                results.clear();
+                 for query in queries.iter() {
+                     let start_time = Instant::now();
+                     let res = index.search(query, args.k, &config);
+@@ -930,9 +1038,13 @@ where
+                         res.into_iter()
+                             .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+                     );
+-                    total_time_search += start_time.elapsed().as_micros();
++                    let __el = start_time.elapsed();
++                    total_time_search += __el.as_micros();
++                    __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+                 }
++                println!("pass_done: {}", __run + 1);
+             }
++            qtimes_dump(&__qt);
+             index.print_space_usage_bytes();
+         }
+         _ => {
+@@ -1081,7 +1193,10 @@ where
+     let mut total_time_search = 0u128;
+     let mut results = Vec::<(f32, usize)>::with_capacity(num_queries * args.k);
+ 
+-    for _ in 0..args.num_runs {
++    let mut __qt: Vec<Vec<u64>> = Vec::new();
++    for __run in 0..args.num_runs {
++        __qt.push(Vec::new());
++        results.clear();
+         for query in queries.iter() {
+             let start_time = Instant::now();
+             let res = index.search(query, args.k, &config);
+@@ -1089,9 +1204,13 @@ where
+                 res.into_iter()
+                     .map(|scored| (scored.distance.distance(), scored.vector as usize)),
+             );
+-            total_time_search += start_time.elapsed().as_micros();
++            let __el = start_time.elapsed();
++            total_time_search += __el.as_micros();
++            __qt.last_mut().unwrap().push(__el.as_nanos() as u64);
+         }
++        println!("pass_done: {}", __run + 1);
+     }
++    qtimes_dump(&__qt);
+ 
+     let avg_time_search_per_query = total_time_search / (num_queries * args.num_runs) as u128;
+     println!("[######] Average Query Time: {avg_time_search_per_query} μs");
+@@ -1110,3 +1229,20 @@ fn write_results_to_file(output_path: &str, results: &[(f32, usize)], k: usize)
+         writeln!(file, "{}\t{}\t{}\t{}", query_id, doc_id, rank, score).unwrap();
+     }
+ }
++
++// Per-query times (kANNolo/Vectorium journal campaign, benchmark-only, never upstreamed): with
++// QUERY_TIMES_DIR set, writes <dir>/<pid>.tsv holding the argv line and then one line per pass of
++// per-query nanoseconds. Written after the last pass, outside every timed region.
++fn qtimes_dump(times: &[Vec<u64>]) {
++    if let Ok(dir) = std::env::var("QUERY_TIMES_DIR") {
++        use std::io::Write as _;
++        let argv: Vec<String> = std::env::args().collect();
++        let path = format!("{}/{}.tsv", dir, std::process::id());
++        let mut f = std::fs::File::create(&path).expect("QUERY_TIMES_DIR");
++        writeln!(f, "# {}", argv.join(" ")).unwrap();
++        for (i, pass) in times.iter().enumerate() {
++            let s: Vec<String> = pass.iter().map(|t| t.to_string()).collect();
++            writeln!(f, "{}\t{}", i + 1, s.join(" ")).unwrap();
++        }
++    }
++}

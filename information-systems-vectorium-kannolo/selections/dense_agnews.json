@@ -1,0 +1,3839 @@
+{
+ "dataset": "agnews-mxbai-1024-euclidean",
+ "budget_s": 300.0,
+ "series_order": [
+  "kannolo",
+  "kannolo-rerank",
+  "hnswlib",
+  "glass",
+  "symphonyqg",
+  "lorann",
+  "rabitq-hnsw",
+  "vamana-leanvec(svs)"
+ ],
+ "fig_a": {
+  "kannolo": [
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=200, efS=12, lambda=0.04)",
+    "accuracy_at_k": 90.45,
+    "qps": 11665.238280181287,
+    "mean_us": 85.72478126734495,
+    "build_time_s": 59.917945861816406,
+    "uss_delta_kb": 1624952.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_8_200_permuted.hdf5",
+    "query_args": "12_0_04",
+    "pass_qps": [
+     11589.296427479756,
+     11665.238280181287,
+     11650.29479728973
+    ],
+    "pass_spread_pct": 0.12826699368186473,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1629515048,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 696509,
+      "1": 696715
+     },
+     "anon_pages_after": {
+      "0": 1392995,
+      "1": 231
+     },
+     "local_fraction": 0.9998341977539896,
+     "migrate_seconds": 1.6179969310760498,
+     "smaps_before": {
+      "Rss": 5602856,
+      "Anonymous": 5571948,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5602864,
+      "Anonymous": 5571956,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5737197568
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=500, efS=10, lambda=0.06)",
+    "accuracy_at_k": 91.46000000000001,
+    "qps": 11139.52536307426,
+    "mean_us": 89.7704316303134,
+    "build_time_s": 109.47964358329773,
+    "uss_delta_kb": 1676652.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_8_500_permuted.hdf5",
+    "query_args": "10_0_06",
+    "pass_qps": [
+     11139.52536307426,
+     11095.237886604948,
+     11135.727049765905
+    ],
+    "pass_spread_pct": 0.36492379500793615,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1631610420,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 701065,
+      "1": 701292
+     },
+     "anon_pages_after": {
+      "0": 1402125,
+      "1": 234
+     },
+     "local_fraction": 0.9998331383048136,
+     "migrate_seconds": 1.6372666358947754,
+     "smaps_before": {
+      "Rss": 5639364,
+      "Anonymous": 5608460,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5639372,
+      "Anonymous": 5608468,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5774581760
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=200, efS=12, lambda=0.06)",
+    "accuracy_at_k": 92.71000000000001,
+    "qps": 10460.612340608159,
+    "mean_us": 95.59669811278582,
+    "build_time_s": 59.917945861816406,
+    "uss_delta_kb": 1624952.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_8_200_permuted.hdf5",
+    "query_args": "12_0_06",
+    "pass_qps": [
+     10460.612340608159,
+     10360.161655838434,
+     10426.026909326414
+    ],
+    "pass_spread_pct": 0.6357550748338187,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1629515048,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 696509,
+      "1": 696715
+     },
+     "anon_pages_after": {
+      "0": 1392995,
+      "1": 231
+     },
+     "local_fraction": 0.9998341977539896,
+     "migrate_seconds": 1.6179969310760498,
+     "smaps_before": {
+      "Rss": 5602856,
+      "Anonymous": 5571948,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5602864,
+      "Anonymous": 5571956,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5737197568
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=200, efS=10, lambda=0.08)",
+    "accuracy_at_k": 93.41,
+    "qps": 10189.217163055893,
+    "mean_us": 98.14296662807465,
+    "build_time_s": 59.917945861816406,
+    "uss_delta_kb": 1624952.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_8_200_permuted.hdf5",
+    "query_args": "10_0_08",
+    "pass_qps": [
+     10189.217163055893,
+     10175.913375142321,
+     10172.940875923832
+    ],
+    "pass_spread_pct": 0.02921966474340004,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1629515048,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 696509,
+      "1": 696715
+     },
+     "anon_pages_after": {
+      "0": 1392995,
+      "1": 231
+     },
+     "local_fraction": 0.9998341977539896,
+     "migrate_seconds": 1.6179969310760498,
+     "smaps_before": {
+      "Rss": 5602856,
+      "Anonymous": 5571948,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5602864,
+      "Anonymous": 5571956,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5737197568
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=500, efS=14, lambda=0.06)",
+    "accuracy_at_k": 94.03,
+    "qps": 9325.374751125673,
+    "mean_us": 107.23429638892412,
+    "build_time_s": 109.47964358329773,
+    "uss_delta_kb": 1676652.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_8_500_permuted.hdf5",
+    "query_args": "14_0_06",
+    "pass_qps": [
+     9321.496688788176,
+     9325.374751125673,
+     9322.452890910095
+    ],
+    "pass_spread_pct": 0.03134218268270234,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1631610420,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 701065,
+      "1": 701292
+     },
+     "anon_pages_after": {
+      "0": 1402125,
+      "1": 234
+     },
+     "local_fraction": 0.9998331383048136,
+     "migrate_seconds": 1.6372666358947754,
+     "smaps_before": {
+      "Rss": 5639364,
+      "Anonymous": 5608460,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5639372,
+      "Anonymous": 5608468,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5774581760
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=200, efS=10, lambda=0.1)",
+    "accuracy_at_k": 95.42999999999999,
+    "qps": 8930.339486477658,
+    "mean_us": 111.97782587260008,
+    "build_time_s": 59.917945861816406,
+    "uss_delta_kb": 1624952.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_8_200_permuted.hdf5",
+    "query_args": "10_0_1",
+    "pass_qps": [
+     8917.884737876891,
+     8930.339486477658,
+     8879.108253059794
+    ],
+    "pass_spread_pct": 0.5769862463407802,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1629515048,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 696509,
+      "1": 696715
+     },
+     "anon_pages_after": {
+      "0": 1392995,
+      "1": 231
+     },
+     "local_fraction": 0.9998341977539896,
+     "migrate_seconds": 1.6179969310760498,
+     "smaps_before": {
+      "Rss": 5602856,
+      "Anonymous": 5571948,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5602864,
+      "Anonymous": 5571956,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5737197568
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=200, efS=12, lambda=0.1)",
+    "accuracy_at_k": 96.31,
+    "qps": 7985.023692368513,
+    "mean_us": 125.23444369435309,
+    "build_time_s": 59.917945861816406,
+    "uss_delta_kb": 1624952.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_8_200_permuted.hdf5",
+    "query_args": "12_0_1",
+    "pass_qps": [
+     7969.672868471473,
+     7985.023692368513,
+     7967.569034957129
+    ],
+    "pass_spread_pct": 0.21907130436904468,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1629515048,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 696509,
+      "1": 696715
+     },
+     "anon_pages_after": {
+      "0": 1392995,
+      "1": 231
+     },
+     "local_fraction": 0.9998341977539896,
+     "migrate_seconds": 1.6179969310760498,
+     "smaps_before": {
+      "Rss": 5602856,
+      "Anonymous": 5571948,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5602864,
+      "Anonymous": 5571956,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5737197568
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=200, efS=10, lambda=0.125)",
+    "accuracy_at_k": 97.09,
+    "qps": 7434.63733168277,
+    "mean_us": 134.50555223971605,
+    "build_time_s": 59.917945861816406,
+    "uss_delta_kb": 1624952.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_8_200_permuted.hdf5",
+    "query_args": "10_0_125",
+    "pass_qps": [
+     7375.305196574175,
+     7432.670680632436,
+     7434.63733168277
+    ],
+    "pass_spread_pct": 0.026459547783523676,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1629515048,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 696509,
+      "1": 696715
+     },
+     "anon_pages_after": {
+      "0": 1392995,
+      "1": 231
+     },
+     "local_fraction": 0.9998341977539896,
+     "migrate_seconds": 1.6179969310760498,
+     "smaps_before": {
+      "Rss": 5602856,
+      "Anonymous": 5571948,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5602864,
+      "Anonymous": 5571956,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5737197568
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=200, efS=10, lambda=0.15)",
+    "accuracy_at_k": 98.02,
+    "qps": 6047.492566863981,
+    "mean_us": 165.35778902471066,
+    "build_time_s": 59.917945861816406,
+    "uss_delta_kb": 1624952.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_8_200_permuted.hdf5",
+    "query_args": "10_0_15",
+    "pass_qps": [
+     6039.458304696662,
+     6047.492566863981,
+     6040.411450702363
+    ],
+    "pass_spread_pct": 0.11722903678679253,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1629515048,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 696509,
+      "1": 696715
+     },
+     "anon_pages_after": {
+      "0": 1392995,
+      "1": 231
+     },
+     "local_fraction": 0.9998341977539896,
+     "migrate_seconds": 1.6179969310760498,
+     "smaps_before": {
+      "Rss": 5602856,
+      "Anonymous": 5571948,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5602864,
+      "Anonymous": 5571956,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5737197568
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=12, lambda=0.125)",
+    "accuracy_at_k": 99.06,
+    "qps": 4277.1879836421085,
+    "mean_us": 233.7984684854746,
+    "build_time_s": 77.69252061843872,
+    "uss_delta_kb": 1747448.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_16_200_permuted.hdf5",
+    "query_args": "12_0_125",
+    "pass_qps": [
+     4271.892616767817,
+     4277.1879836421085,
+     4276.3512613189605
+    ],
+    "pass_spread_pct": 0.019566267409238794,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1651956540,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 743481,
+      "1": 743693
+     },
+     "anon_pages_after": {
+      "0": 1486948,
+      "1": 228
+     },
+     "local_fraction": 0.9998466892956852,
+     "migrate_seconds": 1.694493293762207,
+     "smaps_before": {
+      "Rss": 5978752,
+      "Anonymous": 5947760,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5978760,
+      "Anonymous": 5947768,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6122115072
+    }
+   }
+  ],
+  "kannolo-rerank": [
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=30, efS=30, alpha=0.1, lambda=none)",
+    "accuracy_at_k": 90.41999999999999,
+    "qps": 16464.00224872,
+    "mean_us": 60.7385728508234,
+    "build_time_s": 79.264221417,
+    "uss_delta_kb": 1733384.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank/euclidean_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "30_1_0_0_1_null_1",
+    "pass_qps": [
+     16273.040588235152,
+     16464.00224872,
+     16125.898033507041
+    ],
+    "pass_spread_pct": 2.0966535600710907,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1756601336,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 698361,
+      "1": 698556
+     },
+     "anon_pages_after": {
+      "0": 1396692,
+      "1": 226
+     },
+     "local_fraction": 0.9998382152710467,
+     "migrate_seconds": 1.1991477012634277,
+     "smaps_before": {
+      "Rss": 5617832,
+      "Anonymous": 5586704,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5617836,
+      "Anonymous": 5586708,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5752532992
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=30, efS=30, alpha=0.15, lambda=none)",
+    "accuracy_at_k": 91.1,
+    "qps": 16114.059505791725,
+    "mean_us": 62.05760873854161,
+    "build_time_s": 79.264221417,
+    "uss_delta_kb": 1733384.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank/euclidean_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "30_1_0_0_15_null_1",
+    "pass_qps": [
+     15984.908523645385,
+     16114.059505791725,
+     15920.637918092849
+    ],
+    "pass_spread_pct": 1.2149110399594256,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1756601336,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 698361,
+      "1": 698556
+     },
+     "anon_pages_after": {
+      "0": 1396692,
+      "1": 226
+     },
+     "local_fraction": 0.9998382152710467,
+     "migrate_seconds": 1.1991477012634277,
+     "smaps_before": {
+      "Rss": 5617832,
+      "Anonymous": 5586704,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5617836,
+      "Anonymous": 5586708,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5752532992
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=30, efS=38, alpha=off, lambda=none)",
+    "accuracy_at_k": 92.01,
+    "qps": 14098.667447488218,
+    "mean_us": 70.92868909239769,
+    "build_time_s": 79.264221417,
+    "uss_delta_kb": 1733384.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank/euclidean_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "30_1_25_null_null_1",
+    "pass_qps": [
+     14008.110271640036,
+     13767.53126865763,
+     14098.667447488218
+    ],
+    "pass_spread_pct": 2.40519648997953,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1756601336,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 698361,
+      "1": 698556
+     },
+     "anon_pages_after": {
+      "0": 1396692,
+      "1": 226
+     },
+     "local_fraction": 0.9998382152710467,
+     "migrate_seconds": 1.1991477012634277,
+     "smaps_before": {
+      "Rss": 5617832,
+      "Anonymous": 5586704,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5617836,
+      "Anonymous": 5586708,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5752532992
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=30, efS=30, alpha=off, lambda=0.04)",
+    "accuracy_at_k": 93.11,
+    "qps": 12281.690491402213,
+    "mean_us": 81.42201602458954,
+    "build_time_s": 79.264221417,
+    "uss_delta_kb": 1733384.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank/euclidean_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "30_1_0_null_0_04_1",
+    "pass_qps": [
+     12124.9423192764,
+     12201.840420871527,
+     12281.690491402213
+    ],
+    "pass_spread_pct": 0.6544100543562243,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1756601336,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 698361,
+      "1": 698556
+     },
+     "anon_pages_after": {
+      "0": 1396692,
+      "1": 226
+     },
+     "local_fraction": 0.9998382152710467,
+     "migrate_seconds": 1.1991477012634277,
+     "smaps_before": {
+      "Rss": 5617832,
+      "Anonymous": 5586704,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5617836,
+      "Anonymous": 5586708,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5752532992
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=0.1, lambda=none)",
+    "accuracy_at_k": 94.01,
+    "qps": 12060.324387962097,
+    "mean_us": 82.916509360075,
+    "build_time_s": 79.264221417,
+    "uss_delta_kb": 1733384.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank/euclidean_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "50_1_0_0_1_null_1",
+    "pass_qps": [
+     11988.843719556618,
+     12017.394268397404,
+     12060.324387962097
+    ],
+    "pass_spread_pct": 0.35723317888960376,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1756601336,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 698361,
+      "1": 698556
+     },
+     "anon_pages_after": {
+      "0": 1396692,
+      "1": 226
+     },
+     "local_fraction": 0.9998382152710467,
+     "migrate_seconds": 1.1991477012634277,
+     "smaps_before": {
+      "Rss": 5617832,
+      "Anonymous": 5586704,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5617836,
+      "Anonymous": 5586708,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5752532992
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=0.15, lambda=none)",
+    "accuracy_at_k": 95.38000000000001,
+    "qps": 11595.44649423382,
+    "mean_us": 86.2407498061657,
+    "build_time_s": 79.264221417,
+    "uss_delta_kb": 1733384.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank/euclidean_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "50_1_0_0_15_null_1",
+    "pass_qps": [
+     11504.715581764709,
+     11595.44649423382,
+     11565.107045399458
+    ],
+    "pass_spread_pct": 0.2623360831444345,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1756601336,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 698361,
+      "1": 698556
+     },
+     "anon_pages_after": {
+      "0": 1396692,
+      "1": 226
+     },
+     "local_fraction": 0.9998382152710467,
+     "migrate_seconds": 1.1991477012634277,
+     "smaps_before": {
+      "Rss": 5617832,
+      "Anonymous": 5586704,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5617836,
+      "Anonymous": 5586708,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5752532992
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=off, lambda=0.01)",
+    "accuracy_at_k": 96.03999999999999,
+    "qps": 10281.00298236095,
+    "mean_us": 97.2667746245861,
+    "build_time_s": 79.264221417,
+    "uss_delta_kb": 1733384.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank/euclidean_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "50_1_0_null_0_01_1",
+    "pass_qps": [
+     10250.915725212535,
+     10281.00298236095,
+     10161.810799923205
+    ],
+    "pass_spread_pct": 1.172942350379569,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1756601336,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 698361,
+      "1": 698556
+     },
+     "anon_pages_after": {
+      "0": 1396692,
+      "1": 226
+     },
+     "local_fraction": 0.9998382152710467,
+     "migrate_seconds": 1.1991477012634277,
+     "smaps_before": {
+      "Rss": 5617832,
+      "Anonymous": 5586704,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5617836,
+      "Anonymous": 5586708,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5752532992
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=100, efS=100, alpha=0.15, lambda=none)",
+    "accuracy_at_k": 97.91999999999999,
+    "qps": 7096.388760207461,
+    "mean_us": 140.9167442470789,
+    "build_time_s": 79.264221417,
+    "uss_delta_kb": 1733384.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank/euclidean_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "100_1_0_0_15_null_1",
+    "pass_qps": [
+     7044.042675067459,
+     7080.012124633691,
+     7096.388760207461
+    ],
+    "pass_spread_pct": 0.23130801593955067,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1756601336,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 698361,
+      "1": 698556
+     },
+     "anon_pages_after": {
+      "0": 1396692,
+      "1": 226
+     },
+     "local_fraction": 0.9998382152710467,
+     "migrate_seconds": 1.1991477012634277,
+     "smaps_before": {
+      "Rss": 5617832,
+      "Anonymous": 5586704,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5617836,
+      "Anonymous": 5586708,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5752532992
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=32, efC=200, kc=30, efS=30, alpha=0.1, lambda=0.04)",
+    "accuracy_at_k": 99.03,
+    "qps": 4584.5551214172365,
+    "mean_us": 218.12367253005505,
+    "build_time_s": 97.39653533,
+    "uss_delta_kb": 1837136.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank/euclidean_32_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "30_1_0_0_1_0_04",
+    "pass_qps": [
+     4570.362261993727,
+     4584.5551214172365,
+     4562.243057188321
+    ],
+    "pass_spread_pct": 0.48905908670869214,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1876503979,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 617811,
+      "1": 618005
+     },
+     "anon_pages_after": {
+      "0": 1235592,
+      "1": 225
+     },
+     "local_fraction": 0.9998179342087057,
+     "migrate_seconds": 0.998831033706665,
+     "smaps_before": {
+      "Rss": 4972744,
+      "Anonymous": 4942328,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 4972748,
+      "Anonymous": 4942332,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5091962880
+    }
+   }
+  ],
+  "hnswlib": [
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=8, efConstruction=200, efQuery=30)",
+    "accuracy_at_k": 90.66,
+    "qps": 5307.366340999245,
+    "mean_us": 188.41736856848001,
+    "build_time_s": 57.91499972343445,
+    "uss_delta_kb": 3313748.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_8_200.hdf5",
+    "query_args": "30",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 803347,
+      "1": 803099
+     },
+     "anon_pages_after": {
+      "0": 1606447,
+      "1": 1
+     },
+     "local_fraction": 0.9999993775086402,
+     "migrate_seconds": 1.9763190746307373,
+     "smaps_before": {
+      "Rss": 6454128,
+      "Anonymous": 6424804,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6454136,
+      "Anonymous": 6424812,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6614360064
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=12, efConstruction=200, efQuery=20)",
+    "accuracy_at_k": 91.78999999999999,
+    "qps": 5271.359782438635,
+    "mean_us": 189.7043725475669,
+    "build_time_s": 80.14295506477356,
+    "uss_delta_kb": 3337208.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_12_200.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 806333,
+      "1": 806079
+     },
+     "anon_pages_after": {
+      "0": 1612413
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.9868805408477783,
+     "smaps_before": {
+      "Rss": 6477904,
+      "Anonymous": 6448684,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6477908,
+      "Anonymous": 6448688,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6644740096
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=16, efConstruction=200, efQuery=20)",
+    "accuracy_at_k": 93.00000000000001,
+    "qps": 4501.000334244,
+    "mean_us": 222.1728339791298,
+    "build_time_s": 98.2860939502716,
+    "uss_delta_kb": 3360836.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_16_200.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 809266,
+      "1": 809006
+     },
+     "anon_pages_after": {
+      "0": 1618274
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.9676353931427002,
+     "smaps_before": {
+      "Rss": 6501396,
+      "Anonymous": 6472112,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6501404,
+      "Anonymous": 6472120,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6668025856
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=12, efConstruction=200, efQuery=30)",
+    "accuracy_at_k": 94.67,
+    "qps": 4149.988990995435,
+    "mean_us": 240.96449464559555,
+    "build_time_s": 80.14295506477356,
+    "uss_delta_kb": 3337208.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_12_200.hdf5",
+    "query_args": "30",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 806333,
+      "1": 806079
+     },
+     "anon_pages_after": {
+      "0": 1612413
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.9868805408477783,
+     "smaps_before": {
+      "Rss": 6477904,
+      "Anonymous": 6448684,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6477908,
+      "Anonymous": 6448688,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6644740096
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=12, efConstruction=200, efQuery=40)",
+    "accuracy_at_k": 96.34,
+    "qps": 3441.8501929923805,
+    "mean_us": 290.54140765219927,
+    "build_time_s": 80.14295506477356,
+    "uss_delta_kb": 3337208.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_12_200.hdf5",
+    "query_args": "40",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 806333,
+      "1": 806079
+     },
+     "anon_pages_after": {
+      "0": 1612413
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.9868805408477783,
+     "smaps_before": {
+      "Rss": 6477904,
+      "Anonymous": 6448684,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6477908,
+      "Anonymous": 6448688,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6644740096
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=12, efConstruction=200, efQuery=50)",
+    "accuracy_at_k": 97.11999999999999,
+    "qps": 2935.884208271678,
+    "mean_us": 340.61288833618164,
+    "build_time_s": 80.14295506477356,
+    "uss_delta_kb": 3337208.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_12_200.hdf5",
+    "query_args": "50",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 806333,
+      "1": 806079
+     },
+     "anon_pages_after": {
+      "0": 1612413
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.9868805408477783,
+     "smaps_before": {
+      "Rss": 6477904,
+      "Anonymous": 6448684,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6477908,
+      "Anonymous": 6448688,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6644740096
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=24, efConstruction=200, efQuery=40)",
+    "accuracy_at_k": 98.00000000000001,
+    "qps": 2284.4636183361918,
+    "mean_us": 437.73951660841703,
+    "build_time_s": 123.6876015663147,
+    "uss_delta_kb": 3408664.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_24_200.hdf5",
+    "query_args": "40",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 815226,
+      "1": 814984
+     },
+     "anon_pages_after": {
+      "0": 1630212
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.9811527729034424,
+     "smaps_before": {
+      "Rss": 6549100,
+      "Anonymous": 6519888,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6549108,
+      "Anonymous": 6519896,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6715543552
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=48, efConstruction=200, efQuery=50)",
+    "accuracy_at_k": 99.03,
+    "qps": 1506.9709653373873,
+    "mean_us": 663.5827915742993,
+    "build_time_s": 156.69039940834045,
+    "uss_delta_kb": 3552812.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_48_200.hdf5",
+    "query_args": "50",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 833242,
+      "1": 833001
+     },
+     "anon_pages_after": {
+      "0": 1666243
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 2.0555660724639893,
+     "smaps_before": {
+      "Rss": 6693136,
+      "Anonymous": 6664008,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6693136,
+      "Anonymous": 6664008,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6861742080
+    }
+   }
+  ],
+  "glass": [
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=16, efQuery=30, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)",
+    "accuracy_at_k": 91.0,
+    "qps": 20547.356741111398,
+    "mean_us": 48.66806045174599,
+    "build_time_s": 38.716407775878906,
+    "uss_delta_kb": 2565604.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_16_SQ8U_SQ4U_FP16.hdf5",
+    "query_args": "30",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 711050,
+      "1": 710809
+     },
+     "anon_pages_after": {
+      "0": 1421859
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.6968660354614258,
+     "smaps_before": {
+      "Rss": 5716356,
+      "Anonymous": 5686472,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5716356,
+      "Anonymous": 5686472,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5853356032
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=20, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 93.35000000000001,
+    "qps": 17922.799326381377,
+    "mean_us": 55.79485557973385,
+    "build_time_s": 63.31948232650757,
+    "uss_delta_kb": 3649944.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_32_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 845916,
+      "1": 845668
+     },
+     "anon_pages_after": {
+      "0": 1691584
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.9913532733917236,
+     "smaps_before": {
+      "Rss": 6795444,
+      "Anonymous": 6765352,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6795444,
+      "Anonymous": 6765352,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6958407680
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=16, efQuery=50, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 94.89000000000001,
+    "qps": 15200.916147611299,
+    "mean_us": 65.78550860285759,
+    "build_time_s": 39.35968232154846,
+    "uss_delta_kb": 3612292.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_16_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "50",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 842248,
+      "1": 841996
+     },
+     "anon_pages_after": {
+      "0": 1684244
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.96805739402771,
+     "smaps_before": {
+      "Rss": 6766096,
+      "Anonymous": 6735988,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6766096,
+      "Anonymous": 6735988,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6928158720
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=40, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 96.95,
+    "qps": 11945.547424746204,
+    "mean_us": 83.71319994330406,
+    "build_time_s": 63.31948232650757,
+    "uss_delta_kb": 3649944.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_32_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "40",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 845916,
+      "1": 845668
+     },
+     "anon_pages_after": {
+      "0": 1691584
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.9913532733917236,
+     "smaps_before": {
+      "Rss": 6795444,
+      "Anonymous": 6765352,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6795444,
+      "Anonymous": 6765352,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6958407680
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=60, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 98.27000000000001,
+    "qps": 9024.137387589699,
+    "mean_us": 110.8139157295227,
+    "build_time_s": 63.31948232650757,
+    "uss_delta_kb": 3649944.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_32_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "60",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 845916,
+      "1": 845668
+     },
+     "anon_pages_after": {
+      "0": 1691584
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.9913532733917236,
+     "smaps_before": {
+      "Rss": 6795444,
+      "Anonymous": 6765352,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6795444,
+      "Anonymous": 6765352,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6958407680
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=100, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 99.07000000000001,
+    "qps": 6085.124349010707,
+    "mean_us": 164.33517914265394,
+    "build_time_s": 63.31948232650757,
+    "uss_delta_kb": 3649944.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_32_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "100",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 845916,
+      "1": 845668
+     },
+     "anon_pages_after": {
+      "0": 1691584
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.9913532733917236,
+     "smaps_before": {
+      "Rss": 6795444,
+      "Anonymous": 6765352,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6795444,
+      "Anonymous": 6765352,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6958407680
+    }
+   }
+  ],
+  "symphonyqg": [
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=20)",
+    "accuracy_at_k": 90.77000000000001,
+    "qps": 38898.432349541166,
+    "mean_us": 25.707976892590523,
+    "build_time_s": 136.49430441856384,
+    "uss_delta_kb": 6551560.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/symphonyqg/euclidean_32_400_3.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     38501.482699354754,
+     38898.432349541166
+    ],
+    "pass_spread_pct": 1.0309983469625308,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 1236037,
+      "1": 1235783
+     },
+     "anon_pages_after": {
+      "0": 2471820
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.3329999446868896,
+     "smaps_before": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "smaps_after": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 10153549824
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=25)",
+    "accuracy_at_k": 94.27,
+    "qps": 34541.480717616425,
+    "mean_us": 28.950698673725128,
+    "build_time_s": 136.49430441856384,
+    "uss_delta_kb": 6551560.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/symphonyqg/euclidean_32_400_3.hdf5",
+    "query_args": "25",
+    "pass_qps": [
+     34258.212374202005,
+     34541.480717616425
+    ],
+    "pass_spread_pct": 0.8268625937637484,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 1236037,
+      "1": 1235783
+     },
+     "anon_pages_after": {
+      "0": 2471820
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.3329999446868896,
+     "smaps_before": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "smaps_after": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 10153549824
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=30)",
+    "accuracy_at_k": 95.7,
+    "qps": 31355.865515939255,
+    "mean_us": 31.891959719359875,
+    "build_time_s": 136.49430441856384,
+    "uss_delta_kb": 6551560.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/symphonyqg/euclidean_32_400_3.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     31183.378480723197,
+     31355.865515939255
+    ],
+    "pass_spread_pct": 0.5531377407444326,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 1236037,
+      "1": 1235783
+     },
+     "anon_pages_after": {
+      "0": 2471820
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.3329999446868896,
+     "smaps_before": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "smaps_after": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 10153549824
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=64, EF=400, num_iter=3, beam_size=30)",
+    "accuracy_at_k": 96.22,
+    "qps": 26825.693101241122,
+    "mean_us": 37.277694791555405,
+    "build_time_s": 197.33397364616394,
+    "uss_delta_kb": 10018612.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/symphonyqg/euclidean_64_400_3.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     26527.933490486954,
+     26825.693101241122
+    ],
+    "pass_spread_pct": 1.1224380174993525,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 1697656,
+      "1": 1697399
+     },
+     "anon_pages_after": {
+      "0": 3395055
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.8560283184051514,
+     "smaps_before": {
+      "Rss": 13608712,
+      "Anonymous": 13579240,
+      "AnonHugePages": 13078528
+     },
+     "smaps_after": {
+      "Rss": 13608712,
+      "Anonymous": 13579240,
+      "AnonHugePages": 13078528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 13935194112
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=50)",
+    "accuracy_at_k": 97.53,
+    "qps": 22521.529991523243,
+    "mean_us": 44.40195672214031,
+    "build_time_s": 136.49430441856384,
+    "uss_delta_kb": 6551560.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/symphonyqg/euclidean_32_400_3.hdf5",
+    "query_args": "50",
+    "pass_qps": [
+     22521.529991523243,
+     22292.060752125635
+    ],
+    "pass_spread_pct": 1.0293765208572145,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 1236037,
+      "1": 1235783
+     },
+     "anon_pages_after": {
+      "0": 2471820
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.3329999446868896,
+     "smaps_before": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "smaps_after": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 10153549824
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=60)",
+    "accuracy_at_k": 98.05999999999999,
+    "qps": 20057.936991240214,
+    "mean_us": 49.855575896799564,
+    "build_time_s": 136.49430441856384,
+    "uss_delta_kb": 6551560.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/symphonyqg/euclidean_32_400_3.hdf5",
+    "query_args": "60",
+    "pass_qps": [
+     19936.146362488485,
+     20057.936991240214
+    ],
+    "pass_spread_pct": 0.6109035644967381,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 1236037,
+      "1": 1235783
+     },
+     "anon_pages_after": {
+      "0": 2471820
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.3329999446868896,
+     "smaps_before": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "smaps_after": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 10153549824
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=64, EF=400, num_iter=3, beam_size=80)",
+    "accuracy_at_k": 99.10999999999999,
+    "qps": 13685.407114105414,
+    "mean_us": 73.07053357362747,
+    "build_time_s": 197.33397364616394,
+    "uss_delta_kb": 10018612.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/symphonyqg/euclidean_64_400_3.hdf5",
+    "query_args": "80",
+    "pass_qps": [
+     13685.407114105414,
+     13605.60424142784
+    ],
+    "pass_spread_pct": 0.5865441274161216,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 1697656,
+      "1": 1697399
+     },
+     "anon_pages_after": {
+      "0": 3395055
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.8560283184051514,
+     "smaps_before": {
+      "Rss": 13608712,
+      "Anonymous": 13579240,
+      "AnonHugePages": 13078528
+     },
+     "smaps_after": {
+      "Rss": 13608712,
+      "Anonymous": 13579240,
+      "AnonHugePages": 13078528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 13935194112
+    }
+   }
+  ],
+  "lorann": [
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=128, rank=64, train_size=5, n_probe=16, rerank=100)",
+    "accuracy_at_k": 90.79,
+    "qps": 6217.777366273758,
+    "mean_us": 160.8291743323207,
+    "build_time_s": 44.637755155563354,
+    "uss_delta_kb": 3442820.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_2048_128_64_5.hdf5",
+    "query_args": "16_100",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661604,
+      "1": 661352
+     },
+     "anon_pages_after": {
+      "0": 1322956
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.5862090587615967,
+     "smaps_before": {
+      "Rss": 5321308,
+      "Anonymous": 5290860,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321308,
+      "Anonymous": 5290860,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5909925888
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=16, rerank=100)",
+    "accuracy_at_k": 92.47,
+    "qps": 5178.175511196031,
+    "mean_us": 193.11821274459362,
+    "build_time_s": 147.58637809753418,
+    "uss_delta_kb": 3390344.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_4096_256_64_5.hdf5",
+    "query_args": "16_100",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 545451,
+      "1": 545231
+     },
+     "anon_pages_after": {
+      "0": 1090682
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.326636791229248,
+     "smaps_before": {
+      "Rss": 4392248,
+      "Anonymous": 4361732,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4392248,
+      "Anonymous": 4361732,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5377830912
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=256, rank=64, train_size=5, n_probe=16, rerank=100)",
+    "accuracy_at_k": 93.57,
+    "qps": 5092.524603566884,
+    "mean_us": 196.36625796556473,
+    "build_time_s": 87.15568542480469,
+    "uss_delta_kb": 3469280.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_2048_256_64_5.hdf5",
+    "query_args": "16_100",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 688475,
+      "1": 688035
+     },
+     "anon_pages_after": {
+      "0": 1376510
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.6460909843444824,
+     "smaps_before": {
+      "Rss": 5535404,
+      "Anonymous": 5505072,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5535404,
+      "Anonymous": 5505072,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6554107904
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=32, rerank=400)",
+    "accuracy_at_k": 95.06,
+    "qps": 2989.433273109796,
+    "mean_us": 334.5115641131997,
+    "build_time_s": 84.90535044670105,
+    "uss_delta_kb": 3353684.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_4096_128_64_5.hdf5",
+    "query_args": "32_400",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 525875,
+      "1": 525636
+     },
+     "anon_pages_after": {
+      "0": 1051511
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.2937545776367188,
+     "smaps_before": {
+      "Rss": 4235396,
+      "Anonymous": 4205068,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4235396,
+      "Anonymous": 4205068,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4817891328
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=256, rank=64, train_size=5, n_probe=32, rerank=400)",
+    "accuracy_at_k": 96.9,
+    "qps": 2401.695783034982,
+    "mean_us": 416.37246776372194,
+    "build_time_s": 87.15568542480469,
+    "uss_delta_kb": 3469280.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_2048_256_64_5.hdf5",
+    "query_args": "32_400",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 688475,
+      "1": 688035
+     },
+     "anon_pages_after": {
+      "0": 1376510
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.6460909843444824,
+     "smaps_before": {
+      "Rss": 5535404,
+      "Anonymous": 5505072,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5535404,
+      "Anonymous": 5505072,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6554107904
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=256, rank=64, train_size=5, n_probe=48, rerank=800)",
+    "accuracy_at_k": 98.09,
+    "qps": 1476.681931729381,
+    "mean_us": 677.1939024329185,
+    "build_time_s": 87.15568542480469,
+    "uss_delta_kb": 3469280.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_2048_256_64_5.hdf5",
+    "query_args": "48_800",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 688475,
+      "1": 688035
+     },
+     "anon_pages_after": {
+      "0": 1376510
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.6460909843444824,
+     "smaps_before": {
+      "Rss": 5535404,
+      "Anonymous": 5505072,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5535404,
+      "Anonymous": 5505072,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6554107904
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=128, rerank=1200)",
+    "accuracy_at_k": 99.0,
+    "qps": 912.3443272014499,
+    "mean_us": 1096.0774021223187,
+    "build_time_s": 147.58637809753418,
+    "uss_delta_kb": 3390344.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_4096_256_64_5.hdf5",
+    "query_args": "128_1200",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 545451,
+      "1": 545231
+     },
+     "anon_pages_after": {
+      "0": 1090682
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.326636791229248,
+     "smaps_before": {
+      "Rss": 4392248,
+      "Anonymous": 4361732,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4392248,
+      "Anonymous": 4361732,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5377830912
+    }
+   }
+  ],
+  "rabitq-hnsw": [
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=400, total_bits=4, ef=20)",
+    "accuracy_at_k": 91.56,
+    "qps": 13090.124195045713,
+    "mean_us": 76.39346923679113,
+    "build_time_s": 213.6945343017578,
+    "uss_delta_kb": 620800.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_4_false.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 466385,
+      "1": 466131
+     },
+     "anon_pages_after": {
+      "0": 932517
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.1401631832122803,
+     "smaps_before": {
+      "Rss": 3767600,
+      "Anonymous": 3729092,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3767604,
+      "Anonymous": 3729096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3858038784
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=400, total_bits=5, ef=20)",
+    "accuracy_at_k": 92.09,
+    "qps": 12642.08634690196,
+    "mean_us": 79.10086773335934,
+    "build_time_s": 214.55487036705017,
+    "uss_delta_kb": 716916.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_5_false.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 478920,
+      "1": 478742
+     },
+     "anon_pages_after": {
+      "0": 957663
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.1628148555755615,
+     "smaps_before": {
+      "Rss": 3868208,
+      "Anonymous": 3829688,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3868212,
+      "Anonymous": 3829692,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3961061376
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=400, total_bits=8, ef=20)",
+    "accuracy_at_k": 93.27000000000001,
+    "qps": 11686.899594906936,
+    "mean_us": 85.56589297950268,
+    "build_time_s": 217.10275626182556,
+    "uss_delta_kb": 1010856.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_8_false.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 514571,
+      "1": 514330
+     },
+     "anon_pages_after": {
+      "0": 1028902
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.2678308486938477,
+     "smaps_before": {
+      "Rss": 4153276,
+      "Anonymous": 4114620,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4153280,
+      "Anonymous": 4114624,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4252971008
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=400, total_bits=4, ef=40)",
+    "accuracy_at_k": 94.51,
+    "qps": 10017.56708868242,
+    "mean_us": 99.82463717460632,
+    "build_time_s": 213.6945343017578,
+    "uss_delta_kb": 620800.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_4_false.hdf5",
+    "query_args": "40",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 466385,
+      "1": 466131
+     },
+     "anon_pages_after": {
+      "0": 932517
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.1401631832122803,
+     "smaps_before": {
+      "Rss": 3767600,
+      "Anonymous": 3729092,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3767604,
+      "Anonymous": 3729096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3858038784
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=400, total_bits=5, ef=40)",
+    "accuracy_at_k": 95.53999999999999,
+    "qps": 9801.715415042207,
+    "mean_us": 102.02295798808336,
+    "build_time_s": 214.55487036705017,
+    "uss_delta_kb": 716916.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_5_false.hdf5",
+    "query_args": "40",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 478920,
+      "1": 478742
+     },
+     "anon_pages_after": {
+      "0": 957663
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.1628148555755615,
+     "smaps_before": {
+      "Rss": 3868208,
+      "Anonymous": 3829688,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3868212,
+      "Anonymous": 3829692,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3961061376
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=400, total_bits=8, ef=40)",
+    "accuracy_at_k": 96.39,
+    "qps": 9094.147447442458,
+    "mean_us": 109.96082983911037,
+    "build_time_s": 217.10275626182556,
+    "uss_delta_kb": 1010856.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_8_false.hdf5",
+    "query_args": "40",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 514571,
+      "1": 514330
+     },
+     "anon_pages_after": {
+      "0": 1028902
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.2678308486938477,
+     "smaps_before": {
+      "Rss": 4153276,
+      "Anonymous": 4114620,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4153280,
+      "Anonymous": 4114624,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4252971008
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=16, efConstruction=400, total_bits=5, ef=80)",
+    "accuracy_at_k": 97.32,
+    "qps": 6658.749804018866,
+    "mean_us": 150.1783411949873,
+    "build_time_s": 214.09837222099304,
+    "uss_delta_kb": 720008.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_32_16_400_5_false.hdf5",
+    "query_args": "80",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 479202,
+      "1": 479010
+     },
+     "anon_pages_after": {
+      "0": 958213
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.1714956760406494,
+     "smaps_before": {
+      "Rss": 3870444,
+      "Anonymous": 3831908,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3870448,
+      "Anonymous": 3831912,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3963351040
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=400, total_bits=8, ef=80)",
+    "accuracy_at_k": 98.17,
+    "qps": 6338.335966913533,
+    "mean_us": 157.77011588215828,
+    "build_time_s": 217.10275626182556,
+    "uss_delta_kb": 1010856.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_8_false.hdf5",
+    "query_args": "80",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 514571,
+      "1": 514330
+     },
+     "anon_pages_after": {
+      "0": 1028902
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.2678308486938477,
+     "smaps_before": {
+      "Rss": 4153276,
+      "Anonymous": 4114620,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4153280,
+      "Anonymous": 4114624,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4252971008
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=16, efConstruction=400, total_bits=8, ef=200)",
+    "accuracy_at_k": 99.24,
+    "qps": 3188.4110437992367,
+    "mean_us": 313.63584753125906,
+    "build_time_s": 216.93867945671082,
+    "uss_delta_kb": 1007436.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_32_16_400_8_false.hdf5",
+    "query_args": "200",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 515031,
+      "1": 514728
+     },
+     "anon_pages_after": {
+      "0": 1029760
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.2517833709716797,
+     "smaps_before": {
+      "Rss": 4156644,
+      "Anonymous": 4118048,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4156648,
+      "Anonymous": 4118052,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4256419840
+    }
+   }
+  ],
+  "vamana-leanvec(svs)": [
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=20, reduced_dim=192)",
+    "accuracy_at_k": 92.15,
+    "qps": 10357.16607335609,
+    "mean_us": 96.55150771141052,
+    "build_time_s": 35.23588848114014,
+    "uss_delta_kb": 1915468.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_192.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 628734,
+      "1": 628478
+     },
+     "anon_pages_after": {
+      "0": 1257212
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.506810188293457,
+     "smaps_before": {
+      "Rss": 5066692,
+      "Anonymous": 5027876,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5066692,
+      "Anonymous": 5027876,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5188788224
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=20, reduced_dim=256)",
+    "accuracy_at_k": 95.02000000000001,
+    "qps": 8923.637514936974,
+    "mean_us": 112.06192523241043,
+    "build_time_s": 40.13913369178772,
+    "uss_delta_kb": 1961312.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_256.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 634836,
+      "1": 634574
+     },
+     "anon_pages_after": {
+      "0": 1269411
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.4902653694152832,
+     "smaps_before": {
+      "Rss": 5115504,
+      "Anonymous": 5076672,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5115508,
+      "Anonymous": 5076676,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5238771712
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=20, reduced_dim=384)",
+    "accuracy_at_k": 96.72,
+    "qps": 6646.502190230264,
+    "mean_us": 150.45507717877626,
+    "build_time_s": 100.60248637199402,
+    "uss_delta_kb": 2056936.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_384.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 647068,
+      "1": 646810
+     },
+     "anon_pages_after": {
+      "0": 1293879
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.5378358364105225,
+     "smaps_before": {
+      "Rss": 5213516,
+      "Anonymous": 5174540,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5213520,
+      "Anonymous": 5174544,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5339136000
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=128, alpha=1.2, window_size=192, search_window_size=20, reduced_dim=384)",
+    "accuracy_at_k": 97.33000000000001,
+    "qps": 6484.417941289998,
+    "mean_us": 154.21584621071815,
+    "build_time_s": 77.08986449241638,
+    "uss_delta_kb": 2249548.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_128_1_2_192_384.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 670740,
+      "1": 670491
+     },
+     "anon_pages_after": {
+      "0": 1341233
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.6120519638061523,
+     "smaps_before": {
+      "Rss": 5402776,
+      "Anonymous": 5363968,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5402780,
+      "Anonymous": 5363972,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5532454912
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=40, reduced_dim=256)",
+    "accuracy_at_k": 98.17,
+    "qps": 5613.184230411605,
+    "mean_us": 178.15200053155422,
+    "build_time_s": 40.13913369178772,
+    "uss_delta_kb": 1961312.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_256.hdf5",
+    "query_args": "40",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 634836,
+      "1": 634574
+     },
+     "anon_pages_after": {
+      "0": 1269411
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.4902653694152832,
+     "smaps_before": {
+      "Rss": 5115504,
+      "Anonymous": 5076672,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5115508,
+      "Anonymous": 5076676,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5238771712
+    }
+   },
+   {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=80, reduced_dim=192)",
+    "accuracy_at_k": 99.04999999999998,
+    "qps": 3607.5870651864416,
+    "mean_us": 277.1935872733593,
+    "build_time_s": 35.23588848114014,
+    "uss_delta_kb": 1915468.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_192.hdf5",
+    "query_args": "80",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 628734,
+      "1": 628478
+     },
+     "anon_pages_after": {
+      "0": 1257212
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.506810188293457,
+     "smaps_before": {
+      "Rss": 5066692,
+      "Anonymous": 5027876,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5066692,
+      "Anonymous": 5027876,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5188788224
+    }
+   }
+  ]
+ },
+ "table2": {
+  "kannolo": {
+   "90": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=200, efS=12, lambda=0.04)",
+    "accuracy_at_k": 90.45,
+    "qps": 11665.238280181287,
+    "mean_us": 85.72478126734495,
+    "build_time_s": 59.917945861816406,
+    "uss_delta_kb": 1624952.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_8_200_permuted.hdf5",
+    "query_args": "12_0_04",
+    "pass_qps": [
+     11589.296427479756,
+     11665.238280181287,
+     11650.29479728973
+    ],
+    "pass_spread_pct": 0.12826699368186473,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1629515048,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 696509,
+      "1": 696715
+     },
+     "anon_pages_after": {
+      "0": 1392995,
+      "1": 231
+     },
+     "local_fraction": 0.9998341977539896,
+     "migrate_seconds": 1.6179969310760498,
+     "smaps_before": {
+      "Rss": 5602856,
+      "Anonymous": 5571948,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5602864,
+      "Anonymous": 5571956,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5737197568
+    }
+   },
+   "95": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=8, efC=200, efS=10, lambda=0.1)",
+    "accuracy_at_k": 95.42999999999999,
+    "qps": 8930.339486477658,
+    "mean_us": 111.97782587260008,
+    "build_time_s": 59.917945861816406,
+    "uss_delta_kb": 1624952.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_8_200_permuted.hdf5",
+    "query_args": "10_0_1",
+    "pass_qps": [
+     8917.884737876891,
+     8930.339486477658,
+     8879.108253059794
+    ],
+    "pass_spread_pct": 0.5769862463407802,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1629515048,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 696509,
+      "1": 696715
+     },
+     "anon_pages_after": {
+      "0": 1392995,
+      "1": 231
+     },
+     "local_fraction": 0.9998341977539896,
+     "migrate_seconds": 1.6179969310760498,
+     "smaps_before": {
+      "Rss": 5602856,
+      "Anonymous": 5571948,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5602864,
+      "Anonymous": 5571956,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5737197568
+    }
+   },
+   "99": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=16, efC=200, efS=12, lambda=0.125)",
+    "accuracy_at_k": 99.06,
+    "qps": 4277.1879836421085,
+    "mean_us": 233.7984684854746,
+    "build_time_s": 77.69252061843872,
+    "uss_delta_kb": 1747448.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo/euclidean_16_200_permuted.hdf5",
+    "query_args": "12_0_125",
+    "pass_qps": [
+     4271.892616767817,
+     4277.1879836421085,
+     4276.3512613189605
+    ],
+    "pass_spread_pct": 0.019566267409238794,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1651956540,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 743481,
+      "1": 743693
+     },
+     "anon_pages_after": {
+      "0": 1486948,
+      "1": 228
+     },
+     "local_fraction": 0.9998466892956852,
+     "migrate_seconds": 1.694493293762207,
+     "smaps_before": {
+      "Rss": 5978752,
+      "Anonymous": 5947760,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5978760,
+      "Anonymous": 5947768,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6122115072
+    }
+   }
+  },
+  "kannolo-rerank": {
+   "90": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=30, efS=30, alpha=0.1, lambda=none)",
+    "accuracy_at_k": 90.41999999999999,
+    "qps": 16464.00224872,
+    "mean_us": 60.7385728508234,
+    "build_time_s": 79.264221417,
+    "uss_delta_kb": 1733384.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank/euclidean_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "30_1_0_0_1_null_1",
+    "pass_qps": [
+     16273.040588235152,
+     16464.00224872,
+     16125.898033507041
+    ],
+    "pass_spread_pct": 2.0966535600710907,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1756601336,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 698361,
+      "1": 698556
+     },
+     "anon_pages_after": {
+      "0": 1396692,
+      "1": 226
+     },
+     "local_fraction": 0.9998382152710467,
+     "migrate_seconds": 1.1991477012634277,
+     "smaps_before": {
+      "Rss": 5617832,
+      "Anonymous": 5586704,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5617836,
+      "Anonymous": 5586708,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5752532992
+    }
+   },
+   "95": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=0.15, lambda=none)",
+    "accuracy_at_k": 95.38000000000001,
+    "qps": 11595.44649423382,
+    "mean_us": 86.2407498061657,
+    "build_time_s": 79.264221417,
+    "uss_delta_kb": 1733384.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank/euclidean_16_200_permuted_rabitq_128_4_1.hdf5",
+    "query_args": "50_1_0_0_15_null_1",
+    "pass_qps": [
+     11504.715581764709,
+     11595.44649423382,
+     11565.107045399458
+    ],
+    "pass_spread_pct": 0.2623360831444345,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1756601336,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 698361,
+      "1": 698556
+     },
+     "anon_pages_after": {
+      "0": 1396692,
+      "1": 226
+     },
+     "local_fraction": 0.9998382152710467,
+     "migrate_seconds": 1.1991477012634277,
+     "smaps_before": {
+      "Rss": 5617832,
+      "Anonymous": 5586704,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5617836,
+      "Anonymous": 5586708,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5752532992
+    }
+   },
+   "99": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq2+f16, graph=permuted, M=32, efC=200, kc=30, efS=30, alpha=0.1, lambda=0.04)",
+    "accuracy_at_k": 99.03,
+    "qps": 4584.5551214172365,
+    "mean_us": 218.12367253005505,
+    "build_time_s": 97.39653533,
+    "uss_delta_kb": 1837136.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank/euclidean_32_200_permuted_rabitq_ext_128_2_1.hdf5",
+    "query_args": "30_1_0_0_1_0_04",
+    "pass_qps": [
+     4570.362261993727,
+     4584.5551214172365,
+     4562.243057188321
+    ],
+    "pass_spread_pct": 0.48905908670869214,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1876503979,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 617811,
+      "1": 618005
+     },
+     "anon_pages_after": {
+      "0": 1235592,
+      "1": 225
+     },
+     "local_fraction": 0.9998179342087057,
+     "migrate_seconds": 0.998831033706665,
+     "smaps_before": {
+      "Rss": 4972744,
+      "Anonymous": 4942328,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 4972748,
+      "Anonymous": 4942332,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5091962880
+    }
+   }
+  },
+  "hnswlib": {
+   "90": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=8, efConstruction=200, efQuery=30)",
+    "accuracy_at_k": 90.66,
+    "qps": 5307.366340999245,
+    "mean_us": 188.41736856848001,
+    "build_time_s": 57.91499972343445,
+    "uss_delta_kb": 3313748.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_8_200.hdf5",
+    "query_args": "30",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 803347,
+      "1": 803099
+     },
+     "anon_pages_after": {
+      "0": 1606447,
+      "1": 1
+     },
+     "local_fraction": 0.9999993775086402,
+     "migrate_seconds": 1.9763190746307373,
+     "smaps_before": {
+      "Rss": 6454128,
+      "Anonymous": 6424804,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6454136,
+      "Anonymous": 6424812,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6614360064
+    }
+   },
+   "95": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=24, efConstruction=200, efQuery=20)",
+    "accuracy_at_k": 95.15,
+    "qps": 3624.270533422663,
+    "mean_us": 275.91759245842695,
+    "build_time_s": 123.6876015663147,
+    "uss_delta_kb": 3408664.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_24_200.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 815226,
+      "1": 814984
+     },
+     "anon_pages_after": {
+      "0": 1630212
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.9811527729034424,
+     "smaps_before": {
+      "Rss": 6549100,
+      "Anonymous": 6519888,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6549108,
+      "Anonymous": 6519896,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6715543552
+    }
+   },
+   "99": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=48, efConstruction=200, efQuery=50)",
+    "accuracy_at_k": 99.03,
+    "qps": 1506.9709653373873,
+    "mean_us": 663.5827915742993,
+    "build_time_s": 156.69039940834045,
+    "uss_delta_kb": 3552812.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_48_200.hdf5",
+    "query_args": "50",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 833242,
+      "1": 833001
+     },
+     "anon_pages_after": {
+      "0": 1666243
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 2.0555660724639893,
+     "smaps_before": {
+      "Rss": 6693136,
+      "Anonymous": 6664008,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6693136,
+      "Anonymous": 6664008,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6861742080
+    }
+   }
+  },
+  "glass": {
+   "90": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=16, efQuery=30, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)",
+    "accuracy_at_k": 91.0,
+    "qps": 20547.356741111398,
+    "mean_us": 48.66806045174599,
+    "build_time_s": 38.716407775878906,
+    "uss_delta_kb": 2565604.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_16_SQ8U_SQ4U_FP16.hdf5",
+    "query_args": "30",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 711050,
+      "1": 710809
+     },
+     "anon_pages_after": {
+      "0": 1421859
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.6968660354614258,
+     "smaps_before": {
+      "Rss": 5716356,
+      "Anonymous": 5686472,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5716356,
+      "Anonymous": 5686472,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5853356032
+    }
+   },
+   "95": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=48, efQuery=20, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 95.16999999999999,
+    "qps": 14373.720983436395,
+    "mean_us": 69.57140751183033,
+    "build_time_s": 79.6239275932312,
+    "uss_delta_kb": 3694516.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_48_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 851959,
+      "1": 851699
+     },
+     "anon_pages_after": {
+      "0": 1703658
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 2.0118374824523926,
+     "smaps_before": {
+      "Rss": 6843692,
+      "Anonymous": 6813640,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6843692,
+      "Anonymous": 6813640,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 7007617024
+    }
+   },
+   "99": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=32, efQuery=100, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)",
+    "accuracy_at_k": 99.07000000000001,
+    "qps": 6085.124349010707,
+    "mean_us": 164.33517914265394,
+    "build_time_s": 63.31948232650757,
+    "uss_delta_kb": 3649944.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_32_SQ8U_SQ4U_FP32.hdf5",
+    "query_args": "100",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 845916,
+      "1": 845668
+     },
+     "anon_pages_after": {
+      "0": 1691584
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.9913532733917236,
+     "smaps_before": {
+      "Rss": 6795444,
+      "Anonymous": 6765352,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6795444,
+      "Anonymous": 6765352,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6958407680
+    }
+   }
+  },
+  "symphonyqg": {
+   "90": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=20)",
+    "accuracy_at_k": 90.77000000000001,
+    "qps": 38898.432349541166,
+    "mean_us": 25.707976892590523,
+    "build_time_s": 136.49430441856384,
+    "uss_delta_kb": 6551560.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/symphonyqg/euclidean_32_400_3.hdf5",
+    "query_args": "20",
+    "pass_qps": [
+     38501.482699354754,
+     38898.432349541166
+    ],
+    "pass_spread_pct": 1.0309983469625308,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 1236037,
+      "1": 1235783
+     },
+     "anon_pages_after": {
+      "0": 2471820
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.3329999446868896,
+     "smaps_before": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "smaps_after": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 10153549824
+    }
+   },
+   "95": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=30)",
+    "accuracy_at_k": 95.7,
+    "qps": 31355.865515939255,
+    "mean_us": 31.891959719359875,
+    "build_time_s": 136.49430441856384,
+    "uss_delta_kb": 6551560.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/symphonyqg/euclidean_32_400_3.hdf5",
+    "query_args": "30",
+    "pass_qps": [
+     31183.378480723197,
+     31355.865515939255
+    ],
+    "pass_spread_pct": 0.5531377407444326,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 1236037,
+      "1": 1235783
+     },
+     "anon_pages_after": {
+      "0": 2471820
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.3329999446868896,
+     "smaps_before": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "smaps_after": {
+      "Rss": 9915700,
+      "Anonymous": 9886284,
+      "AnonHugePages": 9617408
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 10153549824
+    }
+   },
+   "99": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=64, EF=400, num_iter=3, beam_size=80)",
+    "accuracy_at_k": 99.10999999999999,
+    "qps": 13685.407114105414,
+    "mean_us": 73.07053357362747,
+    "build_time_s": 197.33397364616394,
+    "uss_delta_kb": 10018612.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/symphonyqg/euclidean_64_400_3.hdf5",
+    "query_args": "80",
+    "pass_qps": [
+     13685.407114105414,
+     13605.60424142784
+    ],
+    "pass_spread_pct": 0.5865441274161216,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 1697656,
+      "1": 1697399
+     },
+     "anon_pages_after": {
+      "0": 3395055
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.8560283184051514,
+     "smaps_before": {
+      "Rss": 13608712,
+      "Anonymous": 13579240,
+      "AnonHugePages": 13078528
+     },
+     "smaps_after": {
+      "Rss": 13608712,
+      "Anonymous": 13579240,
+      "AnonHugePages": 13078528
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 13935194112
+    }
+   }
+  },
+  "lorann": {
+   "90": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=128, rank=64, train_size=5, n_probe=16, rerank=100)",
+    "accuracy_at_k": 90.79,
+    "qps": 6217.777366273758,
+    "mean_us": 160.8291743323207,
+    "build_time_s": 44.637755155563354,
+    "uss_delta_kb": 3442820.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_2048_128_64_5.hdf5",
+    "query_args": "16_100",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661604,
+      "1": 661352
+     },
+     "anon_pages_after": {
+      "0": 1322956
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.5862090587615967,
+     "smaps_before": {
+      "Rss": 5321308,
+      "Anonymous": 5290860,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321308,
+      "Anonymous": 5290860,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5909925888
+    }
+   },
+   "95": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=32, rerank=400)",
+    "accuracy_at_k": 95.06,
+    "qps": 2989.433273109796,
+    "mean_us": 334.5115641131997,
+    "build_time_s": 84.90535044670105,
+    "uss_delta_kb": 3353684.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_4096_128_64_5.hdf5",
+    "query_args": "32_400",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 525875,
+      "1": 525636
+     },
+     "anon_pages_after": {
+      "0": 1051511
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.2937545776367188,
+     "smaps_before": {
+      "Rss": 4235396,
+      "Anonymous": 4205068,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4235396,
+      "Anonymous": 4205068,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4817891328
+    }
+   },
+   "99": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=128, rerank=1200)",
+    "accuracy_at_k": 99.0,
+    "qps": 912.3443272014499,
+    "mean_us": 1096.0774021223187,
+    "build_time_s": 147.58637809753418,
+    "uss_delta_kb": 3390344.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_4096_256_64_5.hdf5",
+    "query_args": "128_1200",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 545451,
+      "1": 545231
+     },
+     "anon_pages_after": {
+      "0": 1090682
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.326636791229248,
+     "smaps_before": {
+      "Rss": 4392248,
+      "Anonymous": 4361732,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4392248,
+      "Anonymous": 4361732,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5377830912
+    }
+   }
+  },
+  "rabitq-hnsw": {
+   "90": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=400, total_bits=4, ef=20)",
+    "accuracy_at_k": 91.56,
+    "qps": 13090.124195045713,
+    "mean_us": 76.39346923679113,
+    "build_time_s": 213.6945343017578,
+    "uss_delta_kb": 620800.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_4_false.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 466385,
+      "1": 466131
+     },
+     "anon_pages_after": {
+      "0": 932517
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.1401631832122803,
+     "smaps_before": {
+      "Rss": 3767600,
+      "Anonymous": 3729092,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3767604,
+      "Anonymous": 3729096,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3858038784
+    }
+   },
+   "95": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=16, efConstruction=400, total_bits=5, ef=40)",
+    "accuracy_at_k": 95.53999999999999,
+    "qps": 9801.715415042207,
+    "mean_us": 102.02295798808336,
+    "build_time_s": 214.55487036705017,
+    "uss_delta_kb": 716916.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_5_false.hdf5",
+    "query_args": "40",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 478920,
+      "1": 478742
+     },
+     "anon_pages_after": {
+      "0": 957663
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.1628148555755615,
+     "smaps_before": {
+      "Rss": 3868208,
+      "Anonymous": 3829688,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3868212,
+      "Anonymous": 3829692,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3961061376
+    }
+   },
+   "99": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=16, efConstruction=400, total_bits=8, ef=200)",
+    "accuracy_at_k": 99.24,
+    "qps": 3188.4110437992367,
+    "mean_us": 313.63584753125906,
+    "build_time_s": 216.93867945671082,
+    "uss_delta_kb": 1007436.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_32_16_400_8_false.hdf5",
+    "query_args": "200",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 515031,
+      "1": 514728
+     },
+     "anon_pages_after": {
+      "0": 1029760
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.2517833709716797,
+     "smaps_before": {
+      "Rss": 4156644,
+      "Anonymous": 4118048,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4156648,
+      "Anonymous": 4118052,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4256419840
+    }
+   }
+  },
+  "vamana-leanvec(svs)": {
+   "90": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=20, reduced_dim=192)",
+    "accuracy_at_k": 92.15,
+    "qps": 10357.16607335609,
+    "mean_us": 96.55150771141052,
+    "build_time_s": 35.23588848114014,
+    "uss_delta_kb": 1915468.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_192.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 628734,
+      "1": 628478
+     },
+     "anon_pages_after": {
+      "0": 1257212
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.506810188293457,
+     "smaps_before": {
+      "Rss": 5066692,
+      "Anonymous": 5027876,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5066692,
+      "Anonymous": 5027876,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5188788224
+    }
+   },
+   "95": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=20, reduced_dim=256)",
+    "accuracy_at_k": 95.02000000000001,
+    "qps": 8923.637514936974,
+    "mean_us": 112.06192523241043,
+    "build_time_s": 40.13913369178772,
+    "uss_delta_kb": 1961312.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_256.hdf5",
+    "query_args": "20",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 634836,
+      "1": 634574
+     },
+     "anon_pages_after": {
+      "0": 1269411
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.4902653694152832,
+     "smaps_before": {
+      "Rss": 5115504,
+      "Anonymous": 5076672,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5115508,
+      "Anonymous": 5076676,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5238771712
+    }
+   },
+   "99": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=80, reduced_dim=192)",
+    "accuracy_at_k": 99.04999999999998,
+    "qps": 3607.5870651864416,
+    "mean_us": 277.1935872733593,
+    "build_time_s": 35.23588848114014,
+    "uss_delta_kb": 1915468.0,
+    "run_count": 2,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_192.hdf5",
+    "query_args": "80",
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 628734,
+      "1": 628478
+     },
+     "anon_pages_after": {
+      "0": 1257212
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.506810188293457,
+     "smaps_before": {
+      "Rss": 5066692,
+      "Anonymous": 5027876,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5066692,
+      "Anonymous": 5027876,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5188788224
+    }
+   }
+  }
+ },
+ "table2_control_arms": {
+  "kannolo-rerank-ext8": {
+   "90": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8",
+    "name": "kANNolo-Rerank(rabitq1-q1+ext8, graph=permuted, M=16, efC=200, kc=30, efS=30, alpha=0.1, lambda=none)",
+    "accuracy_at_k": 90.28,
+    "qps": 15949.052952506709,
+    "mean_us": 62.69964762032032,
+    "build_time_s": 80.181275207,
+    "uss_delta_kb": 969920.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank-ext8/euclidean_16_200_permuted_rabitq_128_4_1_8.hdf5",
+    "query_args": "30_1_0_0_1_null_1",
+    "pass_qps": [
+     15710.612225894734,
+     15914.22016614943,
+     15949.052952506709
+    ],
+    "pass_spread_pct": 0.21887837414346606,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 974918060,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 647103,
+      "1": 646843
+     },
+     "anon_pages_after": {
+      "0": 1293947
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 0.988178014755249,
+     "smaps_before": {
+      "Rss": 5206132,
+      "Anonymous": 5174840,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5206136,
+      "Anonymous": 5174844,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5330952192
+    }
+   },
+   "95": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8",
+    "name": "kANNolo-Rerank(rabitq1-q1+ext8, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=0.15, lambda=none)",
+    "accuracy_at_k": 95.12,
+    "qps": 11449.519746703878,
+    "mean_us": 87.33990788459778,
+    "build_time_s": 80.181275207,
+    "uss_delta_kb": 969920.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank-ext8/euclidean_16_200_permuted_rabitq_128_4_1_8.hdf5",
+    "query_args": "50_1_0_0_15_null_1",
+    "pass_qps": [
+     11359.488599387612,
+     11400.354557707999,
+     11449.519746703878
+    ],
+    "pass_spread_pct": 0.4312601748218246,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 974918060,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 647103,
+      "1": 646843
+     },
+     "anon_pages_after": {
+      "0": 1293947
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 0.988178014755249,
+     "smaps_before": {
+      "Rss": 5206132,
+      "Anonymous": 5174840,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5206136,
+      "Anonymous": 5174844,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5330952192
+    }
+   },
+   "99": {
+    "dataset": "agnews-mxbai-1024-euclidean",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8",
+    "name": "kANNolo-Rerank(rabitq1-q2+ext8, graph=permuted, M=16, efC=200, kc=100, efS=100, alpha=0.15, lambda=0.04)",
+    "accuracy_at_k": 99.01,
+    "qps": 3441.6420505518136,
+    "mean_us": 290.55897891521454,
+    "build_time_s": 80.181275207,
+    "uss_delta_kb": 969920.0,
+    "run_count": 3,
+    "result_file": "results/agnews-mxbai-1024-euclidean/10/kannolo-rerank-ext8/euclidean_16_200_permuted_rabitq_128_4_1_8.hdf5",
+    "query_args": "100_1_0_0_15_0_04_2",
+    "pass_qps": [
+     3424.7321890068,
+     3427.21142776548,
+     3441.6420505518136
+    ],
+    "pass_spread_pct": 0.4210601852405175,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 974918060,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 647103,
+      "1": 646843
+     },
+     "anon_pages_after": {
+      "0": 1293947
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 0.988178014755249,
+     "smaps_before": {
+      "Rss": 5206132,
+      "Anonymous": 5174840,
+      "AnonHugePages": 3076096
+     },
+     "smaps_after": {
+      "Rss": 5206136,
+      "Anonymous": 5174844,
+      "AnonHugePages": 3076096
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5330952192
+    }
+   }
+  }
+ },
+ "pass_spread": {
+  "median_pct": 0.1724233988053168
+ }
+}

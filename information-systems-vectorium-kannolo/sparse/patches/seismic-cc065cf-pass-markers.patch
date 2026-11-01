@@ -1,0 +1,67 @@
+diff --git a/src/bin/perf_inverted_index.rs b/src/bin/perf_inverted_index.rs
+index c1ea7d2..e3be76f 100644
+--- a/src/bin/perf_inverted_index.rs
++++ b/src/bin/perf_inverted_index.rs
+@@ -158,9 +158,11 @@ where
+     let mut results = Vec::with_capacity(n_queries);
+     let mut energy_buf = Vec::new();
+ 
++    let mut __qt: Vec<Vec<u64>> = Vec::new();
+     let time = Instant::now();
+-    for _ in 0..n_runs {
++    for i_run in 0..n_runs {
+         results.clear();
++        __qt.push(Vec::new());
+ 
+         for (query_id, components_values) in queries.iter().take(n_queries).enumerate() {
+             let query_view =
+@@ -176,6 +178,7 @@ where
+                 None => query_cut,
+             };
+ 
++            let __t0 = Instant::now();
+             let cur_results = inverted_index.search(
+                 query,
+                 args.k,
+@@ -184,6 +187,7 @@ where
+                 nknn,
+                 args.first_sorted,
+             );
++            __qt.last_mut().unwrap().push(__t0.elapsed().as_nanos() as u64);
+ 
+             if cur_results.len() < args.k {
+                 println!(
+@@ -194,8 +198,12 @@ where
+ 
+             results.push(cur_results);
+         }
++
++        // Lane-B pass boundary (kANNolo/Vectorium journal campaign, local patch, never upstreamed).
++        println!("pass_done: {}", i_run + 1);
+     }
+     let elapsed = time.elapsed();
++    qtimes_dump(&__qt);
+     println!(
+         "Time {} microsecs per query",
+         elapsed.as_micros() / (n_runs * n_queries) as u128
+@@ -243,3 +251,20 @@ pub fn main() {
+         std::process::exit(1);
+     }
+ }
++
++// Per-query times (kANNolo/Vectorium journal campaign, benchmark-only, never upstreamed): with
++// QUERY_TIMES_DIR set, writes <dir>/<pid>.tsv holding the argv line and then one line per pass of
++// per-query nanoseconds. Written after the last pass, outside every timed region.
++fn qtimes_dump(times: &[Vec<u64>]) {
++    if let Ok(dir) = std::env::var("QUERY_TIMES_DIR") {
++        use std::io::Write as _;
++        let argv: Vec<String> = std::env::args().collect();
++        let path = format!("{}/{}.tsv", dir, std::process::id());
++        let mut f = std::fs::File::create(&path).expect("QUERY_TIMES_DIR");
++        writeln!(f, "# {}", argv.join(" ")).unwrap();
++        for (i, pass) in times.iter().enumerate() {
++            let s: Vec<String> = pass.iter().map(|t| t.to_string()).collect();
++            writeln!(f, "{}\t{}", i + 1, s.join(" ")).unwrap();
++        }
++    }
++}

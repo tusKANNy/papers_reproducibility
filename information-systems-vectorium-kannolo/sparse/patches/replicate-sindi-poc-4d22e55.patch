@@ -1,0 +1,168 @@
+diff --git a/build_poc_vsag.sh b/build_poc_vsag.sh
+index 10154b0..5945d3d 100755
+--- a/build_poc_vsag.sh
++++ b/build_poc_vsag.sh
+@@ -18,9 +18,16 @@ cd "$(dirname "$0")/vsag"
+ # Roxanne0321/vsag, so the fix lives as a parent-repo patch, not in the
+ # submodule pointer. cwd is vsag/ here, so the patch path is repo-root-relative.
+ # git apply --check is the idempotency guard: succeeds only if not yet applied.
++# 0003 adds a pass marker after each of sindi_index_search's three passes and dumps the returned
++# ids. Upstream prints nothing between the passes and never exposes the ids, which makes the
++# binary unmeasurable under an external benchmark's rules: the passes cannot be timed from
++# outside the process, and accuracy could only come from its own self-reported recall. Both
++# additions are pure observability -- they sit outside every timed region and leave upstream's
++# own `qps` computed over exactly the interval it was before. NOT a tuning change.
+ for PATCH in \
+     ../patches/0001-generate_gt-int32-header.patch \
+-    ../patches/0002-thread_pool-md5-bump.patch
++    ../patches/0002-thread_pool-md5-bump.patch \
++    ../patches/0003-sindi-search-pass-markers-and-ids-dump.patch
+ do
+     if git apply --check "${PATCH}" 2>/dev/null; then
+         git apply "${PATCH}"
+diff --git a/scripts/compare_gt.py b/scripts/compare_gt.py
+index b843c68..a0dc221 100755
+--- a/scripts/compare_gt.py
++++ b/scripts/compare_gt.py
+@@ -28,11 +28,20 @@ import numpy as np
+ 
+ 
+ def load_gt_bin(path: Path) -> tuple[np.ndarray, np.ndarray]:
++    """Ids and **similarities** from a generate_gt .bin.
++
++    vsag stores inner product as a *distance*, i.e. negated: a bin entry of -20.98 is the same
++    quantity the shipped TSV writes as +20.98. Returning the raw value made the score-divergence
++    statistic below compare `-s` against `+s`, so it reported `2s` -- on NQ, "mean=4.297e+01" for
++    scores whose mean magnitude is ~21. That number could never be small, so the one statistic
++    meant to detect a lossy CSR encoding was incapable of detecting anything. Negated here, at
++    the read, so every caller gets the comparable quantity (2026-09-14).
++    """
+     with path.open("rb") as f:
+         n, k = struct.unpack("<II", f.read(8))
+         ids = np.fromfile(f, dtype="<i4", count=n * k).reshape(n, k)
+         dists = np.fromfile(f, dtype="<f4", count=n * k).reshape(n, k)
+-    return ids, dists
++    return ids, -dists
+ 
+ 
+ def load_gt_tsv(path: Path, k: int) -> tuple[np.ndarray, np.ndarray]:
+@@ -58,7 +67,7 @@ def main() -> int:
+     p.add_argument("--show-mismatches", type=int, default=5, help="Print first N mismatching queries")
+     args = p.parse_args()
+ 
+-    bin_ids, bin_dists = load_gt_bin(args.bin)
++    bin_ids, bin_scores = load_gt_bin(args.bin)
+     n_bin, k = bin_ids.shape
+     tsv_ids, tsv_scores = load_gt_tsv(args.tsv, k)
+     n_tsv = tsv_ids.shape[0]
+@@ -86,7 +95,7 @@ def main() -> int:
+             # find rank of d in each list (cheap for small k)
+             i = int(np.where(bin_ids[q] == d)[0][0])
+             j = int(np.where(tsv_ids[q] == d)[0][0])
+-            score_diffs.append(abs(float(bin_dists[q, i]) - float(tsv_scores[q, j])))
++            score_diffs.append(abs(float(bin_scores[q, i]) - float(tsv_scores[q, j])))
+ 
+     print(f"queries compared: {n}  topk={k}")
+     print(f"exact set match: {exact}/{n} ({100.0*exact/n:.2f}%)")
+@@ -102,7 +111,46 @@ def main() -> int:
+             print(f"  q={q}")
+             print(f"    bin ids: {a}")
+             print(f"    tsv ids: {b}")
+-    return 0 if exact == n else 1
++
++    # Exact agreement is the WRONG bar and demanding it fails a correct scan.
++    #
++    # Two correct exhaustive f32 scans that accumulate in different orders order equidistant
++    # documents differently, so a document sitting exactly on the rank-k boundary can go either
++    # way. The bar is therefore: every disagreement is a floating-point tie. On NQ (2026-09-14)
++    # 8 of 3452 queries disagreed, every one of them by a single document at rank 10, with the
++    # two candidates' scores agreeing to 0-4 ULP (worst relative gap 1.27e-7, f32 eps 1.19e-7) --
++    # a pass. What a lossy CSR encoding looks like instead is gaps orders of magnitude larger,
++    # and disagreements that are not confined to the boundary.
++    #
++    # RTOL is ~8 ULP of f32: loose enough for accumulation order, far too tight to absorb a real
++    # encoding error.
++    RTOL = 1e-6
++    untied = []
++    for q in range(n):
++        only_bin = set(map(int, bin_ids[q])) - set(map(int, tsv_ids[q]))
++        if not only_bin:
++            continue
++        only_tsv = set(map(int, tsv_ids[q])) - set(map(int, bin_ids[q]))
++        edge_bin = min(float(bin_scores[q, int(np.where(bin_ids[q] == d)[0][0])]) for d in only_bin)
++        edge_tsv = min(float(tsv_scores[q, int(np.where(tsv_ids[q] == d)[0][0])]) for d in only_tsv)
++        gap = abs(edge_bin - edge_tsv)
++        if gap > RTOL * max(abs(edge_bin), abs(edge_tsv)):
++            untied.append((q, edge_bin, edge_tsv, gap))
++
++    if exact == n:
++        print("\nGATE PASS: exact set match on every query.")
++        return 0
++    if not untied:
++        print(f"\nGATE PASS: {n - exact} of {n} queries disagree, and every disagreement is a "
++              f"floating-point tie at the rank-{k} boundary (rtol {RTOL:.0e}). This is the bar "
++              "PROTOCOL sets for the exhaustive gate, and the outcome is a disclosure in the "
++              "write-up, not an internal check.")
++        return 0
++    print(f"\nGATE FAIL: {len(untied)} queries disagree by more than a float tie. The CSR encoding "
++          "or the ground truth is wrong; do not run a grid against this.")
++    for q, sb, st, gap in untied[:args.show_mismatches]:
++        print(f"  q={q}  boundary bin={sb:.6f} tsv={st:.6f}  gap={gap:.3e}")
++    return 1
+ 
+ 
+ if __name__ == "__main__":
+diff --git a/patches/0003-sindi-search-pass-markers-and-ids-dump.patch b/patches/0003-sindi-search-pass-markers-and-ids-dump.patch
+new file mode 100644
+index 0000000..764d6c3
+--- /dev/null
++++ b/patches/0003-sindi-search-pass-markers-and-ids-dump.patch
+@@ -0,0 +1,48 @@
++diff --git a/sparse/scripts/sindi_index_search.cpp b/sparse/scripts/sindi_index_search.cpp
++--- a/sparse/scripts/sindi_index_search.cpp
+++++ b/sparse/scripts/sindi_index_search.cpp
++@@ -164,7 +164,13 @@
++ 
++     // warmup (run twice with the same beta/gamma)
++     index->KnnSearch(query, topk, sindi_search_parameters.dump()).value();
+++    // Observability only: mark the end of each whole-query-file pass so an external harness can
+++    // time the passes on its own clock. Upstream prints nothing between the three passes, which
+++    // makes them individually unmeasurable from outside the process. One line, after the search
+++    // call returns, outside every timed region.
+++    std::cout << "pass_done: 1" << std::endl;
++     index->KnnSearch(query, topk, sindi_search_parameters.dump()).value();
+++    std::cout << "pass_done: 2" << std::endl;
++ 
++     auto start_time = high_resolution_clock::now();
++ 
++@@ -174,6 +180,9 @@
++     auto end_time = high_resolution_clock::now();
++     auto duration = duration_cast<nanoseconds>(end_time - start_time).count();
++ 
+++    // After end_time, so upstream's own qps is measured exactly as before this patch.
+++    std::cout << "pass_done: 3" << std::endl;
+++
++     float qps = static_cast<float>(query_results.second) / (duration * 1.0e-9);
++     std::cout << "qps: " << qps << std::endl;
++     
++@@ -188,6 +197,20 @@
++         }
++     }
++ 
+++    // Observability only: emit the returned ids so accuracy can be computed externally against
+++    // the ground truth shipped with the collection. Upstream computes `recall` internally and
+++    // never exposes the ids, which makes its self-report the only available number -- and a
+++    // self-reported recall is exactly what an independent benchmark may not use. Emitted after
+++    // every timed region, one line per query: "ids: <query> <id_1> ... <id_topk>".
+++    for (size_t i = 0; i < query_results.second; ++i) {
+++        std::cout << "ids: " << i;
+++        for (size_t j = 0; j < topk; ++j) {
+++            std::cout << ' ' << ids[i][j];
+++        }
+++        std::cout << '\n';
+++    }
+++    std::cout.flush();
+++
++     float recall = cal_recall(ids, gt_ids, query_results.second, topk, gt_topk);
++     std::cout << "recall: " << recall << std::endl;
++ 

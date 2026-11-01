@@ -1,0 +1,4080 @@
+{
+ "dataset": "laion-clip-512-normalized",
+ "budget_s": 300.0,
+ "series_order": [
+  "kannolo",
+  "kannolo-rerank",
+  "hnswlib",
+  "glass",
+  "symphonyqg",
+  "lorann",
+  "rabitq-hnsw",
+  "vamana-leanvec(svs)"
+ ],
+ "fig_a": {
+  "kannolo": [
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=16, lambda=0.06)",
+    "accuracy_at_k": 90.37,
+    "qps": 2578.1607689140255,
+    "mean_us": 387.873406521976,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "16_0_06",
+    "pass_qps": [
+     2578.1607689140255,
+     2573.1340999760087,
+     2574.5699971999734
+    ],
+    "pass_spread_pct": 0.05580343535061457,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=18, lambda=0.06)",
+    "accuracy_at_k": 91.08000000000001,
+    "qps": 2385.7159672898442,
+    "mean_us": 419.16138119995594,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "18_0_06",
+    "pass_qps": [
+     2385.7159672898442,
+     2384.6905586977755,
+     2385.2654141412095
+    ],
+    "pass_spread_pct": 0.024106081241329052,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=22, lambda=0.06)",
+    "accuracy_at_k": 92.17999999999999,
+    "qps": 2093.2600204506093,
+    "mean_us": 477.7237372472882,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "22_0_06",
+    "pass_qps": [
+     2093.1209515686664,
+     2091.161414770131,
+     2093.2600204506093
+    ],
+    "pass_spread_pct": 0.1003559871397515,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=26, lambda=0.06)",
+    "accuracy_at_k": 93.01,
+    "qps": 1877.4377156016494,
+    "mean_us": 532.6408389955759,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "26_0_06",
+    "pass_qps": [
+     1876.764891681307,
+     1875.0541635020286,
+     1877.4377156016494
+    ],
+    "pass_spread_pct": 0.12711910653125247,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=18, lambda=0.08)",
+    "accuracy_at_k": 94.12,
+    "qps": 1488.033788340321,
+    "mean_us": 672.0277508720756,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "18_0_08",
+    "pass_qps": [
+     1487.652923589445,
+     1488.033788340321,
+     1486.3897449597687
+    ],
+    "pass_spread_pct": 0.11060648030755041,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=24, lambda=0.08)",
+    "accuracy_at_k": 95.21000000000001,
+    "qps": 1254.334940382557,
+    "mean_us": 797.2352262586355,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "24_0_08",
+    "pass_qps": [
+     1254.334940382557,
+     1253.9567691132681,
+     1253.502207059163
+    ],
+    "pass_spread_pct": 0.03626336288401919,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=18, lambda=0.1)",
+    "accuracy_at_k": 96.18,
+    "qps": 935.6799698156884,
+    "mean_us": 1068.7414845451713,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "18_0_1",
+    "pass_qps": [
+     935.6799698156884,
+     934.7492212450269,
+     934.1790085210677
+    ],
+    "pass_spread_pct": 0.06103891425070172,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=26, lambda=0.1)",
+    "accuracy_at_k": 97.09,
+    "qps": 745.4266153017732,
+    "mean_us": 1341.5136775001884,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "26_0_1",
+    "pass_qps": [
+     745.0407951572772,
+     745.4266153017732,
+     745.2748522224974
+    ],
+    "pass_spread_pct": 0.02036337048313775,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=18, lambda=0.125)",
+    "accuracy_at_k": 98.05999999999999,
+    "qps": 516.0668271444938,
+    "mean_us": 1937.7335403114557,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "18_0_125",
+    "pass_qps": [
+     516.0668271444938,
+     515.8879246356469,
+     515.842794554736
+    ],
+    "pass_spread_pct": 0.008748805137396481,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=12, lambda=0.175)",
+    "accuracy_at_k": 99.10999999999999,
+    "qps": 206.0933801465383,
+    "mean_us": 4852.169435471296,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "12_0_175",
+    "pass_qps": [
+     205.99381044883796,
+     206.05081160322328,
+     206.0933801465383
+    ],
+    "pass_spread_pct": 0.020659245641305536,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   }
+  ],
+  "kannolo-rerank": [
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=32, efC=500, kc=100, efS=100, alpha=0.05, lambda=none)",
+    "accuracy_at_k": 90.06,
+    "qps": 2987.12836793881,
+    "mean_us": 334.76967737078667,
+    "build_time_s": 128.661590669,
+    "uss_delta_kb": 1390320.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_32_500_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "100_1_0_0_05_null",
+    "pass_qps": [
+     2972.850265560403,
+     2987.12836793881,
+     2984.493938461248
+    ],
+    "pass_spread_pct": 0.08827055882445577,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1418752318,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 427098,
+      "1": 427310
+     },
+     "anon_pages_after": {
+      "0": 854184,
+      "1": 226
+     },
+     "local_fraction": 0.9997354899872427,
+     "migrate_seconds": 0.7002894878387451,
+     "smaps_before": {
+      "Rss": 3447200,
+      "Anonymous": 3416668,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3447208,
+      "Anonymous": 3416676,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3529805824
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=32, efC=200, kc=100, efS=125, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 91.02000000000001,
+    "qps": 2550.5221706282136,
+    "mean_us": 392.076576128602,
+    "build_time_s": 60.825751319,
+    "uss_delta_kb": 1367452.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_32_200_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "100_1_25_0_05_0_01",
+    "pass_qps": [
+     2545.8719688202605,
+     2546.8254024954053,
+     2550.5221706282136
+    ],
+    "pass_spread_pct": 0.14515200489150812,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1395202942,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 424242,
+      "1": 424419
+     },
+     "anon_pages_after": {
+      "0": 848437,
+      "1": 226
+     },
+     "local_fraction": 0.9997336987708902,
+     "migrate_seconds": 0.7240216732025146,
+     "smaps_before": {
+      "Rss": 3424180,
+      "Anonymous": 3393664,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3424188,
+      "Anonymous": 3393672,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3506233344
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=32, efC=500, kc=30, efS=45, alpha=0.05, lambda=0.04)",
+    "accuracy_at_k": 92.04,
+    "qps": 2521.3621738503666,
+    "mean_us": 396.61101065576077,
+    "build_time_s": 128.661590669,
+    "uss_delta_kb": 1390320.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_32_500_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "30_1_5_0_05_0_04",
+    "pass_qps": [
+     2517.8348339922986,
+     2521.3621738503666,
+     2521.226858360043
+    ],
+    "pass_spread_pct": 0.005367049374192734,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1418752318,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 427098,
+      "1": 427310
+     },
+     "anon_pages_after": {
+      "0": 854184,
+      "1": 226
+     },
+     "local_fraction": 0.9997354899872427,
+     "migrate_seconds": 0.7002894878387451,
+     "smaps_before": {
+      "Rss": 3447200,
+      "Anonymous": 3416668,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3447208,
+      "Anonymous": 3416676,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3529805824
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=32, efC=500, kc=100, efS=125, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 93.24999999999999,
+    "qps": 2129.9748373618177,
+    "mean_us": 469.4891143590212,
+    "build_time_s": 128.661590669,
+    "uss_delta_kb": 1390320.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_32_500_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "100_1_25_0_05_0_01",
+    "pass_qps": [
+     2129.9748373618177,
+     2129.192099345261,
+     2127.952381764734
+    ],
+    "pass_spread_pct": 0.05825870875449979,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1418752318,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 427098,
+      "1": 427310
+     },
+     "anon_pages_after": {
+      "0": 854184,
+      "1": 226
+     },
+     "local_fraction": 0.9997354899872427,
+     "migrate_seconds": 0.7002894878387451,
+     "smaps_before": {
+      "Rss": 3447200,
+      "Anonymous": 3416668,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3447208,
+      "Anonymous": 3416676,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3529805824
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=32, efC=500, kc=100, efS=150, alpha=0.05, lambda=0.01)",
+    "accuracy_at_k": 94.17999999999999,
+    "qps": 1845.1907681434286,
+    "mean_us": 541.9493839144707,
+    "build_time_s": 128.661590669,
+    "uss_delta_kb": 1390320.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_32_500_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "100_1_5_0_05_0_01",
+    "pass_qps": [
+     1845.1907681434286,
+     1842.890797112883,
+     1839.6256382063298
+    ],
+    "pass_spread_pct": 0.17749040015211556,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1418752318,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 427098,
+      "1": 427310
+     },
+     "anon_pages_after": {
+      "0": 854184,
+      "1": 226
+     },
+     "local_fraction": 0.9997354899872427,
+     "migrate_seconds": 0.7002894878387451,
+     "smaps_before": {
+      "Rss": 3447200,
+      "Anonymous": 3416668,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3447208,
+      "Anonymous": 3416676,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3529805824
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=32, efC=500, kc=100, efS=100, alpha=0.05, lambda=0.04)",
+    "accuracy_at_k": 95.53999999999999,
+    "qps": 1398.2515871184657,
+    "mean_us": 715.1788771152496,
+    "build_time_s": 128.661590669,
+    "uss_delta_kb": 1390320.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_32_500_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "100_1_0_0_05_0_04",
+    "pass_qps": [
+     1395.8518236087873,
+     1398.2515871184657,
+     1394.895811902006
+    ],
+    "pass_spread_pct": 0.24057533099077671,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1418752318,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 427098,
+      "1": 427310
+     },
+     "anon_pages_after": {
+      "0": 854184,
+      "1": 226
+     },
+     "local_fraction": 0.9997354899872427,
+     "migrate_seconds": 0.7002894878387451,
+     "smaps_before": {
+      "Rss": 3447200,
+      "Anonymous": 3416668,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3447208,
+      "Anonymous": 3416676,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3529805824
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=32, efC=500, kc=100, efS=125, alpha=0.05, lambda=0.04)",
+    "accuracy_at_k": 96.13,
+    "qps": 1168.3687803034325,
+    "mean_us": 855.8941464871168,
+    "build_time_s": 128.661590669,
+    "uss_delta_kb": 1390320.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_32_500_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "100_1_25_0_05_0_04",
+    "pass_qps": [
+     1168.0030986458014,
+     1168.3687803034325,
+     1167.7833544756206
+    ],
+    "pass_spread_pct": 0.05013137287564018,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1418752318,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 427098,
+      "1": 427310
+     },
+     "anon_pages_after": {
+      "0": 854184,
+      "1": 226
+     },
+     "local_fraction": 0.9997354899872427,
+     "migrate_seconds": 0.7002894878387451,
+     "smaps_before": {
+      "Rss": 3447200,
+      "Anonymous": 3416668,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3447208,
+      "Anonymous": 3416676,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3529805824
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=64, efC=500, kc=50, efS=50, alpha=0.05, lambda=0.08)",
+    "accuracy_at_k": 97.05,
+    "qps": 836.9712432590778,
+    "mean_us": 1194.7841793298721,
+    "build_time_s": 144.122195548,
+    "uss_delta_kb": 1405868.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_64_500_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "50_1_0_0_05_0_08",
+    "pass_qps": [
+     836.9712432590778,
+     836.5267465989544,
+     836.3469162797985
+    ],
+    "pass_spread_pct": 0.021501881056231204,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1434881551,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 429029,
+      "1": 429231
+     },
+     "anon_pages_after": {
+      "0": 858035,
+      "1": 227
+     },
+     "local_fraction": 0.9997355119998322,
+     "migrate_seconds": 0.6890738010406494,
+     "smaps_before": {
+      "Rss": 3462560,
+      "Anonymous": 3432072,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3462568,
+      "Anonymous": 3432080,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3545534464
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=32, efC=500, kc=100, efS=125, alpha=0.05, lambda=0.08)",
+    "accuracy_at_k": 98.1,
+    "qps": 505.35017682463223,
+    "mean_us": 1978.8258634507658,
+    "build_time_s": 128.661590669,
+    "uss_delta_kb": 1390320.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_32_500_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "100_1_25_0_05_0_08",
+    "pass_qps": [
+     504.90740916502887,
+     505.35017682463223,
+     504.9584385213858
+    ],
+    "pass_spread_pct": 0.07757832592985502,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1418752318,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 427098,
+      "1": 427310
+     },
+     "anon_pages_after": {
+      "0": 854184,
+      "1": 226
+     },
+     "local_fraction": 0.9997354899872427,
+     "migrate_seconds": 0.7002894878387451,
+     "smaps_before": {
+      "Rss": 3447200,
+      "Anonymous": 3416668,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3447208,
+      "Anonymous": 3416676,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3529805824
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=64, efC=500, kc=100, efS=100, alpha=0.05, lambda=0.12)",
+    "accuracy_at_k": 99.03999999999999,
+    "qps": 219.5950063955408,
+    "mean_us": 4553.837614133954,
+    "build_time_s": 144.122195548,
+    "uss_delta_kb": 1405868.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_64_500_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "100_1_0_0_05_0_12",
+    "pass_qps": [
+     219.5270745919985,
+     219.5950063955408,
+     219.44573514944202
+    ],
+    "pass_spread_pct": 0.06802193991016693,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1434881551,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 429029,
+      "1": 429231
+     },
+     "anon_pages_after": {
+      "0": 858035,
+      "1": 227
+     },
+     "local_fraction": 0.9997355119998322,
+     "migrate_seconds": 0.6890738010406494,
+     "smaps_before": {
+      "Rss": 3462560,
+      "Anonymous": 3432072,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3462568,
+      "Anonymous": 3432080,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3545534464
+    }
+   }
+  ],
+  "hnswlib": [
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=16, efConstruction=500, efQuery=150)",
+    "accuracy_at_k": 90.65,
+    "qps": 1504.024100875815,
+    "mean_us": 664.8829625919461,
+    "build_time_s": 142.2510118484497,
+    "uss_delta_kb": 2365268.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/hnswlib/normalized_16_500.hdf5",
+    "query_args": "150",
+    "pass_qps": [
+     1503.3032166845626,
+     1504.024100875815,
+     1503.4865786690286
+    ],
+    "pass_spread_pct": 0.03575171301244866,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 551559,
+      "1": 551774
+     },
+     "anon_pages_after": {
+      "0": 1103101,
+      "1": 232
+     },
+     "local_fraction": 0.9997897280331505,
+     "migrate_seconds": 1.2969000339508057,
+     "smaps_before": {
+      "Rss": 4441380,
+      "Anonymous": 4412364,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4441380,
+      "Anonymous": 4412364,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4546768896
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=48, efConstruction=500, efQuery=100)",
+    "accuracy_at_k": 91.22,
+    "qps": 1380.6901776019313,
+    "mean_us": 724.2754502221942,
+    "build_time_s": 214.72853875160217,
+    "uss_delta_kb": 2614708.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/hnswlib/normalized_48_500.hdf5",
+    "query_args": "100",
+    "pass_qps": [
+     1380.6901776019313,
+     1379.7445719786313,
+     1333.0319178825528
+    ],
+    "pass_spread_pct": 3.504241231543724,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 582765,
+      "1": 582976
+     },
+     "anon_pages_after": {
+      "0": 1165509,
+      "1": 232
+     },
+     "local_fraction": 0.9998009849529184,
+     "migrate_seconds": 1.3846185207366943,
+     "smaps_before": {
+      "Rss": 4691100,
+      "Anonymous": 4661996,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4691100,
+      "Anonymous": 4661996,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4803842048
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=16, efConstruction=500, efQuery=200)",
+    "accuracy_at_k": 92.58,
+    "qps": 1184.538564985033,
+    "mean_us": 844.2105893045664,
+    "build_time_s": 142.2510118484497,
+    "uss_delta_kb": 2365268.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/hnswlib/normalized_16_500.hdf5",
+    "query_args": "200",
+    "pass_qps": [
+     1183.5059612957548,
+     1184.538564985033,
+     1184.3365025386324
+    ],
+    "pass_spread_pct": 0.017061236056425705,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 551559,
+      "1": 551774
+     },
+     "anon_pages_after": {
+      "0": 1103101,
+      "1": 232
+     },
+     "local_fraction": 0.9997897280331505,
+     "migrate_seconds": 1.2969000339508057,
+     "smaps_before": {
+      "Rss": 4441380,
+      "Anonymous": 4412364,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4441380,
+      "Anonymous": 4412364,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4546768896
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=48, efConstruction=500, efQuery=150)",
+    "accuracy_at_k": 93.45000000000002,
+    "qps": 990.8430282452082,
+    "mean_us": 1009.2415967956185,
+    "build_time_s": 214.72853875160217,
+    "uss_delta_kb": 2614708.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/hnswlib/normalized_48_500.hdf5",
+    "query_args": "150",
+    "pass_qps": [
+     990.8430282452082,
+     990.6733750789989,
+     990.6379640264976
+    ],
+    "pass_spread_pct": 0.003574570507817119,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 582765,
+      "1": 582976
+     },
+     "anon_pages_after": {
+      "0": 1165509,
+      "1": 232
+     },
+     "local_fraction": 0.9998009849529184,
+     "migrate_seconds": 1.3846185207366943,
+     "smaps_before": {
+      "Rss": 4691100,
+      "Anonymous": 4661996,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4691100,
+      "Anonymous": 4661996,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4803842048
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=16, efConstruction=500, efQuery=300)",
+    "accuracy_at_k": 94.36999999999999,
+    "qps": 839.5045963990895,
+    "mean_us": 1191.1787074059248,
+    "build_time_s": 142.2510118484497,
+    "uss_delta_kb": 2365268.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/hnswlib/normalized_16_500.hdf5",
+    "query_args": "300",
+    "pass_qps": [
+     838.8589361603011,
+     839.3871193315836,
+     839.5045963990895
+    ],
+    "pass_spread_pct": 0.013995576629700582,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 551559,
+      "1": 551774
+     },
+     "anon_pages_after": {
+      "0": 1103101,
+      "1": 232
+     },
+     "local_fraction": 0.9997897280331505,
+     "migrate_seconds": 1.2969000339508057,
+     "smaps_before": {
+      "Rss": 4441380,
+      "Anonymous": 4412364,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4441380,
+      "Anonymous": 4412364,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4546768896
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=24, efConstruction=500, efQuery=300)",
+    "accuracy_at_k": 95.50000000000001,
+    "qps": 682.3030618235296,
+    "mean_us": 1465.624377131462,
+    "build_time_s": 175.60596919059753,
+    "uss_delta_kb": 2427344.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/hnswlib/normalized_24_500.hdf5",
+    "query_args": "300",
+    "pass_qps": [
+     681.8160356363213,
+     682.3030618235296,
+     682.2937892830543
+    ],
+    "pass_spread_pct": 0.001359024605082761,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 559341,
+      "1": 559548
+     },
+     "anon_pages_after": {
+      "0": 1118657,
+      "1": 232
+     },
+     "local_fraction": 0.9997926514605113,
+     "migrate_seconds": 1.313948631286621,
+     "smaps_before": {
+      "Rss": 4503664,
+      "Anonymous": 4474600,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4503664,
+      "Anonymous": 4474600,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4611375104
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=36, efConstruction=500, efQuery=300)",
+    "accuracy_at_k": 96.07,
+    "qps": 584.8829063512709,
+    "mean_us": 1709.743931889534,
+    "build_time_s": 202.40036273002625,
+    "uss_delta_kb": 2521064.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/hnswlib/normalized_36_500.hdf5",
+    "query_args": "300",
+    "pass_qps": [
+     584.4846592560466,
+     584.6568020416481,
+     584.8829063512709
+    ],
+    "pass_spread_pct": 0.03867299736070853,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 571056,
+      "1": 571266
+     },
+     "anon_pages_after": {
+      "0": 1142093,
+      "1": 229
+     },
+     "local_fraction": 0.9997995311304518,
+     "migrate_seconds": 1.3632853031158447,
+     "smaps_before": {
+      "Rss": 4597328,
+      "Anonymous": 4568348,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4597328,
+      "Anonymous": 4568348,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4705918976
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=48, efConstruction=500, efQuery=400)",
+    "accuracy_at_k": 97.21000000000001,
+    "qps": 431.42211507405943,
+    "mean_us": 2317.9154824465513,
+    "build_time_s": 214.72853875160217,
+    "uss_delta_kb": 2614708.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/hnswlib/normalized_48_500.hdf5",
+    "query_args": "400",
+    "pass_qps": [
+     431.42211507405943,
+     431.3915970006988,
+     431.3461356461981
+    ],
+    "pass_spread_pct": 0.010539413882223618,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 582765,
+      "1": 582976
+     },
+     "anon_pages_after": {
+      "0": 1165509,
+      "1": 232
+     },
+     "local_fraction": 0.9998009849529184,
+     "migrate_seconds": 1.3846185207366943,
+     "smaps_before": {
+      "Rss": 4691100,
+      "Anonymous": 4661996,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4691100,
+      "Anonymous": 4661996,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4803842048
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=64, efConstruction=500, efQuery=600)",
+    "accuracy_at_k": 98.01,
+    "qps": 286.2419084881071,
+    "mean_us": 3493.548534810543,
+    "build_time_s": 222.65384769439697,
+    "uss_delta_kb": 2739588.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/hnswlib/normalized_64_500.hdf5",
+    "query_args": "600",
+    "pass_qps": [
+     284.105238600515,
+     286.2419084881071,
+     286.12873575616425
+    ],
+    "pass_spread_pct": 0.03955308146304803,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 598400,
+      "1": 598617
+     },
+     "anon_pages_after": {
+      "0": 1196785,
+      "1": 232
+     },
+     "local_fraction": 0.9998061848745674,
+     "migrate_seconds": 1.3843979835510254,
+     "smaps_before": {
+      "Rss": 4816116,
+      "Anonymous": 4787088,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4816116,
+      "Anonymous": 4787088,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4930510848
+    }
+   }
+  ],
+  "glass": [
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=48, efQuery=150, quant=SQ8U, search_quant=SQ8U, refine_quant=FP16)",
+    "accuracy_at_k": 90.22999999999999,
+    "qps": 3417.149085069227,
+    "mean_us": 292.64160711318254,
+    "build_time_s": 56.90567207336426,
+    "uss_delta_kb": 1714732.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/glass/normalized_400_48_SQ8U_SQ8U_FP16.hdf5",
+    "query_args": "150",
+    "pass_qps": [
+     3410.3395746786478,
+     3417.149085069227,
+     3411.917395336758
+    ],
+    "pass_spread_pct": 0.15333576773046848,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 499913,
+      "1": 500123
+     },
+     "anon_pages_after": {
+      "0": 999804,
+      "1": 232
+     },
+     "local_fraction": 0.9997680083516993,
+     "migrate_seconds": 1.1518514156341553,
+     "smaps_before": {
+      "Rss": 4028904,
+      "Anonymous": 3999184,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4028904,
+      "Anonymous": 3999184,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4125405184
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=64, efQuery=150, quant=SQ8U, search_quant=SQ8U, refine_quant=FP32)",
+    "accuracy_at_k": 91.21000000000001,
+    "qps": 3025.6408580152174,
+    "mean_us": 330.5084928870201,
+    "build_time_s": 62.51834750175476,
+    "uss_delta_kb": 2873116.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/glass/normalized_400_64_SQ8U_SQ8U_FP32.hdf5",
+    "query_args": "150",
+    "pass_qps": [
+     3022.515974572468,
+     3025.1869190242764,
+     3025.6408580152174
+    ],
+    "pass_spread_pct": 0.015005320434460285,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 652796,
+      "1": 653022
+     },
+     "anon_pages_after": {
+      "0": 1305590,
+      "1": 228
+     },
+     "local_fraction": 0.9998253968010856,
+     "migrate_seconds": 1.4515421390533447,
+     "smaps_before": {
+      "Rss": 5252096,
+      "Anonymous": 5222336,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5252096,
+      "Anonymous": 5222336,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5377826816
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=48, efQuery=200, quant=SQ8U, search_quant=SQ8U, refine_quant=FP32)",
+    "accuracy_at_k": 92.10000000000001,
+    "qps": 2647.6197167634627,
+    "mean_us": 377.6977462694049,
+    "build_time_s": 57.67982196807861,
+    "uss_delta_kb": 2810168.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/glass/normalized_400_48_SQ8U_SQ8U_FP32.hdf5",
+    "query_args": "200",
+    "pass_qps": [
+     2642.2402883795617,
+     2647.6197167634627,
+     2646.420373404563
+    ],
+    "pass_spread_pct": 0.04531945759458612,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 636455,
+      "1": 636666
+     },
+     "anon_pages_after": {
+      "0": 1272889,
+      "1": 232
+     },
+     "local_fraction": 0.9998177706596624,
+     "migrate_seconds": 1.4219987392425537,
+     "smaps_before": {
+      "Rss": 5121328,
+      "Anonymous": 5091504,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5121328,
+      "Anonymous": 5091504,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5244112896
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=48, efQuery=300, quant=SQ8U, search_quant=SQ8U, refine_quant=FP16)",
+    "accuracy_at_k": 93.65,
+    "qps": 1846.3225127280423,
+    "mean_us": 541.617183946073,
+    "build_time_s": 56.90567207336426,
+    "uss_delta_kb": 1714732.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/glass/normalized_400_48_SQ8U_SQ8U_FP16.hdf5",
+    "query_args": "300",
+    "pass_qps": [
+     1846.3225127280423,
+     1845.8805859081901,
+     1845.9177361541329
+    ],
+    "pass_spread_pct": 0.0020126028859246995,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 499913,
+      "1": 500123
+     },
+     "anon_pages_after": {
+      "0": 999804,
+      "1": 232
+     },
+     "local_fraction": 0.9997680083516993,
+     "migrate_seconds": 1.1518514156341553,
+     "smaps_before": {
+      "Rss": 4028904,
+      "Anonymous": 3999184,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4028904,
+      "Anonymous": 3999184,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4125405184
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=64, efQuery=500, quant=SQ8U, search_quant=SQ8U, refine_quant=FP32)",
+    "accuracy_at_k": 95.12,
+    "qps": 1031.5759467356856,
+    "mean_us": 969.3905748426914,
+    "build_time_s": 62.51834750175476,
+    "uss_delta_kb": 2873116.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/glass/normalized_400_64_SQ8U_SQ8U_FP32.hdf5",
+    "query_args": "500",
+    "pass_qps": [
+     1031.5759467356856,
+     1029.73829544988,
+     1029.3500559865722
+    ],
+    "pass_spread_pct": 0.0377169516871255,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 652796,
+      "1": 653022
+     },
+     "anon_pages_after": {
+      "0": 1305590,
+      "1": 228
+     },
+     "local_fraction": 0.9998253968010856,
+     "migrate_seconds": 1.4515421390533447,
+     "smaps_before": {
+      "Rss": 5252096,
+      "Anonymous": 5222336,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5252096,
+      "Anonymous": 5222336,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5377826816
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=48, efQuery=1000, quant=SQ8U, search_quant=SQ8U, refine_quant=FP32)",
+    "accuracy_at_k": 96.07,
+    "qps": 606.7169574843614,
+    "mean_us": 1648.21501635015,
+    "build_time_s": 57.67982196807861,
+    "uss_delta_kb": 2810168.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/glass/normalized_400_48_SQ8U_SQ8U_FP32.hdf5",
+    "query_args": "1000",
+    "pass_qps": [
+     606.3745127858049,
+     606.7169574843614,
+     606.5612099423439
+    ],
+    "pass_spread_pct": 0.025677135211512138,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 636455,
+      "1": 636666
+     },
+     "anon_pages_after": {
+      "0": 1272889,
+      "1": 232
+     },
+     "local_fraction": 0.9998177706596624,
+     "migrate_seconds": 1.4219987392425537,
+     "smaps_before": {
+      "Rss": 5121328,
+      "Anonymous": 5091504,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5121328,
+      "Anonymous": 5091504,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5244112896
+    }
+   }
+  ],
+  "symphonyqg": [
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=400)",
+    "accuracy_at_k": 90.7,
+    "qps": 3116.0406499862747,
+    "mean_us": 320.92007528990507,
+    "build_time_s": 93.35531902313232,
+    "uss_delta_kb": 4506776.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "400",
+    "pass_qps": [
+     3099.374666560312,
+     3116.0406499862747,
+     3110.5835366757915
+    ],
+    "pass_spread_pct": 0.1754369637124463,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 858037,
+      "1": 858243
+     },
+     "anon_pages_after": {
+      "0": 1716048,
+      "1": 232
+     },
+     "local_fraction": 0.9998648239215047,
+     "migrate_seconds": 1.9672975540161133,
+     "smaps_before": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 7058657280
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=500)",
+    "accuracy_at_k": 92.11,
+    "qps": 2520.0174791386144,
+    "mean_us": 396.8226443976164,
+    "build_time_s": 93.35531902313232,
+    "uss_delta_kb": 4506776.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "500",
+    "pass_qps": [
+     2513.9422872701703,
+     2520.0174791386144,
+     2508.2150631333925
+    ],
+    "pass_spread_pct": 0.470550399712442,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 858037,
+      "1": 858243
+     },
+     "anon_pages_after": {
+      "0": 1716048,
+      "1": 232
+     },
+     "local_fraction": 0.9998648239215047,
+     "migrate_seconds": 1.9672975540161133,
+     "smaps_before": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 7058657280
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=600)",
+    "accuracy_at_k": 93.05999999999999,
+    "qps": 2082.457799507737,
+    "mean_us": 480.2018078044057,
+    "build_time_s": 93.35531902313232,
+    "uss_delta_kb": 4506776.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "600",
+    "pass_qps": [
+     2078.2408283925793,
+     2082.457799507737,
+     2081.4650225957616
+    ],
+    "pass_spread_pct": 0.04769606508868073,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 858037,
+      "1": 858243
+     },
+     "anon_pages_after": {
+      "0": 1716048,
+      "1": 232
+     },
+     "local_fraction": 0.9998648239215047,
+     "migrate_seconds": 1.9672975540161133,
+     "smaps_before": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 7058657280
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=800)",
+    "accuracy_at_k": 94.45,
+    "qps": 1550.9674028268587,
+    "mean_us": 644.7588764131069,
+    "build_time_s": 93.35531902313232,
+    "uss_delta_kb": 4506776.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "800",
+    "pass_qps": [
+     1543.7435246744496,
+     1550.9674028268587,
+     1549.9339822696625
+    ],
+    "pass_spread_pct": 0.06667513384556692,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 858037,
+      "1": 858243
+     },
+     "anon_pages_after": {
+      "0": 1716048,
+      "1": 232
+     },
+     "local_fraction": 0.9998648239215047,
+     "migrate_seconds": 1.9672975540161133,
+     "smaps_before": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 7058657280
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=1000)",
+    "accuracy_at_k": 95.2,
+    "qps": 1223.0556262338696,
+    "mean_us": 817.6242997869849,
+    "build_time_s": 93.35531902313232,
+    "uss_delta_kb": 4506776.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "1000",
+    "pass_qps": [
+     1221.485523225576,
+     1223.0556262338696,
+     1220.982270050533
+    ],
+    "pass_spread_pct": 0.1698105070150355,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 858037,
+      "1": 858243
+     },
+     "anon_pages_after": {
+      "0": 1716048,
+      "1": 232
+     },
+     "local_fraction": 0.9998648239215047,
+     "migrate_seconds": 1.9672975540161133,
+     "smaps_before": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 7058657280
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=1500)",
+    "accuracy_at_k": 96.92999999999999,
+    "qps": 761.1189492251241,
+    "mean_us": 1313.8550827279687,
+    "build_time_s": 93.35531902313232,
+    "uss_delta_kb": 4506776.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "1500",
+    "pass_qps": [
+     761.0950072892405,
+     761.1189492251241,
+     760.2059317298142
+    ],
+    "pass_spread_pct": 0.1201013379667195,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 858037,
+      "1": 858243
+     },
+     "anon_pages_after": {
+      "0": 1716048,
+      "1": 232
+     },
+     "local_fraction": 0.9998648239215047,
+     "migrate_seconds": 1.9672975540161133,
+     "smaps_before": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 7058657280
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=2000)",
+    "accuracy_at_k": 97.6,
+    "qps": 533.292500390496,
+    "mean_us": 1875.1435643061996,
+    "build_time_s": 93.35531902313232,
+    "uss_delta_kb": 4506776.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "2000",
+    "pass_qps": [
+     532.9970021106529,
+     532.8683018576553,
+     533.292500390496
+    ],
+    "pass_spread_pct": 0.07960663664209121,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 858037,
+      "1": 858243
+     },
+     "anon_pages_after": {
+      "0": 1716048,
+      "1": 232
+     },
+     "local_fraction": 0.9998648239215047,
+     "migrate_seconds": 1.9672975540161133,
+     "smaps_before": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 7058657280
+    }
+   }
+  ],
+  "lorann": [
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=384, rank=64, train_size=5, n_probe=48, rerank=800)",
+    "accuracy_at_k": 91.12,
+    "qps": 1696.0571357262136,
+    "mean_us": 589.6027786657214,
+    "build_time_s": 152.71543550491333,
+    "uss_delta_kb": 2152240.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/lorann/normalized_8_2048_384_64_5.hdf5",
+    "query_args": "48_800",
+    "pass_qps": [
+     1695.1954709614656,
+     1692.9030760115202,
+     1696.0571357262136
+    ],
+    "pass_spread_pct": 0.18631070847389375,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 863843,
+      "1": 863939
+     },
+     "anon_pages_after": {
+      "0": 1727551,
+      "1": 232
+     },
+     "local_fraction": 0.9998657238785195,
+     "migrate_seconds": 1.9593188762664795,
+     "smaps_before": {
+      "Rss": 6940492,
+      "Anonymous": 6910168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6940496,
+      "Anonymous": 6910172,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 9986854912
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=384, rank=32, train_size=5, n_probe=128, rerank=1200)",
+    "accuracy_at_k": 93.23,
+    "qps": 1269.0634717753937,
+    "mean_us": 787.98265196383,
+    "build_time_s": 267.72358226776123,
+    "uss_delta_kb": 2126488.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/lorann/normalized_8_4096_384_32_5.hdf5",
+    "query_args": "128_1200",
+    "pass_qps": [
+     1265.1197649782048,
+     1269.0634717753937,
+     1267.3030858057755
+    ],
+    "pass_spread_pct": 0.13890804728049475,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 730265,
+      "1": 730466
+     },
+     "anon_pages_after": {
+      "0": 1460504,
+      "1": 228
+     },
+     "local_fraction": 0.9998439138733183,
+     "migrate_seconds": 1.6256308555603027,
+     "smaps_before": {
+      "Rss": 5872320,
+      "Anonymous": 5841988,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5872324,
+      "Anonymous": 5841992,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 7891722240
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=4096, global_dim=384, rank=64, train_size=5, n_probe=128, rerank=1200)",
+    "accuracy_at_k": 94.9,
+    "qps": 1002.0319225061891,
+    "mean_us": 997.9721978306769,
+    "build_time_s": 264.14733815193176,
+    "uss_delta_kb": 2210672.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/lorann/normalized_8_4096_384_64_5.hdf5",
+    "query_args": "128_1200",
+    "pass_qps": [
+     1000.7865575820181,
+     1001.9941416990097,
+     1002.0319225061891
+    ],
+    "pass_spread_pct": 0.003770561683656724,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 759004,
+      "1": 759285
+     },
+     "anon_pages_after": {
+      "0": 1518058,
+      "1": 232
+     },
+     "local_fraction": 0.9998471965171344,
+     "migrate_seconds": 1.668752670288086,
+     "smaps_before": {
+      "Rss": 6102456,
+      "Anonymous": 6072204,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6102460,
+      "Anonymous": 6072208,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 7866724352
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=384, rank=64, train_size=5, n_probe=128, rerank=1200)",
+    "accuracy_at_k": 95.66,
+    "qps": 822.5388625377179,
+    "mean_us": 1215.7480278983712,
+    "build_time_s": 152.71543550491333,
+    "uss_delta_kb": 2152240.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/lorann/normalized_8_2048_384_64_5.hdf5",
+    "query_args": "128_1200",
+    "pass_qps": [
+     821.379249394205,
+     822.4416343253217,
+     822.5388625377179
+    ],
+    "pass_spread_pct": 0.011821898155236625,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 863843,
+      "1": 863939
+     },
+     "anon_pages_after": {
+      "0": 1727551,
+      "1": 232
+     },
+     "local_fraction": 0.9998657238785195,
+     "migrate_seconds": 1.9593188762664795,
+     "smaps_before": {
+      "Rss": 6940492,
+      "Anonymous": 6910168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6940496,
+      "Anonymous": 6910172,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 9986854912
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=384, rank=64, train_size=5, n_probe=256, rerank=2400)",
+    "accuracy_at_k": 97.69,
+    "qps": 415.24917270577754,
+    "mean_us": 2408.1926364451647,
+    "build_time_s": 152.71543550491333,
+    "uss_delta_kb": 2152240.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/lorann/normalized_8_2048_384_64_5.hdf5",
+    "query_args": "256_2400",
+    "pass_qps": [
+     413.73450973184475,
+     415.1235303446141,
+     415.24917270577754
+    ],
+    "pass_spread_pct": 0.030266258590338494,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 863843,
+      "1": 863939
+     },
+     "anon_pages_after": {
+      "0": 1727551,
+      "1": 232
+     },
+     "local_fraction": 0.9998657238785195,
+     "migrate_seconds": 1.9593188762664795,
+     "smaps_before": {
+      "Rss": 6940492,
+      "Anonymous": 6910168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6940496,
+      "Anonymous": 6910172,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 9986854912
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=512, rank=64, train_size=5, n_probe=512, rerank=3200)",
+    "accuracy_at_k": 99.12,
+    "qps": 211.46652220453186,
+    "mean_us": 4728.880910202861,
+    "build_time_s": 191.5392415523529,
+    "uss_delta_kb": 2168636.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/lorann/normalized_8_2048_512_64_5.hdf5",
+    "query_args": "512_3200",
+    "pass_qps": [
+     210.6472571724012,
+     211.46652220453186,
+     211.43786160677502
+    ],
+    "pass_spread_pct": 0.013555092517035546,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 905858,
+      "1": 905983
+     },
+     "anon_pages_after": {
+      "0": 1811612,
+      "1": 230
+     },
+     "local_fraction": 0.9998730573637216,
+     "migrate_seconds": 1.9879391193389893,
+     "smaps_before": {
+      "Rss": 7276764,
+      "Anonymous": 7246420,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 7276768,
+      "Anonymous": 7246424,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 9968619520
+    }
+   }
+  ],
+  "rabitq-hnsw": [
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=8, ef=200)",
+    "accuracy_at_k": 91.09,
+    "qps": 1546.5863366895537,
+    "mean_us": 646.5853061527014,
+    "build_time_s": 103.26613998413086,
+    "uss_delta_kb": 910008.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/rabitq-hnsw/normalized_16_32_200_8_false.hdf5",
+    "query_args": "200",
+    "pass_qps": [
+     1538.4017082175858,
+     1546.5863366895537,
+     1545.2823971007758
+    ],
+    "pass_spread_pct": 0.08438196094282288,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 367613,
+      "1": 367838
+     },
+     "anon_pages_after": {
+      "0": 735219,
+      "1": 232
+     },
+     "local_fraction": 0.999684547304987,
+     "migrate_seconds": 0.870445966720581,
+     "smaps_before": {
+      "Rss": 2978688,
+      "Anonymous": 2940840,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 2978688,
+      "Anonymous": 2940840,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3050192896
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=32, efConstruction=400, total_bits=8, ef=200)",
+    "accuracy_at_k": 92.28999999999999,
+    "qps": 1422.7181003671867,
+    "mean_us": 702.8799308463931,
+    "build_time_s": 239.2195703983307,
+    "uss_delta_kb": 918364.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/rabitq-hnsw/normalized_32_32_400_8_false.hdf5",
+    "query_args": "200",
+    "pass_qps": [
+     1417.6204309115183,
+     1422.7181003671867,
+     1419.6666576944374
+    ],
+    "pass_spread_pct": 0.2149407860085206,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 368767,
+      "1": 368978
+     },
+     "anon_pages_after": {
+      "0": 737514,
+      "1": 232
+     },
+     "local_fraction": 0.9996855286236727,
+     "migrate_seconds": 0.8677463531494141,
+     "smaps_before": {
+      "Rss": 2987968,
+      "Anonymous": 2949996,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 2987972,
+      "Anonymous": 2950000,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3059695616
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=32, efConstruction=400, total_bits=8, ef=300)",
+    "accuracy_at_k": 93.72,
+    "qps": 1032.0041757124343,
+    "mean_us": 968.9883273094893,
+    "build_time_s": 239.2195703983307,
+    "uss_delta_kb": 918364.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/rabitq-hnsw/normalized_32_32_400_8_false.hdf5",
+    "query_args": "300",
+    "pass_qps": [
+     1032.0041757124343,
+     1031.3869187066148,
+     1031.3481817026936
+    ],
+    "pass_spread_pct": 0.003755957940139034,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 368767,
+      "1": 368978
+     },
+     "anon_pages_after": {
+      "0": 737514,
+      "1": 232
+     },
+     "local_fraction": 0.9996855286236727,
+     "migrate_seconds": 0.8677463531494141,
+     "smaps_before": {
+      "Rss": 2987968,
+      "Anonymous": 2949996,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 2987972,
+      "Anonymous": 2950000,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3059695616
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=32, efConstruction=400, total_bits=8, ef=400)",
+    "accuracy_at_k": 94.49,
+    "qps": 802.5526827415517,
+    "mean_us": 1246.0241196677089,
+    "build_time_s": 239.2195703983307,
+    "uss_delta_kb": 918364.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/rabitq-hnsw/normalized_32_32_400_8_false.hdf5",
+    "query_args": "400",
+    "pass_qps": [
+     801.5682127578647,
+     783.5806695085797,
+     802.5526827415517
+    ],
+    "pass_spread_pct": 2.421194648008642,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 368767,
+      "1": 368978
+     },
+     "anon_pages_after": {
+      "0": 737514,
+      "1": 232
+     },
+     "local_fraction": 0.9996855286236727,
+     "migrate_seconds": 0.8677463531494141,
+     "smaps_before": {
+      "Rss": 2987968,
+      "Anonymous": 2949996,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 2987972,
+      "Anonymous": 2950000,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3059695616
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=32, efConstruction=400, total_bits=8, ef=600)",
+    "accuracy_at_k": 95.31,
+    "qps": 550.0975022779115,
+    "mean_us": 1817.859553731978,
+    "build_time_s": 239.2195703983307,
+    "uss_delta_kb": 918364.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/rabitq-hnsw/normalized_32_32_400_8_false.hdf5",
+    "query_args": "600",
+    "pass_qps": [
+     549.3226257646279,
+     550.0975022779115,
+     549.6943514104095
+    ],
+    "pass_spread_pct": 0.07334091508629405,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 368767,
+      "1": 368978
+     },
+     "anon_pages_after": {
+      "0": 737514,
+      "1": 232
+     },
+     "local_fraction": 0.9996855286236727,
+     "migrate_seconds": 0.8677463531494141,
+     "smaps_before": {
+      "Rss": 2987968,
+      "Anonymous": 2949996,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 2987972,
+      "Anonymous": 2950000,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3059695616
+    }
+   }
+  ],
+  "vamana-leanvec(svs)": [
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=150, reduced_dim=384)",
+    "accuracy_at_k": 90.03,
+    "qps": 1984.335353561346,
+    "mean_us": 503.94707638770336,
+    "build_time_s": 87.73429560661316,
+    "uss_delta_kb": 1668688.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "150",
+    "pass_qps": [
+     1979.1937860137557,
+     1984.335353561346,
+     1978.4457642151401
+    ],
+    "pass_spread_pct": 0.2976876825603707,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 466252,
+      "1": 466420
+     },
+     "anon_pages_after": {
+      "0": 932445,
+      "1": 229
+     },
+     "local_fraction": 0.999754469407317,
+     "migrate_seconds": 1.1030480861663818,
+     "smaps_before": {
+      "Rss": 3768232,
+      "Anonymous": 3729748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3768244,
+      "Anonymous": 3729760,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3858685952
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=200, reduced_dim=384)",
+    "accuracy_at_k": 91.78,
+    "qps": 1526.3459690263514,
+    "mean_us": 655.1594594493508,
+    "build_time_s": 87.73429560661316,
+    "uss_delta_kb": 1668688.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "200",
+    "pass_qps": [
+     1523.07704980139,
+     1520.337361910883,
+     1526.3459690263514
+    ],
+    "pass_spread_pct": 0.3952153821909907,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 466252,
+      "1": 466420
+     },
+     "anon_pages_after": {
+      "0": 932445,
+      "1": 229
+     },
+     "local_fraction": 0.999754469407317,
+     "migrate_seconds": 1.1030480861663818,
+     "smaps_before": {
+      "Rss": 3768232,
+      "Anonymous": 3729748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3768244,
+      "Anonymous": 3729760,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3858685952
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=128, alpha=1.2, window_size=192, search_window_size=200, reduced_dim=384)",
+    "accuracy_at_k": 92.3,
+    "qps": 1480.526657297441,
+    "mean_us": 675.4353223368526,
+    "build_time_s": 77.46229100227356,
+    "uss_delta_kb": 1918528.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/vamana-leanvec(svs)/normalized_128_1_2_192_384.hdf5",
+    "query_args": "200",
+    "pass_qps": [
+     1479.9228084027352,
+     1473.0222121011966,
+     1480.526657297441
+    ],
+    "pass_spread_pct": 0.5094590654909199,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 496735,
+      "1": 496935
+     },
+     "anon_pages_after": {
+      "0": 993439,
+      "1": 233
+     },
+     "local_fraction": 0.9997655161864277,
+     "migrate_seconds": 1.178117036819458,
+     "smaps_before": {
+      "Rss": 4012244,
+      "Anonymous": 3973728,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4012256,
+      "Anonymous": 3973740,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4108554240
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=300, reduced_dim=384)",
+    "accuracy_at_k": 93.57,
+    "qps": 1032.621947548324,
+    "mean_us": 968.4086246415973,
+    "build_time_s": 87.73429560661316,
+    "uss_delta_kb": 1668688.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "300",
+    "pass_qps": [
+     1031.7535208118304,
+     1032.3440512232223,
+     1032.621947548324
+    ],
+    "pass_spread_pct": 0.026918964154671696,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 466252,
+      "1": 466420
+     },
+     "anon_pages_after": {
+      "0": 932445,
+      "1": 229
+     },
+     "local_fraction": 0.999754469407317,
+     "migrate_seconds": 1.1030480861663818,
+     "smaps_before": {
+      "Rss": 3768232,
+      "Anonymous": 3729748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3768244,
+      "Anonymous": 3729760,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3858685952
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=400, reduced_dim=384)",
+    "accuracy_at_k": 94.67999999999999,
+    "qps": 776.9811461988974,
+    "mean_us": 1287.0325166732073,
+    "build_time_s": 87.73429560661316,
+    "uss_delta_kb": 1668688.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "400",
+    "pass_qps": [
+     776.9811461988974,
+     775.5640277173837,
+     776.1838986412565
+    ],
+    "pass_spread_pct": 0.07992517725418063,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 466252,
+      "1": 466420
+     },
+     "anon_pages_after": {
+      "0": 932445,
+      "1": 229
+     },
+     "local_fraction": 0.999754469407317,
+     "migrate_seconds": 1.1030480861663818,
+     "smaps_before": {
+      "Rss": 3768232,
+      "Anonymous": 3729748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3768244,
+      "Anonymous": 3729760,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3858685952
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=500, reduced_dim=384)",
+    "accuracy_at_k": 95.34,
+    "qps": 617.1742383900255,
+    "mean_us": 1620.287979952991,
+    "build_time_s": 87.73429560661316,
+    "uss_delta_kb": 1668688.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "500",
+    "pass_qps": [
+     617.1742383900255,
+     617.0381664006983,
+     615.1125808842539
+    ],
+    "pass_spread_pct": 0.31304603031793554,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 466252,
+      "1": 466420
+     },
+     "anon_pages_after": {
+      "0": 932445,
+      "1": 229
+     },
+     "local_fraction": 0.999754469407317,
+     "migrate_seconds": 1.1030480861663818,
+     "smaps_before": {
+      "Rss": 3768232,
+      "Anonymous": 3729748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3768244,
+      "Anonymous": 3729760,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3858685952
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=128, alpha=1.2, window_size=192, search_window_size=600, reduced_dim=384)",
+    "accuracy_at_k": 96.17,
+    "qps": 498.8097157466815,
+    "mean_us": 2004.7724982723594,
+    "build_time_s": 77.46229100227356,
+    "uss_delta_kb": 1918528.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/vamana-leanvec(svs)/normalized_128_1_2_192_384.hdf5",
+    "query_args": "600",
+    "pass_qps": [
+     498.28861373873843,
+     498.8097157466815,
+     498.46693105507586
+    ],
+    "pass_spread_pct": 0.06876778984717748,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 496735,
+      "1": 496935
+     },
+     "anon_pages_after": {
+      "0": 993439,
+      "1": 233
+     },
+     "local_fraction": 0.9997655161864277,
+     "migrate_seconds": 1.178117036819458,
+     "smaps_before": {
+      "Rss": 4012244,
+      "Anonymous": 3973728,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4012256,
+      "Anonymous": 3973740,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4108554240
+    }
+   },
+   {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=128, alpha=1.2, window_size=192, search_window_size=1000, reduced_dim=384)",
+    "accuracy_at_k": 97.05999999999999,
+    "qps": 290.34531329165753,
+    "mean_us": 3444.174760952592,
+    "build_time_s": 77.46229100227356,
+    "uss_delta_kb": 1918528.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/vamana-leanvec(svs)/normalized_128_1_2_192_384.hdf5",
+    "query_args": "1000",
+    "pass_qps": [
+     290.2868322009155,
+     289.9388708643888,
+     290.34531329165753
+    ],
+    "pass_spread_pct": 0.14018211013136633,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 496735,
+      "1": 496935
+     },
+     "anon_pages_after": {
+      "0": 993439,
+      "1": 233
+     },
+     "local_fraction": 0.9997655161864277,
+     "migrate_seconds": 1.178117036819458,
+     "smaps_before": {
+      "Rss": 4012244,
+      "Anonymous": 3973728,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4012256,
+      "Anonymous": 3973740,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4108554240
+    }
+   }
+  ]
+ },
+ "table2": {
+  "kannolo": {
+   "90": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=16, lambda=0.06)",
+    "accuracy_at_k": 90.37,
+    "qps": 2578.1607689140255,
+    "mean_us": 387.873406521976,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "16_0_06",
+    "pass_qps": [
+     2578.1607689140255,
+     2573.1340999760087,
+     2574.5699971999734
+    ],
+    "pass_spread_pct": 0.05580343535061457,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   },
+   "95": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=24, lambda=0.08)",
+    "accuracy_at_k": 95.21000000000001,
+    "qps": 1254.334940382557,
+    "mean_us": 797.2352262586355,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "24_0_08",
+    "pass_qps": [
+     1254.334940382557,
+     1253.9567691132681,
+     1253.502207059163
+    ],
+    "pass_spread_pct": 0.03626336288401919,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   },
+   "99": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo",
+    "name": "kANNolo(graph=permuted, M=32, efC=500, efS=12, lambda=0.175)",
+    "accuracy_at_k": 99.10999999999999,
+    "qps": 206.0933801465383,
+    "mean_us": 4852.169435471296,
+    "build_time_s": 127.0648980140686,
+    "uss_delta_kb": 1207656.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo/normalized_32_500_permuted.hdf5",
+    "query_args": "12_0_175",
+    "pass_qps": [
+     205.99381044883796,
+     206.05081160322328,
+     206.0933801465383
+    ],
+    "pass_spread_pct": 0.020659245641305536,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1154629530,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 661367,
+      "1": 661592
+     },
+     "anon_pages_after": {
+      "0": 1322734,
+      "1": 228
+     },
+     "local_fraction": 0.9998276594490242,
+     "migrate_seconds": 1.428614854812622,
+     "smaps_before": {
+      "Rss": 5321896,
+      "Anonymous": 5290880,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5321908,
+      "Anonymous": 5290892,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5449494528
+    }
+   }
+  },
+  "kannolo-rerank": {
+   "90": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=32, efC=500, kc=100, efS=100, alpha=0.05, lambda=none)",
+    "accuracy_at_k": 90.06,
+    "qps": 2987.12836793881,
+    "mean_us": 334.76967737078667,
+    "build_time_s": 128.661590669,
+    "uss_delta_kb": 1390320.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_32_500_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "100_1_0_0_05_null",
+    "pass_qps": [
+     2972.850265560403,
+     2987.12836793881,
+     2984.493938461248
+    ],
+    "pass_spread_pct": 0.08827055882445577,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1418752318,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 427098,
+      "1": 427310
+     },
+     "anon_pages_after": {
+      "0": 854184,
+      "1": 226
+     },
+     "local_fraction": 0.9997354899872427,
+     "migrate_seconds": 0.7002894878387451,
+     "smaps_before": {
+      "Rss": 3447200,
+      "Anonymous": 3416668,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3447208,
+      "Anonymous": 3416676,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3529805824
+    }
+   },
+   "95": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=32, efC=500, kc=100, efS=100, alpha=0.05, lambda=0.04)",
+    "accuracy_at_k": 95.53999999999999,
+    "qps": 1398.2515871184657,
+    "mean_us": 715.1788771152496,
+    "build_time_s": 128.661590669,
+    "uss_delta_kb": 1390320.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_32_500_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "100_1_0_0_05_0_04",
+    "pass_qps": [
+     1395.8518236087873,
+     1398.2515871184657,
+     1394.895811902006
+    ],
+    "pass_spread_pct": 0.24057533099077671,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1418752318,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 427098,
+      "1": 427310
+     },
+     "anon_pages_after": {
+      "0": 854184,
+      "1": 226
+     },
+     "local_fraction": 0.9997354899872427,
+     "migrate_seconds": 0.7002894878387451,
+     "smaps_before": {
+      "Rss": 3447200,
+      "Anonymous": 3416668,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3447208,
+      "Anonymous": 3416676,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3529805824
+    }
+   },
+   "99": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank",
+    "name": "kANNolo-Rerank(rabitq4+f16, graph=permuted, M=64, efC=500, kc=100, efS=100, alpha=0.05, lambda=0.12)",
+    "accuracy_at_k": 99.03999999999999,
+    "qps": 219.5950063955408,
+    "mean_us": 4553.837614133954,
+    "build_time_s": 144.122195548,
+    "uss_delta_kb": 1405868.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank/normalized_64_500_permuted_rabitq_ext_128_4_1.hdf5",
+    "query_args": "100_1_0_0_05_0_12",
+    "pass_qps": [
+     219.5270745919985,
+     219.5950063955408,
+     219.44573514944202
+    ],
+    "pass_spread_pct": 0.06802193991016693,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 1434881551,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 429029,
+      "1": 429231
+     },
+     "anon_pages_after": {
+      "0": 858035,
+      "1": 227
+     },
+     "local_fraction": 0.9997355119998322,
+     "migrate_seconds": 0.6890738010406494,
+     "smaps_before": {
+      "Rss": 3462560,
+      "Anonymous": 3432072,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3462568,
+      "Anonymous": 3432080,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3545534464
+    }
+   }
+  },
+  "hnswlib": {
+   "90": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=16, efConstruction=500, efQuery=150)",
+    "accuracy_at_k": 90.65,
+    "qps": 1504.024100875815,
+    "mean_us": 664.8829625919461,
+    "build_time_s": 142.2510118484497,
+    "uss_delta_kb": 2365268.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/hnswlib/normalized_16_500.hdf5",
+    "query_args": "150",
+    "pass_qps": [
+     1503.3032166845626,
+     1504.024100875815,
+     1503.4865786690286
+    ],
+    "pass_spread_pct": 0.03575171301244866,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 551559,
+      "1": 551774
+     },
+     "anon_pages_after": {
+      "0": 1103101,
+      "1": 232
+     },
+     "local_fraction": 0.9997897280331505,
+     "migrate_seconds": 1.2969000339508057,
+     "smaps_before": {
+      "Rss": 4441380,
+      "Anonymous": 4412364,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4441380,
+      "Anonymous": 4412364,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4546768896
+    }
+   },
+   "95": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "hnswlib",
+    "name": "HNSWLib(M=24, efConstruction=500, efQuery=300)",
+    "accuracy_at_k": 95.50000000000001,
+    "qps": 682.3030618235296,
+    "mean_us": 1465.624377131462,
+    "build_time_s": 175.60596919059753,
+    "uss_delta_kb": 2427344.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/hnswlib/normalized_24_500.hdf5",
+    "query_args": "300",
+    "pass_qps": [
+     681.8160356363213,
+     682.3030618235296,
+     682.2937892830543
+    ],
+    "pass_spread_pct": 0.001359024605082761,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 559341,
+      "1": 559548
+     },
+     "anon_pages_after": {
+      "0": 1118657,
+      "1": 232
+     },
+     "local_fraction": 0.9997926514605113,
+     "migrate_seconds": 1.313948631286621,
+     "smaps_before": {
+      "Rss": 4503664,
+      "Anonymous": 4474600,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4503664,
+      "Anonymous": 4474600,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4611375104
+    }
+   }
+  },
+  "glass": {
+   "90": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=48, efQuery=150, quant=SQ8U, search_quant=SQ8U, refine_quant=FP16)",
+    "accuracy_at_k": 90.22999999999999,
+    "qps": 3417.149085069227,
+    "mean_us": 292.64160711318254,
+    "build_time_s": 56.90567207336426,
+    "uss_delta_kb": 1714732.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/glass/normalized_400_48_SQ8U_SQ8U_FP16.hdf5",
+    "query_args": "150",
+    "pass_qps": [
+     3410.3395746786478,
+     3417.149085069227,
+     3411.917395336758
+    ],
+    "pass_spread_pct": 0.15333576773046848,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 499913,
+      "1": 500123
+     },
+     "anon_pages_after": {
+      "0": 999804,
+      "1": 232
+     },
+     "local_fraction": 0.9997680083516993,
+     "migrate_seconds": 1.1518514156341553,
+     "smaps_before": {
+      "Rss": 4028904,
+      "Anonymous": 3999184,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4028904,
+      "Anonymous": 3999184,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4125405184
+    }
+   },
+   "95": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "glass",
+    "name": "Glass(L=400, R=64, efQuery=500, quant=SQ8U, search_quant=SQ8U, refine_quant=FP32)",
+    "accuracy_at_k": 95.12,
+    "qps": 1031.5759467356856,
+    "mean_us": 969.3905748426914,
+    "build_time_s": 62.51834750175476,
+    "uss_delta_kb": 2873116.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/glass/normalized_400_64_SQ8U_SQ8U_FP32.hdf5",
+    "query_args": "500",
+    "pass_qps": [
+     1031.5759467356856,
+     1029.73829544988,
+     1029.3500559865722
+    ],
+    "pass_spread_pct": 0.0377169516871255,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 652796,
+      "1": 653022
+     },
+     "anon_pages_after": {
+      "0": 1305590,
+      "1": 228
+     },
+     "local_fraction": 0.9998253968010856,
+     "migrate_seconds": 1.4515421390533447,
+     "smaps_before": {
+      "Rss": 5252096,
+      "Anonymous": 5222336,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 5252096,
+      "Anonymous": 5222336,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5377826816
+    }
+   }
+  },
+  "symphonyqg": {
+   "90": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=400)",
+    "accuracy_at_k": 90.7,
+    "qps": 3116.0406499862747,
+    "mean_us": 320.92007528990507,
+    "build_time_s": 93.35531902313232,
+    "uss_delta_kb": 4506776.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "400",
+    "pass_qps": [
+     3099.374666560312,
+     3116.0406499862747,
+     3110.5835366757915
+    ],
+    "pass_spread_pct": 0.1754369637124463,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 858037,
+      "1": 858243
+     },
+     "anon_pages_after": {
+      "0": 1716048,
+      "1": 232
+     },
+     "local_fraction": 0.9998648239215047,
+     "migrate_seconds": 1.9672975540161133,
+     "smaps_before": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 7058657280
+    }
+   },
+   "95": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "symphonyqg",
+    "name": "SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=1000)",
+    "accuracy_at_k": 95.2,
+    "qps": 1223.0556262338696,
+    "mean_us": 817.6242997869849,
+    "build_time_s": 93.35531902313232,
+    "uss_delta_kb": 4506776.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/symphonyqg/normalized_32_400_3.hdf5",
+    "query_args": "1000",
+    "pass_qps": [
+     1221.485523225576,
+     1223.0556262338696,
+     1220.982270050533
+    ],
+    "pass_spread_pct": 0.1698105070150355,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 858037,
+      "1": 858243
+     },
+     "anon_pages_after": {
+      "0": 1716048,
+      "1": 232
+     },
+     "local_fraction": 0.9998648239215047,
+     "migrate_seconds": 1.9672975540161133,
+     "smaps_before": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6893344,
+      "Anonymous": 6864168,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 7058657280
+    }
+   }
+  },
+  "lorann": {
+   "90": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=384, rank=64, train_size=5, n_probe=48, rerank=800)",
+    "accuracy_at_k": 91.12,
+    "qps": 1696.0571357262136,
+    "mean_us": 589.6027786657214,
+    "build_time_s": 152.71543550491333,
+    "uss_delta_kb": 2152240.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/lorann/normalized_8_2048_384_64_5.hdf5",
+    "query_args": "48_800",
+    "pass_qps": [
+     1695.1954709614656,
+     1692.9030760115202,
+     1696.0571357262136
+    ],
+    "pass_spread_pct": 0.18631070847389375,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 863843,
+      "1": 863939
+     },
+     "anon_pages_after": {
+      "0": 1727551,
+      "1": 232
+     },
+     "local_fraction": 0.9998657238785195,
+     "migrate_seconds": 1.9593188762664795,
+     "smaps_before": {
+      "Rss": 6940492,
+      "Anonymous": 6910168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6940496,
+      "Anonymous": 6910172,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 9986854912
+    }
+   },
+   "95": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=384, rank=64, train_size=5, n_probe=128, rerank=1200)",
+    "accuracy_at_k": 95.66,
+    "qps": 822.5388625377179,
+    "mean_us": 1215.7480278983712,
+    "build_time_s": 152.71543550491333,
+    "uss_delta_kb": 2152240.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/lorann/normalized_8_2048_384_64_5.hdf5",
+    "query_args": "128_1200",
+    "pass_qps": [
+     821.379249394205,
+     822.4416343253217,
+     822.5388625377179
+    ],
+    "pass_spread_pct": 0.011821898155236625,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 863843,
+      "1": 863939
+     },
+     "anon_pages_after": {
+      "0": 1727551,
+      "1": 232
+     },
+     "local_fraction": 0.9998657238785195,
+     "migrate_seconds": 1.9593188762664795,
+     "smaps_before": {
+      "Rss": 6940492,
+      "Anonymous": 6910168,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 6940496,
+      "Anonymous": 6910172,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 9986854912
+    }
+   },
+   "99": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "lorann",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=512, rank=64, train_size=5, n_probe=512, rerank=3200)",
+    "accuracy_at_k": 99.12,
+    "qps": 211.46652220453186,
+    "mean_us": 4728.880910202861,
+    "build_time_s": 191.5392415523529,
+    "uss_delta_kb": 2168636.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/lorann/normalized_8_2048_512_64_5.hdf5",
+    "query_args": "512_3200",
+    "pass_qps": [
+     210.6472571724012,
+     211.46652220453186,
+     211.43786160677502
+    ],
+    "pass_spread_pct": 0.013555092517035546,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 905858,
+      "1": 905983
+     },
+     "anon_pages_after": {
+      "0": 1811612,
+      "1": 230
+     },
+     "local_fraction": 0.9998730573637216,
+     "migrate_seconds": 1.9879391193389893,
+     "smaps_before": {
+      "Rss": 7276764,
+      "Anonymous": 7246420,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 7276768,
+      "Anonymous": 7246424,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 9968619520
+    }
+   }
+  },
+  "rabitq-hnsw": {
+   "90": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=8, ef=200)",
+    "accuracy_at_k": 91.09,
+    "qps": 1546.5863366895537,
+    "mean_us": 646.5853061527014,
+    "build_time_s": 103.26613998413086,
+    "uss_delta_kb": 910008.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/rabitq-hnsw/normalized_16_32_200_8_false.hdf5",
+    "query_args": "200",
+    "pass_qps": [
+     1538.4017082175858,
+     1546.5863366895537,
+     1545.2823971007758
+    ],
+    "pass_spread_pct": 0.08438196094282288,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 367613,
+      "1": 367838
+     },
+     "anon_pages_after": {
+      "0": 735219,
+      "1": 232
+     },
+     "local_fraction": 0.999684547304987,
+     "migrate_seconds": 0.870445966720581,
+     "smaps_before": {
+      "Rss": 2978688,
+      "Anonymous": 2940840,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 2978688,
+      "Anonymous": 2940840,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3050192896
+    }
+   },
+   "95": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "rabitq-hnsw",
+    "name": "RabitqHNSW(num_clusters=32, M=32, efConstruction=400, total_bits=8, ef=600)",
+    "accuracy_at_k": 95.31,
+    "qps": 550.0975022779115,
+    "mean_us": 1817.859553731978,
+    "build_time_s": 239.2195703983307,
+    "uss_delta_kb": 918364.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/rabitq-hnsw/normalized_32_32_400_8_false.hdf5",
+    "query_args": "600",
+    "pass_qps": [
+     549.3226257646279,
+     550.0975022779115,
+     549.6943514104095
+    ],
+    "pass_spread_pct": 0.07334091508629405,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 368767,
+      "1": 368978
+     },
+     "anon_pages_after": {
+      "0": 737514,
+      "1": 232
+     },
+     "local_fraction": 0.9996855286236727,
+     "migrate_seconds": 0.8677463531494141,
+     "smaps_before": {
+      "Rss": 2987968,
+      "Anonymous": 2949996,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 2987972,
+      "Anonymous": 2950000,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3059695616
+    }
+   }
+  },
+  "vamana-leanvec(svs)": {
+   "90": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=150, reduced_dim=384)",
+    "accuracy_at_k": 90.03,
+    "qps": 1984.335353561346,
+    "mean_us": 503.94707638770336,
+    "build_time_s": 87.73429560661316,
+    "uss_delta_kb": 1668688.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "150",
+    "pass_qps": [
+     1979.1937860137557,
+     1984.335353561346,
+     1978.4457642151401
+    ],
+    "pass_spread_pct": 0.2976876825603707,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 466252,
+      "1": 466420
+     },
+     "anon_pages_after": {
+      "0": 932445,
+      "1": 229
+     },
+     "local_fraction": 0.999754469407317,
+     "migrate_seconds": 1.1030480861663818,
+     "smaps_before": {
+      "Rss": 3768232,
+      "Anonymous": 3729748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3768244,
+      "Anonymous": 3729760,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3858685952
+    }
+   },
+   "95": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "vamana-leanvec(svs)",
+    "name": "SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=500, reduced_dim=384)",
+    "accuracy_at_k": 95.34,
+    "qps": 617.1742383900255,
+    "mean_us": 1620.287979952991,
+    "build_time_s": 87.73429560661316,
+    "uss_delta_kb": 1668688.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/vamana-leanvec(svs)/normalized_64_1_2_128_384.hdf5",
+    "query_args": "500",
+    "pass_qps": [
+     617.1742383900255,
+     617.0381664006983,
+     615.1125808842539
+    ],
+    "pass_spread_pct": 0.31304603031793554,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 466252,
+      "1": 466420
+     },
+     "anon_pages_after": {
+      "0": 932445,
+      "1": 229
+     },
+     "local_fraction": 0.999754469407317,
+     "migrate_seconds": 1.1030480861663818,
+     "smaps_before": {
+      "Rss": 3768232,
+      "Anonymous": 3729748,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 3768244,
+      "Anonymous": 3729760,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 3858685952
+    }
+   }
+  }
+ },
+ "table2_control_arms": {
+  "kannolo-rerank-ext8": {
+   "90": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8",
+    "name": "kANNolo-Rerank(rabitq4+ext8, graph=permuted, M=32, efC=500, kc=30, efS=38, alpha=0.05, lambda=0.04)",
+    "accuracy_at_k": 90.07,
+    "qps": 2834.689317348339,
+    "mean_us": 352.77234576642513,
+    "build_time_s": 129.648120197,
+    "uss_delta_kb": 907140.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank-ext8/normalized_32_500_permuted_rabitq_ext_128_4_1_8.hdf5",
+    "query_args": "30_1_25_0_05_0_04",
+    "pass_qps": [
+     2829.6871356544184,
+     2834.689317348339,
+     2822.1438422620713
+    ],
+    "pass_spread_pct": 0.44453705365393414,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 914531010,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 618291,
+      "1": 618030
+     },
+     "anon_pages_after": {
+      "0": 1236321
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 1.1363816261291504,
+     "smaps_before": {
+      "Rss": 4975596,
+      "Anonymous": 4944304,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 4975596,
+      "Anonymous": 4944304,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 5094883328
+    }
+   },
+   "95": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "kannolo-rerank-ext8",
+    "name": "kANNolo-Rerank(rabitq4+ext8, graph=permuted, M=64, efC=500, kc=100, efS=125, alpha=0.05, lambda=0.04)",
+    "accuracy_at_k": 95.00999999999999,
+    "qps": 1068.9162528843337,
+    "mean_us": 935.5269856750965,
+    "build_time_s": 145.624986954,
+    "uss_delta_kb": 923836.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/kannolo-rerank-ext8/normalized_64_500_permuted_rabitq_ext_128_4_1_8.hdf5",
+    "query_args": "100_1_25_0_05_0_04",
+    "pass_qps": [
+     1067.024128185459,
+     1068.9162528843337,
+     1068.0141665541303
+    ],
+    "pass_spread_pct": 0.0844638918146554,
+    "n_timed_passes": 2,
+    "space_usage_bytes": 930660243,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 495360,
+      "1": 495112
+     },
+     "anon_pages_after": {
+      "0": 990472
+     },
+     "local_fraction": 1.0,
+     "migrate_seconds": 0.8413162231445312,
+     "smaps_before": {
+      "Rss": 3992088,
+      "Anonymous": 3960920,
+      "AnonHugePages": 1998848
+     },
+     "smaps_after": {
+      "Rss": 3992088,
+      "Anonymous": 3960920,
+      "AnonHugePages": 1998848
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 4087771136
+    }
+   }
+  },
+  "lorann-plain": {
+   "90": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "lorann-plain",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=512, rank=64, train_size=5, n_probe=48, rerank=800)",
+    "accuracy_at_k": 90.49,
+    "qps": 1593.139210628059,
+    "mean_us": 627.6915371417999,
+    "build_time_s": 198.35266709327698,
+    "uss_delta_kb": 2168832.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/lorann-plain/normalized_8_2048_512_64_5.hdf5",
+    "query_args": "48_800",
+    "pass_qps": [
+     1588.995469593284,
+     1592.427713130776,
+     1593.139210628059
+    ],
+    "pass_spread_pct": 0.04468004992729011,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 538376,
+      "1": 538654
+     },
+     "anon_pages_after": {
+      "0": 1076798,
+      "1": 232
+     },
+     "local_fraction": 0.9997845928154276,
+     "migrate_seconds": 1.1828672885894775,
+     "smaps_before": {
+      "Rss": 4337260,
+      "Anonymous": 4307156,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4337260,
+      "Anonymous": 4307156,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6820179968
+    }
+   },
+   "95": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "lorann-plain",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=384, rank=64, train_size=5, n_probe=128, rerank=1600)",
+    "accuracy_at_k": 95.31,
+    "qps": 761.4011273589128,
+    "mean_us": 1313.3681630715728,
+    "build_time_s": 139.78022003173828,
+    "uss_delta_kb": 2151812.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/lorann-plain/normalized_8_2048_384_64_5.hdf5",
+    "query_args": "128_1600",
+    "pass_qps": [
+     761.4011273589128,
+     760.4573619950177,
+     761.278012673192
+    ],
+    "pass_spread_pct": 0.10791540975045029,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 540092,
+      "1": 540275
+     },
+     "anon_pages_after": {
+      "0": 1080135,
+      "1": 232
+     },
+     "local_fraction": 0.9997852581576446,
+     "migrate_seconds": 1.1754357814788818,
+     "smaps_before": {
+      "Rss": 4350660,
+      "Anonymous": 4320508,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4350660,
+      "Anonymous": 4320508,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6323642368
+    }
+   },
+   "99": {
+    "dataset": "laion-clip-512-normalized",
+    "k": 10,
+    "algo": "lorann-plain",
+    "name": "Lorann(quant_bits=8, n_clusters=2048, global_dim=384, rank=64, train_size=5, n_probe=512, rerank=4800)",
+    "accuracy_at_k": 99.03999999999999,
+    "qps": 207.95863397861143,
+    "mean_us": 4808.648628182709,
+    "build_time_s": 139.78022003173828,
+    "uss_delta_kb": 2151812.0,
+    "run_count": 3,
+    "result_file": "results/laion-clip-512-normalized/10/lorann-plain/normalized_8_2048_384_64_5.hdf5",
+    "query_args": "512_4800",
+    "pass_qps": [
+     207.95863397861143,
+     207.85918035597822,
+     207.91791421971632
+    ],
+    "pass_spread_pct": 0.02825656467879401,
+    "n_timed_passes": 2,
+    "build_placement": {
+     "placement_arm": "D",
+     "migrated": true,
+     "anon_pages_before": {
+      "0": 540092,
+      "1": 540275
+     },
+     "anon_pages_after": {
+      "0": 1080135,
+      "1": 232
+     },
+     "local_fraction": 0.9997852581576446,
+     "migrate_seconds": 1.1754357814788818,
+     "smaps_before": {
+      "Rss": 4350660,
+      "Anonymous": 4320508,
+      "AnonHugePages": 0
+     },
+     "smaps_after": {
+      "Rss": 4350660,
+      "Anonymous": 4320508,
+      "AnonHugePages": 0
+     },
+     "heap_trimmed": true,
+     "peak_rss_bytes": 6323642368
+    }
+   }
+  }
+ },
+ "pass_spread": {
+  "median_pct": 0.14238199919908312
+ }
+}

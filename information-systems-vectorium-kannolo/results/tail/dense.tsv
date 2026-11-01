@@ -1,0 +1,110 @@
+dataset	algo	target	name	acc	qps	n	mean_us	p50_us	p95_us	p99_us	max_us	p99_over_p50	mean_check
+agnews-mxbai-1024-euclidean	glass	90	Glass(L=400, R=16, efQuery=30, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)	91.00	20547	1000	48.7	45.9	68.4	92.1	165.6	2.01	1.000
+agnews-mxbai-1024-euclidean	glass	95	Glass(L=400, R=48, efQuery=20, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)	95.17	14374	1000	69.6	68.6	91.0	102.1	166.3	1.49	1.000
+agnews-mxbai-1024-euclidean	glass	99	Glass(L=400, R=32, efQuery=100, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)	99.07	6085	1000	165.1	163.7	206.3	228.5	304.6	1.40	1.004
+agnews-mxbai-1024-euclidean	hnswlib	90	HNSWLib(M=8, efConstruction=200, efQuery=30)	90.66	5307	1000	188.4	179.4	281.3	337.3	449.2	1.88	1.000
+agnews-mxbai-1024-euclidean	hnswlib	95	HNSWLib(M=24, efConstruction=200, efQuery=20)	95.15	3624	1000	275.9	267.6	388.9	446.3	621.7	1.67	1.000
+agnews-mxbai-1024-euclidean	hnswlib	99	HNSWLib(M=48, efConstruction=200, efQuery=50)	99.03	1507	1000	663.6	630.9	1050.7	1211.3	1342.3	1.92	1.000
+agnews-mxbai-1024-euclidean	symphonyqg	90	SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=20)	90.77	38898	1000	25.7	25.2	33.5	40.3	49.4	1.60	1.000
+agnews-mxbai-1024-euclidean	symphonyqg	95	SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=30)	95.70	31356	1000	31.9	31.2	41.5	47.0	158.4	1.50	1.000
+agnews-mxbai-1024-euclidean	symphonyqg	99	SymphonyQG(degree_bound=64, EF=400, num_iter=3, beam_size=80)	99.11	13685	1000	73.5	70.5	105.0	120.7	239.4	1.71	1.006
+agnews-mxbai-1024-euclidean	lorann	90	Lorann(quant_bits=8, n_clusters=2048, global_dim=128, rank=64, train_size=5, n_probe=16, rerank=100)	90.79	6218	1000	160.8	159.1	181.9	206.3	273.8	1.30	1.000
+agnews-mxbai-1024-euclidean	lorann	95	Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=32, rerank=400)	95.06	2989	1000	334.5	333.4	350.4	362.3	447.8	1.09	1.000
+agnews-mxbai-1024-euclidean	lorann	99	Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=128, rerank=1200)	99.00	912	1000	1096.4	1092.5	1155.4	1193.3	1403.8	1.09	1.000
+agnews-mxbai-1024-euclidean	vamana-leanvec(svs)	90	SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=20, reduced_dim=192)	92.15	10357	1000	96.6	95.3	119.7	133.0	193.7	1.40	1.000
+agnews-mxbai-1024-euclidean	vamana-leanvec(svs)	95	SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=20, reduced_dim=256)	95.02	8924	1000	112.9	111.2	138.1	156.2	193.2	1.40	1.007
+agnews-mxbai-1024-euclidean	vamana-leanvec(svs)	99	SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=80, reduced_dim=192)	99.05	3608	1000	277.2	275.0	320.8	346.1	404.6	1.26	1.000
+agnews-mxbai-1024-euclidean	kannolo	90	kANNolo(graph=permuted, M=8, efC=200, efS=12, lambda=0.04)	90.45	11665	1000	85.8	81.0	130.9	160.9	203.1	1.99	1.001
+agnews-mxbai-1024-euclidean	kannolo	95	kANNolo(graph=permuted, M=8, efC=200, efS=10, lambda=0.1)	95.43	8930	1000	112.6	100.0	216.3	307.7	496.1	3.08	1.006
+agnews-mxbai-1024-euclidean	kannolo	99	kANNolo(graph=permuted, M=16, efC=200, efS=12, lambda=0.125)	99.06	4277	1000	233.8	177.3	569.9	956.6	1439.8	5.40	1.000
+agnews-mxbai-1024-euclidean	rabitq-hnsw	90	RabitqHNSW(num_clusters=16, M=16, efConstruction=400, total_bits=4, ef=20)	91.56	13090	1000	76.4	72.7	107.0	130.5	270.7	1.79	1.000
+agnews-mxbai-1024-euclidean	rabitq-hnsw	95	RabitqHNSW(num_clusters=16, M=16, efConstruction=400, total_bits=5, ef=40)	95.54	9802	1000	102.0	97.9	140.8	170.5	320.8	1.74	1.000
+agnews-mxbai-1024-euclidean	rabitq-hnsw	99	RabitqHNSW(num_clusters=32, M=16, efConstruction=400, total_bits=8, ef=200)	99.24	3188	1000	313.6	307.9	409.7	442.2	628.8	1.44	1.000
+msmarco-qwen-1024-normalized	glass	90	Glass(L=400, R=32, efQuery=20, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)	91.52	8020	1000	124.7	121.6	157.5	178.0	261.4	1.46	1.000
+msmarco-qwen-1024-normalized	glass	95	Glass(L=400, R=32, efQuery=40, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)	95.23	6058	1000	165.1	160.6	208.5	237.0	307.5	1.48	1.000
+msmarco-qwen-1024-normalized	glass	99	Glass(L=400, R=64, efQuery=100, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)	99.06	2527	1000	417.8	399.1	614.7	756.1	954.2	1.89	1.056
+msmarco-qwen-1024-normalized	hnswlib	90	HNSWLib(M=16, efConstruction=200, efQuery=20)	91.33	4015	1000	249.1	237.1	372.6	451.4	586.7	1.90	1.000
+msmarco-qwen-1024-normalized	hnswlib	95	HNSWLib(M=16, efConstruction=200, efQuery=40)	95.61	2686	1000	372.3	360.1	531.7	641.3	767.8	1.78	1.000
+msmarco-qwen-1024-normalized	hnswlib	99	HNSWLib(M=48, efConstruction=200, efQuery=100)	99.02	889	1000	1124.8	1058.6	1862.4	2143.9	2475.8	2.03	1.000
+msmarco-qwen-1024-normalized	symphonyqg	90	SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=20)	90.23	30937	1000	32.3	31.4	43.7	50.8	61.9	1.61	1.000
+msmarco-qwen-1024-normalized	symphonyqg	95	SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=40)	95.67	21148	1000	47.3	45.8	64.2	77.4	167.9	1.69	1.000
+msmarco-qwen-1024-normalized	symphonyqg	99	SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=250)	99.09	5742	1000	174.2	165.3	260.4	290.1	352.5	1.76	1.000
+msmarco-qwen-1024-normalized	lorann	90	Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=16, rerank=200)	90.71	1841	1000	543.3	535.9	631.3	681.2	787.1	1.27	1.000
+msmarco-qwen-1024-normalized	lorann	95	Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=48, rerank=800)	95.86	656	1000	1523.4	1507.7	1700.4	1805.0	1972.8	1.20	1.000
+msmarco-qwen-1024-normalized	lorann	99	Lorann(quant_bits=8, n_clusters=4096, global_dim=256, rank=64, train_size=5, n_probe=256, rerank=3200)	99.04	135	1000	7397.2	7381.9	8042.2	8264.6	8705.8	1.12	1.000
+msmarco-qwen-1024-normalized	vamana-leanvec(svs)	90	SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=20, reduced_dim=384)	92.84	5395	1000	185.4	179.5	243.4	283.3	346.0	1.58	1.000
+msmarco-qwen-1024-normalized	vamana-leanvec(svs)	95	SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=40, reduced_dim=256)	95.12	4400	1000	227.3	221.6	300.7	336.4	444.1	1.52	1.000
+msmarco-qwen-1024-normalized	vamana-leanvec(svs)	99	SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=125, reduced_dim=384)	99.08	1601	1000	624.4	605.5	806.9	893.8	1131.5	1.48	1.000
+msmarco-qwen-1024-normalized	kannolo	90	kANNolo(graph=permuted, M=8, efC=500, efS=12, lambda=0.04)	90.61	8092	1000	123.8	117.8	188.9	235.3	275.0	2.00	1.002
+msmarco-qwen-1024-normalized	kannolo	95	kANNolo(graph=permuted, M=8, efC=500, efS=10, lambda=0.08)	95.29	5845	1000	171.1	158.5	297.0	392.4	577.7	2.48	1.000
+msmarco-qwen-1024-normalized	kannolo	99	kANNolo(graph=permuted, M=16, efC=200, efS=10, lambda=0.125)	99.07	2405	1000	415.9	325.3	1007.6	1401.9	2683.3	4.31	1.000
+msmarco-qwen-1024-normalized	rabitq-hnsw	90	RabitqHNSW(num_clusters=16, M=16, efConstruction=200, total_bits=8, ef=20)	90.53	7568	1000	132.7	121.3	217.2	271.4	327.5	2.24	1.004
+msmarco-qwen-1024-normalized	rabitq-hnsw	95	RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=8, ef=40)	96.38	5168	1000	193.5	180.2	302.5	348.6	530.2	1.93	1.000
+msmarco-qwen-1024-normalized	rabitq-hnsw	99	RabitqHNSW(num_clusters=16, M=16, efConstruction=200, total_bits=8, ef=400)	99.13	1365	1000	733.4	708.7	1046.4	1195.1	1405.7	1.69	1.001
+msmarco-qwen-1024-normalized	kannolo-rerank-ext8-resid	90	kANNolo-Rerank(rabitq1-q4+ext8-resid, graph=permuted, M=32, efC=200, kc=30, efS=30, alpha=0.05, lambda=none)	90.42	4473	1000	223.6	220.5	256.3	286.8	381.0	1.30	1.000
+msmarco-qwen-1024-normalized	kannolo-rerank-ext8-resid	95	kANNolo-Rerank(rabitq1-q4+ext8-resid, graph=permuted, M=32, efC=200, kc=100, efS=125, alpha=0.1, lambda=0.01)	95.15	2570	1000	389.1	376.4	506.6	572.6	765.2	1.52	1.000
+dpr-jina-768-normalized	glass	90	Glass(L=400, R=48, efQuery=20, quant=SQ8U, search_quant=SQ4U, refine_quant=FP16)	90.67	5098	1000	196.2	193.2	232.3	252.8	291.3	1.31	1.000
+dpr-jina-768-normalized	glass	95	Glass(L=400, R=64, efQuery=30, quant=SQ8U, search_quant=SQ4U, refine_quant=FP32)	95.27	3977	1000	253.3	252.0	299.2	332.8	531.8	1.32	1.008
+dpr-jina-768-normalized	glass	99	Glass(L=400, R=64, efQuery=100, quant=SQ8U, search_quant=SQ8U, refine_quant=FP16)	99.06	1400	1000	715.0	709.1	930.3	1024.2	1355.8	1.44	1.001
+dpr-jina-768-normalized	hnswlib	90	HNSWLib(M=12, efConstruction=200, efQuery=40)	90.11	3355	1000	298.1	289.2	402.7	492.1	588.0	1.70	1.000
+dpr-jina-768-normalized	hnswlib	95	HNSWLib(M=24, efConstruction=200, efQuery=40)	95.37	2149	1000	465.4	463.1	596.4	691.4	981.7	1.49	1.000
+dpr-jina-768-normalized	hnswlib	99	HNSWLib(M=64, efConstruction=200, efQuery=100)	99.16	719	1000	1416.2	1352.4	2063.5	2310.3	26417.3	1.71	1.018
+dpr-jina-768-normalized	lorann	90	Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=24, rerank=1600)	90.89	550	1000	1818.2	1798.8	2111.4	2263.3	2553.6	1.26	1.000
+dpr-jina-768-normalized	lorann	95	Lorann(quant_bits=8, n_clusters=4096, global_dim=128, rank=64, train_size=5, n_probe=64, rerank=3200)	95.53	227	1000	4398.4	4373.0	4940.9	5132.4	5552.0	1.17	1.000
+dpr-jina-768-normalized	vamana-leanvec(svs)	90	SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=40, reduced_dim=256)	91.09	3361	1000	299.3	297.6	394.6	441.1	556.1	1.48	1.006
+dpr-jina-768-normalized	vamana-leanvec(svs)	95	SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=80, reduced_dim=256)	97.28	1981	1000	505.0	504.1	634.5	709.9	747.4	1.41	1.000
+dpr-jina-768-normalized	vamana-leanvec(svs)	99	SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=150, reduced_dim=384)	99.10	993	1000	1006.6	995.8	1266.6	1367.0	1642.3	1.37	1.000
+dpr-jina-768-normalized	kannolo	90	kANNolo(graph=permuted, M=8, efC=500, efS=12, lambda=0.06)	90.01	5737	1000	175.3	159.3	276.9	355.7	2025.1	2.23	1.005
+dpr-jina-768-normalized	kannolo	95	kANNolo(graph=permuted, M=16, efC=200, efS=18, lambda=0.04)	95.09	4065	1000	246.0	233.5	357.9	486.0	1015.5	2.08	1.000
+dpr-jina-768-normalized	kannolo	99	kANNolo(graph=permuted, M=32, efC=200, efS=16, lambda=0.08)	99.01	1562	1000	640.1	524.0	1340.5	2179.5	3720.8	4.16	1.000
+dpr-jina-768-normalized	rabitq-hnsw	90	RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=5, ef=20)	90.89	5953	1000	168.9	160.9	248.5	314.1	421.0	1.95	1.005
+dpr-jina-768-normalized	rabitq-hnsw	95	RabitqHNSW(num_clusters=32, M=32, efConstruction=200, total_bits=8, ef=40)	96.11	4047	1000	247.5	238.5	362.5	425.7	527.6	1.79	1.001
+dpr-jina-768-normalized	rabitq-hnsw	99	RabitqHNSW(num_clusters=32, M=32, efConstruction=200, total_bits=8, ef=300)	99.19	986	1000	1013.9	986.8	1459.9	1620.7	1839.2	1.64	1.000
+dpr-jina-768-normalized	symphonyqg	90	SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=30)	91.07	23858	1000	41.9	41.2	56.3	63.7	80.3	1.55	1.000
+dpr-jina-768-normalized	symphonyqg	95	SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=60)	95.13	15061	1000	66.5	65.9	87.7	103.3	123.4	1.57	1.001
+dpr-jina-768-normalized	symphonyqg	99	SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=400)	99.05	3213	1000	311.8	312.7	419.8	454.2	488.5	1.45	1.002
+dpr-jina-768-normalized	kannolo-rerank-ext8-resid	90	kANNolo-Rerank(rabitq2+ext8-resid, graph=permuted, M=16, efC=200, kc=20, efS=25, alpha=0.05, lambda=0.01)	91.04	7094	1000	141.4	138.7	181.9	220.6	296.7	1.59	1.003
+dpr-jina-768-normalized	kannolo-rerank-ext8-resid	95	kANNolo-Rerank(rabitq2+ext8-resid, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=0.05, lambda=0.01)	95.42	4632	1000	215.9	212.1	289.3	335.4	395.3	1.58	1.000
+dpr-jina-768-normalized	kannolo-rerank-ext8-resid	99	kANNolo-Rerank(rabitq2+ext8-resid, graph=permuted, M=32, efC=200, kc=100, efS=100, alpha=0.05, lambda=0.04)	99.14	1310	1000	763.3	706.3	1282.1	1488.1	2163.0	2.11	1.000
+laion-clip-512-normalized	glass	90	Glass(L=400, R=48, efQuery=150, quant=SQ8U, search_quant=SQ8U, refine_quant=FP16)	90.23	3417	1000	293.1	294.0	374.6	418.1	521.8	1.42	1.002
+laion-clip-512-normalized	glass	95	Glass(L=400, R=64, efQuery=500, quant=SQ8U, search_quant=SQ8U, refine_quant=FP32)	95.12	1032	1000	971.5	988.4	1265.9	1340.9	1471.5	1.36	1.002
+laion-clip-512-normalized	hnswlib	90	HNSWLib(M=16, efConstruction=500, efQuery=150)	90.65	1504	1000	665.1	670.6	830.7	904.6	1035.4	1.35	1.000
+laion-clip-512-normalized	hnswlib	95	HNSWLib(M=24, efConstruction=500, efQuery=300)	95.50	682	1000	1465.6	1499.2	1895.4	1996.0	2306.6	1.33	1.000
+laion-clip-512-normalized	symphonyqg	90	SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=400)	90.70	3116	1000	321.5	321.8	390.0	433.1	552.7	1.35	1.002
+laion-clip-512-normalized	symphonyqg	95	SymphonyQG(degree_bound=32, EF=400, num_iter=3, beam_size=1000)	95.20	1223	1000	819.0	825.3	1002.6	1095.6	1276.0	1.33	1.002
+laion-clip-512-normalized	lorann	90	Lorann(quant_bits=8, n_clusters=2048, global_dim=384, rank=64, train_size=5, n_probe=48, rerank=800)	91.12	1696	1000	589.6	586.9	641.9	677.2	748.7	1.15	1.000
+laion-clip-512-normalized	lorann	95	Lorann(quant_bits=8, n_clusters=2048, global_dim=384, rank=64, train_size=5, n_probe=128, rerank=1200)	95.66	823	1000	1215.7	1208.9	1324.2	1385.1	1467.5	1.15	1.000
+laion-clip-512-normalized	lorann	99	Lorann(quant_bits=8, n_clusters=2048, global_dim=512, rank=64, train_size=5, n_probe=512, rerank=3200)	99.12	211	1000	4729.5	4712.0	5097.9	5247.1	5561.4	1.11	1.000
+laion-clip-512-normalized	vamana-leanvec(svs)	90	SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=150, reduced_dim=384)	90.03	1984	1000	505.4	498.5	621.3	749.9	914.8	1.50	1.003
+laion-clip-512-normalized	vamana-leanvec(svs)	95	SVSVamanaLeanVec(graph_max_degree=64, alpha=1.2, window_size=128, search_window_size=500, reduced_dim=384)	95.34	617	1000	1625.7	1627.6	1902.5	2019.6	2199.0	1.24	1.003
+laion-clip-512-normalized	kannolo	90	kANNolo(graph=permuted, M=32, efC=500, efS=16, lambda=0.06)	90.37	2578	1000	388.4	344.6	744.4	1052.5	1861.9	3.05	1.001
+laion-clip-512-normalized	kannolo	95	kANNolo(graph=permuted, M=32, efC=500, efS=24, lambda=0.08)	95.21	1254	1000	797.8	686.6	1667.3	2342.5	4102.8	3.41	1.001
+laion-clip-512-normalized	kannolo	99	kANNolo(graph=permuted, M=32, efC=500, efS=12, lambda=0.175)	99.11	206	1000	4852.2	3286.3	14124.5	26234.8	60875.6	7.98	1.000
+laion-clip-512-normalized	rabitq-hnsw	90	RabitqHNSW(num_clusters=16, M=32, efConstruction=200, total_bits=8, ef=200)	91.09	1547	1000	647.1	616.7	997.1	1203.8	1414.7	1.95	1.001
+laion-clip-512-normalized	rabitq-hnsw	95	RabitqHNSW(num_clusters=32, M=32, efConstruction=400, total_bits=8, ef=600)	95.31	550	1000	1819.2	1763.4	2673.8	3283.1	3982.0	1.86	1.001
+laion-clip-512-normalized	lorann-plain	90	Lorann(quant_bits=8, n_clusters=2048, global_dim=512, rank=64, train_size=5, n_probe=48, rerank=800)	90.49	1593	1000	627.7	624.8	691.1	747.9	812.0	1.20	1.000
+laion-clip-512-normalized	lorann-plain	95	Lorann(quant_bits=8, n_clusters=2048, global_dim=384, rank=64, train_size=5, n_probe=128, rerank=1600)	95.31	761	1000	1313.6	1307.8	1452.7	1519.0	1610.0	1.16	1.000
+laion-clip-512-normalized	lorann-plain	99	Lorann(quant_bits=8, n_clusters=2048, global_dim=384, rank=64, train_size=5, n_probe=512, rerank=4800)	99.04	208	1000	4809.6	4794.3	5118.1	5311.2	5423.2	1.11	1.000
+agnews-mxbai-1024-euclidean	kannolo-rerank	90	kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=30, efS=30, alpha=0.1, lambda=none)	90.42	16464	1000	62.0	60.9	84.2	95.9	161.3	1.58	1.021
+agnews-mxbai-1024-euclidean	kannolo-rerank	95	kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=0.15, lambda=none)	95.38	11595	1000	86.5	87.1	109.6	121.2	218.4	1.39	1.003
+agnews-mxbai-1024-euclidean	kannolo-rerank	99	kANNolo-Rerank(rabitq2+f16, graph=permuted, M=32, efC=200, kc=30, efS=30, alpha=0.1, lambda=0.04)	99.03	4585	1000	219.2	202.0	381.5	488.3	600.4	2.42	1.005
+agnews-mxbai-1024-euclidean	kannolo-rerank-ext8	90	kANNolo-Rerank(rabitq1-q1+ext8, graph=permuted, M=16, efC=200, kc=30, efS=30, alpha=0.1, lambda=none)	90.28	15949	1000	62.7	61.6	84.4	96.7	103.1	1.57	1.000
+agnews-mxbai-1024-euclidean	kannolo-rerank-ext8	95	kANNolo-Rerank(rabitq1-q1+ext8, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=0.15, lambda=none)	95.12	11450	1000	87.3	88.1	110.0	118.9	190.1	1.35	1.000
+agnews-mxbai-1024-euclidean	kannolo-rerank-ext8	99	kANNolo-Rerank(rabitq1-q2+ext8, graph=permuted, M=16, efC=200, kc=100, efS=100, alpha=0.15, lambda=0.04)	99.01	3442	1000	290.6	280.0	405.9	449.7	520.7	1.61	1.000
+msmarco-qwen-1024-normalized	kannolo-rerank	90	kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=32, efC=200, kc=30, efS=30, alpha=0.1, lambda=0.01)	90.30	11114	1000	92.7	88.7	133.9	170.9	219.1	1.93	1.030
+msmarco-qwen-1024-normalized	kannolo-rerank	95	kANNolo-Rerank(rabitq1-q1+f16, graph=permuted, M=32, efC=200, kc=50, efS=50, alpha=0.15, lambda=0.01)	95.01	7837	1000	127.6	123.5	178.7	210.6	336.3	1.71	1.000
+msmarco-qwen-1024-normalized	kannolo-rerank	99	kANNolo-Rerank(rabitq1-q2+f16, graph=permuted, M=32, efC=200, kc=100, efS=150, alpha=0.15, lambda=none)	99.03	2896	1000	345.4	335.0	453.6	518.7	628.6	1.55	1.000
+msmarco-qwen-1024-normalized	kannolo-rerank-ext8	90	kANNolo-Rerank(rabitq1-q1+ext8, graph=permuted, M=32, efC=200, kc=30, efS=30, alpha=0.15, lambda=0.01)	90.18	10510	1000	95.1	91.5	132.5	172.8	224.9	1.89	1.000
+msmarco-qwen-1024-normalized	kannolo-rerank-ext8	95	kANNolo-Rerank(rabitq1-q1+ext8, graph=permuted, M=32, efC=200, kc=50, efS=62, alpha=0.1, lambda=0.01)	95.01	6953	1000	143.8	138.9	201.4	225.6	312.9	1.63	1.000
+msmarco-qwen-1024-normalized	kannolo-rerank-ext8	99	kANNolo-Rerank(rabitq2+ext8, graph=permuted, M=32, efC=200, kc=30, efS=30, alpha=0.05, lambda=0.08)	99.01	2165	1000	464.1	391.2	997.0	1439.2	2063.7	3.68	1.005
+dpr-jina-768-normalized	kannolo-rerank	90	kANNolo-Rerank(rabitq2+f16, graph=permuted, M=16, efC=200, kc=20, efS=25, alpha=0.05, lambda=0.01)	91.16	7095	1000	141.6	138.9	183.0	223.1	401.9	1.61	1.005
+dpr-jina-768-normalized	kannolo-rerank	95	kANNolo-Rerank(rabitq2+f16, graph=permuted, M=16, efC=200, kc=30, efS=45, alpha=0.05, lambda=0.01)	95.01	5039	1000	199.7	196.8	257.8	300.8	356.4	1.53	1.006
+dpr-jina-768-normalized	kannolo-rerank	99	kANNolo-Rerank(rabitq2+f16, graph=permuted, M=32, efC=200, kc=100, efS=150, alpha=0.1, lambda=none)	99.01	1776	1000	563.2	549.2	786.2	849.9	1117.9	1.55	1.000
+dpr-jina-768-normalized	kannolo-rerank-ext8	90	kANNolo-Rerank(rabitq2+ext8, graph=permuted, M=16, efC=200, kc=20, efS=25, alpha=0.05, lambda=0.01)	90.85	7046	1000	141.9	139.2	180.3	222.4	343.2	1.60	1.000
+dpr-jina-768-normalized	kannolo-rerank-ext8	95	kANNolo-Rerank(rabitq2+ext8, graph=permuted, M=16, efC=200, kc=50, efS=50, alpha=0.05, lambda=0.01)	95.13	4659	1000	214.6	211.6	276.3	326.5	435.1	1.54	1.000
+dpr-jina-768-normalized	kannolo-rerank-ext8	99	kANNolo-Rerank(rabitq2+ext8, graph=permuted, M=32, efC=200, kc=100, efS=125, alpha=0.1, lambda=0.04)	99.02	1106	1000	905.1	854.1	1487.0	1776.8	2476.3	2.08	1.001
+laion-clip-512-normalized	kannolo-rerank	90	kANNolo-Rerank(rabitq4+f16, graph=permuted, M=32, efC=500, kc=100, efS=100, alpha=0.05, lambda=none)	90.06	2987	1000	335.1	333.9	438.9	512.5	636.7	1.53	1.001
+laion-clip-512-normalized	kannolo-rerank	95	kANNolo-Rerank(rabitq4+f16, graph=permuted, M=32, efC=500, kc=100, efS=100, alpha=0.05, lambda=0.04)	95.54	1398	1000	716.9	679.1	1198.0	1445.4	2345.2	2.13	1.002
+laion-clip-512-normalized	kannolo-rerank	99	kANNolo-Rerank(rabitq4+f16, graph=permuted, M=64, efC=500, kc=100, efS=100, alpha=0.05, lambda=0.12)	99.04	220	1000	4556.9	3456.2	11720.8	18187.2	34229.4	5.26	1.001
+laion-clip-512-normalized	kannolo-rerank-ext8	90	kANNolo-Rerank(rabitq4+ext8, graph=permuted, M=32, efC=500, kc=30, efS=38, alpha=0.05, lambda=0.04)	90.07	2835	1000	354.3	335.3	557.4	671.8	1214.6	2.00	1.004
+laion-clip-512-normalized	kannolo-rerank-ext8	95	kANNolo-Rerank(rabitq4+ext8, graph=permuted, M=64, efC=500, kc=100, efS=125, alpha=0.05, lambda=0.04)	95.01	1069	1000	936.3	893.0	1485.3	1893.5	2752.3	2.12	1.001

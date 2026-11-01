@@ -1,0 +1,19 @@
+# kANNolo-HNSW: HNSW over f16 vectors.
+float:
+  any:
+    - base_args: ['@metric']
+      constructor: Kannolo
+      disabled: false
+      singularity_image: kannolo
+      module: vibe.algorithms.kannolo
+      name: kannolo
+      run_groups:
+        hnsw-f16:
+          args:
+            m: [8, 16, 32]
+            ef_construction: [200, 500]
+            graph_type: [standard, permuted]
+          query_args:
+            ef_search: [10, 12, 14, 16, 18, 20, 22, 24, 26]
+            early_exit_threshold:
+              [null, 0.005, 0.01, 0.02, 0.04, 0.06, 0.08, 0.1, 0.125, 0.15, 0.175, 0.2, 0.25]

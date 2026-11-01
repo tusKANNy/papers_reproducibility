@@ -1,0 +1,498 @@
+diff --git a/vibe/algorithms/glass/module.py b/vibe/algorithms/glass/module.py
+index 1765ddd..90cf3fc 100644
+--- a/vibe/algorithms/glass/module.py
++++ b/vibe/algorithms/glass/module.py
+@@ -2,6 +2,7 @@ import glass
+ import numpy as np
+ 
+ from ..base.module import BaseANN
++from ... import placement
+ 
+ glass.set_num_threads(1)
+ 
+@@ -22,7 +23,12 @@ class Glass(BaseANN):
+         metric_type = {"cosine": "IP", "euclidean": "L2", "ip": "IP", "normalized": "IP"}[self.metric]
+ 
+         index = glass.Index(index_type="HNSW", metric=metric_type, R=self.R, L=self.L, quant=self.quant)
++        # glass.set_num_threads is a module-level global, set to 1 at import. Raise it for
++        # construction only and put it back before the searcher exists, so search stays
++        # single-threaded exactly as upstream.
++        glass.set_num_threads(placement.build_threads())
+         graph = index.build(X)
++        glass.set_num_threads(placement.search_threads())
+ 
+         self.searcher = glass.Searcher(
+             graph=graph, data=X, metric=metric_type, quantizer=self.search_quant, refine_quant=self.refine_quant
+diff --git a/vibe/algorithms/lorann/module.py b/vibe/algorithms/lorann/module.py
+index a0e9065..64846e7 100644
+--- a/vibe/algorithms/lorann/module.py
++++ b/vibe/algorithms/lorann/module.py
+@@ -2,6 +2,7 @@ import lorannlib
+ import numpy as np
+ 
+ from ..base.module import BaseANN
++from ... import placement
+ 
+ 
+ class Lorann(BaseANN):
+@@ -50,7 +51,7 @@ class Lorann(BaseANN):
+             False,
+             False,
+         )
+-        self.index.build(True, False, 1)
++        self.index.build(True, False, placement.build_threads())
+ 
+     def fit_ood(self, X_train, X_learn, X_learn_neighbors):
+         n_samples, dim = X_train.shape
+@@ -89,7 +90,7 @@ class Lorann(BaseANN):
+             False,
+             False,
+         )
+-        self.index.build(True, False, 1, X_learn)
++        self.index.build(True, False, placement.build_threads(), X_learn)
+ 
+     def set_query_arguments(self, query_args):
+         self.clusters_to_search, self.points_to_rerank = query_args
+diff --git a/vibe/algorithms/rabitq/module.py b/vibe/algorithms/rabitq/module.py
+index a0de79f..117a9f0 100644
+--- a/vibe/algorithms/rabitq/module.py
++++ b/vibe/algorithms/rabitq/module.py
+@@ -3,6 +3,7 @@ import numpy as np
+ from rabitqlib import HnswIndex, IvfIndex, SymqgIndex
+ 
+ from ..base.module import BaseANN
++from ... import placement
+ 
+ 
+ def _as_float32(X):
+@@ -72,7 +73,9 @@ class RabitqIVF(_RabitqBase):
+ 
+     def fit(self, X):
+         X = self._prepare_data(X)
+-        centroids, cluster_ids = _cluster_data(X, self.num_clusters, self.rabitq_metric, 1)
++        centroids, cluster_ids = _cluster_data(
++            X, self.num_clusters, self.rabitq_metric, placement.build_threads()
++        )
+         self.index = IvfIndex(
+             dim=X.shape[1],
+             max_elements=X.shape[0],
+@@ -80,7 +83,11 @@ class RabitqIVF(_RabitqBase):
+             nbits=self.total_bits,
+             metric=self.rabitq_metric,
+         )
+-        self.index.build(X, centroids, cluster_ids, num_threads=1, fast_quantization=self.fast_quantization)
++        self.index.build(
++            X, centroids, cluster_ids,
++            num_threads=placement.build_threads(),
++            fast_quantization=self.fast_quantization,
++        )
+ 
+     def set_query_arguments(self, nprobe, high_accuracy=True):
+         self.nprobe = nprobe
+@@ -126,7 +133,9 @@ class RabitqHNSW(_RabitqBase):
+ 
+     def fit(self, X):
+         X = self._prepare_data(X)
+-        centroids, cluster_ids = _cluster_data(X, self.num_clusters, self.rabitq_metric, 1)
++        centroids, cluster_ids = _cluster_data(
++            X, self.num_clusters, self.rabitq_metric, placement.build_threads()
++        )
+         self.index = HnswIndex(
+             dim=X.shape[1],
+             max_elements=X.shape[0],
+@@ -135,7 +144,11 @@ class RabitqHNSW(_RabitqBase):
+             nbits=self.total_bits,
+             metric=self.rabitq_metric,
+         )
+-        self.index.build(X, centroids, cluster_ids, num_threads=1, fast_quantization=self.fast_quantization)
++        self.index.build(
++            X, centroids, cluster_ids,
++            num_threads=placement.build_threads(),
++            fast_quantization=self.fast_quantization,
++        )
+ 
+     def set_query_arguments(self, ef):
+         self.ef = ef
+@@ -167,7 +180,9 @@ class SymphonyQG(_RabitqBase):
+     def fit(self, X):
+         X = self._prepare_data(X)
+         self.index = SymqgIndex(dim=X.shape[1], max_degree=self.max_degree, metric=self.rabitq_metric)
+-        self.index.build(X, ef_construction=self.efConstruction, num_threads=1)
++        self.index.build(
++            X, ef_construction=self.efConstruction, num_threads=placement.build_threads()
++        )
+ 
+     def set_query_arguments(self, ef):
+         self.ef = ef
+diff --git a/vibe/algorithms/svs/module.py b/vibe/algorithms/svs/module.py
+index 2ce9e23..6e522af 100644
+--- a/vibe/algorithms/svs/module.py
++++ b/vibe/algorithms/svs/module.py
+@@ -2,8 +2,45 @@ import numpy as np
+ import svs
+ import os
+ import tempfile
++import time
+ 
+ from ..base.module import BaseANN
++from ... import placement
++
++
++def _staging_dir():
++    """Where SVS stages its `.fvecs` copy of the training set.
++
++    Upstream hardcodes `os.getcwd()`, which is VIBE's own checkout. That is fine at VIBE's own
++    scale and fails hard at ours: the staging file is the *entire* training set, 36 GB at D1
++    (8 840 823 x 1024 f32) and 64 GB at D2, and /home has 29 GB free. Every one of D1's eight
++    LeanVec builds died with `OSError: [Errno 28] No space left on device` inside `write_vecs`,
++    which VIBE reports as a return code, not as a missing system -- so the arm silently produced
++    no results at all.
++
++    Unset, this returns upstream's behaviour byte for byte. `VIBE_SVS_TMPDIR` only moves the
++    scratch file; it changes no algorithm parameter.
++    """
++    return os.environ.get("VIBE_SVS_TMPDIR") or os.getcwd()
++
++
++def _write_staging(X, temp_filename):
++    """`svs.write_vecs`, timed and logged.
++
++    The write sits INSIDE `fit()`, and VIBE times the whole of `fit()` (`vibe/runner.py:245`),
++    so this I/O is counted as SVS build time. At 36 GB that is no longer negligible and it is a
++    property of the harness rather than of the library, so the cost is logged and can be
++    subtracted when SVS's build time is reported.
++    """
++    t0 = time.perf_counter()
++    svs.write_vecs(X, temp_filename)
++    dt = time.perf_counter() - t0
++    gib = X.nbytes / (1 << 30)
++    print(
++        f"[svs] staged {gib:.1f} GiB to {os.path.dirname(temp_filename) or '.'} in {dt:.1f}s "
++        f"({gib / dt:.2f} GiB/s) -- included in build_time",
++        flush=True,
++    )
+ 
+ 
+ class SVSVamana(BaseANN):
+@@ -32,8 +69,10 @@ class SVSVamana(BaseANN):
+             parameters,
+             X,
+             distance_type=svs.DistanceType.L2,
+-            num_threads=1,
++            num_threads=placement.build_threads(),
+         )
++        # Search is single-core, as upstream: `num_threads` is shared by build and search.
++        self.index.num_threads = placement.search_threads()
+ 
+     def set_query_arguments(self, search_window_size):
+         self.search_window_size = search_window_size
+@@ -74,9 +113,11 @@ class SVSVamanaLVQ(BaseANN):
+         if self.metric == "cosine":
+             X /= np.linalg.norm(X, axis=1)[:, np.newaxis]
+ 
+-        temp_file = tempfile.NamedTemporaryFile(dir=os.getcwd(), delete=True, suffix=suffix)
+-        temp_filename = os.path.basename(temp_file.name)
+-        svs.write_vecs(X, temp_filename)
++        # Full path, not `os.path.basename` as upstream: the basename only resolved because the
++        # staging dir was hardcoded to the cwd. See `_staging_dir`.
++        temp_file = tempfile.NamedTemporaryFile(dir=_staging_dir(), delete=True, suffix=suffix)
++        temp_filename = temp_file.name
++        _write_staging(X, temp_filename)
+ 
+         data_loader = svs.VectorDataLoader(temp_filename, dtype, dims=X.shape[1])
+ 
+@@ -97,8 +138,10 @@ class SVSVamanaLVQ(BaseANN):
+             parameters,
+             compressed_loader,
+             distance_type=svs.DistanceType.L2,
+-            num_threads=1,
++            num_threads=placement.build_threads(),
+         )
++        # Search is single-core, as upstream: `num_threads` is shared by build and search.
++        self.index.num_threads = placement.search_threads()
+ 
+         temp_file.close()
+ 
+@@ -142,9 +185,11 @@ class SVSVamanaLeanVec(BaseANN):
+         if self.metric == "cosine":
+             X /= np.linalg.norm(X, axis=1)[:, np.newaxis]
+ 
+-        temp_file = tempfile.NamedTemporaryFile(dir=os.getcwd(), delete=True, suffix=suffix)
+-        temp_filename = os.path.basename(temp_file.name)
+-        svs.write_vecs(X, temp_filename)
++        # Full path, not `os.path.basename` as upstream: the basename only resolved because the
++        # staging dir was hardcoded to the cwd. See `_staging_dir`.
++        temp_file = tempfile.NamedTemporaryFile(dir=_staging_dir(), delete=True, suffix=suffix)
++        temp_filename = temp_file.name
++        _write_staging(X, temp_filename)
+ 
+         data_loader = svs.VectorDataLoader(temp_filename, dtype, dims=X.shape[1])
+ 
+@@ -166,8 +211,10 @@ class SVSVamanaLeanVec(BaseANN):
+             parameters,
+             compressed_loader,
+             distance_type=svs.DistanceType.L2,
+-            num_threads=1,
++            num_threads=placement.build_threads(),
+         )
++        # Search is single-core, as upstream: `num_threads` is shared by build and search.
++        self.index.num_threads = placement.search_threads()
+ 
+         temp_file.close()
+ 
+diff --git a/vibe/algorithms/symphonyqg/module.py b/vibe/algorithms/symphonyqg/module.py
+index 13c90bb..448dd7b 100644
+--- a/vibe/algorithms/symphonyqg/module.py
++++ b/vibe/algorithms/symphonyqg/module.py
+@@ -2,6 +2,7 @@ import symphonyqg
+ import numpy as np
+ 
+ from ..base.module import BaseANN
++from ... import placement
+ 
+ 
+ class SymphonyQG(BaseANN):
+@@ -26,7 +27,7 @@ class SymphonyQG(BaseANN):
+             raise NotImplementedError("Dimensionality > 1024 not supported by SymphonyQG")
+ 
+         self.index = symphonyqg.Index("QG", "L2", num_elements=N, dimension=D, degree_bound=self.degree_bound)
+-        self.index.build_index(X, self.EF, num_iter=self.num_iter, num_thread=1)
++        self.index.build_index(X, self.EF, num_iter=self.num_iter, num_thread=placement.build_threads())
+ 
+     def set_query_arguments(self, beam_size):
+         self.beam_size = beam_size
+diff --git a/vibe/runner.py b/vibe/runner.py
+index 32b8052..dedbbb3 100644
+--- a/vibe/runner.py
++++ b/vibe/runner.py
+@@ -32,6 +32,8 @@ def run_individual_query(
+ 
+     best_search_time = float("inf")
+     best_qps = 0.0
++    pass_search_times: list[float] = []
++    pass_qps: list[float] = []
+     for i in range(run_count):
+         print("Run %d/%d..." % (i + 1, run_count))
+ 
+@@ -121,12 +123,19 @@ def run_individual_query(
+         else:
+             qps = len(X_test) / total
+         best_qps = max(best_qps, qps)
++        # kannolo-bench: keep every pass, not just the best. The protocol reports min-of-N but
++        # requires a re-run when two passes disagree by more than a few percent, and that rule
++        # is unauditable if only the winner is stored.
++        pass_search_times.append(search_time)
++        pass_qps.append(qps)
+ 
+     verbose = hasattr(algo, "query_verbose")
+     attrs = {
+         "gpu_mode": gpu,
+         "best_search_time": best_search_time,
+         "best_qps": best_qps,
++        "pass_search_times": pass_search_times,
++        "pass_qps": pass_qps,
+         "candidates": avg_candidates,
+         "expect_extra": verbose,
+         "name": str(algo),
+@@ -225,7 +234,14 @@ def build_index(algo: BaseANN, constructor_name, X_train, X_learn, X_learn_neigh
+     Returns:
+         Tuple: The build time and index size.
+     """
++    from . import placement
++
+     memory_usage_before = algo.get_memory_usage()
++
++    # Let the build use every core it was granted, then hand the search back exactly the
++    # single pinned core upstream would have used. See vibe/placement.py.
++    poller = placement.PeakRssPoller().start()
++    placement.unpin_for_build()
+     t0 = time.time()
+ 
+     if X_learn is None or X_learn_neighbors is None:
+@@ -236,12 +252,22 @@ def build_index(algo: BaseANN, constructor_name, X_train, X_learn, X_learn_neigh
+         algo.fit_ood(X_train, X_learn, X_learn_neighbors)
+ 
+     build_time = time.time() - t0
++    peak_rss_bytes = poller.stop()
++    build_placement = placement.finalize_placement()
++    placement.pin_for_search()
++
++    # Before the footprint is read, so USS measures the index rather than the allocator's
++    # leftovers from the build. Uniform across libraries -- see placement.release_free_heap.
++    build_placement["heap_trimmed"] = placement.release_free_heap()
+     index_size = algo.get_memory_usage() - memory_usage_before
+ 
+     print("Built index in", build_time)
+     print("Index size: ", index_size)
++    print("Peak RSS during build (bytes):", peak_rss_bytes)
++    print("Page placement:", build_placement)
+ 
+-    return build_time, index_size
++    build_placement["peak_rss_bytes"] = peak_rss_bytes
++    return build_time, index_size, build_placement
+ 
+ 
+ def run(definition: Definition, dataset_name: str, count: int, run_count: int) -> None:
+@@ -271,7 +297,9 @@ function"""
+         if hasattr(algo, "supports_prepared_queries"):
+             algo.supports_prepared_queries()
+ 
+-        build_time, index_size = build_index(algo, definition.constructor, X_train, X_learn, X_learn_neighbors)
++        build_time, index_size, build_placement = build_index(
++            algo, definition.constructor, X_train, X_learn, X_learn_neighbors
++        )
+ 
+         query_argument_groups = definition.query_argument_groups or [[]]  # Ensure at least one iteration
+ 
+@@ -290,6 +318,7 @@ function"""
+                     "index_size": index_size,
+                     "algo": definition.algorithm,
+                     "dataset": dataset_name,
++                    "build_placement": json.dumps(build_placement),
+                 }
+             )
+ 
+diff --git a/vibe/workers.py b/vibe/workers.py
+index 7527eae..99af465 100644
+--- a/vibe/workers.py
++++ b/vibe/workers.py
+@@ -75,6 +75,12 @@ def get_numa_node_for_cpu(cpu: int) -> Optional[int]:
+     return None
+ 
+ 
++def numa_node_cpus(node: int) -> Set[int]:
++    """Every logical CPU on `node`, used to size the build core set for arm B'."""
++    path = Path(f"/sys/devices/system/node/node{node}/cpulist")
++    return _expand_ranges(path.read_text().strip()) if path.exists() else set()
++
++
+ def allowed_mems() -> Optional[Set[int]]:
+     try:
+         with open("/proc/self/status") as f:
+@@ -230,18 +236,36 @@ def run_singularity(
+             return min(allowed_nodes)
+         return min(valid_allowed, key=lambda n: (distances[n], n))
+ 
++    target_node = node
++    if node is None or (allowed is not None and node not in allowed):
++        base = node if node is not None else 0
++        target_node = _nearest_allowed_node(base, allowed)
++
++    # The memory policy is a switch so the page-placement arms can be
++    # compared by measurement. Arm A is upstream, byte for byte.
++    arm = os.environ.get("VIBE_PLACEMENT_ARM", "A")
+     if shutil.which("numactl"):
+-        if node is not None and (allowed is None or node in allowed):
+-            cmd += ["numactl", f"--membind={node}"]
+-        elif allowed:
+-            base = node if node is not None else 0
+-            nearest = _nearest_allowed_node(base, allowed)
+-            cmd += ["numactl", f"--membind={nearest}"]
+-        cmd += [f"--physcpubind={cpu}"]
++        cmd += ["numactl"]
++        if arm in ("C", "D"):
++            cmd += ["--interleave=all"]
++        elif arm == "Bprime":
++            cmd += [f"--cpunodebind={target_node}", f"--membind={target_node}"]
++        else:
++            cmd += [f"--membind={target_node}"]
++        if arm == "A":
++            cmd += [f"--physcpubind={cpu}"]
+     else:
+         logger.warning("numactl not found; falling back to taskset (no NUMA policy).")
+         cmd += ["taskset", "-c", str(cpu)]
+ 
++    # Cores the build may spread over. Search is re-pinned to `cpu` by vibe/placement.py
++    # before the first query, so this only ever widens construction.
++    if arm == "Bprime":
++        build_cpus = sorted(numa_node_cpus(target_node))
++    else:
++        build_cpus = sorted(_expand_ranges(Path("/sys/devices/system/cpu/online").read_text().strip()))
++    build_threads = len(build_cpus) if arm != "A" else 1
++
+     if not local:
+         cmd += ["singularity", "exec"]
+         if definition.gpu:
+@@ -272,26 +296,70 @@ def run_singularity(
+     cmd.append(json.dumps(definition.arguments))
+     cmd += [json.dumps(qag) for qag in definition.query_argument_groups]
+ 
++    # Upstream hardcodes every thread-count variable to 1, which is what makes its
++    # `build_time` a single-core number. On the non-upstream arms these carry the build
++    # thread count instead; the search is held to one core by affinity, re-applied in
++    # vibe/placement.py before the first query, not by these variables.
++    threads = str(build_threads)
+     env = dict(
+         os.environ,
+-        OMP_NUM_THREADS="1",
+-        MKL_NUM_THREADS="1",
+-        OPENBLAS_NUM_THREADS="1",
+-        TBB_NUM_THREADS="1",
+-        NUMEXPR_NUM_THREADS="1",
+-        VECLIB_NUM_THREADS="1",
+-        BLIS_NUM_THREADS="1",
+-        GOTO_NUM_THREADS="1",
+-        NUMBA_NUM_THREADS="1",
+-        JULIA_NUM_THREADS="1",
+-        RAYON_NUM_THREADS="1",
++        OMP_NUM_THREADS=threads,
++        MKL_NUM_THREADS=threads,
++        OPENBLAS_NUM_THREADS=threads,
++        TBB_NUM_THREADS=threads,
++        NUMEXPR_NUM_THREADS=threads,
++        VECLIB_NUM_THREADS=threads,
++        BLIS_NUM_THREADS=threads,
++        GOTO_NUM_THREADS=threads,
++        NUMBA_NUM_THREADS=threads,
++        JULIA_NUM_THREADS=threads,
++        RAYON_NUM_THREADS=threads,
+         OMP_PROC_BIND="true",
+         OMP_DYNAMIC="false",
+         MKL_DYNAMIC="false",
++        # Cap glibc's per-thread arena count. A 64-thread build otherwise opens enough arenas
++        # that the transient peak stays resident, and USS -- which is the cross-library footprint
++        # VIBE reports -- counts it: measured on kANNolo at D3, 1.60x the index's own SpaceUsage
++        # accounting with the default, 1.05x at 8 arenas, 1.01x at 2. Eight costs 4.8% of build
++        # time where two costs 26%. Set for every module alike, so it corrects an allocator
++        # artifact rather than favouring anyone.
++        MALLOC_ARENA_MAX=os.environ.get("VIBE_MALLOC_ARENA_MAX", "8"),
++        # Keep large blocks in the heap instead of round-tripping them through mmap/munmap.
++        #
++        # Added 2026-08-27 after glass's D2 build ran at 1170 vectors/s against 16841 on D1 --
++        # 14.4x slower per vector where n log n predicts 1.06x. Live inspection found 11-22 of its
++        # 64 threads permanently in D state inside `__vm_munmap` / `vm_mmap_pgoff` / `do_madvise`,
++        # 1.65M minor faults/s, zero disk I/O, and ~6.5 of 64 cores usefully busy: every large
++        # allocation was being mmap'd, faulted in page by page, then munmap'd, with all 64 threads
++        # serialised on the process's single `mmap_lock`.
++        #
++        # glibc normally adapts M_MMAP_THRESHOLD upwards on its own, but only in response to freed
++        # mmap'd blocks, and that adaptation loses to a 64-thread convoy. Pinning it removes the
++        # round trip. Measured on the same configuration and collection glass had just built
++        # (`scripts/probe_glass_malloc.py`, 21M x 768, L=400 R=8 SQ8U):
++        #
++        #     harness default (arena cap 8)      1170 vectors/s   (the campaign's own 5 h build)
++        #     arena cap removed                  5865 v/s   x5.0
++        #     cap 8 + this threshold pinned      8201 v/s   x7.0   <- chosen
++        #     both                               6489 v/s   x5.5
++        #
++        # Pinning the threshold and LEAVING the arena cap alone is both the fastest arm and the
++        # one that changes nothing about the footprint correction above -- arena behaviour is
++        # untouched, so USS and the memory claim are unaffected. Removing the cap instead would
++        # have re-inflated the very measurement that correction exists to fix.
++        #
++        # Set for every module alike, for the same reason the arena cap is: a per-library
++        # allocator tuning would be exactly the version shopping §5.2 clause 1 forbids.
++        MALLOC_MMAP_THRESHOLD_=os.environ.get("VIBE_MALLOC_MMAP_THRESHOLD", str(256 * 1024 * 1024)),
++        VIBE_PLACEMENT_ARM=arm,
++        VIBE_SEARCH_CPU=str(cpu),
++        VIBE_SEARCH_NODE=str(target_node),
++        VIBE_BUILD_CPUS=",".join(str(c) for c in build_cpus),
+     )
+ 
+     def set_affinity_before_exec():
+-        os.sched_setaffinity(0, {cpu})
++        # The build set; placement.pin_for_search() narrows this to {cpu} before searching.
++        os.sched_setaffinity(0, set(build_cpus) if arm != "A" else {cpu})
+ 
+     try:
+         with subprocess.Popen(
