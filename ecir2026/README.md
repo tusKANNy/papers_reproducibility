@@ -7,16 +7,31 @@ This folder contains the reproducibility materials for the paper **"Multivector 
 If you use this work, please cite:
 
 ```bibtex
-@article{martinico2026multivector,
-  title={Multivector Reranking in the Era of Strong First-Stage Retrievers}, 
-  author={Martinico, Silvio and Nardini, Franco Maria and Rulli, Cosimo and Venturini, Rossano},
-  year={2026},
-  journal={arXiv preprint arXiv:2601.05200},
-  eprint={2601.05200},
-  archivePrefix={arXiv},
-  primaryClass={cs.IR},
-  url={https://arxiv.org/abs/2601.05200}
+@InProceedings{10.1007/978-3-032-21324-2_4,
+author="Martinico, Silvio
+and Nardini, Franco Maria
+and Rulli, Cosimo
+and Venturini, Rossano",
+editor="Campos, Ricardo
+and Jatowt, Adam
+and Lan, Yanyan
+and Aliannejadi, Mohammad
+and Bauer, Christine
+and MacAvaney, Sean
+and Anand, Avishek
+and Ren, Zhaochun
+and Verberne, Suzan
+and Bai, Nan
+and Mansoury, Masoud",
+title="Multivector Reranking in the Era of Strong First-Stage Retrievers",
+booktitle="Advances in Information Retrieval",
+year="2026",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="49--65",
+isbn="978-3-032-21324-2"
 }
+
 ```
 
 ## Reproduction Instructions
