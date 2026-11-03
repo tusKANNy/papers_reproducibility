@@ -22,9 +22,9 @@ analysis/make_all.sh out/
 ```
 
 writes `results_{dense,sparse}.tex` (Tables B.1 and B.2 before compaction), `configs_{dense,sparse}.tex`
-(supplementary material), `fig_frontier_*.pdf` and `fig_tradeoff_*.pdf` (Figures 6-9),
-`tail_latency.tex` (Table B.3) and the budget sensitivity of Appendix A.1, and the selections in
-`selections/`. `analysis/grids_table.py` writes the grid tables of the supplementary material.
+(supplementary material), `fig_frontier_*.pdf` and `fig_tradeoff_*.pdf` (Figures 6-9) and
+`tail_latency.tex` (Table B.3). It also writes the budget sensitivity of Appendix A.1 and the
+selections in `selections/`. `analysis/grids_table.py` writes the grid tables of the supplementary material.
 
 **Selection rule** (`analysis/select_configs.py`): a row counts if its index was placed on the search
 node (or, for SymphonyQG on DPR, which fits on no single node, interleaved) and its build finished
@@ -62,12 +62,13 @@ python dense/run_ext8.py --dataset dpr-jina-768-normalized --budget-s 5400 --sel
 python dense/collect_results.py --dataset dpr-jina-768-normalized --out results/dense/dpr.jsonl
 ```
 
-The patch to VIBE changes only how indexes are built and placed, never the timed search loop:
-construction on all cores, then the index migrated to the search node (`placement.py`); search on
-one core; per-pass QPS recorded; allocator settings applied to every system alike. The grids are
+The patch to VIBE changes only how indexes are built and placed; the timed search loop is
+unchanged. Construction runs on all cores, and the index is then migrated to the search node
+(`placement.py`). Search runs on one core, QPS is recorded per pass, and the same allocator
+settings apply to every system. The grids are
 VIBE's, plus each library's documented default where VIBE's grid omits it (comments in each
-`config.yml`). `run_dense.py` builds every system's grid cheapest first; a build over B is excluded,
-and every larger build of the same system is skipped without being built (`dense/dominance.py`).
+`config.yml`). `run_dense.py` builds every system's grid cheapest first. A build over B is excluded, and every
+larger build of the same system is skipped without being built (`dense/dominance.py`).
 
 ## Sparse benchmarks
 
@@ -85,9 +86,31 @@ hf download tuskanny/sparse-nq-splade-cocondenser --repo-type dataset --local-di
   --include documents.bin queries.bin groundtruth.tsv
 ```
 
+Every competitor is built from its upstream repository at the commit the paper used, with our
+patch where there is one. `sparse/install.sh` clones, patches and builds all of them under
+`$SPARSE_ROOT`:
+
+| System | Repository | Commit | Patch |
+|---|---|---|---|
+| kANNolo (command-line tools) | [TusKANNy/kannolo](https://github.com/TusKANNy/kannolo) | `v0.15.1` | `kannolo-v0.15.1-pass-markers.patch` |
+| Seismic, Seismic-Wave | [TusKANNy/seismic](https://github.com/TusKANNy/seismic) | `cc065cf` | `seismic-cc065cf-pass-markers.patch` |
+| LSP | [thefxperson/hierarchical_pruning](https://github.com/thefxperson/hierarchical_pruning) | `fa0ede5` | |
+| LSP input: CIFF conversion | [pisa-engine/ciff](https://github.com/pisa-engine/ciff) | `0689e2a` | |
+| LSP input: graph bisection | [JMMackenzie/enhanced-graph-bisection](https://github.com/JMMackenzie/enhanced-graph-bisection) | `490205b` | |
+| SINDI | [Roxanne0321/vsag](https://github.com/Roxanne0321/vsag) (branch `sparse`) | `93e034f` | `vsag-93e034f.patch` |
+| PyANN | [hhy3/pyanns](https://github.com/hhy3/pyanns) | `cbb5c81` | |
+
+The patches (`sparse/patches`) add the end-of-pass markers the timing reads and, when
+`QUERY_TIMES_DIR` is set, per-query times. The SINDI patch also fixes the header that
+`generate_gt` writes, and it pins vsag's ThreadPool dependency to the commit the paper's build
+used (vsag otherwise downloads it from a moving `master` branch). The scripts that
+convert the collections into LSP's and SINDI's input formats are in `sparse/tools`. The build needs
+git, a nightly Rust toolchain, cmake, a C++17 compiler and Python 3.12.
+
 ```bash
 pip install -r envs/sparse-requirements.txt          # then kANNolo as above
-cp sparse/env.example.sh env.sh   # set the paths of the systems' builds; see the comments there
+SPARSE_ROOT=/path/to/sparse sparse/install.sh         # or: sparse/install.sh lsp sindi
+cp sparse/env.example.sh env.sh                       # set SPARSE_ROOT
 set -a; . env.sh; set +a
 python sparse/run_sparse.py --sparse-root $SPARSE_ROOT --collection nq --data <nq-dir> --out results/sparse/nq.jsonl
 ```

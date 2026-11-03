@@ -1,5 +1,7 @@
-"""Plot style shared by every figure of the paper, and the fixed name, colour and marker of each
-system, identical across collections so a reader can follow a system from figure to figure.
+"""Plot style shared by every figure of the paper.
+
+Each system has a fixed name, colour and marker, the same on every collection, so a reader can
+follow a system from figure to figure.
 """
 
 from pathlib import Path
@@ -43,7 +45,7 @@ KUBRICK_CMAP = LinearSegmentedColormap.from_list(
 
 
 def color_for_kp(i, n):
-    """Deterministic colour for series i out of n (common_plot_style.ipynb)."""
+    """Deterministic colour for series i out of n."""
     if n == 1:
         return STYLE['colors']['U']
     if n <= 3:
@@ -130,9 +132,9 @@ DISPLAY = {
 }
 
 SERIES_COLOUR = {
-    "kannolo":             "#EC8F8D",  # house anchor 1
-    "kannolo-rerank":      "#537D96",  # house anchor 3
-    "hnswlib":             "#44A194",  # house anchor 2
+    "kannolo":             "#EC8F8D",  # base palette colour 1
+    "kannolo-rerank":      "#537D96",  # base palette colour 3
+    "hnswlib":             "#44A194",  # base palette colour 2
     "glass":               "#E08A3C",  # orange
     "symphonyqg":          "#8E6FB0",  # purple
     "lorann":              "#C4A63C",  # ochre
@@ -142,21 +144,21 @@ SERIES_COLOUR = {
 
 MARKER_SLOT = {algo: i for i, algo in enumerate(SERIES_ORDER)}
 
-CONTROL_PARENT = {
+VARIANT_PARENT = {
     "kannolo-rerank-ext8": "kannolo-rerank",
     "kannolo-rerank-ext8-resid": "kannolo-rerank",
     "lorann-plain": "lorann",
 }
 
-CONTROL_HATCH = {
+VARIANT_HATCH = {
     "kannolo-rerank-ext8": "//",
     "kannolo-rerank-ext8-resid": "xx",
     "lorann-plain": "..",
 }
 
-CONTROL_MARKER = {
+VARIANT_MARKER = {
     "kannolo-rerank-ext8": "p",        # pentagon
-    "kannolo-rerank-ext8-resid": "*",  # star -- must not be confusable with the pentagon above,
+    "kannolo-rerank-ext8-resid": "*",  # star, distinct from the pentagon above
     "lorann-plain": "h",               # hexagon
 }
 
@@ -188,9 +190,9 @@ DISPLAY.update({
 })
 
 SPARSE_SERIES_COLOUR = {
-    "kannolo-hnsw":        "#EC8F8D",  # house anchor 1, as dense kannolo
-    "kannolo-hnsw-rerank": "#537D96",  # house anchor 3, as dense kannolo-rerank
-    "seismic":             "#44A194",  # house anchor 2
+    "kannolo-hnsw":        "#EC8F8D",  # base palette colour 1, as dense kannolo
+    "kannolo-hnsw-rerank": "#537D96",  # base palette colour 3, as dense kannolo-rerank
+    "seismic":             "#44A194",  # base palette colour 2
     "seismic-wave":        "#E08A3C",  # orange
     "pyanns":              "#8E6FB0",  # purple
     "sindi":               "#C4A63C",  # ochre
@@ -204,19 +206,18 @@ SPARSE_MODE = False
 
 
 def use_sparse():
-    """Point the series lookups at the sparse campaign's set.
+    """Point the series lookups at the sparse systems.
 
-    `series_colour`, `series_marker` and `SERIES_ORDER` are read by `p1_figures.py` through this
-    module, so one rebinding here switches every figure at once rather than threading a `series`
-    argument through each of them. Called once, from `p1_figures.main()`, before any figure is
-    drawn -- never mid-run, or two figures in one invocation would disagree about what colour a
-    library is.
+    `series_colour`, `series_marker` and `SERIES_ORDER` are read by `combined.py` through this
+    module, so one rebinding here switches every figure at once. No figure needs a `series`
+    argument. Call it once, from `combined.main()`, before any figure is drawn. A call mid-run
+    would give a library different colours in two figures of one invocation.
 
-    **GRAPH_BAND becomes every sparse system, and that is not a way of hiding anyone.** On dense
-    it excludes two structural outliers (SymphonyQG at ~32x code replication, LoRANN which stores
-    no copy of the collection) whose footprints stretch Fig. A's axis by a decade. The sparse
-    field has no such outlier: all seven are one inverted index or one graph plus some
-    representation of the collection, so the band is the whole field and the restriction is inert.
+    GRAPH_BAND becomes every sparse system. On dense collections it excludes two structural
+    outliers, SymphonyQG (~32x code replication) and LoRANN (no copy of the collection), whose
+    footprints stretch the frontier figure's axis. The sparse systems have no such
+    outlier: all seven are one inverted index or one graph plus some representation of the
+    collection, so the restriction has no effect.
     """
     global SERIES_ORDER, SERIES_COLOUR, MARKER_SLOT, GRAPH_BAND, SPARSE_MODE
     SPARSE_MODE = True
@@ -252,7 +253,7 @@ REGIMES = {
     "codes per in-edge": ["symphonyqg"],
 }
 
-REGIME_ARMS = ["kannolo", "kannolo-rerank", "symphonyqg", "lorann"]
+REGIME_SYSTEMS = ["kannolo", "kannolo-rerank", "symphonyqg", "lorann"]
 
 COLLECTION_SHAPE = {
     "agnews-mxbai-1024-euclidean":        (769_382, 1024),
@@ -265,7 +266,7 @@ COLLECTION_SHAPE = {
 
 
 def collection_gib(dataset):
-    """Raw f32 size of `dataset` in GiB, or None if we have no shape for it."""
+    """Raw f32 size of `dataset` in GiB, or None if its shape is unknown."""
     shape = COLLECTION_SHAPE.get(dataset)
     if shape is None:
         return None
@@ -274,29 +275,28 @@ def collection_gib(dataset):
 
 
 def series_colour(algo):
-    return SERIES_COLOUR[CONTROL_PARENT.get(algo, algo)]
+    return SERIES_COLOUR[VARIANT_PARENT.get(algo, algo)]
 
 
 def series_marker(algo):
-    if algo in CONTROL_MARKER:
-        return CONTROL_MARKER[algo]
+    if algo in VARIANT_MARKER:
+        return VARIANT_MARKER[algo]
     return STYLE['markers'][MARKER_SLOT[algo] % len(STYLE['markers'])]
 
 
 def series_hatch(algo):
-    """Bar hatch. A control arm needs its OWN hatch, not the parent's: on D1 and D2
-    `kannolo-rerank` has two controls, and inheriting the parent's slot drew both of them as the
-    same hollow bar in the same colour with the same fill -- the same defect CONTROL_MARKER
-    fixes for the scatter figures."""
-    if algo in CONTROL_HATCH:
-        return CONTROL_HATCH[algo]
-    parent = CONTROL_PARENT.get(algo, algo)
+    """Bar hatch. Each variant has its own hatch. On MsMarco-Qwen and DPR, `kannolo-rerank` has
+    two variants; with the parent's hatch, both were drawn as the same hollow bar in the same
+    colour and fill. VARIANT_MARKER solves the same problem for the scatter figures."""
+    if algo in VARIANT_HATCH:
+        return VARIANT_HATCH[algo]
+    parent = VARIANT_PARENT.get(algo, algo)
     return STYLE['hatches'][MARKER_SLOT[parent] % len(STYLE['hatches'])]
 
 
-def is_control_arm(algo):
+def is_variant(algo):
     """Draw hollow: face unfilled, the parent's colour as the edge."""
-    return algo in CONTROL_PARENT
+    return algo in VARIANT_PARENT
 
 
 def legend_under_axes(fig, handles, labels, ncol, gap_in=0.06, **kw):

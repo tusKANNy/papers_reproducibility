@@ -1,4 +1,4 @@
-"""PyANN under this harness (Lane A): a sparse graph index, compared against kANNolo's HNSW.
+"""PyANN under this harness (in-process timing): a sparse graph index, compared with kANNolo's HNSW.
 
 NeurIPS'23 BigANN sparse-track winner, `hhy3/pyanns` (commit in sparse/env.example.sh). API facts
 below are read from `python/bindings.cc` and `pyanns/searcher/sparse_*.hpp`.
@@ -11,20 +11,22 @@ below are read from `python/bindings.cc` and `pyanns/searcher/sparse_*.hpp`.
     int32 indices[nnz]
     float32 data[nnz]
 
-which is the same layout SINDI reads, so one converter serves both. The conversion depends only
-on the collection, so it is cached on disk and paid by the first build of a collection only.
+SINDI reads the same layout, so one converter serves both. The conversion depends only on the
+collection. It is cached on disk, and only the first build of a collection pays for it.
 Its time (`convert_s`) and the graph build time (`graph_build_s`) are recorded separately.
 
 **2. Its sparse search API is batch-only.** Both `IndexSparse::search_batch` and
 `SparseGraphSearcher::batch_search` take `nq` and run an `#pragma omp parallel for` over the
-queries. It is called with `nq = 1`, which is one query at a time on one core; each call still
-pays a fixed binding overhead (wrapping three numpy arrays, allocating a result buffer) that
-per-query APIs do not. A larger batch would change the search itself (see
-sparse/tools/pyanns_search_cli.py), so the Lane-B CLI also calls it once per query.
+queries. This module calls it with `nq = 1`, i.e. one query at a time on one core. Each call
+still pays a fixed binding overhead (wrapping three numpy arrays, allocating a result buffer)
+that per-query APIs do not pay. A larger batch would change the search itself (see
+sparse/tools/pyanns_search_cli.py), so the CLI used for command-line timing also calls it once
+per query.
 
 **3. Search must be forced to one thread.** `pyanns.set_num_threads` sets the OpenMP team size
-process-wide; left at the default an `nq = 1` search would still spin up a full thread team on
-one pinned core. It is set to 64 for the build and 1 for the search, explicitly, and recorded.
+process-wide. At the default, an `nq = 1` search would still start a full thread team on one
+pinned core. The module sets it explicitly to 64 for the build and to 1 for the search, and
+records both values.
 """
 
 import os
@@ -52,8 +54,8 @@ def convert_seismic_to_csr(documents_path, out_path, queries_path=None):
 
     `m` (the vocabulary size) must cover every component in *both* the documents and the queries,
     because a searcher that sizes its inverted index from `m` will index out of range on a query
-    term it has never seen. The scan below takes the maximum over both files rather than
-    assuming the documents' maximum covers the queries.
+    term it has never seen. The scan below therefore takes the maximum over both files, and does
+    not assume that the documents' maximum covers the queries.
     """
     os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
 
@@ -122,10 +124,10 @@ class PyannsSparseHNSW(SparseANN):
         t0 = time.perf_counter()
         if not os.path.exists(self.csr_path):
             # The queries file is needed only to size the vocabulary, and it is NOT a constructor
-            # argument: every constructor argument lands in `build_args` and therefore in the
-            # `result_file` stem, where a path's dots and slashes are exactly what
-            # `driver.result_file_key` refuses. It sits beside the documents in every collection,
-            # so it is derived rather than passed.
+            # argument. Every constructor argument goes into `build_args` and therefore into the
+            # `result_file` stem, and `driver.result_file_key` rejects the dots and slashes of a
+            # path. The queries file is next to the documents in every collection, so its path is
+            # derived from the documents path.
             queries_path = os.path.join(os.path.dirname(documents_path), "queries.bin")
             convert_seismic_to_csr(documents_path, self.csr_path,
                                    queries_path if os.path.exists(queries_path) else None)
@@ -149,10 +151,10 @@ class PyannsSparseHNSW(SparseANN):
     def query(self, components, values, k):
         # nq = 1: one query at a time through a batch-only API. The omp loop inside has a single
         # iteration and the process is pinned to one core, so this is a sequential single-core
-        # search, paying a per-call binding overhead the per-query APIs do not.
+        # search. It pays a per-call binding overhead that the per-query APIs do not.
         #
-        # These ids are NOT in similarity order, unlike every other module here and unlike what
-        # `base.SparseANN.query` asks for: PyANN returns its heap without a final sort. This does
+        # These ids are NOT in similarity order: PyANN returns its heap without a final sort.
+        # Every other module here returns sorted ids, as `base.SparseANN.query` asks. This does
         # not affect `driver.accuracy_at_k`, which is a set intersection |R n G| / k. Any
         # rank-sensitive metric (MRR, nDCG) would need a sort here first.
         indptr = np.array([0, len(components)], dtype=np.int32)
@@ -183,7 +185,7 @@ class PyannsSparseHNSW(SparseANN):
 
     def save(self, path):
         # The graph and the CSR are already on disk and the searcher holds no other state, so
-        # "saving" is recording where they are. Written as a small text file so the driver's
+        # "saving" records their paths. They are written to a small text file so that the driver's
         # one-path-per-`result_file` convention and `--reuse-indexes` both work unchanged.
         with open(path, "w") as fh:
             fh.write(f"{self.csr_path}\n{self.graph_path}\n")

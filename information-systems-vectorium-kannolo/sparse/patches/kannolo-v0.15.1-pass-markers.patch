@@ -31,7 +31,7 @@ index a62e207..c0db1fa 100644
      }
  }
 +
-+// Per-query times (kANNolo/Vectorium journal campaign, benchmark-only, never upstreamed): with
++// Per-query times (benchmark-only patch, not upstream): with
 +// QUERY_TIMES_DIR set, writes <dir>/<pid>.tsv holding the argv line and then one line per pass of
 +// per-query nanoseconds. Written after the last pass, outside every timed region.
 +fn qtimes_dump(times: &[Vec<u64>]) {
@@ -515,7 +515,7 @@ index 2c93616..2610b38 100644
      }
  }
 +
-+// Per-query times (kANNolo/Vectorium journal campaign, benchmark-only, never upstreamed): with
++// Per-query times (benchmark-only patch, not upstream): with
 +// QUERY_TIMES_DIR set, writes <dir>/<pid>.tsv holding the argv line and then one line per pass of
 +// per-query nanoseconds. Written after the last pass, outside every timed region.
 +fn qtimes_dump(times: &[Vec<u64>]) {

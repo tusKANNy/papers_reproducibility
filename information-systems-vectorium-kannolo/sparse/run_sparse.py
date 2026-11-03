@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Run the sparse benchmarks of one collection: every system, its whole grid (sparse/grids.py).
 
-  * kANNolo-HNSW, kANNolo-Rerank and PyANN are tuned in-process (Lane A) over their grid, with the
-    indexes saved; the three fastest configurations at each target t = 90..99 are then timed from
-    the command line (Lane B) on the same index files.
-  * Seismic, Seismic-Wave, LSP and SINDI are built and searched from their command-line tools
-    (Lane B) over their whole grid.
-Only Lane-B rows are reported. The systems built on Vectorium use the blocked-sparse encoder.
+  * kANNolo-HNSW, kANNolo-Rerank and PyANN are tuned in-process over their grid, with the
+    indexes saved. The three fastest configurations at each target t = 90..99 are then timed
+    from the command line on the same index files.
+  * Seismic, Seismic-Wave, LSP and SINDI are built and searched with their command-line tools
+    over their whole grid.
+Only rows from command-line timing are reported. The systems built on Vectorium use the
+blocked-sparse encoder.
 
     python sparse/run_sparse.py --sparse-root <systems> --collection nq --data <nq-dir> --out results/sparse/nq.jsonl
     python sparse/run_sparse.py ... --systems kannolo-hnsw-rerank
@@ -24,16 +25,16 @@ import tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 COLLECTIONS = {  # name -> (dataset id, number of queries, budget B in s)
-    "msmarco-splade": ("s1-msmarco-splade-v3", 6980, 5400),
-    "nq": ("s2-nq-cocondenser", 3452, 1800),
-    "msmarco-esplade": ("s4-msmarco-esplade", 6980, 6000),
+    "msmarco-splade": ("msmarco-splade-v3", 6980, 5400),
+    "nq": ("nq-cocondenser", 3452, 1800),
+    "msmarco-esplade": ("msmarco-esplade", 6980, 6000),
 }
 # system -> (in-process tuning module or None, command-line module, retime_grid function)
 SYSTEMS = {
     "kannolo-hnsw": ("kannolo_sparse:KannoloSparseHNSW", "kannolo_blocked:KannoloHnswBlocked", "kannolo_hnsw"),
     "kannolo-hnsw-rerank": ("kannolo_sparse:KannoloSparseRerank", "kannolo_blocked:KannoloRerankBlocked",
                             "kannolo_rerank"),
-    "pyanns": ("pyanns_sparse:PyannsSparseHNSW", "lane_b_retime:Pyanns", "pyanns"),
+    "pyanns": ("pyanns_sparse:PyannsSparseHNSW", "cli_retime:Pyanns", "pyanns"),
     "seismic": (None, "seismic_blocked:SeismicBlocked", None),
     "seismic-wave": (None, "seismic_blocked:SeismicWaveBlocked", None),
     "lsp": (None, "lsp_sparse:Lsp", None),
@@ -44,7 +45,7 @@ TOP = 3
 
 def driver(args, extra_env, python=sys.executable):
     env = dict(os.environ, **extra_env,
-               VIBE_PLACEMENT_ARM="D", VIBE_SEARCH_CPU=os.environ.get("VIBE_SEARCH_CPU", "0"),
+               VIBE_PLACEMENT="migrate", VIBE_SEARCH_CPU=os.environ.get("VIBE_SEARCH_CPU", "0"),
                VIBE_SEARCH_NODE=os.environ.get("VIBE_SEARCH_NODE", "0"),
                VIBE_BUILD_CPUS=os.environ.get("VIBE_BUILD_CPUS", f"0-{os.cpu_count() - 1}"),
                RAYON_NUM_THREADS=os.environ.get("RAYON_NUM_THREADS", str(os.cpu_count())),
@@ -58,8 +59,7 @@ def driver(args, extra_env, python=sys.executable):
 
 def prepare_lsp(data, work):
     """LSP's input, once per collection: the collection as JSONL, then 8-bit quantization, graph
-    bisection and query encoding, each timed (replicate-dsp, patched: sparse/patches)."""
-    repo = os.environ["REPLICATE_DSP"]
+    bisection and query encoding, each timed (sparse/tools/prepare_lsp_input.py)."""
     prep = os.path.join(work, "lsp_prep")
     if os.path.exists(os.path.join(prep, "prep_timings.json")):
         return prep
@@ -67,9 +67,9 @@ def prepare_lsp(data, work):
     jsonl = {}
     for part in ("documents", "queries"):
         jsonl[part] = os.path.join(prep, f"{part}.jsonl")
-        subprocess.run([sys.executable, os.path.join(repo, "scripts", "convert_seismic_to_jsonl.py"),
+        subprocess.run([sys.executable, os.path.join(HERE, "tools", "convert_seismic_to_jsonl.py"),
                         "--seismic", data[part], "--out", jsonl[part]], check=True)
-    subprocess.run([sys.executable, os.path.join(repo, "scripts", "prepare_measured.py"),
+    subprocess.run([sys.executable, os.path.join(HERE, "tools", "prepare_lsp_input.py"),
                     "--docs-jsonl", jsonl["documents"], "--queries-jsonl", jsonl["queries"],
                     "--out-dir", prep], check=True, cwd=prep)  # the bisection tool logs to its cwd
     return prep
@@ -95,7 +95,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--collection", required=True, choices=sorted(COLLECTIONS))
     ap.add_argument("--data", required=True, help="directory with documents.bin, queries.bin, groundtruth.tsv")
-    ap.add_argument("--out", required=True, help="JSONL of the reported (Lane-B) rows")
+    ap.add_argument("--out", required=True, help="JSONL of the reported rows (command-line timing)")
     ap.add_argument("--work", default=None, help="indexes and tuning rows (default: next to --out)")
     ap.add_argument("--sparse-root", default=os.environ.get("SPARSE_ROOT"),
                     help="directory of the systems' source trees and builds (or $SPARSE_ROOT); "
@@ -130,14 +130,14 @@ def main():
         if system == "lsp" and not os.environ.get("SPARSE_CIFF_PREP"):
             env["SPARSE_CIFF_PREP"] = prepare_lsp(data, work)
         if tune_module is None:
-            driver(["--lane", "B", "--module", cli_module, "--algo", system, "--grid", "grids:grid",
+            driver(["--timing", "cli", "--module", cli_module, "--algo", system, "--grid", "grids:grid",
                     "--grid-args", grid_args(system), "--save-indexes", indexes,
                     "--out", args.out, *common], env)
             continue
         tune_out = os.path.join(work, f"tune_{system}.jsonl")
         # PyANN's Python bindings live in their own environment (PYANNS_PYTHON).
         python = os.environ.get("PYANNS_PYTHON", sys.executable) if system == "pyanns" else sys.executable
-        driver(["--lane", "A", "--module", tune_module, "--algo", system, "--grid", "grids:grid",
+        driver(["--timing", "in-process", "--module", tune_module, "--algo", system, "--grid", "grids:grid",
                 "--grid-args", grid_args(system), "--save-indexes", indexes, "--runs", "3",
                 "--out", tune_out, *common], env, python)
         configs = [{"build_args": r["build_args"], "query_args": r["query_args_dict"]}
@@ -145,7 +145,7 @@ def main():
         with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, dir=work) as fh:
             json.dump({system: configs}, fh)
         retimed = os.path.join(work, f"retime_{system}.jsonl")
-        driver(["--lane", "B", "--module", cli_module, "--algo", system,
+        driver(["--timing", "cli", "--module", cli_module, "--algo", system,
                 "--grid", f"retime_grid:{retime_fn}", "--reuse-indexes", indexes,
                 "--out", retimed, *common], dict(env, RETIME_CONFIGS=fh.name))
         # The re-timed rows load the saved indexes; their build time is the one measured in tuning.

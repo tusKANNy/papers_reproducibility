@@ -4,16 +4,16 @@
 `sindi_index_search` refuses to run without a ground-truth binary: it computes its own recall
 and needs something to compute it against. That self-reported recall is recorded but never
 reported; accuracy is computed by the driver from the returned ids against the shipped
-`groundtruth.tsv`. Converting the shipped file (instead of running vsag's `generate_gt`, an
-exhaustive scan) keeps SINDI's self-report consistent with the reported number and takes seconds.
+`groundtruth.tsv`. Converting the shipped file keeps SINDI's self-report consistent with the
+reported number and takes seconds; vsag's `generate_gt` would run an exhaustive scan.
 Ground truth is a prerequisite, never a build stage, so it is not charged either way.
 
-FORMAT, read from `sindi_index_search.cpp:knn_result_read` (with the PoC's
-`patches/0001-generate_gt-int32-header.patch`):
+FORMAT, read from `sindi_index_search.cpp:knn_result_read` (with
+sparse/patches/vsag-93e034f.patch):
 
     header : 2 x uint32 little-endian  (n queries, k)
     ids    : n*k x int32  little-endian
-    dists  : n*k x float32 little-endian, NEGATED -- vsag stores inner product as a distance,
+    dists  : n*k x float32 little-endian, NEGATED: vsag stores inner product as a distance,
              so the TSV's +20.98 is written here as -20.98. With the wrong sign, compare_gt's
              score check would compare -s against +s and could not detect a lossy encoding.
 """

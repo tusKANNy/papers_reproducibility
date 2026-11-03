@@ -4,9 +4,9 @@
 driver runs them. Collections: "msmarco-splade", "nq", "msmarco-esplade".
 
 Seismic, Seismic-Wave and SINDI use their authors' released configurations; LSP's grid sweeps
-around its documented settings with 8-bit weights; PyANN uses our HNSW construction parameters
+around its documented settings; PyANN uses our HNSW construction parameters
 and a wider beam than its published search points. The kANNolo grids are ours. An axis we
-constructed is extended on a collection where a selected configuration sits at its end.
+constructed is extended on a collection where a selected configuration is at its end.
 """
 
 import os
@@ -184,8 +184,8 @@ def _sorted(values):
     return sorted(set(values), key=lambda v: (v is not None, v if not isinstance(v, tuple) else v))
 
 
-def _arms(dicts):
-    """Split a set of configurations into the fewest full products ("arms") of per-key value lists."""
+def _branches(dicts):
+    """Split a set of configurations into the fewest full products ("branches") of per-key value lists."""
     keys = list(dicts[0])
     axes = {k: _sorted(d[k] for d in dicts) for k in keys}
     n = 1
@@ -200,27 +200,27 @@ def _arms(dicts):
         groups = {}
         for d in dicts:
             groups.setdefault(d[k], []).append({x: d[x] for x in keys if x != k})
-        merged = []  # (rest-arms, values of k)
+        merged = []  # (branches of the other keys, values of k)
         for value, rows in groups.items():
-            rest = _arms(rows)
+            rest = _branches(rows)
             for m in merged:
                 if m[0] == rest:
                     m[1].append(value)
                     break
             else:
                 merged.append((rest, [value]))
-        arms = [dict({k: _sorted(vals)}, **arm) for rest, vals in merged for arm in rest]
-        if best is None or len(arms) < len(best):
-            best = arms
+        branch_list = [dict({k: _sorted(vals)}, **branch) for rest, vals in merged for branch in rest]
+        if best is None or len(branch_list) < len(best):
+            best = branch_list
     return best
 
 
-def _builds_text_arms(builds):
-    """Build sets as product arms, or as one tuple list over the varying parameters when the
-    set is irregular (more than three arms)."""
-    arms = _arms(builds)
-    if len(arms) <= 3:
-        return arms
+def _builds_text_branches(builds):
+    """Build sets as product branches, or as one tuple list over the varying parameters when the
+    set is irregular (more than three branches)."""
+    branch_list = _branches(builds)
+    if len(branch_list) <= 3:
+        return branch_list
     keys = list(builds[0])
     varying = [k for k in keys if len({b[k] for b in builds}) > 1]
     fixed = {k: [builds[0][k]] for k in keys if k not in varying}
@@ -228,7 +228,7 @@ def _builds_text_arms(builds):
 
 
 def table_blocks(system):
-    """[(collections label, build arms, search arms)]: one entry per group of builds sharing a search
+    """[(collections label, build branches, search branches)]: one entry per group of builds sharing a search
     grid, collections with identical grids merged."""
     per_c = []
     for c in COLLECTIONS:
@@ -240,7 +240,7 @@ def table_blocks(system):
                     break
             else:
                 groups.append(([b], qq))
-        per_c.append((c, [(_builds_text_arms(bs), _arms(qq)) for bs, qq in groups]))
+        per_c.append((c, [(_builds_text_branches(bs), _branches(qq)) for bs, qq in groups]))
     merged = []
     for c, entries in per_c:
         for m in merged:

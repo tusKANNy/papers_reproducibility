@@ -6,8 +6,8 @@ sparse driver writes are read unchanged by the same analysis scripts as the dens
 sparse driver writes those rows itself, so VIBE's result-tree reader (`dense/collect_results.py`)
 has no counterpart here.
 
-The one difference is forced by the data: a sparse query is a pair of arrays, so `query` takes
-`(components, values, k)` instead of VIBE's single vector.
+The only difference comes from the data: a sparse query is a pair of arrays, so `query` takes
+`(components, values, k)` where VIBE's takes a single vector.
 
 `get_memory_usage` is the same as VIBE's: the reported footprint is the USS delta of the
 process around construction, which is defined identically for every library.
@@ -66,18 +66,18 @@ class SparseANN:
 
 
 class SparseCLI:
-    """The contract a **Lane-B** system implements: an index built by a CLI, searched by a CLI.
+    """The contract for command-line timing: an index built by a CLI, searched by a CLI.
 
     Some systems (LSP, SINDI) ship no per-query API, only binaries that take a whole query
     file, and every system is timed this way for the reported numbers. The row schema is the
-    same as `SparseANN`'s; the measurement is not.
+    same as `SparseANN`'s, but the measurement differs.
 
     The unit of measurement is one pass over the query file, on our clock. The CLIs make
     several passes per invocation (LSP five, SINDI three), so timing the whole process and
     dividing by the query count would understate QPS by a different factor per system and
     include start-up and index loading. A module therefore declares where its CLI's passes end
     (`pass_boundary`) and the driver times the intervals between them; see
-    `driver.measure_lane_b`.
+    `driver.measure_cli`.
 
     A system's self-reported timing is recorded beside our measurement, never used in its
     place: self-reports can exclude part of the per-query work (e.g. query preprocessing).
@@ -97,20 +97,20 @@ class SparseCLI:
         of the method and is charged.
 
         Excluded stages still run and are timed and recorded. A stage that is not clearly a
-        pure conversion should be charged; this is why `charged` is a required element rather
-        than a default-False keyword.
+        pure conversion should be charged. For this reason `charged` is a required element, with
+        no default of False.
 
         `index_path` is where the last stage must leave the index. Anything else the system
         needs at search time (a converted query file, an id map) belongs beside it, under
-        `os.path.dirname(index_path)`, and is this module's business to name and to find again.
+        `os.path.dirname(index_path)`; this module names it and finds it again.
 
-        Unlike Lane A, serialization cannot be excluded: a build CLI's only output is the
-        serialized index; the row records this.
+        Unlike in-process tuning, serialization cannot be excluded: a build CLI's only output is
+        the serialized index. The row records this.
         """
         raise NotImplementedError
 
     def shared_preparation(self, index_path):
-        """`[(label, seconds, measured_by), ...]` -- charged work measured once, reused here.
+        """`[(label, seconds, measured_by), ...]`: charged work measured once and reused here.
 
         For a preparation step shared by all of a collection's builds and too expensive to
         repeat per build: LSP's recursive graph bisection depends only on the CIFF, not on
@@ -121,7 +121,7 @@ class SparseCLI:
           scaled or modelled from another collection;
         * it is charged in full to every build that depends on it;
         * `measured_by` records which run produced it, and the driver puts it on the row, so a
-          shared measurement is never mistaken for one this build paid.
+          shared measurement is never mistaken for one made during this build.
 
         Returns an empty list for a system with no shared charged step, which is most of them.
         """
@@ -150,8 +150,8 @@ class SparseCLI:
         `None` where the CLI does not emit them. A system's self-reported recall is never used,
         so the driver quarantines such a row instead of falling back to one.
 
-        A system that reorders document ids (graph bisection does) maps them back here, not in
-        the driver.
+        A system that reorders document ids (graph bisection does) maps them back here; the
+        driver does not.
         """
         raise NotImplementedError
 

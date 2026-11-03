@@ -53,10 +53,10 @@ def tex_escape(s):
 
 
 def config_string(algo, row):
-    """The configuration as `System(build; search)`, without the harness's lane labels.
+    """The configuration as `System(build; search)`, without the harness's timing-method labels.
 
-    Dense rows already carry a clean `name`. Sparse rows carry `System-LaneB({python dict})`, so
-    they are rebuilt from `build_args` and `query_args`.
+    Dense rows already carry a clean `name`. Sparse row names have the form
+    `System-CLI({python dict})`, so they are rebuilt from `build_args` and `query_args`.
     """
     if "build_args" not in row:
         return row["name"]
@@ -75,21 +75,21 @@ FIRST_CLASS = {"kannolo-rerank-ext8": "kannolo-rerank"}
 
 
 def rows_of(selection):
-    """(algo, entries, is_control) in legend order, controls last."""
-    controls = selection.get("table2_control_arms") or {}
+    """(algo, entries, is_variant) in legend order, variants last."""
+    variants = selection.get("per_target_variants") or {}
     out = []
     for a in st.SERIES_ORDER:
-        out.append((a, selection["table2"].get(a) or {}, False))
-        out += [(c, controls[c], False) for c, after in FIRST_CLASS.items()
-                if after == a and controls.get(c)]
-    out += [(a, controls[a], True) for a in sorted(controls)
-            if controls[a] and a not in NOT_REPORTED and a not in FIRST_CLASS]
+        out.append((a, selection["per_target"].get(a) or {}, False))
+        out += [(c, variants[c], False) for c, after in FIRST_CLASS.items()
+                if after == a and variants.get(c)]
+    out += [(a, variants[a], True) for a in sorted(variants)
+            if variants[a] and a not in NOT_REPORTED and a not in FIRST_CLASS]
     return out
 
 
 def results_table(selections, out_path):
-    fields = {p1._footprint_field(sel["table2"],
-                                  [a for a in st.SERIES_ORDER if sel["table2"].get(a)],
+    fields = {p1._footprint_field(sel["per_target"],
+                                  [a for a in st.SERIES_ORDER if sel["per_target"].get(a)],
                                   (90, 95, 99))[0]
               for _, sel in selections}
     if len(fields) != 1:
@@ -108,9 +108,9 @@ def results_table(selections, out_path):
     ]
     for key, sel in selections:
         lines += [r'\midrule', rf'\multicolumn{{10}}{{@{{}}l}}{{{COLLECTIONS[key][0]}}} \\']
-        for algo, entries, control in rows_of(sel):
-            name = MACRO[algo] + (r'$^{\dagger}$' if control else '')
-            if not control and algo == "lorann" and sel["dataset"] in st.LEARN_SET_DATASETS:
+        for algo, entries, variant in rows_of(sel):
+            name = MACRO[algo] + (r'$^{\dagger}$' if variant else '')
+            if not variant and algo == "lorann" and sel["dataset"] in st.LEARN_SET_DATASETS:
                 name = r'\lorann{} (learned)'
             qps, mem, build = [], [], []
             for t in TARGETS:
@@ -134,13 +134,13 @@ def configs_table(selections, out_path):
     ]
     for key, sel in selections:
         lines.append(rf'\multicolumn{{3}}{{@{{}}l}}{{{COLLECTIONS[key][0]}}} \\')
-        for algo, entries, control in rows_of(sel):
+        for algo, entries, variant in rows_of(sel):
             first_s = True
             for t in TARGETS:
                 row = entries.get(t)
                 if row is None:
                     continue
-                name = (r'\quad ' + MACRO[algo] + (r'$^{\dagger}$' if control else '')) if first_s else ''
+                name = (r'\quad ' + MACRO[algo] + (r'$^{\dagger}$' if variant else '')) if first_s else ''
                 first_s = False
                 cfg = tex_escape(config_string(algo, row))
                 lines.append(rf'{name} & {t} & \texttt{{\scriptsize {cfg}}} \\')
@@ -156,11 +156,11 @@ LEGEND_SIDE_IN = 3.6
 
 
 def frontier_grid(selections, out_dir, series, legend_side):
-    """Fig. A of every collection as one row of square panels, with one legend for all of them.
+    """The accuracy/QPS frontier of every collection as one row of square panels, with one legend.
 
-    `legend_side` puts the legend in a column to the right of the row, one entry per line;
-    otherwise it goes below the row on a single line. Only the first panel carries the y-label:
-    every panel's axis is QPS, only the scales differ.
+    With `legend_side`, the legend is a column to the right of the row, one entry per line.
+    Otherwise it is a single line below the row. Only the first panel carries the y-label, because
+    every panel's y-axis is QPS; only the scales differ.
     """
     n = len(selections)
     extra_w = LEGEND_SIDE_IN if legend_side else 0
@@ -169,7 +169,7 @@ def frontier_grid(selections, out_dir, series, legend_side):
     handles = {}
     for i, (ax, (key, sel)) in enumerate(zip(axes.flat, selections)):
         for algo in st.GRAPH_BAND:
-            picks = sorted(sel["fig_a"].get(algo) or [], key=lambda r: r["accuracy_at_k"])
+            picks = sorted(sel["per_accuracy"].get(algo) or [], key=lambda r: r["accuracy_at_k"])
             if not picks:
                 continue
             xs = [r["accuracy_at_k"] for r in picks]
@@ -200,7 +200,7 @@ def frontier_grid(selections, out_dir, series, legend_side):
     return st.save_figure(fig, f'fig_frontier_{series}', out_dir)
 
 
-TRADEOFF_CONTROLS = {"kannolo-rerank-ext8"}
+TRADEOFF_VARIANTS = {"kannolo-rerank-ext8"}
 
 LADDER_125 = [m * 10 ** e for e in range(-1, 6) for m in (1, 2, 5)]
 
@@ -208,9 +208,9 @@ LADDER_125 = [m * 10 ** e for e in range(-1, 6) for m in (1, 2, 5)]
 def tradeoff_grid(selections, out_dir, series, legend_side, target="95"):
     """Footprint against QPS at one accuracy target, one point per system, one panel per collection.
 
-    Every series is drawn, not only the graph band: with the target fixed each system is a single
-    point, so no curve gets flattened. Dotted diagonals are constant QPS per GiB. 95% and not 99%
-    because several systems stop between the two (user, 2026-09-28).
+    Every series is drawn, including those left out of the frontier figure (GRAPH_BAND). With the
+    target fixed, each system is a single point, so no curve is flattened. Dotted diagonals mark
+    constant QPS per GiB. The target is 95% because several systems do not reach 99%.
     """
     n = len(selections)
     extra_w = LEGEND_SIDE_IN if legend_side else 0
@@ -218,13 +218,13 @@ def tradeoff_grid(selections, out_dir, series, legend_side, target="95"):
                              squeeze=False)
     handles = {}
     for i, (ax, (key, sel)) in enumerate(zip(axes.flat, selections)):
-        algos = [a for a in st.SERIES_ORDER if sel["table2"].get(a)]
-        fp_field, _ = p1._footprint_field(sel["table2"], algos, (90, 95, 99))
+        algos = [a for a in st.SERIES_ORDER if sel["per_target"].get(a)]
+        fp_field, _ = p1._footprint_field(sel["per_target"], algos, (90, 95, 99))
         xs, ys = [], []
-        controls = {a: e for a, e in (sel.get("table2_control_arms") or {}).items()
-                    if e and a in TRADEOFF_CONTROLS}
-        for algo in algos + sorted(controls):
-            row = (sel["table2"].get(algo) or controls.get(algo) or {}).get(target)
+        variants = {a: e for a, e in (sel.get("per_target_variants") or {}).items()
+                    if e and a in TRADEOFF_VARIANTS}
+        for algo in algos + sorted(variants):
+            row = (sel["per_target"].get(algo) or variants.get(algo) or {}).get(target)
             if row is None:
                 continue
             x, y = row[fp_field] / p1.MIB / 1024, row["qps"]
@@ -232,7 +232,7 @@ def tradeoff_grid(selections, out_dir, series, legend_side, target="95"):
             ys.append(y)
             h_ = ax.scatter([x], [y], color=st.series_colour(algo), marker=st.series_marker(algo),
                             s=(st.STYLE['marker_size'] * 1.5) ** 2, edgecolor='black',
-                            linewidth=0.6, zorder=4 if algo in controls else 3)
+                            linewidth=0.6, zorder=4 if algo in variants else 3)
             handles.setdefault(st.DISPLAY[algo], h_)
         ax.set_xscale('log')
         ax.set_yscale('log')
@@ -278,8 +278,8 @@ def main():
     ap.add_argument("--series", required=True, choices=["dense", "sparse"])
     ap.add_argument("--selection", nargs="+", required=True, metavar="COLLECTION=JSON",
                     help="in the order the paper lists the collections")
-    ap.add_argument("--out-dir", required=True, help="where the figure goes")
-    ap.add_argument("--table-dir", required=True, help="where the two table bodies go")
+    ap.add_argument("--out-dir", required=True, help="output directory for the figures")
+    ap.add_argument("--table-dir", required=True, help="output directory for the two table bodies")
     ap.add_argument("--legend", choices=["below", "side"], default=None,
                     help="legend below the row on one line, or in a column beside it "
                          "(default: below for dense, side for sparse)")

@@ -1,0 +1,104 @@
+diff --git a/extern/thread_pool/thread_pool.cmake b/extern/thread_pool/thread_pool.cmake
+index ac2ee2e5..9176b6ab 100644
+--- a/extern/thread_pool/thread_pool.cmake
++++ b/extern/thread_pool/thread_pool.cmake
+@@ -3,11 +3,9 @@ include(FetchContent)
+ 
+ FetchContent_Declare(
+         thread_pool
+-        URL https://github.com/log4cplus/ThreadPool/archive/refs/heads/master.tar.gz
+-            # this url is maintained by the vsag project, if it's broken, please try
+-            #  the latest commit or contact the vsag project
+-            http://vsagcache.oss-rg-china-mainland.aliyuncs.com/thread_pool/master.tar.gz
+-            URL_HASH MD5=99f810ce40388f6e142e62d99c9b076a
++        # Pinned to the commit the benchmarks were built with: master has moved since.
++        URL https://github.com/log4cplus/ThreadPool/archive/251db61ff3e3c7b16436c9936c53e6f68ff07720.tar.gz
++            URL_HASH MD5=931f02826668bc4bbdcd1e18e2adbfef
+ 
+         DOWNLOAD_NO_PROGRESS 1
+         INACTIVITY_TIMEOUT 5
+diff --git a/sparse/scripts/generate_gt.cpp b/sparse/scripts/generate_gt.cpp
+index 9c8b2286..2843b8df 100644
+--- a/sparse/scripts/generate_gt.cpp
++++ b/sparse/scripts/generate_gt.cpp
+@@ -113,13 +113,24 @@ int main(int argc, char** argv) {
+     auto result = index->KnnSearch(query, topk, sparse_bf_search_parameters).value();
+     std::ofstream out(gtfile, std::ios::binary);
+ 
+-    out.write(reinterpret_cast<const char*>(&query_results.second), sizeof(int64_t));
+-    out.write(reinterpret_cast<const char*>(&topk), sizeof(int64_t));
+-
+-    out.write(reinterpret_cast<const char*>(result->GetIds()),
+-                sizeof(int64_t) * topk * query_results.second);
++    // Format must match sindi_index_search.cpp:knn_result_read (lines 22-31):
++    // header is 2x uint32 (n, d); ids are int32 (downcast from KnnSearch's int64).
++    // Doc IDs fit in int32 for any realistic corpus (max ~8.8M for cocondenser).
++    uint32_t n = static_cast<uint32_t>(query_results.second);
++    uint32_t d = static_cast<uint32_t>(topk);
++    out.write(reinterpret_cast<const char*>(&n), sizeof(uint32_t));
++    out.write(reinterpret_cast<const char*>(&d), sizeof(uint32_t));
++
++    size_t total = static_cast<size_t>(topk) * static_cast<size_t>(query_results.second);
++    const int64_t* ids64 = result->GetIds();
++    std::vector<int32_t> ids32(total);
++    for (size_t i = 0; i < total; ++i) {
++        ids32[i] = static_cast<int32_t>(ids64[i]);
++    }
++    out.write(reinterpret_cast<const char*>(ids32.data()),
++                sizeof(int32_t) * total);
+     out.write(reinterpret_cast<const char*>(result->GetDistances()),
+-                sizeof(float) * topk * query_results.second);
++                sizeof(float) * total);
+ 
+     return 0;
+ }
+\ No newline at end of file
+diff --git a/sparse/scripts/sindi_index_search.cpp b/sparse/scripts/sindi_index_search.cpp
+index 4a813c81..bce394f8 100644
+--- a/sparse/scripts/sindi_index_search.cpp
++++ b/sparse/scripts/sindi_index_search.cpp
+@@ -164,7 +164,13 @@ main(int argc, char** argv) {
+ 
+     // warmup (run twice with the same beta/gamma)
+     index->KnnSearch(query, topk, sindi_search_parameters.dump()).value();
++    // Observability only: mark the end of each whole-query-file pass so an external harness can
++    // time the passes on its own clock. Upstream prints nothing between the three passes, which
++    // makes them individually unmeasurable from outside the process. One line, after the search
++    // call returns, outside every timed region.
++    std::cout << "pass_done: 1" << std::endl;
+     index->KnnSearch(query, topk, sindi_search_parameters.dump()).value();
++    std::cout << "pass_done: 2" << std::endl;
+ 
+     auto start_time = high_resolution_clock::now();
+ 
+@@ -174,6 +180,9 @@ main(int argc, char** argv) {
+     auto end_time = high_resolution_clock::now();
+     auto duration = duration_cast<nanoseconds>(end_time - start_time).count();
+ 
++    // After end_time, so upstream's own qps is measured exactly as before this patch.
++    std::cout << "pass_done: 3" << std::endl;
++
+     float qps = static_cast<float>(query_results.second) / (duration * 1.0e-9);
+     std::cout << "qps: " << qps << std::endl;
+     
+@@ -188,6 +197,20 @@ main(int argc, char** argv) {
+         }
+     }
+ 
++    // Observability only: emit the returned ids so accuracy can be computed externally against
++    // the ground truth shipped with the collection. Upstream computes `recall` internally and
++    // never exposes the ids, which makes its self-report the only available number. A
++    // self-reported recall cannot be used by an independent benchmark. Emitted after
++    // every timed region, one line per query: "ids: <query> <id_1> ... <id_topk>".
++    for (size_t i = 0; i < query_results.second; ++i) {
++        std::cout << "ids: " << i;
++        for (size_t j = 0; j < topk; ++j) {
++            std::cout << ' ' << ids[i][j];
++        }
++        std::cout << '\n';
++    }
++    std::cout.flush();
++
+     float recall = cal_recall(ids, gt_ids, query_results.second, topk, gt_topk);
+     std::cout << "recall: " << recall << std::endl;
+ 

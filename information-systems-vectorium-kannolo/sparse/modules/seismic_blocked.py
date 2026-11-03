@@ -1,15 +1,14 @@
-"""Seismic and Seismic-Wave on the `blocked-sparse` value type, Lane B.
+"""Seismic and Seismic-Wave on the `blocked-sparse` value type, with command-line timing.
 
 `BlockedSparseEncoder` (Vectorium) stores u16 components and f16 values packed into 64-byte
-blocks with a SIMD dot product. This module drives Seismic's Rust CLIs built with
-`--value-type blocked-sparse` support (Seismic 0.6.0 with the `pass_done` marker patch,
-sparse/patches/seismic-cc065cf-pass-markers.patch; see sparse/env.example.sh), from
-`$SEISMIC_BS_REPO`.
+blocks with a SIMD dot product. This module runs Seismic's Rust CLIs from `$SEISMIC_BS_REPO`,
+built with `--value-type blocked-sparse` support (Seismic 0.6.0 with the `pass_done` marker
+patch, sparse/patches/seismic-cc065cf-pass-markers.patch; see sparse/env.example.sh).
 
-The build argv mirrors the authors' `scripts/run_experiments.py`: it never passes `--block-size`
-and omits `kmeans-pruning-factor`. Build time is measured by the driver, so it is charged like
-every other Lane-B build; `--knn 50` makes it Seismic-Wave and puts the kNN graph inside the
-charged build.
+The build argv follows the authors' `scripts/run_experiments.py`: it never passes `--block-size`
+and omits `kmeans-pruning-factor`. The driver measures the build time, so it is charged like
+every other build with command-line timing. `--knn 50` makes the index Seismic-Wave and includes
+the kNN graph in the charged build.
 
 Blocked-sparse and `f16` builds with the same parameters compute the same scores but can visit
 different candidates, so accuracy is measured on the blocked index, never assumed.
@@ -19,14 +18,14 @@ import os
 
 from base import SPARSE_ROOT
 
-from lane_b_retime import _RetimeCLI, NUM_RUNS
+from cli_retime import _RetimeCLI, NUM_RUNS
 
 REPO = os.environ.get("SEISMIC_BS_REPO", os.path.join(SPARSE_ROOT, "repos", "seismic"))
 VALUE_TYPE = "blocked-sparse"
 
 
 class SeismicBlocked(_RetimeCLI):
-    """Seismic (fork CLIs), `blocked-sparse`. Builds its own index -- unlike the re-time classes."""
+    """Seismic (fork CLIs), `blocked-sparse`. Unlike the re-timing classes, it builds its own index."""
 
 
     def __init__(self, n_postings, centroid_fraction, min_cluster_size, summary_energy,
@@ -53,7 +52,7 @@ class SeismicBlocked(_RetimeCLI):
                  "--component-type", "u16", "--value-type", VALUE_TYPE,
                  "--pruning-strategy", "global-threshold"]
         # The CLI appends `.index.seismic`; the rename puts the index where the driver's reuse and
-        # size checks look. A file move, so not charged.
+        # size checks look. It is a file move, so it is not charged.
         return [("build_inverted_index", build, True),
                 ("rename", ["mv", f"{index_path}.index.seismic", index_path], False)]
 

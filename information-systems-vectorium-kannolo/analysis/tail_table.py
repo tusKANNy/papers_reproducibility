@@ -31,7 +31,7 @@ dense_rows = [("\\kannolohnsw", "kannolo"), ("\\kannolorerank", "kannolo-rerank"
               ("\\quad + ext-8", "kannolo-rerank-ext8"), ("\\hnswlib", "hnswlib"),
               ("\\glass", "glass"), ("\\symphonyqg", "symphonyqg"), ("\\lorann", "lorann"),
               ("\\rabitqhnsw", "rabitq-hnsw"), ("\\svsleanvec", "vamana-leanvec(svs)")]
-sparse_cols = ["s1-msmarco-splade-v3", "s2-nq-cocondenser", "s4-msmarco-esplade"]
+sparse_cols = ["msmarco-splade-v3", "nq-cocondenser", "msmarco-esplade"]
 sparse_rows = [("\\kannolohnsw", "kannolo-hnsw"), ("\\kannolorerank", "kannolo-hnsw-rerank"),
                ("\\seismic", "seismic"), ("\\seismicw", "seismic-wave"), ("\\pyann", "pyanns")]
 spec = "@{}l" + "@{\\hspace{7pt}}".join(["r@{\\,}l"] * 8) + "@{}"

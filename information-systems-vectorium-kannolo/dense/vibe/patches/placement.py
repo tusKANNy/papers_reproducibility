@@ -1,33 +1,32 @@
 """Build-time CPU and page placement for the benchmark process (installed into VIBE as vibe/placement.py).
 
 Upstream VIBE runs the whole `run_algorithm.py` process under
-`numactl --membind=<node> --physcpubind=<cpu>`, so index construction is single-core and the
-`build_time` it reports is a single-core number. This module lets the *build* use every core
-while the *search* stays pinned to exactly one physical core, as upstream — so `build_time`
-becomes the 64-thread number, from the same build that then serves the search sweep.
+`numactl --membind=<node> --physcpubind=<cpu>`. Index construction is therefore single-core, and
+the `build_time` it reports is a single-core time. This module lets the *build* use every core,
+while the *search* stays pinned to one physical core, as upstream. `build_time` then becomes the
+64-thread time, measured on the same build that then serves the search sweep.
 
-Nothing here changes search: `pin_for_search()` restores precisely the affinity upstream
-would have had, and it is called before the first query.
+Search is unchanged: `pin_for_search()` restores the affinity upstream would have had, and it is
+called before the first query.
 
-The page-placement arm is a switch because where the index pages land is a measured
-question, not an assumed one. Pages go where they are *allocated*, so a build spread over
-64 cores under `--interleave=all` leaves the pinned search core reading half its index
-across the interconnect — permanently, and worst for exactly the random-access graph
-traversal we are benchmarking.
+The page-placement policy is a switch so that its effect on search is measured. Pages go where
+they are *allocated*. A build spread over 64 cores under `--interleave=all` therefore leaves the
+pinned search core reading half its index across the interconnect. This lasts for the whole
+search, and it hurts most the random-access graph traversal we benchmark.
 
-    arm  build policy                              threads  pages after build
-    D    --interleave=all, then migrate to node    64       local
-    C    --interleave=all                          64       interleaved
-    B    --membind=<n>                             64       local (cross-socket build traffic)
-    B'   --cpunodebind=<n> --membind=<n>           32       local (no interconnect traffic)
-    A    upstream: --membind=<n> --physcpubind=<c>  1       local
+    policy         numactl options                            threads  pages after build
+    migrate        --interleave=all, then migrate to node     64       local
+    interleave     --interleave=all                           64       interleaved
+    membind        --membind=<n>                              64       local (cross-socket build traffic)
+    membind-local  --cpunodebind=<n> --membind=<n>            32       local (no interconnect traffic)
+    upstream       --membind=<n> --physcpubind=<c>             1       local
 
-Configured entirely through the environment, so the worker that builds the `numactl` command
-line and the child process that runs the build agree without a side channel:
+All settings come from the environment. The worker that builds the `numactl` command line and
+the child process that runs the build therefore read the same values, with no other channel:
 
-    VIBE_PLACEMENT_ARM   A | B | Bprime | C | D          (default A = upstream)
+    VIBE_PLACEMENT       upstream | membind | membind-local | interleave | migrate   (default upstream)
     VIBE_SEARCH_CPU      the physical core searches run on
-    VIBE_SEARCH_NODE     that core's NUMA node -- the migration target for arm D
+    VIBE_SEARCH_NODE     that core's NUMA node, the migration target of the `migrate` policy
     VIBE_BUILD_CPUS      comma/range list of cores the build may use
 """
 
@@ -38,8 +37,8 @@ import subprocess
 import threading
 import time
 
-ARM = os.environ.get("VIBE_PLACEMENT_ARM", "A")
-UPSTREAM_ARM = "A"
+PLACEMENT = os.environ.get("VIBE_PLACEMENT", "upstream")
+UPSTREAM = "upstream"
 
 
 def _expand_ranges(spec):
@@ -74,23 +73,22 @@ def _build_cpus():
 def build_threads():
     """How many threads a module may use for *construction*.
 
-    Modules ask for this instead of hardcoding a number. Most of VIBE's modules pass a literal
-    `1` to their library's build call — which is consistent upstream, where the whole process is
-    pinned to one core anyway, but under this patch it would leave every competitor building on
-    a single thread while ours builds on 64. A build-time comparison between those is not a
-    comparison.
+    Modules call this to size their build. Most of VIBE's modules pass a literal `1` to their
+    library's build call. Upstream this is consistent, because the whole process is pinned to one
+    core. Under this patch it would leave every competitor building on a single thread while ours
+    builds on 64, and the two build times could not be compared.
 
-    Returns 1 on the upstream arm, so a module that calls this behaves exactly as before when
-    the patch is switched off.
+    Returns 1 under the `upstream` policy, so a module that calls this behaves as before when the
+    patch is switched off.
     """
-    if ARM == UPSTREAM_ARM:
+    if PLACEMENT == UPSTREAM:
         return 1
     cpus = _build_cpus()
     return len(cpus) if cpus else 1
 
 
 def search_threads():
-    """Always 1. Named so a module's search call reads as a deliberate choice, not an oversight."""
+    """Always 1. The name makes the single search thread explicit in each module's search call."""
     return 1
 
 
@@ -99,15 +97,15 @@ def release_free_heap():
 
     VIBE's cross-library footprint is the USS delta around `fit()`, and USS counts pages the
     process still holds whether or not anything is using them. glibc's malloc keeps a per-thread
-    arena and does not return large frees by default, so a build that peaks at twice its final
-    size and runs on 64 threads leaves roughly the peak resident: measured on kANNolo at D3, USS
-    came to 2.05x the index's own `SpaceUsage` after a 64-thread build, against 1.05x after a
-    single-threaded one and 1.0015x once the heap was trimmed.
+    arena and does not return large frees by default. A build that peaks at twice its final size
+    and runs on 64 threads therefore leaves roughly the peak resident. Measured on kANNolo on
+    AgNews, USS came to 2.05x the index's own `SpaceUsage` after a 64-thread build, against 1.05x
+    after a single-threaded one and 1.0015x once the heap was trimmed.
 
-    That is an allocator artifact scaling with build parallelism, not a property of any index, so
-    it is removed here -- in the harness, before the measurement, for every module -- rather than
-    in one module, which would make the footprint figure asymmetric. Libraries that use their own
-    allocator are unaffected either way, and so is anything already returned to the OS.
+    This is an allocator artifact that grows with build parallelism; it is not a property of any
+    index. The harness therefore trims the heap before the measurement, for every module. Trimming
+    in one module only would make the footprint figure asymmetric. The trim does not affect
+    libraries that use their own allocator, or memory already returned to the OS.
     """
     try:
         ctypes.CDLL("libc.so.6").malloc_trim(ctypes.c_size_t(0))
@@ -120,9 +118,8 @@ def _set_affinity_all_threads(cpus):
     """Pin every thread of this process, not only the calling one.
 
     Linux `sched_setaffinity` is per-thread, and by the time the search starts the library
-    may already have spawned a build thread pool. Leaving those free to roam would let them
-    keep running on other cores; walking `/proc/self/task` is what actually enforces the
-    single-core policy on the whole process.
+    may already have spawned a build thread pool. Those threads would otherwise keep running on
+    other cores. Walking `/proc/self/task` enforces the single-core policy on the whole process.
     """
     for tid in os.listdir("/proc/self/task"):
         try:
@@ -132,8 +129,8 @@ def _set_affinity_all_threads(cpus):
 
 
 def unpin_for_build():
-    """Widen affinity to the build core set. No-op on the upstream arm."""
-    if ARM == UPSTREAM_ARM:
+    """Widen affinity to the build core set. No-op under the `upstream` policy."""
+    if PLACEMENT == UPSTREAM:
         return
     cpus = _build_cpus()
     if cpus:
@@ -169,10 +166,10 @@ def _anon_pages_by_node(pid="self"):
 def _anon_huge_pages_kb(pid="self"):
     """Anonymous memory backed by transparent huge pages, in KB, from /proc/<pid>/smaps_rollup.
 
-    Recorded because `migratepages` splits huge pages as it moves them: a run can land 100% of
-    its pages on the target node and still lose TLB coverage, which random graph traversal feels.
-    Without this number a migrated arm that is slightly slower than a natively-local one has no
-    explanation, only a discrepancy.
+    Recorded because `migratepages` splits huge pages as it moves them. A run can move 100% of
+    its pages to the target node and still lose TLB coverage, which affects random graph
+    traversal. This number explains why a migrated build can be slightly slower than one whose
+    pages were allocated locally.
     """
     out = {}
     try:
@@ -187,16 +184,16 @@ def _anon_huge_pages_kb(pid="self"):
 
 
 def finalize_placement():
-    """Arm D: migrate this process's pages to the search node, then *verify* it happened.
+    """`migrate` policy: move this process's pages to the search node, then *verify* the move.
 
-    `move_pages` is best effort -- it silently leaves pages behind when they are pinned,
-    shared, or the target is short on memory. A run whose migration does not verify is not a
-    slower run, it is a differently-placed run, so the caller must discard it rather than
-    report it. Hence the measured fraction is returned and recorded, never assumed.
+    `move_pages` is best effort. It leaves pages behind without an error when they are pinned or
+    shared, or when the target node is short on memory. A run whose migration does not verify has
+    a different page placement, so the caller must discard it. The measured local fraction is
+    therefore returned and recorded.
     """
     node = _search_node()
     report = {
-        "placement_arm": ARM,
+        "placement": PLACEMENT,
         "migrated": False,
         "anon_pages_before": None,
         "anon_pages_after": None,
@@ -208,7 +205,7 @@ def finalize_placement():
     report["anon_pages_before"] = before
     report["smaps_before"] = _anon_huge_pages_kb()
 
-    if ARM != "D" or node is None:
+    if PLACEMENT != "migrate" or node is None:
         total = sum(before.values())
         report["local_fraction"] = (before.get(node, 0) / total) if total else None
         return report
@@ -241,9 +238,9 @@ def finalize_placement():
 class PeakRssPoller:
     """Sample resident size during `fit()`.
 
-    VIBE's memory hook brackets the call, so it reports the index that survives, never the
-    peak. At D2 one node holds 257 GB and the f32 train array alone is ~64 GB, so the
-    difference decides whether a configuration is droppable-by-OOM or fine.
+    VIBE's memory hook brackets the call, so it reports the index that survives and never the
+    peak. On DPR one node holds 257 GB and the f32 training array alone is ~64 GB. The gap
+    between peak and final size therefore decides whether a configuration fits in memory.
     """
 
     def __init__(self, interval=0.25):

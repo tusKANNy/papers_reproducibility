@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A Lane-B CLI for PyANN, which ships none (it is a Python library).
+"""A CLI for command-line timing of PyANN, which is a Python library and ships no CLI.
 
 **One `search_batch` call per query (`nq = 1`), because a larger batch is a different search.**
 `SparseGraphSearcher::SearchBatch` computes its pruning threshold from a max over the whole batch:
@@ -11,8 +11,9 @@
 
 At `nq = 1` that max is the query's own largest term; over the whole query file it is the
 largest term of any query, so more terms are pruned and accuracy falls (and no longer matches
-the Lane-A accuracy of the same configuration). So PyANN's Lane-B row still pays a per-call
-binding overhead that the other systems' rows do not, which makes it conservative.
+the in-process accuracy of the same configuration). PyANN's command-line row therefore still
+pays a per-call binding overhead that the other systems' rows do not, which makes it
+conservative.
 
 `set_num_threads(1)` is process-wide and mandatory: PyANN's omp team is sized globally, so without
 it a search pinned to one core would still spin up a full thread team on that core.
@@ -71,7 +72,7 @@ def main() -> int:
         for qi, (ip, c, v) in enumerate(per_q):
             r = searcher.search_batch(1, ip, c, v, a.k, a.budget)
             out[qi] = np.asarray(r)[:a.k]
-        # Lane-B pass boundary: the driver timestamps this line on its own clock.
+        # Pass boundary: the driver timestamps this line on its own clock.
         print(f"pass_done: {i_run + 1}", flush=True)
 
     ids = out

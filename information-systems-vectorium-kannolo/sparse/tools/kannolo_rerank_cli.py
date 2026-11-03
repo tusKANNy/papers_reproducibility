@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""A Lane-B CLI for kANNolo's sparse two-stage index (`SparseRerankHNSW` Python binding).
+"""A CLI for command-line timing of kANNolo's sparse two-stage index (`SparseRerankHNSW` Python binding).
 
 The Rust binary `hnsw_rerank_search` is the multivector rerank path
 (`RerankIndex::new(sparse_index, multivec_dataset)`, `DenseMultiVectorView`), not the sparse one.
 The sparse two-stage index is an L1-pruned sparse first stage plus an exact sparse residual
 rescoring, exposed through the Python binding; this CLI times it from the command line.
 
-A Python CLI does not reintroduce the Lane-A per-query overhead: the binding's `batch_search`
-takes the whole query set in one call, so Python is entered once per pass rather than once per
-query. `num_threads=1` is the binding's documented setting for "a serial loop with no rayon
+A Python CLI does not bring back the per-query overhead of in-process timing: the binding's
+`batch_search` takes the whole query set in one call, so Python is entered once per pass.
+`num_threads=1` is the binding's documented setting for "a serial loop with no rayon
 involvement ... to reproduce single-thread benchmarks that pin the process with
-`numactl --physcpubind`", which is Lane B's placement.
+`numactl --physcpubind`", which is the CPU pinning used for command-line timing.
 
 The index is loaded with `residual_rerank=True`, which makes the two stages sum to the full dot
 product.
 
-Emits `pass_done: N` on stdout after each pass (the boundary `driver.measure_lane_b` timestamps
+Emits `pass_done: N` on stdout after each pass (the boundary `driver.measure_cli` timestamps
 on its own clock) and writes `query_id\tdoc_id\trank\tscore`, the shape every other CLI here
 writes and `groundtruth.tsv` uses.
 """
@@ -64,9 +64,9 @@ def main() -> int:
             comps, vals, offs,
             a.k_candidates, a.k, a.ef_search,
             a.alpha, a.beta, a.lambda_,
-            1,      # num_threads: serial, no rayon -- the pinned single-core setting
+            1,      # num_threads: serial, no rayon; the pinned single-core setting
         )
-        # Lane-B pass boundary: the driver timestamps this line on its own clock.
+        # Pass boundary: the driver timestamps this line on its own clock.
         print(f"pass_done: {i_run + 1}", flush=True)
 
     ids = np.asarray(ids).reshape(n_queries, a.k)

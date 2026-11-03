@@ -2,9 +2,9 @@
 """Select, per system, the configurations the paper reports, from one collection's rows.
 
 Rules (Section 6 of the paper):
-  * a row counts only if its index was placed on the search node (>= 99 % of its pages local),
-    or if it was built interleaved across both nodes because it cannot fit on one (SymphonyQG on
-    DPR, `placement_arm` C);
+  * a row counts only if its index was placed on the search node (>= 99 % of its pages local).
+    The exception is an index built interleaved across both nodes because it cannot fit on one
+    (SymphonyQG on DPR, placement policy interleave);
   * a build whose construction time exceeds the budget B is excluded;
   * LoRANN rescores against the harness's copy of the collection, so the raw f32 collection is
     added to its footprint;
@@ -12,7 +12,7 @@ Rules (Section 6 of the paper):
   * frontier (figures): per system, the fastest configuration in each integer accuracy interval
     [t, t+1), t = 90..99, keeping a point only if it is faster than every more accurate one, and
     points at least MIN_ACC_SEPARATION apart.
-Control configurations (ext-8 rescoring, LoRANN without its learn set) enter the table only.
+Variants (ext-8 rescoring, LoRANN without its learn set) enter only the table.
 
     python analysis/select_configs.py --results results/dense/dpr.jsonl --budget-s 5400 --out selections/dense_dpr.json
 """
@@ -30,7 +30,7 @@ SERIES = {
     "sparse": ["kannolo-hnsw", "kannolo-hnsw-rerank", "seismic", "seismic-wave", "pyanns",
                "sindi", "lsp"],
 }
-CONTROLS = ["kannolo-rerank-ext8", "kannolo-rerank-ext8-resid", "lorann-plain"]
+VARIANTS = ["kannolo-rerank-ext8", "kannolo-rerank-ext8-resid", "lorann-plain"]
 BORROWS_COLLECTION = {"lorann", "lorann-plain"}
 COLLECTION_SHAPE = {  # (n, d), for the f32 collection charged to LoRANN
     "agnews-mxbai-1024-euclidean": (769_382, 1024),
@@ -45,7 +45,7 @@ def load(path):
     for line in open(path):
         row = json.loads(line)
         placement = row.get("build_placement") or {}
-        interleaved = placement.get("placement_arm") == "C" and not placement.get("migrated", False)
+        interleaved = placement.get("placement") == "interleave" and not placement.get("migrated", False)
         if not interleaved and (placement.get("local_fraction") or 0) < MIN_LOCAL_FRACTION:
             continue
         if row["algo"] in BORROWS_COLLECTION and row.get("uss_delta_kb") is not None:
@@ -97,9 +97,9 @@ def select(rows, budget_s, series):
         "dataset": rows[0]["dataset"],
         "budget_s": budget_s,
         "series_order": series,
-        "fig_a": {a: frontier(by_algo[a]) for a in series if by_algo.get(a)},
-        "table2": {a: fastest_per_target(by_algo[a]) for a in series if by_algo.get(a)},
-        "table2_control_arms": {a: fastest_per_target(by_algo[a]) for a in CONTROLS if by_algo.get(a)},
+        "per_accuracy": {a: frontier(by_algo[a]) for a in series if by_algo.get(a)},
+        "per_target": {a: fastest_per_target(by_algo[a]) for a in series if by_algo.get(a)},
+        "per_target_variants": {a: fastest_per_target(by_algo[a]) for a in VARIANTS if by_algo.get(a)},
         "pass_spread": {"median_pct": spreads[len(spreads) // 2] if spreads else None},
     }
 
@@ -114,7 +114,7 @@ def main():
     sel = select(load(args.results), args.budget_s, SERIES[args.series])
     with open(args.out, "w") as fh:
         json.dump(sel, fh, indent=1)
-    for algo, per_t in {**sel["table2"], **sel["table2_control_arms"]}.items():
+    for algo, per_t in {**sel["per_target"], **sel["per_target_variants"]}.items():
         print(f"{algo:24s}", "  ".join(f"{t}: {r['qps']:8.0f}" for t, r in per_t.items()))
 
 

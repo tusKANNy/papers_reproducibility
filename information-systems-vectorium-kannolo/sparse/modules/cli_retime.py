@@ -1,24 +1,25 @@
-"""Lane-B command-line drivers for the systems tuned in Lane A (kANNolo, PyANN) and for Seismic.
+"""Command-line timing drivers (`--timing cli`) for kANNolo, PyANN and Seismic.
 
-The systems tuned in-process (Lane A) are timed for the reported numbers through their own
-command-line tools (Lane B), on the selected configurations only and on the indexes Lane A
-saved. No index is rebuilt: these classes refuse to build, and sparse/run_sparse.py joins each
-re-timed row's `build_time_s` from the Lane-A row of the same build.
+kANNolo and PyANN are tuned with in-process timing (`--timing in-process`). Their reported
+numbers are then timed through their own command-line tools, on the selected configurations
+only and on the indexes saved by the in-process runs. No index is rebuilt: these classes refuse
+to build, and sparse/run_sparse.py takes each re-timed row's `build_time_s` from the in-process
+row of the same build.
 
-Each search CLI must print a `pass_done: N` marker at the end of every pass over the query file,
-which is what the driver times between. The patches in sparse/patches add these markers and,
-where needed, clear the result buffer between passes so that appending results does not grow
-across passes inside the timed region. Every pass goes over the whole query file, as Seismic,
-LSP and SINDI do: repeating one query `num_runs` times back to back would be more cache-friendly
-than the competitors' passes.
+Each search CLI must print a `pass_done: N` marker at the end of every pass over the query file.
+The driver times the intervals between these markers. The patches in sparse/patches add the
+markers. Where needed, they also clear the result buffer between passes, so that the appended
+results do not grow across passes inside the timed region. Every pass goes over the whole query
+file, as in Seismic, LSP and SINDI. Repeating one query `num_runs` times back to back would be
+more cache-friendly than the passes of the other systems.
 
-Accuracy does not depend on the lane: the same index, parameters and queries return the same
-ids, so a re-timed row must reproduce its Lane-A accuracy, and one that does not is driving a
-different index or search.
+Accuracy does not depend on the timing mode: the same index, parameters and queries return the
+same ids. A re-timed row must therefore reproduce the accuracy of its in-process row. A row that
+does not is driving a different index or search.
 
 Ids are read from each CLI's own results file (`query_id\\tdoc_id\\trank\\tscore`, the
-`groundtruth.tsv` shape), written after the timed passes, so reading it costs the measurement
-nothing.
+`groundtruth.tsv` shape). The file is written after the timed passes, so reading it does not
+affect the measurement.
 
 `--num-runs 3` everywhere: one warm-up pass plus the two timed passes the driver reports.
 """
@@ -45,8 +46,8 @@ PYANNS_PYTHON = os.environ.get(
 
 #: `KannoloRerank` times kANNolo's sparse two-stage index through our Python CLI on the
 #: `SparseRerankHNSW` binding (`hnsw_rerank_search` is the multivector rerank path). `batch_search`
-#: takes the whole query set in one call, so Python is entered once per pass rather than once per
-#: query, and the per-query interpreter overhead of Lane A does not apply.
+#: takes the whole query set in one call, so Python is entered once per pass. The per-query
+#: interpreter overhead of in-process timing does not apply.
 KANNOLO_RERANK_CLI = os.environ.get(
     "KANNOLO_RERANK_CLI", os.path.join(_TOOLS, "kannolo_rerank_cli.py"))
 
@@ -62,10 +63,10 @@ class _RetimeCLI(SparseCLI):
     def build_stages(self, documents_path, queries_path, index_path):
         raise SystemExit(
             f"{type(self).__name__} must never build. This module re-times configurations whose "
-            "indexes are already on disk and whose build times are the Lane-A measurements. "
-            "Reaching here means --reuse-indexes did not find "
-            f"{index_path}, which usually means --algo does not match the name the index was "
-            "written under (the reuse path keys on it).")
+            "indexes are already on disk and whose build times are the in-process measurements. "
+            "Reaching this point means that --reuse-indexes did not find "
+            f"{index_path}. Usually --algo does not match the name the index was "
+            "saved under (index reuse is keyed on that name).")
 
     def shared_preparation(self, index_path):
         return []
@@ -108,9 +109,9 @@ class _RetimeCLI(SparseCLI):
         return os.path.getsize(index_path) if os.path.exists(index_path) else None
 
     def get_additional(self):
-        return {"retimed_from_lane_a": True, "retime_num_runs": NUM_RUNS,
-                "retime_note": ("search timed in Lane B on the index built and measured in "
-                                "Lane A; build_time_s is that Lane-A measurement")}
+        return {"retimed_from_in_process": True, "retime_num_runs": NUM_RUNS,
+                "retime_note": ("search timed from the command line on an index built and measured in the "
+                                "in-process tuning; build_time_s is joined from the tuning row, never re-measured here")}
 
 
 class Seismic(_RetimeCLI):
@@ -121,7 +122,7 @@ class Seismic(_RetimeCLI):
         self.build_args = dict(n_postings=n_postings, centroid_fraction=centroid_fraction,
                                min_cluster_size=min_cluster_size, summary_energy=summary_energy,
                                max_fraction=max_fraction, doc_cut=doc_cut, nknn=nknn)
-        self.name = f"Seismic-LaneB({self.build_args})"
+        self.name = f"Seismic-CLI({self.build_args})"
         self.query_cut = self.heap_factor = self.n_knn = None
         self.first_sorted = False
 
@@ -147,12 +148,13 @@ class Seismic(_RetimeCLI):
 
 
 class SeismicWave(Seismic):
-    """Seismic-Wave is the same binary and the same index format; `n_knn > 0` is what uses the
-    kNN graph the build paid for, so a zero here would be searching a different system."""
+    """Seismic-Wave uses the same binary and index format as Seismic. Only `n_knn > 0` uses the
+    kNN graph whose construction is in the build time, so a zero `n_knn` would search a different
+    system."""
 
     def __init__(self, *a, **kw):
         super().__init__(*a, **kw)
-        self.name = f"Seismic-Wave-LaneB({self.build_args})"
+        self.name = f"Seismic-Wave-CLI({self.build_args})"
 
     def set_query_arguments(self, query_cut, heap_factor, n_knn, first_sorted=False):
         if not n_knn:
@@ -166,7 +168,7 @@ class KannoloHnsw(_RetimeCLI):
     def __init__(self, m, ef_construction, graph_type="standard"):
         self.build_args = dict(m=m, ef_construction=ef_construction, graph_type=graph_type)
         self.graph_type = graph_type
-        self.name = f"kANNolo-HNSW-LaneB({self.build_args})"
+        self.name = f"kANNolo-HNSW-CLI({self.build_args})"
         self.ef_search = self.lambda_ = None
 
     def set_query_arguments(self, ef_search, early_exit_threshold=None):
@@ -183,8 +185,9 @@ class KannoloHnsw(_RetimeCLI):
                 "--graph-type", self.graph_type, "--distance", "dotproduct",
                 "-k", str(int(k)), "--ef-search", str(int(self.ef_search)),
                 "--num-runs", str(NUM_RUNS)]
-        # lambda relaxes the stopping rule; it is only meaningful with the adaptive strategy, and
-        # the Lane-A module passes None to mean "off". Mirrored exactly rather than defaulted.
+        # lambda relaxes the stopping rule and is only meaningful with the adaptive strategy. The
+        # in-process module passes None to mean "off", and the same convention is used here, with
+        # no default lambda.
         if self.lambda_ is not None:
             argv += ["--early-termination", "distance-adaptive", "--lambda", str(float(self.lambda_))]
         else:
@@ -203,7 +206,7 @@ class KannoloRerank(_RetimeCLI):
                                first_stage_value_type=first_stage_value_type,
                                graph_type=graph_type)
         self.graph_type = graph_type
-        self.name = f"kANNolo-HNSW-Rerank-LaneB({self.build_args})"
+        self.name = f"kANNolo-HNSW-Rerank-CLI({self.build_args})"
         self.k_candidates = self.ef_search = None
         self.alpha = self.beta = self.lambda_ = None
 
@@ -234,18 +237,18 @@ class KannoloRerank(_RetimeCLI):
 
 
 class Pyanns(_RetimeCLI):
-    """PyANN through our CLI (sparse/tools/pyanns_search_cli.py); PyANN ships none.
+    """PyANN through our CLI (sparse/tools/pyanns_search_cli.py), since PyANN ships no CLI.
 
     Its sparse API is batch-only (`search_batch` takes `nq` and an `#pragma omp` team). The CLI
     calls it once per query (`nq = 1`), because a larger batch prunes query terms against the
     batch-wide maximum and so changes the search (see the CLI's docstring). The CLI pins
-    `OMP_NUM_THREADS=1` for search, as the Lane-A module does, or a single pinned core would still
-    spin up a thread team of the machine's size.
+    `OMP_NUM_THREADS=1` for search, as the in-process module does. Otherwise a single pinned core
+    would still start a thread team of the machine's size.
     """
 
     def __init__(self, r, l, drop_ratio=0.0):
         self.build_args = dict(r=r, l=l, drop_ratio=drop_ratio)
-        self.name = f"PyANN-SparseHNSW-LaneB({self.build_args})"
+        self.name = f"PyANN-SparseHNSW-CLI({self.build_args})"
         self.ef = self.budget = None
 
     def set_query_arguments(self, ef, budget=0.1):

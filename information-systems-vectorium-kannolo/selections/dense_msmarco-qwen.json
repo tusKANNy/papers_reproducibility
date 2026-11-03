@@ -11,7 +11,7 @@
   "rabitq-hnsw",
   "vamana-leanvec(svs)"
  ],
- "fig_a": {
+ "per_accuracy": {
   "kannolo": [
    {
     "dataset": "msmarco-qwen-1024-normalized",
@@ -34,7 +34,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 18754277605,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7808167,
@@ -80,7 +80,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 18754277605,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7808167,
@@ -126,7 +126,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 18980796868,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8436717,
@@ -172,7 +172,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 18980796868,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8436717,
@@ -218,7 +218,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 18754277605,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7808167,
@@ -264,7 +264,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 18980796868,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8436717,
@@ -310,7 +310,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 18980796868,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8436717,
@@ -356,7 +356,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 19231392014,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9070650,
@@ -402,7 +402,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 18980796868,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8436717,
@@ -451,7 +451,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 20433752786,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8685531,
@@ -499,7 +499,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 20183157640,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8565947,
@@ -547,7 +547,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 20183157640,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8565947,
@@ -595,7 +595,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 20433752786,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8685531,
@@ -643,7 +643,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 20183157640,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8565947,
@@ -691,7 +691,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 20433752786,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8685531,
@@ -739,7 +739,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 21565378154,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7057257,
@@ -787,7 +787,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 20433752786,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8685531,
@@ -835,7 +835,7 @@
     "pass_spread_pct": 0.25479824545477603,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9242606,
@@ -880,7 +880,7 @@
     "pass_spread_pct": 0.4559898026077468,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9208744,
@@ -925,7 +925,7 @@
     "pass_spread_pct": 0.3145399257090807,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9311199,
@@ -970,7 +970,7 @@
     "pass_spread_pct": 0.36411753059458346,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9242606,
@@ -1015,7 +1015,7 @@
     "pass_spread_pct": 0.12842413347318138,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9242606,
@@ -1060,7 +1060,7 @@
     "pass_spread_pct": 0.1176885115615203,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9208744,
@@ -1105,7 +1105,7 @@
     "pass_spread_pct": 0.3686159497043823,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9242606,
@@ -1150,7 +1150,7 @@
     "pass_spread_pct": 0.3580722081941941,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9414518,
@@ -1195,7 +1195,7 @@
     "pass_spread_pct": 0.38840890637620074,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9517930,
@@ -1242,7 +1242,7 @@
     "pass_spread_pct": 0.4804266363849394,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7614557,
@@ -1287,7 +1287,7 @@
     "pass_spread_pct": 1.0012428879507536,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7614557,
@@ -1332,7 +1332,7 @@
     "pass_spread_pct": 1.1051425758059135,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9832230,
@@ -1377,7 +1377,7 @@
     "pass_spread_pct": 1.2013707255096016,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7614557,
@@ -1422,7 +1422,7 @@
     "pass_spread_pct": 0.1767112177399788,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9832230,
@@ -1467,7 +1467,7 @@
     "pass_spread_pct": 0.37525961060766216,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7733853,
@@ -1512,7 +1512,7 @@
     "pass_spread_pct": 1.0977865298656941,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9839802,
@@ -1557,7 +1557,7 @@
     "pass_spread_pct": 5.581536887145008,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9962582,
@@ -1604,7 +1604,7 @@
     "pass_spread_pct": 1.4684015683909932,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 14115507,
@@ -1649,7 +1649,7 @@
     "pass_spread_pct": 1.5542106735906394,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 14115507,
@@ -1694,7 +1694,7 @@
     "pass_spread_pct": 1.0637294050011101,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 14115507,
@@ -1739,7 +1739,7 @@
     "pass_spread_pct": 0.5833913422448039,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 14115507,
@@ -1784,7 +1784,7 @@
     "pass_spread_pct": 0.8082625476222047,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 14115507,
@@ -1829,7 +1829,7 @@
     "pass_spread_pct": 0.5255598774019554,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 14115507,
@@ -1874,7 +1874,7 @@
     "pass_spread_pct": 0.589807470907489,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 14115507,
@@ -1919,7 +1919,7 @@
     "pass_spread_pct": 0.4680648197929776,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 14115507,
@@ -1966,7 +1966,7 @@
     "pass_spread_pct": 0.3466051540745911,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5001514,
@@ -2011,7 +2011,7 @@
     "pass_spread_pct": 0.41519921375478935,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5001514,
@@ -2056,7 +2056,7 @@
     "pass_spread_pct": 0.965391180852634,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5001514,
@@ -2101,7 +2101,7 @@
     "pass_spread_pct": 0.4856794412353401,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5001514,
@@ -2146,7 +2146,7 @@
     "pass_spread_pct": 0.45061304558216786,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5001514,
@@ -2191,7 +2191,7 @@
     "pass_spread_pct": 0.06395083642086782,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5001514,
@@ -2236,7 +2236,7 @@
     "pass_spread_pct": 0.01569277467115125,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5001514,
@@ -2281,7 +2281,7 @@
     "pass_spread_pct": 0.11041871798797974,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5001514,
@@ -2329,7 +2329,7 @@
     "pass_spread_pct": 20.04750823537371,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5826817,
@@ -2376,7 +2376,7 @@
     "pass_spread_pct": 20.407535131358284,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5549907,
@@ -2423,7 +2423,7 @@
     "pass_spread_pct": 20.578111979771652,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5550169,
@@ -2470,7 +2470,7 @@
     "pass_spread_pct": 18.716476232595024,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5964343,
@@ -2517,7 +2517,7 @@
     "pass_spread_pct": 0.7896407685711406,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5826817,
@@ -2564,7 +2564,7 @@
     "pass_spread_pct": 0.16681152785266234,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5964343,
@@ -2611,7 +2611,7 @@
     "pass_spread_pct": 0.27610574994513504,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5826817,
@@ -2658,7 +2658,7 @@
     "pass_spread_pct": 0.14952613082477528,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5964343,
@@ -2705,7 +2705,7 @@
     "pass_spread_pct": 3.1726891589875987,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5826817,
@@ -2753,7 +2753,7 @@
     "pass_spread_pct": 0.9126547400874134,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7371088,
@@ -2798,7 +2798,7 @@
     "pass_spread_pct": 0.9027531717029975,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7233655,
@@ -2843,7 +2843,7 @@
     "pass_spread_pct": 0.43706882784851314,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7371088,
@@ -2888,7 +2888,7 @@
     "pass_spread_pct": 3.1663664741670816,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7162520,
@@ -2933,7 +2933,7 @@
     "pass_spread_pct": 1.2654515786073521,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7233655,
@@ -2978,7 +2978,7 @@
     "pass_spread_pct": 0.4216840028938604,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7371088,
@@ -3005,7 +3005,7 @@
    }
   ]
  },
- "table2": {
+ "per_target": {
   "kannolo": {
    "90": {
     "dataset": "msmarco-qwen-1024-normalized",
@@ -3028,7 +3028,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 18754277605,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7808167,
@@ -3074,7 +3074,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 18754277605,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7808167,
@@ -3120,7 +3120,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 18980796868,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8436717,
@@ -3169,7 +3169,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 20433752786,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8685531,
@@ -3217,7 +3217,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 20433752786,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8685531,
@@ -3265,7 +3265,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 20433752786,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8685531,
@@ -3313,7 +3313,7 @@
     "pass_spread_pct": 0.25479824545477603,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9242606,
@@ -3358,7 +3358,7 @@
     "pass_spread_pct": 0.12842413347318138,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9242606,
@@ -3403,7 +3403,7 @@
     "pass_spread_pct": 0.38840890637620074,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9517930,
@@ -3450,7 +3450,7 @@
     "pass_spread_pct": 0.4804266363849394,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7614557,
@@ -3495,7 +3495,7 @@
     "pass_spread_pct": 1.2013707255096016,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7614557,
@@ -3540,7 +3540,7 @@
     "pass_spread_pct": 5.581536887145008,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 9962582,
@@ -3587,7 +3587,7 @@
     "pass_spread_pct": 1.4684015683909932,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 14115507,
@@ -3632,7 +3632,7 @@
     "pass_spread_pct": 0.5833913422448039,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 14115507,
@@ -3677,7 +3677,7 @@
     "pass_spread_pct": 0.4680648197929776,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 14115507,
@@ -3724,7 +3724,7 @@
     "pass_spread_pct": 0.3466051540745911,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5001514,
@@ -3769,7 +3769,7 @@
     "pass_spread_pct": 0.45061304558216786,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5001514,
@@ -3814,7 +3814,7 @@
     "pass_spread_pct": 0.11041871798797974,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5001514,
@@ -3862,7 +3862,7 @@
     "pass_spread_pct": 20.04750823537371,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5826817,
@@ -3909,7 +3909,7 @@
     "pass_spread_pct": 0.16681152785266234,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5964343,
@@ -3956,7 +3956,7 @@
     "pass_spread_pct": 3.1726891589875987,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5826817,
@@ -4004,7 +4004,7 @@
     "pass_spread_pct": 0.9126547400874134,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7371088,
@@ -4049,7 +4049,7 @@
     "pass_spread_pct": 0.9027531717029975,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7233655,
@@ -4094,7 +4094,7 @@
     "pass_spread_pct": 0.4216840028938604,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7371088,
@@ -4121,7 +4121,7 @@
    }
   }
  },
- "table2_control_arms": {
+ "per_target_variants": {
   "kannolo-rerank-ext8": {
    "90": {
     "dataset": "msmarco-qwen-1024-normalized",
@@ -4145,7 +4145,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 11451485454,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7319201,
@@ -4192,7 +4192,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 11451485454,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 7319201,
@@ -4239,7 +4239,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 12583110822,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 5961198,
@@ -4288,7 +4288,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 11451485454,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8137996,
@@ -4336,7 +4336,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 11451485454,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 8137996,

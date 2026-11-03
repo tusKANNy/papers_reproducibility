@@ -183,7 +183,7 @@ def run_one(dataset, k, timeout, system, definition, log, runs):
         cmd = [sys.executable, "-u", "run.py", "--dataset", dataset, "--definitions", tmp,
                "--algorithm", system, "-k", str(k), "--runs", str(runs), "--timeout", str(timeout),
                "--parallelism", "1", "--local"]
-        env = dict(os.environ, VIBE_PLACEMENT_ARM="D", VIBE_SVS_TMPDIR=SVS_STAGING)
+        env = dict(os.environ, VIBE_PLACEMENT="migrate", VIBE_SVS_TMPDIR=SVS_STAGING)
         with open(log, "a") as fh:
             fh.write(f"\n=== {system} {definition.arguments} {time.strftime('%FT%T')} ===\n")
             fh.flush()

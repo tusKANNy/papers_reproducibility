@@ -1,4 +1,4 @@
-# LoRANN without the query-distribution learn set (`ood: false`): the control on LAION, the only
+# LoRANN without the query-distribution learn set (`ood: false`): a variant for LAION, the only
 # collection that ships a learn set. Same grid as LoRANN's `float` block.
 float:
   any:

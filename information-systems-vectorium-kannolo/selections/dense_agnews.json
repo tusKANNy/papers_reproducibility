@@ -11,7 +11,7 @@
   "rabitq-hnsw",
   "vamana-leanvec(svs)"
  ],
- "fig_a": {
+ "per_accuracy": {
   "kannolo": [
    {
     "dataset": "agnews-mxbai-1024-euclidean",
@@ -35,7 +35,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1629515048,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 696509,
@@ -83,7 +83,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1631610420,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 701065,
@@ -131,7 +131,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1629515048,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 696509,
@@ -179,7 +179,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1629515048,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 696509,
@@ -227,7 +227,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1631610420,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 701065,
@@ -275,7 +275,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1629515048,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 696509,
@@ -323,7 +323,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1629515048,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 696509,
@@ -371,7 +371,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1629515048,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 696509,
@@ -419,7 +419,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1629515048,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 696509,
@@ -467,7 +467,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1651956540,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 743481,
@@ -517,7 +517,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1756601336,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 698361,
@@ -565,7 +565,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1756601336,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 698361,
@@ -613,7 +613,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1756601336,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 698361,
@@ -661,7 +661,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1756601336,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 698361,
@@ -709,7 +709,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1756601336,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 698361,
@@ -757,7 +757,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1756601336,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 698361,
@@ -805,7 +805,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1756601336,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 698361,
@@ -853,7 +853,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1756601336,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 698361,
@@ -901,7 +901,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1876503979,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 617811,
@@ -943,7 +943,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_8_200.hdf5",
     "query_args": "30",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 803347,
@@ -983,7 +983,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_12_200.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 806333,
@@ -1022,7 +1022,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_16_200.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 809266,
@@ -1061,7 +1061,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_12_200.hdf5",
     "query_args": "30",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 806333,
@@ -1100,7 +1100,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_12_200.hdf5",
     "query_args": "40",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 806333,
@@ -1139,7 +1139,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_12_200.hdf5",
     "query_args": "50",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 806333,
@@ -1178,7 +1178,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_24_200.hdf5",
     "query_args": "40",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 815226,
@@ -1217,7 +1217,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_48_200.hdf5",
     "query_args": "50",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 833242,
@@ -1258,7 +1258,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_16_SQ8U_SQ4U_FP16.hdf5",
     "query_args": "30",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 711050,
@@ -1297,7 +1297,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_32_SQ8U_SQ4U_FP32.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 845916,
@@ -1336,7 +1336,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_16_SQ8U_SQ4U_FP32.hdf5",
     "query_args": "50",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 842248,
@@ -1375,7 +1375,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_32_SQ8U_SQ4U_FP32.hdf5",
     "query_args": "40",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 845916,
@@ -1414,7 +1414,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_32_SQ8U_SQ4U_FP32.hdf5",
     "query_args": "60",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 845916,
@@ -1453,7 +1453,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_32_SQ8U_SQ4U_FP32.hdf5",
     "query_args": "100",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 845916,
@@ -1500,7 +1500,7 @@
     "pass_spread_pct": 1.0309983469625308,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 1236037,
@@ -1545,7 +1545,7 @@
     "pass_spread_pct": 0.8268625937637484,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 1236037,
@@ -1590,7 +1590,7 @@
     "pass_spread_pct": 0.5531377407444326,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 1236037,
@@ -1635,7 +1635,7 @@
     "pass_spread_pct": 1.1224380174993525,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 1697656,
@@ -1680,7 +1680,7 @@
     "pass_spread_pct": 1.0293765208572145,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 1236037,
@@ -1725,7 +1725,7 @@
     "pass_spread_pct": 0.6109035644967381,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 1236037,
@@ -1770,7 +1770,7 @@
     "pass_spread_pct": 0.5865441274161216,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 1697656,
@@ -1811,7 +1811,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_2048_128_64_5.hdf5",
     "query_args": "16_100",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 661604,
@@ -1850,7 +1850,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_4096_256_64_5.hdf5",
     "query_args": "16_100",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 545451,
@@ -1889,7 +1889,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_2048_256_64_5.hdf5",
     "query_args": "16_100",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 688475,
@@ -1928,7 +1928,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_4096_128_64_5.hdf5",
     "query_args": "32_400",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 525875,
@@ -1967,7 +1967,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_2048_256_64_5.hdf5",
     "query_args": "32_400",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 688475,
@@ -2006,7 +2006,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_2048_256_64_5.hdf5",
     "query_args": "48_800",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 688475,
@@ -2045,7 +2045,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_4096_256_64_5.hdf5",
     "query_args": "128_1200",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 545451,
@@ -2086,7 +2086,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_4_false.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 466385,
@@ -2125,7 +2125,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_5_false.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 478920,
@@ -2164,7 +2164,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_8_false.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 514571,
@@ -2203,7 +2203,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_4_false.hdf5",
     "query_args": "40",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 466385,
@@ -2242,7 +2242,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_5_false.hdf5",
     "query_args": "40",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 478920,
@@ -2281,7 +2281,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_8_false.hdf5",
     "query_args": "40",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 514571,
@@ -2320,7 +2320,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_32_16_400_5_false.hdf5",
     "query_args": "80",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 479202,
@@ -2359,7 +2359,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_8_false.hdf5",
     "query_args": "80",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 514571,
@@ -2398,7 +2398,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_32_16_400_8_false.hdf5",
     "query_args": "200",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 515031,
@@ -2439,7 +2439,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_192.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 628734,
@@ -2478,7 +2478,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_256.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 634836,
@@ -2517,7 +2517,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_384.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 647068,
@@ -2556,7 +2556,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_128_1_2_192_384.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 670740,
@@ -2595,7 +2595,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_256.hdf5",
     "query_args": "40",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 634836,
@@ -2634,7 +2634,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_192.hdf5",
     "query_args": "80",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 628734,
@@ -2661,7 +2661,7 @@
    }
   ]
  },
- "table2": {
+ "per_target": {
   "kannolo": {
    "90": {
     "dataset": "agnews-mxbai-1024-euclidean",
@@ -2685,7 +2685,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1629515048,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 696509,
@@ -2733,7 +2733,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1629515048,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 696509,
@@ -2781,7 +2781,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1651956540,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 743481,
@@ -2831,7 +2831,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1756601336,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 698361,
@@ -2879,7 +2879,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1756601336,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 698361,
@@ -2927,7 +2927,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 1876503979,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 617811,
@@ -2969,7 +2969,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_8_200.hdf5",
     "query_args": "30",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 803347,
@@ -3009,7 +3009,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_24_200.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 815226,
@@ -3048,7 +3048,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/hnswlib/euclidean_48_200.hdf5",
     "query_args": "50",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 833242,
@@ -3089,7 +3089,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_16_SQ8U_SQ4U_FP16.hdf5",
     "query_args": "30",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 711050,
@@ -3128,7 +3128,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_48_SQ8U_SQ4U_FP32.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 851959,
@@ -3167,7 +3167,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/glass/euclidean_400_32_SQ8U_SQ4U_FP32.hdf5",
     "query_args": "100",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 845916,
@@ -3214,7 +3214,7 @@
     "pass_spread_pct": 1.0309983469625308,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 1236037,
@@ -3259,7 +3259,7 @@
     "pass_spread_pct": 0.5531377407444326,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 1236037,
@@ -3304,7 +3304,7 @@
     "pass_spread_pct": 0.5865441274161216,
     "n_timed_passes": 2,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 1697656,
@@ -3345,7 +3345,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_2048_128_64_5.hdf5",
     "query_args": "16_100",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 661604,
@@ -3384,7 +3384,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_4096_128_64_5.hdf5",
     "query_args": "32_400",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 525875,
@@ -3423,7 +3423,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/lorann/euclidean_8_4096_256_64_5.hdf5",
     "query_args": "128_1200",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 545451,
@@ -3464,7 +3464,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_4_false.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 466385,
@@ -3503,7 +3503,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_16_16_400_5_false.hdf5",
     "query_args": "40",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 478920,
@@ -3542,7 +3542,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/rabitq-hnsw/euclidean_32_16_400_8_false.hdf5",
     "query_args": "200",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 515031,
@@ -3583,7 +3583,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_192.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 628734,
@@ -3622,7 +3622,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_256.hdf5",
     "query_args": "20",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 634836,
@@ -3661,7 +3661,7 @@
     "result_file": "results/agnews-mxbai-1024-euclidean/10/vamana-leanvec(svs)/euclidean_64_1_2_128_192.hdf5",
     "query_args": "80",
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 628734,
@@ -3688,7 +3688,7 @@
    }
   }
  },
- "table2_control_arms": {
+ "per_target_variants": {
   "kannolo-rerank-ext8": {
    "90": {
     "dataset": "agnews-mxbai-1024-euclidean",
@@ -3712,7 +3712,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 974918060,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 647103,
@@ -3759,7 +3759,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 974918060,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 647103,
@@ -3806,7 +3806,7 @@
     "n_timed_passes": 2,
     "space_usage_bytes": 974918060,
     "build_placement": {
-     "placement_arm": "D",
+     "placement": "migrate",
      "migrated": true,
      "anon_pages_before": {
       "0": 647103,

@@ -36,7 +36,7 @@ index c1ea7d2..e3be76f 100644
              results.push(cur_results);
          }
 +
-+        // Lane-B pass boundary (kANNolo/Vectorium journal campaign, local patch, never upstreamed).
++        // Pass boundary for the benchmark timing (benchmark-only patch, not upstream).
 +        println!("pass_done: {}", i_run + 1);
      }
      let elapsed = time.elapsed();
@@ -49,7 +49,7 @@ index c1ea7d2..e3be76f 100644
      }
  }
 +
-+// Per-query times (kANNolo/Vectorium journal campaign, benchmark-only, never upstreamed): with
++// Per-query times (benchmark-only patch, not upstream): with
 +// QUERY_TIMES_DIR set, writes <dir>/<pid>.tsv holding the argv line and then one line per pass of
 +// per-query nanoseconds. Written after the last pass, outside every timed region.
 +fn qtimes_dump(times: &[Vec<u64>]) {

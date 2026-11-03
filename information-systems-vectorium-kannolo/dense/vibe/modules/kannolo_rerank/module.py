@@ -24,8 +24,8 @@ class KannoloRerank(BaseANN):
                  residual_rerank=False):
         """`encoder_spec` is `[encoder, pq_subspaces, rabitq_total_bits, rabitq_query_bits]`.
 
-        One argument rather than four because the encoder parameters depend on `encoder`; the
-        config declares it in `arg_groups`, which passes the list through as a single value.
+        The four values form one argument because the encoder parameters depend on `encoder`.
+        The config declares it in `arg_groups`, which passes the list through as a single value.
 
         `rerank_bits` is the second stage's encoding: `0` is `f16`, `2`/`4`/`8` RaBitQ-ext codes.
         `residual_rerank` stores `x - x̂` in the second stage and scores `first stage + rerank`,
@@ -67,13 +67,13 @@ class KannoloRerank(BaseANN):
             self.residual_rerank,
         )
 
-    # VIBE passes query arguments POSITIONALLY, in the order of the `query_args:` keys in
+    # VIBE passes query arguments by position, in the order of the `query_args:` keys in
     # config.yml: k_candidates, ef_multiplier, alpha, early_exit_threshold[, query_bits].
-    # A different order would not raise; every value would land in the wrong parameter.
+    # A different order would raise no error, but every value would go to the wrong parameter.
     def set_query_arguments(self, k_candidates, ef_multiplier, alpha=None,
                             early_exit_threshold=None, query_bits=None):
         self.k_candidates = k_candidates
-        # The first-stage beam is a multiple of k_candidates rather than an independent axis.
+        # The first-stage beam is a multiple of k_candidates, so it is not a separate grid axis.
         self.ef_search = max(int(round(ef_multiplier * k_candidates)), k_candidates)
         self.ef_multiplier = ef_multiplier
         self.alpha = alpha

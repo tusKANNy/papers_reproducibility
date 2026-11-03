@@ -1,15 +1,14 @@
 """Readers for the sparse collections' own file formats.
 
-Two formats, both fixed by the collections rather than by us:
+Two formats, both fixed by the collections:
 
-* **Seismic binary** (`documents.bin`, `queries.bin`) — little-endian:
+* **Seismic binary** (`documents.bin`, `queries.bin`), little-endian:
   `u32 n_vectors`, then per vector `u32 nnz`, `nnz x u32` component ids, `nnz x f32` values.
-  Components are stored in ascending order. This is what
-  `vectorium::readers::read_seismic_format` reads, so nothing is converted for any system
-  except LSP.
+  Components are stored in ascending order. `vectorium::readers::read_seismic_format` reads
+  this format, so nothing is converted for any system except LSP.
 
-* **`groundtruth.tsv`** — four tab-separated columns: query id, document id, rank (1-based),
-  score. The collections ship it at exactly k = 10.
+* **`groundtruth.tsv`**: four tab-separated columns: query id, document id, rank (1-based),
+  score. The collections ship it at k = 10.
 
 Only the *queries* are read here. A collection's documents are handed to each system as a file
 path and read by that system's own loader, so the driver never holds 12--27 GB of documents in
@@ -105,8 +104,8 @@ def read_groundtruth(path, k=10, n_queries=None):
     """Read `groundtruth.tsv` into an `(n_queries, k)` int64 array of document ids.
 
     Rows are ordered by rank within a query. A query with fewer than `k` rows is padded with
-    `-1`, which never matches a returned id, so a short ground-truth row lowers the accuracy it
-    can reach rather than silently counting as a hit.
+    `-1`, which never matches a returned id. A short ground-truth row therefore lowers the
+    accuracy it can reach and never counts as a hit.
     """
     qids, dids, ranks = [], [], []
     with open(path) as fh:

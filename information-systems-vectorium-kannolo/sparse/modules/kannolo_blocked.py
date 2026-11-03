@@ -1,20 +1,21 @@
-"""kANNolo's two sparse systems on the `blocked-sparse` value type, Lane B.
+"""kANNolo's two sparse systems on the `blocked-sparse` value type, with command-line timing.
 
-Built and searched by kANNolo's own Rust CLIs: kANNolo 0.15.1 (vectorium 0.11.1) plus a
-`pass_done: N` marker per pass in `hnsw_search` / `hnsw_rerank_search_sparse`
-(sparse/patches/kannolo-v0.15.0-pass-markers.patch), which the driver times between.
+Both are built and searched by kANNolo's own Rust CLIs: kANNolo 0.15.1 (vectorium 0.11.1) with a
+patch (sparse/patches/kannolo-v0.15.1-pass-markers.patch) that prints a `pass_done: N` marker
+after each pass in `hnsw_search` / `hnsw_rerank_search_sparse`. The driver times the intervals
+between these markers.
 
 Both systems store blocked-sparse vectors with `f16` values, and both build their graph over the
 `f16` collection before re-encoding it. The two-stage index's blocked first stage
 (`SparseFirstStage::Blocked`) re-encodes both stages, so the graph is that of an `f16` build and
-the scores are the same `f16` products. Accuracy is measured on the blocked index, not assumed
-from the `f16` one. Both builds are charged in full.
+the scores are the same `f16` products. Accuracy is measured on the blocked index and is not
+taken from the `f16` one. Both builds are charged in full.
 """
 import os
 
 from base import SPARSE_ROOT
 
-from lane_b_retime import KannoloHnsw, _RetimeCLI, NUM_RUNS
+from cli_retime import KannoloHnsw, _RetimeCLI, NUM_RUNS
 
 BIN = os.environ.get("KANNOLO_BS_BIN", os.path.join(SPARSE_ROOT, "repos", "kannolo", "target", "release"))
 VALUE_TYPE = "blocked-sparse"

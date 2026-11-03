@@ -4,7 +4,7 @@
 set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; REPO="$(dirname "$HERE")"
 OUT="${1:?usage: make_all.sh <out-dir>}"; mkdir -p "$OUT"
-export SOURCE_DATE_EPOCH=0 PYTHONHASHSEED=0   # byte-stable PDFs
+export SOURCE_DATE_EPOCH=0 PYTHONHASHSEED=0   # fixed PDF timestamps and hash seed
 S="$REPO/selections"; mkdir -p "$S"
 while read -r kind name budget; do
   python3 "$HERE/select_configs.py" --results "$REPO/results/$kind/$name.jsonl" --budget-s "$budget" \

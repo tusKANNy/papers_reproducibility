@@ -1,13 +1,13 @@
 """VIBE module for kANNolo's dense HNSW over f16.
 
-Deliberately minimal: `query()` contains nothing but the binding
-call and the padding filter. No normalization (every dataset here is
-`normalized`, `euclidean` or `ip`, never `cosine`), no dtype coercion, no reshaping. The
-one array manipulation, `ascontiguousarray(...).ravel()`, happens once in `fit()` because
-the builder takes a flat array plus an explicit `dim`.
+The module is minimal: `query()` contains only the binding call and the padding filter. There
+is no normalization (every dataset here is `normalized`, `euclidean` or `ip`, never `cosine`),
+no dtype coercion and no reshaping. The only array manipulation,
+`ascontiguousarray(...).ravel()`, happens once in `fit()`, because the builder takes a flat
+array plus an explicit `dim`.
 
-`kannolo.DensePlainHNSW` stores the collection as f16 internally and covers all three
-graph backends and the distance-adaptive early exit, so this arm needs no new Rust.
+`kannolo.DensePlainHNSW` stores the collection as f16 internally. It covers all three graph
+backends and the distance-adaptive early exit, so this module needs no new Rust code.
 """
 
 import numpy as np
@@ -17,7 +17,7 @@ import kannolo
 from ..base.module import BaseANN
 
 # VIBE's `distance` string -> the metric kANNolo's bindings parse. `normalized` is cosine
-# over pre-normalized vectors, whose ranking is exactly dot product's.
+# over pre-normalized vectors, which ranks them as dot product does.
 METRIC = {
     "euclidean": "euclidean",
     "normalized": "ip",

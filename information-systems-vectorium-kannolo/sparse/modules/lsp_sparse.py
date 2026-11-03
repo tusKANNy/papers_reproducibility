@@ -1,26 +1,27 @@
-"""LSP under this harness: Lane B, because it has no per-query API.
+"""LSP under this harness, with command-line timing because it has no per-query API.
 
 Lightweight Superblock Pruning (SIGIR '26, Carlson/Xie/Shah/Yang), `thefxperson/hierarchical_pruning`
 (commit in sparse/env.example.sh). Its predecessor, Dynamic Superblock Pruning (DSP, SIGIR '25),
 shares its input pipeline.
 
-**LSP takes CIFF as input, not the Seismic format.** LSP can compress its document index with
-Seismic's forward index (`--compress-document-index seismic`), but that is an internal option,
-not an input format. The README requires that "the impact scores of the CIFF files have to be
+**LSP takes CIFF as input.** LSP can compress its document index with Seismic's forward index
+(`--compress-document-index seismic`), but that is an internal option and does not change the
+input format. The README requires that "the impact scores of the CIFF files have to be
 quantized to 8 bits".
 
-**The preparation is a property of the collection and is shared by all of its builds.** The
-collection is converted to JSONL, quantized to 8-bit CIFF (`jsonl2ciff --quantize`), reordered
-by recursive graph bisection (`create-rgb`), and the queries are encoded for PISA, each step
-timed (sparse/run_sparse.py runs this once per collection with replicate-dsp, patched in
-sparse/patches). `SPARSE_CIFF_PREP` names that directory and has no default, so a second copy
-with a second `measured_by` is never prepared silently. The quantization and the bisection are
-charged in full to every build through `shared_preparation`, which carries the sidecar's
-`measured_by` onto every row; the conversions are format conversion and are not charged.
+**The input preparation depends only on the collection and is shared by all of its builds.**
+The collection is converted to JSONL, quantized to 8-bit CIFF (`jsonl2ciff --quantize`) and
+reordered by recursive graph bisection (`create-rgb`). The queries are encoded for PISA. Each
+step is timed. sparse/run_sparse.py runs this once per collection with
+sparse/tools/prepare_lsp_input.py. `SPARSE_CIFF_PREP` names the output directory and has no
+default, so a second copy with a second `measured_by` is never prepared silently. The
+quantization and the bisection are charged in full to every build through `shared_preparation`,
+which copies the sidecar's `measured_by` onto every row. The conversions are format conversions
+and are not charged.
 
-**Knobs, read from source rather than from the README.**
+**Search parameters, as read from the source code.**
 
-| knob | meaning |
+| parameter | meaning |
 |---|---|
 | `gamma` | guaranteed number of superblocks evaluated, `usize`, default 100 |
 | `beta` | query pruning factor |
@@ -31,10 +32,10 @@ charged in full to every build through `shared_preparation`, which carries the s
 **`--n-searches` is a CLI flag (default 2); we pass 5**, one warm-up plus four. The driver
 reports the two passes after the warm-up and records the rest as `unreported_pass_seconds`.
 
-**Three CLI traps, found by reading `--help` against the source.**
+**Three CLI pitfalls, found by comparing `--help` with the source.**
 
-1. `--ciff-file`, `--compress-document-index` and `--compress-range` all declare `-c`. Long
-   flags only; a short one is ambiguous.
+1. `--ciff-file`, `--compress-document-index` and `--compress-range` all declare `-c`. Only long
+   flags are used, because the short one is ambiguous.
 2. `--compress-document-index` and `--compress-range` are required, with no defaults.
 3. Unrecognised values do not error. `compress_range` falls through to `Compression::Raw` and
    `compress_document_index` to `DocumentIndexTypes::BMPInv` via `_ =>` arms
@@ -42,8 +43,9 @@ reports the two passes after the warm-up and records the rest as `unreported_pas
    `_check_build_args` rejects unknown values.
 
 **Ids.** `to_trec` prints `doc_lexicon[doc_id]` (`src/util.rs:35`) in the TREC format
-`<qid> Q0 <docid> <rank> <score> BMP`, so the run comes back in the collection's positional id
-space, the space `groundtruth.tsv` uses, even though the CIFF is reordered by graph bisection.
+`<qid> Q0 <docid> <rank> <score> BMP`. The run therefore comes back in the collection's
+positional id space, which `groundtruth.tsv` also uses, even though the CIFF is reordered by
+graph bisection.
 """
 
 import json
@@ -68,8 +70,8 @@ N_SEARCHES = int(os.environ.get("LSP_N_SEARCHES", "5"))
 _LATENCY = re.compile(r"^\s*(\d+)\s*$")
 _TREC = re.compile(r"^(\S+)\s+Q0\s+(\S+)\s+(\d+)\s+(\S+)\s+\S+\s*$")
 
-#: `bin/ciff2bmp.rs:41-55`. An unknown value silently selects the `_ =>` arm, so the set is closed
-#: here instead. Raw/BMPInv are the fall-through defaults and are named explicitly to be selectable.
+#: `bin/ciff2bmp.rs:41-55`. An unknown value silently selects the `_ =>` arm, so the accepted
+#: values are listed here. Raw/BMPInv, the fall-through defaults, are listed so they can be selected.
 _COMPRESS_RANGE = {"simdbp", "superblock", "raw"}
 _COMPRESS_DOCIDX = {"seismic", "flatinv", "compactinv", "bmpinv"}
 
@@ -77,8 +79,8 @@ _COMPRESS_DOCIDX = {"seismic", "flatinv", "compactinv", "bmpinv"}
 class Lsp(SparseCLI):
     """LSP over a graph-bisected, 8-bit-quantized CIFF.
 
-    Build arguments in the order sparse/grids.py declares them, which is the order the
-    `result_file` stem carries and therefore the order `dominance.py`'s monotone indices use.
+    Build arguments follow the order of sparse/grids.py. The `result_file` stem uses the same
+    order, and so do the monotone indices of `dominance.py`.
     """
 
     def __init__(self, superblock, subblock, compress_document_index="seismic",
@@ -101,30 +103,30 @@ class Lsp(SparseCLI):
         """The prepared CIFF directory, shared across systems and across a collection's builds."""
         if not SHARED_CIFF_PREP:
             raise SystemExit(
-                "SPARSE_CIFF_PREP is unset. It must name the prepared CIFF directory -- the one "
-                "holding docs_reordered.ciff, queries.pisa and prep_timings.json. There is no "
-                "default on purpose: preparing a second copy would waste an hour and mint a "
+                "SPARSE_CIFF_PREP is unset. It must name the prepared CIFF directory, which "
+                "holds docs_reordered.ciff, queries.pisa and prep_timings.json. It has no "
+                "default because preparing a second copy would waste an hour and create a "
                 "second `measured_by` for a computation that was done once.")
         return SHARED_CIFF_PREP
 
     def build_stages(self, documents_path, queries_path, index_path):
-        """Only `ciff2bmp`, and it is charged.
+        """Only `ciff2bmp`, which is charged.
 
-        Everything upstream of it -- seismic → JSONL, `jsonl2ciff` with its conversion and its
-        8-bit quantization, `create-rgb` graph bisection, the PISA query encoding -- is the shared
-        preparation, measured once per collection. Its charged parts come back through
-        `shared_preparation`; the uncharged parts are format conversion. Nothing is re-run.
+        All earlier steps (seismic → JSONL, `jsonl2ciff` with its conversion and its 8-bit
+        quantization, `create-rgb` graph bisection, the PISA query encoding) form the shared
+        preparation, measured once per collection. Its charged parts are returned by
+        `shared_preparation`; the uncharged parts are format conversions. Nothing is re-run.
 
-        `documents_path` and `queries_path` are unused: LSP consumes the prepared CIFF, never the
-        collection's own `.bin`.
+        `documents_path` and `queries_path` are unused: LSP reads only the prepared CIFF, and
+        never the collection's own `.bin`.
         """
         prep = self._prep_dir()
         ciff = os.path.join(prep, "docs_reordered.ciff")
         if not os.path.exists(ciff):
             raise SystemExit(
-                f"missing {ciff}. LSP builds from the graph-bisected, 8-bit-quantized CIFF; "
-                "prepare it with replicate-dsp/scripts/prepare_measured.py, which measures each "
-                "step and writes the prep_timings.json sidecar shared_preparation reads.")
+                f"missing {ciff}. LSP builds from the graph-bisected, 8-bit-quantized CIFF. "
+                "Prepare it with sparse/tools/prepare_lsp_input.py, which times each "
+                "step and writes the prep_timings.json sidecar read by shared_preparation.")
         return [
             ("ciff2bmp", [os.path.join(LSP_REPO, "target", "release", "ciff2bmp"),
                           "--ciff-file", ciff,
@@ -139,17 +141,17 @@ class Lsp(SparseCLI):
     def shared_preparation(self, index_path):
         """The charged parts of the shared preparation: 8-bit quantization and graph bisection.
 
-        Read from the preparation's `prep_timings.json` sidecar: a real timing of that
-        computation on that input, measured once and charged in full to every build that uses
-        it. `measured_by` goes onto every row, so the row shows that this build did not pay it
-        afresh.
+        The costs are read from the preparation's `prep_timings.json` sidecar. They are a timing
+        of that computation on that input, measured once and charged in full to every build that
+        uses it. `measured_by` is copied onto every row, to show that this build did not repeat
+        the computation.
         """
         sidecar = os.path.join(self._prep_dir(), "prep_timings.json")
         if not os.path.exists(sidecar):
             raise SystemExit(
                 f"missing {sidecar}. Without it the charged quantization and bisection costs are "
-                "unknown, and a build reported without them would understate LSP against every "
-                "system that pays its preparation.")
+                "unknown. A build reported without them would understate LSP's build cost against "
+                "every system that pays for its own preparation.")
         with open(sidecar) as fh:
             t = json.load(fh)
         if not t["subtraction_evidence"]["valid"]:
@@ -191,7 +193,8 @@ class Lsp(SparseCLI):
 
         `src/search.rs:432` prints one per pass inside the `for i_search in 0..n_searches` loop,
         and `bin/search.rs` calls `to_trec` only after `b_search` returns, so every boundary
-        arrives before any TREC line. Recorded as the self-report, never used as the measurement.
+        arrives before any TREC line. It is recorded as LSP's self-report and is never used as
+        the measurement.
         """
         m = _LATENCY.match(line)
         return float(m.group(1)) if m else None
@@ -210,15 +213,15 @@ class Lsp(SparseCLI):
                 raise SystemExit(
                     f"LSP returned a non-integer id in {line!r}. The TREC output is expected to "
                     "carry the positional ids convert_seismic_to_jsonl.py wrote; if it does not, "
-                    "the id-space gate has failed and no accuracy number here is meaningful.")
+                    "the id-space check has failed and no accuracy number here is meaningful.")
             if q < n_queries and 1 <= rank <= k:
                 ids[q, rank - 1] = doc
                 seen.add(q)
         if not seen:
             return None
-        # A query LSP answers with no results is scored as a miss (0/10), not dropped, which would
+        # A query that LSP answers with no results is scored as a miss (0/10). Dropping it would
         # change the query set. Such queries are counted on the row by driver.answer_counts.
-        # More than 1 % missing is refused: that looks like a truncated run, not a result.
+        # More than 1 % missing is refused, because it indicates a truncated run.
         self._empty_queries = sorted(set(range(n_queries)) - seen)
         if len(self._empty_queries) > n_queries // 100:
             raise SystemExit(
@@ -237,7 +240,7 @@ class Lsp(SparseCLI):
             "lsp_compress_document_index": self.compress_document_index,
             "lsp_compress_range": self.compress_range,
             "lsp_quant_upper_bounds_bits": self.quant,
-            "lsp_impact_bits": 8,          # the CIFF requirement; LSP is wrong without it
+            "lsp_impact_bits": 8,          # required by the CIFF input; LSP is incorrect without it
             "lsp_max_term_weight": 32,     # query-side renormalisation
             "lsp_n_searches": N_SEARCHES,
             "lsp_alpha_is_dead": True,     # `_alpha`, src/search.rs:27,918
@@ -248,10 +251,10 @@ class Lsp(SparseCLI):
 def _check_build_args(compress_document_index, compress_range, quant):
     """Reject values `ciff2bmp` would silently reinterpret.
 
-    `bin/ciff2bmp.rs` matches these strings with a `_ =>` fall-through -- unknown `--compress-range`
-    becomes `Raw` and unknown `--compress-document-index` becomes `BMPInv`. A typo would therefore
-    build a valid index of a configuration nobody selected, with every row mislabelled and no
-    error. Fail here instead.
+    `bin/ciff2bmp.rs` matches these strings with a `_ =>` fall-through: an unknown
+    `--compress-range` becomes `Raw` and an unknown `--compress-document-index` becomes `BMPInv`.
+    A typo would therefore build a valid index of a configuration nobody selected, with every row
+    mislabelled and no error. This function fails instead.
     """
     if compress_range not in _COMPRESS_RANGE:
         raise SystemExit(

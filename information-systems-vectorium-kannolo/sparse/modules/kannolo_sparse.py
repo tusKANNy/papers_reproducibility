@@ -1,8 +1,8 @@
-"""kANNolo's two sparse indexes (Lane A), plus an exhaustive index for checking accuracy.
+"""kANNolo's two sparse indexes (in-process timing), plus an exhaustive index for checking accuracy.
 
-Named `kannolo_sparse` rather than `kannolo`: a module called `kannolo.py` on the path shadows
-the compiled `kannolo` extension it is trying to import, and `import kannolo` inside it resolves
-to itself.
+The module is named `kannolo_sparse` because a module called `kannolo.py` on the path would
+shadow the compiled `kannolo` extension it imports: `import kannolo` inside it would resolve to
+itself.
 
 Three classes:
 
@@ -10,10 +10,10 @@ Three classes:
                            blocked-sparse (f16 values, graph built over f16); with earlier
                            releases it is plain f16.
 * `KannoloSparseRerank` -- two-stage HNSW. The collection is L1-pruned at factor `a` into a
-                           first stage and its exact complement, and the residual rescoring sums
-                           the two scores, so at f16/f16 the final score is the same number the
-                           single-stage index computes. The only accuracy it can lose is
-                           candidate recall.
+                           first stage and its exact complement. The residual rescoring sums the
+                           two scores, so at f16/f16 the final score equals the score of the
+                           single-stage index. Accuracy can be lost only through candidate
+                           recall.
 * `KannoloSparseFlat`   -- exhaustive scan. Not reported: it gives the 100% point and is used to
                            check the driver's accuracy function.
 
@@ -133,8 +133,8 @@ class KannoloSparseRerank(SparseANN):
     def set_query_arguments(self, k_candidates, ef_search=None, alpha=None, beta=None,
                             early_exit_threshold=None):
         self.k_candidates = k_candidates
-        # At high accuracy the two-stage index is limited by k_candidates, so ef_search is set
-        # from k_candidates (default: equal to it) rather than swept independently.
+        # At high accuracy the two-stage index is limited by k_candidates, so ef_search is not
+        # swept independently: it is set from k_candidates (default: equal to it).
         self.ef_search = ef_search if ef_search is not None else k_candidates
         self.alpha = alpha
         self.beta = beta
@@ -155,8 +155,8 @@ class KannoloSparseRerank(SparseANN):
         return ids
 
     def index_bytes(self):
-        # Both stages together. For an L1-pruned pair this is what shows the decomposition does
-        # not double the index: the two hold the original non-zeroes, split between them.
+        # Both stages together. For an L1-pruned pair this shows that the decomposition does not
+        # double the index: the two stages split the original non-zeroes between them.
         return self.index.space_usage_bytes()
 
     def save(self, path):

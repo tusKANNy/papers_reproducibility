@@ -1,5 +1,5 @@
 diff --git a/vibe/algorithms/glass/module.py b/vibe/algorithms/glass/module.py
-index 1765ddd..90cf3fc 100644
+index 1765ddd..5911071 100644
 --- a/vibe/algorithms/glass/module.py
 +++ b/vibe/algorithms/glass/module.py
 @@ -2,6 +2,7 @@ import glass
@@ -16,7 +16,7 @@ index 1765ddd..90cf3fc 100644
          index = glass.Index(index_type="HNSW", metric=metric_type, R=self.R, L=self.L, quant=self.quant)
 +        # glass.set_num_threads is a module-level global, set to 1 at import. Raise it for
 +        # construction only and put it back before the searcher exists, so search stays
-+        # single-threaded exactly as upstream.
++        # single-threaded, as upstream.
 +        glass.set_num_threads(placement.build_threads())
          graph = index.build(X)
 +        glass.set_num_threads(placement.search_threads())
@@ -125,7 +125,7 @@ index a0de79f..117a9f0 100644
      def set_query_arguments(self, ef):
          self.ef = ef
 diff --git a/vibe/algorithms/svs/module.py b/vibe/algorithms/svs/module.py
-index 2ce9e23..6e522af 100644
+index 2ce9e23..cf61ce0 100644
 --- a/vibe/algorithms/svs/module.py
 +++ b/vibe/algorithms/svs/module.py
 @@ -2,8 +2,45 @@ import numpy as np
@@ -141,14 +141,14 @@ index 2ce9e23..6e522af 100644
 +def _staging_dir():
 +    """Where SVS stages its `.fvecs` copy of the training set.
 +
-+    Upstream hardcodes `os.getcwd()`, which is VIBE's own checkout. That is fine at VIBE's own
-+    scale and fails hard at ours: the staging file is the *entire* training set, 36 GB at D1
-+    (8 840 823 x 1024 f32) and 64 GB at D2, and /home has 29 GB free. Every one of D1's eight
-+    LeanVec builds died with `OSError: [Errno 28] No space left on device` inside `write_vecs`,
-+    which VIBE reports as a return code, not as a missing system -- so the arm silently produced
-+    no results at all.
++    Upstream hardcodes `os.getcwd()`, which is VIBE's own checkout. That works at VIBE's own
++    scale but fails at ours: the staging file is the whole training set, 36 GB on MsMarco-Qwen
++    (8 840 823 x 1024 f32) and 64 GB on DPR, and /home has 29 GB free. All eight LeanVec builds
++    on MsMarco-Qwen failed with `OSError: [Errno 28] No space left on device` inside
++    `write_vecs`. VIBE reports this as a return code and does not flag the system as missing, so
++    SVS silently produced no results.
 +
-+    Unset, this returns upstream's behaviour byte for byte. `VIBE_SVS_TMPDIR` only moves the
++    Unset, this keeps upstream's behaviour. `VIBE_SVS_TMPDIR` only moves the
 +    scratch file; it changes no algorithm parameter.
 +    """
 +    return os.environ.get("VIBE_SVS_TMPDIR") or os.getcwd()
@@ -157,10 +157,10 @@ index 2ce9e23..6e522af 100644
 +def _write_staging(X, temp_filename):
 +    """`svs.write_vecs`, timed and logged.
 +
-+    The write sits INSIDE `fit()`, and VIBE times the whole of `fit()` (`vibe/runner.py:245`),
-+    so this I/O is counted as SVS build time. At 36 GB that is no longer negligible and it is a
-+    property of the harness rather than of the library, so the cost is logged and can be
-+    subtracted when SVS's build time is reported.
++    The write is inside `fit()`, and VIBE times the whole of `fit()` (`vibe/runner.py:245`),
++    so this I/O is counted as SVS build time. At 36 GB that cost is not negligible. It belongs to
++    the harness and not to the library, so it is logged and can be subtracted when SVS's build
++    time is reported.
 +    """
 +    t0 = time.perf_counter()
 +    svs.write_vecs(X, temp_filename)
@@ -168,7 +168,7 @@ index 2ce9e23..6e522af 100644
 +    gib = X.nbytes / (1 << 30)
 +    print(
 +        f"[svs] staged {gib:.1f} GiB to {os.path.dirname(temp_filename) or '.'} in {dt:.1f}s "
-+        f"({gib / dt:.2f} GiB/s) -- included in build_time",
++        f"({gib / dt:.2f} GiB/s) (included in build_time)",
 +        flush=True,
 +    )
  
@@ -262,7 +262,7 @@ index 13c90bb..448dd7b 100644
      def set_query_arguments(self, beam_size):
          self.beam_size = beam_size
 diff --git a/vibe/runner.py b/vibe/runner.py
-index 32b8052..dedbbb3 100644
+index 32b8052..01b557d 100644
 --- a/vibe/runner.py
 +++ b/vibe/runner.py
 @@ -32,6 +32,8 @@ def run_individual_query(
@@ -278,9 +278,9 @@ index 32b8052..dedbbb3 100644
          else:
              qps = len(X_test) / total
          best_qps = max(best_qps, qps)
-+        # kannolo-bench: keep every pass, not just the best. The protocol reports min-of-N but
-+        # requires a re-run when two passes disagree by more than a few percent, and that rule
-+        # is unauditable if only the winner is stored.
++        # Keep every pass as well as the best. The benchmark reports the best of N passes but
++        # re-runs a configuration when two passes disagree by more than a few percent, and that
++        # rule can only be checked if every pass is stored.
 +        pass_search_times.append(search_time)
 +        pass_qps.append(qps)
  
@@ -302,8 +302,8 @@ index 32b8052..dedbbb3 100644
 +
      memory_usage_before = algo.get_memory_usage()
 +
-+    # Let the build use every core it was granted, then hand the search back exactly the
-+    # single pinned core upstream would have used. See vibe/placement.py.
++    # Let the build use every core it was granted, then give the search the single pinned
++    # core that upstream uses. See vibe/placement.py.
 +    poller = placement.PeakRssPoller().start()
 +    placement.unpin_for_build()
      t0 = time.time()
@@ -317,8 +317,8 @@ index 32b8052..dedbbb3 100644
 +    build_placement = placement.finalize_placement()
 +    placement.pin_for_search()
 +
-+    # Before the footprint is read, so USS measures the index rather than the allocator's
-+    # leftovers from the build. Uniform across libraries -- see placement.release_free_heap.
++    # Before the footprint is read, so that USS measures the index and not the allocator's
++    # leftovers from the build. The same for every library; see placement.release_free_heap.
 +    build_placement["heap_trimmed"] = placement.release_free_heap()
      index_size = algo.get_memory_usage() - memory_usage_before
  
@@ -353,7 +353,7 @@ index 32b8052..dedbbb3 100644
              )
  
 diff --git a/vibe/workers.py b/vibe/workers.py
-index 7527eae..99af465 100644
+index 7527eae..dfaacf7 100644
 --- a/vibe/workers.py
 +++ b/vibe/workers.py
 @@ -75,6 +75,12 @@ def get_numa_node_for_cpu(cpu: int) -> Optional[int]:
@@ -361,7 +361,7 @@ index 7527eae..99af465 100644
  
  
 +def numa_node_cpus(node: int) -> Set[int]:
-+    """Every logical CPU on `node`, used to size the build core set for arm B'."""
++    """Every logical CPU on `node`, used to size the build core set of the `membind-local` policy."""
 +    path = Path(f"/sys/devices/system/node/node{node}/cpulist")
 +    return _expand_ranges(path.read_text().strip()) if path.exists() else set()
 +
@@ -378,9 +378,9 @@ index 7527eae..99af465 100644
 +        base = node if node is not None else 0
 +        target_node = _nearest_allowed_node(base, allowed)
 +
-+    # The memory policy is a switch so the page-placement arms can be
-+    # compared by measurement. Arm A is upstream, byte for byte.
-+    arm = os.environ.get("VIBE_PLACEMENT_ARM", "A")
++    # The memory policy is a switch so that the page-placement policies can be compared by
++    # measurement. The `upstream` policy is VIBE's own, unchanged.
++    placement = os.environ.get("VIBE_PLACEMENT", "upstream")
      if shutil.which("numactl"):
 -        if node is not None and (allowed is None or node in allowed):
 -            cmd += ["numactl", f"--membind={node}"]
@@ -390,13 +390,13 @@ index 7527eae..99af465 100644
 -            cmd += ["numactl", f"--membind={nearest}"]
 -        cmd += [f"--physcpubind={cpu}"]
 +        cmd += ["numactl"]
-+        if arm in ("C", "D"):
++        if placement in ("interleave", "migrate"):
 +            cmd += ["--interleave=all"]
-+        elif arm == "Bprime":
++        elif placement == "membind-local":
 +            cmd += [f"--cpunodebind={target_node}", f"--membind={target_node}"]
 +        else:
 +            cmd += [f"--membind={target_node}"]
-+        if arm == "A":
++        if placement == "upstream":
 +            cmd += [f"--physcpubind={cpu}"]
      else:
          logger.warning("numactl not found; falling back to taskset (no NUMA policy).")
@@ -404,21 +404,21 @@ index 7527eae..99af465 100644
  
 +    # Cores the build may spread over. Search is re-pinned to `cpu` by vibe/placement.py
 +    # before the first query, so this only ever widens construction.
-+    if arm == "Bprime":
++    if placement == "membind-local":
 +        build_cpus = sorted(numa_node_cpus(target_node))
 +    else:
 +        build_cpus = sorted(_expand_ranges(Path("/sys/devices/system/cpu/online").read_text().strip()))
-+    build_threads = len(build_cpus) if arm != "A" else 1
++    build_threads = len(build_cpus) if placement != "upstream" else 1
 +
      if not local:
          cmd += ["singularity", "exec"]
          if definition.gpu:
-@@ -272,26 +296,70 @@ def run_singularity(
+@@ -272,26 +296,69 @@ def run_singularity(
      cmd.append(json.dumps(definition.arguments))
      cmd += [json.dumps(qag) for qag in definition.query_argument_groups]
  
 +    # Upstream hardcodes every thread-count variable to 1, which is what makes its
-+    # `build_time` a single-core number. On the non-upstream arms these carry the build
++    # `build_time` a single-core number. Under the other policies these carry the build
 +    # thread count instead; the search is held to one core by affinity, re-applied in
 +    # vibe/placement.py before the first query, not by these variables.
 +    threads = str(build_threads)
@@ -450,15 +450,15 @@ index 7527eae..99af465 100644
          OMP_DYNAMIC="false",
          MKL_DYNAMIC="false",
 +        # Cap glibc's per-thread arena count. A 64-thread build otherwise opens enough arenas
-+        # that the transient peak stays resident, and USS -- which is the cross-library footprint
-+        # VIBE reports -- counts it: measured on kANNolo at D3, 1.60x the index's own SpaceUsage
++        # that the transient peak stays resident, and USS (the cross-library footprint VIBE
++        # reports) counts it. Measured on kANNolo on AgNews: 1.60x the index's own SpaceUsage
 +        # accounting with the default, 1.05x at 8 arenas, 1.01x at 2. Eight costs 4.8% of build
-+        # time where two costs 26%. Set for every module alike, so it corrects an allocator
-+        # artifact rather than favouring anyone.
++        # time where two costs 26%. It is set for every module alike, so it corrects an
++        # allocator artifact and favours no library.
 +        MALLOC_ARENA_MAX=os.environ.get("VIBE_MALLOC_ARENA_MAX", "8"),
-+        # Keep large blocks in the heap instead of round-tripping them through mmap/munmap.
++        # Keep large blocks in the heap: do not round-trip them through mmap/munmap.
 +        #
-+        # Added 2026-08-27 after glass's D2 build ran at 1170 vectors/s against 16841 on D1 --
++        # Without it, glass's DPR build ran at 1170 vectors/s against 16841 on MsMarco-Qwen,
 +        # 14.4x slower per vector where n log n predicts 1.06x. Live inspection found 11-22 of its
 +        # 64 threads permanently in D state inside `__vm_munmap` / `vm_mmap_pgoff` / `do_madvise`,
 +        # 1.65M minor faults/s, zero disk I/O, and ~6.5 of 64 cores usefully busy: every large
@@ -468,22 +468,21 @@ index 7527eae..99af465 100644
 +        # glibc normally adapts M_MMAP_THRESHOLD upwards on its own, but only in response to freed
 +        # mmap'd blocks, and that adaptation loses to a 64-thread convoy. Pinning it removes the
 +        # round trip. Measured on the same configuration and collection glass had just built
-+        # (`scripts/probe_glass_malloc.py`, 21M x 768, L=400 R=8 SQ8U):
++        # (21M x 768, L=400 R=8 SQ8U):
 +        #
-+        #     harness default (arena cap 8)      1170 vectors/s   (the campaign's own 5 h build)
++        #     harness default (arena cap 8)      1170 vectors/s   (a 5 h build)
 +        #     arena cap removed                  5865 v/s   x5.0
 +        #     cap 8 + this threshold pinned      8201 v/s   x7.0   <- chosen
 +        #     both                               6489 v/s   x5.5
 +        #
-+        # Pinning the threshold and LEAVING the arena cap alone is both the fastest arm and the
-+        # one that changes nothing about the footprint correction above -- arena behaviour is
-+        # untouched, so USS and the memory claim are unaffected. Removing the cap instead would
-+        # have re-inflated the very measurement that correction exists to fix.
++        # Pinning the threshold and keeping the arena cap is the fastest setting. It also leaves
++        # the footprint correction above unchanged: arena behaviour is untouched, so USS is
++        # unaffected. Removing the cap would have inflated USS again.
 +        #
-+        # Set for every module alike, for the same reason the arena cap is: a per-library
-+        # allocator tuning would be exactly the version shopping §5.2 clause 1 forbids.
++        # It is set for every module alike, as the arena cap is, because a per-library allocator
++        # tuning would favour some libraries over others.
 +        MALLOC_MMAP_THRESHOLD_=os.environ.get("VIBE_MALLOC_MMAP_THRESHOLD", str(256 * 1024 * 1024)),
-+        VIBE_PLACEMENT_ARM=arm,
++        VIBE_PLACEMENT=placement,
 +        VIBE_SEARCH_CPU=str(cpu),
 +        VIBE_SEARCH_NODE=str(target_node),
 +        VIBE_BUILD_CPUS=",".join(str(c) for c in build_cpus),
@@ -492,7 +491,7 @@ index 7527eae..99af465 100644
      def set_affinity_before_exec():
 -        os.sched_setaffinity(0, {cpu})
 +        # The build set; placement.pin_for_search() narrows this to {cpu} before searching.
-+        os.sched_setaffinity(0, set(build_cpus) if arm != "A" else {cpu})
++        os.sched_setaffinity(0, set(build_cpus) if placement != "upstream" else {cpu})
  
      try:
          with subprocess.Popen(

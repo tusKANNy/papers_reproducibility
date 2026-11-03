@@ -30,7 +30,7 @@ def main():
     rd.set_paths(args)
 
     with open(args.selection) as fh:
-        winners = {r["result_file"] for r in json.load(fh)["fig_a"]["kannolo-rerank"]}
+        winners = {r["result_file"] for r in json.load(fh)["per_accuracy"]["kannolo-rerank"]}
     results = rd.vibe_import("vibe.results")
     f16 = rd.load_grid(args.dataset, "kannolo-rerank", args.k)
     ext8 = {tuple(map(rd._hashable, d.arguments[:-1])): d

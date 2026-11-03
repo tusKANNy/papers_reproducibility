@@ -85,9 +85,9 @@ def dense_rows():
     return out
 
 
-def arms_text(arms):
+def branches_text(branch_list):
     """One product per line; constant parameters are written once."""
-    return r" \newline ".join("; ".join(axis(k, v) for k, v in arm.items()) for arm in arms)
+    return r" \newline ".join("; ".join(axis(k, v) for k, v in branch.items()) for branch in branch_list)
 
 
 def sparse_rows():
@@ -95,7 +95,7 @@ def sparse_rows():
     out = []
     for system, label in grids.TABLE_ORDER:
         for i, (collections, build, search) in enumerate(grids.table_blocks(system)):
-            out.append((label if i == 0 else "", collections, arms_text(build), arms_text(search)))
+            out.append((label if i == 0 else "", collections, branches_text(build), branches_text(search)))
     return out
 
 
